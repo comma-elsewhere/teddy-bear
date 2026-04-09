@@ -79,8 +79,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ToyBody" parent="SceneStateMachine/RoomMainScene2D" unique_id=1127509763 instance=ExtResource("2_w3f05")]
-position = Vector2(966, -646)
-rotation = 0.5235988
+position = Vector2(972.99994, -750)
 
 [node name="Floor" type="StaticBody2D" parent="SceneStateMachine/RoomMainScene2D" unique_id=1618128867]
 position = Vector2(0, 1080)
