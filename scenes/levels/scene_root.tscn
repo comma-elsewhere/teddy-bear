@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://br87b8ipec2uy"]
+
+[ext_resource type="Script" uid="uid://01putgmxmdkw" path="res://scripts/management/scene_state_machine.gd" id="1_el6ax"]
+[ext_resource type="PackedScene" uid="uid://bv027w1ur8f51" path="res://scenes/constructs/toy_body.tscn" id="2_w3f05"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w3f05"]
+
+[node name="SceneRoot" type="Node" unique_id=1133954650]
+
+[node name="CameraMain2D" type="Camera2D" parent="." unique_id=2087207267]
+anchor_mode = 0
+
+[node name="CanvasLayerMain" type="CanvasLayer" parent="CameraMain2D" unique_id=2039883564]
+visible = false
+
+[node name="MainGUI" type="Control" parent="CameraMain2D/CanvasLayerMain" unique_id=1542136140]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NavigationHub" type="HBoxContainer" parent="CameraMain2D/CanvasLayerMain/MainGUI" unique_id=1429466515]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftNavButton" type="Button" parent="CameraMain2D/CanvasLayerMain/MainGUI/NavigationHub" unique_id=1569730670]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Left"
+
+[node name="MiddleNavContainer" type="VBoxContainer" parent="CameraMain2D/CanvasLayerMain/MainGUI/NavigationHub" unique_id=306801694]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TopNavButton" type="Button" parent="CameraMain2D/CanvasLayerMain/MainGUI/NavigationHub/MiddleNavContainer" unique_id=844788711]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 650)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Front"
+
+[node name="BottomNavButton" type="Button" parent="CameraMain2D/CanvasLayerMain/MainGUI/NavigationHub/MiddleNavContainer" unique_id=2122487134]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 64
+text = "Back"
+
+[node name="RightNavButton" type="Button" parent="CameraMain2D/CanvasLayerMain/MainGUI/NavigationHub" unique_id=572971752]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Right"
+
+[node name="SceneStateMachine" type="Node" parent="." unique_id=2093477958]
+script = ExtResource("1_el6ax")
+
+[node name="RoomMainScene2D" type="Node2D" parent="SceneStateMachine" unique_id=405750950]
+
+[node name="Label" type="Label" parent="SceneStateMachine/RoomMainScene2D" unique_id=1748525761]
+offset_right = 40.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 128
+text = "Main Room"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ToyBody" parent="SceneStateMachine/RoomMainScene2D" unique_id=1127509763 instance=ExtResource("2_w3f05")]
+position = Vector2(942.99994, -521)
+rotation = 5.7595863
+
+[node name="Floor" type="StaticBody2D" parent="SceneStateMachine/RoomMainScene2D" unique_id=1618128867]
+position = Vector2(0, 1080)
+collision_mask = 14
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneStateMachine/RoomMainScene2D/Floor" unique_id=551885006]
+shape = SubResource("WorldBoundaryShape2D_w3f05")
+
+[node name="TerminalScene2D" type="Node2D" parent="SceneStateMachine" unique_id=225033097]
+visible = false
+
+[node name="Label2" type="Label" parent="SceneStateMachine/TerminalScene2D" unique_id=660756768]
+offset_right = 702.0
+offset_bottom = 175.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 128
+text = "Data Terminal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WorkbenchScene2D" type="Node2D" parent="SceneStateMachine" unique_id=517285716]
+visible = false
+
+[node name="Label3" type="Label" parent="SceneStateMachine/WorkbenchScene2D" unique_id=514677171]
+offset_right = 702.0
+offset_bottom = 175.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 128
+text = "Workbench"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChuteScene2D" type="Node2D" parent="SceneStateMachine" unique_id=1426246507]
+visible = false
+
+[node name="Label4" type="Label" parent="SceneStateMachine/ChuteScene2D" unique_id=751256423]
+offset_right = 702.0
+offset_bottom = 175.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 128
+text = "Toy Chute"
+horizontal_alignment = 1
+vertical_alignment = 1

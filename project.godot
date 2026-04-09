@@ -11,27 +11,50 @@ config_version=5
 [application]
 
 config/name="Teddy Bear Autopsy"
-run/main_scene="uid://doai7pia4onqh"
+run/main_scene="uid://br87b8ipec2uy"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
-
-[autoload]
-
-Shaker="*uid://dd8wfxaevuhkh"
-SoundManager="*uid://bl3ih5heec8nc"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/window_width_override=1152
-window/size/window_height_override=648
-window/stretch/mode="viewport"
-mouse_cursor/custom_image="uid://cu78m48yuk7xw"
+window/stretch/mode="canvas_items"
 
-[editor_plugins]
+[importer_defaults]
 
-enabled=PackedStringArray("res://addons/shaker/plugin.cfg", "res://addons/softbody2d/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
+texture={
+"compress/channel_pack": 0,
+"compress/hdr_compression": 1,
+"compress/high_quality": false,
+"compress/lossy_quality": 0.7,
+"compress/mode": 1,
+"compress/normal_map": 2,
+"compress/rdo_quality_loss": 0.0,
+"compress/uastc_level": 0,
+"detect_3d/compress_to": 0,
+"mipmaps/generate": false,
+"mipmaps/limit": -1,
+"process/channel_remap/alpha": 3,
+"process/channel_remap/blue": 2,
+"process/channel_remap/green": 1,
+"process/channel_remap/red": 0,
+"process/fix_alpha_border": false,
+"process/hdr_as_srgb": false,
+"process/hdr_clamp_exposure": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"process/size_limit": 0,
+"roughness/mode": 1,
+"roughness/src_normal": ""
+}
+
+[layer_names]
+
+2d_physics/layer_1="ground"
+2d_physics/layer_2="left_limbs"
+2d_physics/layer_3="right_limbs"
+2d_physics/layer_4="torso_head"
 
 [physics]
 
