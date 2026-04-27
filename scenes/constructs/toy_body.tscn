@@ -1,46 +1,46 @@
 [gd_scene format=3 uid="uid://bv027w1ur8f51"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://cjp3x4fh14jlx" path="res://resources/plushie_physics_material.phymat" id="1_mhg4l"]
-[ext_resource type="Texture2D" uid="uid://dxpqqsjjf7koh" path="res://assets/TBA test toy.png" id="1_umnpq"]
+[ext_resource type="Texture2D" uid="uid://c5o4blfqqhho4" path="res://assets/test toy.webp" id="2_mhg4l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_evyic"]
 radius = 125.0
 height = 350.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vxon5"]
-atlas = ExtResource("1_umnpq")
-region = Rect2(188.85931, 230.44507, 304.7992, 351.38422)
+atlas = ExtResource("2_mhg4l")
+region = Rect2(146, 195.5, 327, 458)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_470m8"]
 radius = 62.287003
 height = 294.69946
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mhg4l"]
-atlas = ExtResource("1_umnpq")
-region = Rect2(117.97647, 674.81647, 125.28522, 278.00946)
+atlas = ExtResource("2_mhg4l")
+region = Rect2(7.3157806, 687.43176, 173.85799, 329.67676)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ecq0j"]
 radius = 57.275665
 height = 237.58783
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dosap"]
-atlas = ExtResource("1_umnpq")
-region = Rect2(52.000977, 95.000374, 115.000244, 214.00037)
+atlas = ExtResource("2_mhg4l")
+region = Rect2(-0.3410492, 11.528929, 148.76036, 276.4839)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nxfk7"]
-atlas = ExtResource("1_umnpq")
-region = Rect2(534.0061, 681.66943, 145.75507, 276.66406)
+atlas = ExtResource("2_mhg4l")
+region = Rect2(476.54028, 686.43805, 135.2367, 322.3141)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pce2b"]
-atlas = ExtResource("1_umnpq")
-region = Rect2(541.4765, 76.1962, 115.69409, 239.31876)
+atlas = ExtResource("2_mhg4l")
+region = Rect2(522.1821, 60.636406, 146.36371, 305.45468)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_evyic"]
 radius = 140.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4elw2"]
-atlas = ExtResource("1_umnpq")
-region = Rect2(739.60077, 86.745605, 264.86914, 271.23074)
+atlas = ExtResource("2_mhg4l")
+region = Rect2(707.9704, 1.1468811, 288.76477, 416.3172)
 
 [node name="Torso" type="RigidBody2D" unique_id=747260323]
 z_index = 2
@@ -52,6 +52,7 @@ gravity_scale = 1.25
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=740029338]
+visible = false
 shape = SubResource("CapsuleShape2D_evyic")
 
 [node name="TorseAtlasTexture" type="Sprite2D" parent="." unique_id=638388696]
@@ -69,6 +70,7 @@ gravity_scale = 0.9
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLeg" unique_id=1081596504]
+visible = false
 rotation = 0.08726646
 shape = SubResource("CapsuleShape2D_470m8")
 
@@ -79,6 +81,7 @@ node_b = NodePath("../..")
 
 [node name="LeftLegAtlasTexture" type="Sprite2D" parent="LeftLeg" unique_id=7292118]
 texture = SubResource("AtlasTexture_mhg4l")
+offset = Vector2(0, 50)
 
 [node name="LeftArm" type="RigidBody2D" parent="." unique_id=1756541802]
 z_index = 1
@@ -93,6 +96,7 @@ gravity_scale = 0.75
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArm" unique_id=1425510116]
+visible = false
 shape = SubResource("CapsuleShape2D_ecq0j")
 
 [node name="ShoulderJoint" type="PinJoint2D" parent="LeftArm" unique_id=1397192221]
@@ -101,8 +105,9 @@ node_a = NodePath("..")
 node_b = NodePath("../..")
 
 [node name="LeftArmAtlasTexture" type="Sprite2D" parent="LeftArm" unique_id=1455090472]
-position = Vector2(-10, 0)
+rotation = -0.2617994
 texture = SubResource("AtlasTexture_dosap")
+offset = Vector2(-20, 40)
 
 [node name="RightLeg" type="RigidBody2D" parent="." unique_id=1852764159]
 z_index = 3
@@ -116,6 +121,7 @@ gravity_scale = 0.9
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightLeg" unique_id=1457889373]
+visible = false
 rotation = -0.08726646
 shape = SubResource("CapsuleShape2D_470m8")
 
@@ -126,6 +132,7 @@ node_b = NodePath("../..")
 
 [node name="RightLegAtlasTexture" type="Sprite2D" parent="RightLeg" unique_id=1096979966]
 texture = SubResource("AtlasTexture_nxfk7")
+offset = Vector2(0, 50)
 
 [node name="RightArm" type="RigidBody2D" parent="." unique_id=537721589]
 z_index = 3
@@ -140,6 +147,7 @@ gravity_scale = 0.75
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightArm" unique_id=391249480]
+visible = false
 shape = SubResource("CapsuleShape2D_ecq0j")
 
 [node name="ShoulderJoint" type="PinJoint2D" parent="RightArm" unique_id=532827999]
@@ -148,7 +156,9 @@ node_a = NodePath("..")
 node_b = NodePath("../..")
 
 [node name="RightArmAtlasTexture" type="Sprite2D" parent="RightArm" unique_id=1485869254]
+rotation = 0.2617994
 texture = SubResource("AtlasTexture_pce2b")
+offset = Vector2(20, 40)
 
 [node name="Head" type="RigidBody2D" parent="." unique_id=514365462]
 z_index = 4
@@ -161,6 +171,7 @@ physics_material_override = ExtResource("1_mhg4l")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head" unique_id=1339463377]
+visible = false
 shape = SubResource("CircleShape2D_evyic")
 
 [node name="NeckJoint" type="PinJoint2D" parent="Head" unique_id=617836169]
@@ -170,3 +181,4 @@ node_b = NodePath("../..")
 
 [node name="HeadAtlasTexture" type="Sprite2D" parent="Head" unique_id=1646388865]
 texture = SubResource("AtlasTexture_4elw2")
+offset = Vector2(-5, -80)
