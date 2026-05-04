@@ -15,10 +15,6 @@ run/main_scene="uid://br87b8ipec2uy"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Shaker="*uid://j0j6d2us7cc4"
-
 [display]
 
 window/size/viewport_width=1920
@@ -27,7 +23,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/DropShadowCaster2D/plugin.cfg", "res://addons/drag_and_drop/plugin.cfg", "res://addons/minimize_html_build/plugin.cfg", "res://addons/shaker/plugin.cfg")
+enabled=PackedStringArray()
 
 [importer_defaults]
 

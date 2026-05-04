@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bv027w1ur8f51"]
 
-[ext_resource type="PhysicsMaterial" uid="uid://cjp3x4fh14jlx" path="res://resources/plushie_physics_material.phymat" id="1_mhg4l"]
+[ext_resource type="PhysicsMaterial" uid="uid://cjp3x4fh14jlx" path="res://resources/shaders_materials/plushie_physics_material.phymat" id="1_mhg4l"]
+[ext_resource type="Script" uid="uid://beu2j8kn6dckq" path="res://scripts/classes/toy_body.gd" id="2_dosap"]
 [ext_resource type="Texture2D" uid="uid://c5o4blfqqhho4" path="res://assets/test toy.webp" id="2_mhg4l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_evyic"]
@@ -9,7 +10,11 @@ height = 350.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vxon5"]
 atlas = ExtResource("2_mhg4l")
-region = Rect2(146, 195.5, 327, 458)
+region = Rect2(165, 191.5, 310, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fabld"]
+atlas = ExtResource("2_mhg4l")
+region = Rect2(698, 501.5, 310, 500)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_470m8"]
 radius = 62.287003
@@ -42,21 +47,33 @@ radius = 140.0
 atlas = ExtResource("2_mhg4l")
 region = Rect2(707.9704, 1.1468811, 288.76477, 416.3172)
 
-[node name="Torso" type="RigidBody2D" unique_id=747260323]
+[node name="CanvasGroup" type="CanvasGroup" unique_id=1871129785]
+script = ExtResource("2_dosap")
+
+[node name="Torso" type="RigidBody2D" parent="." unique_id=747260323]
 z_index = 2
 z_as_relative = false
 collision_layer = 8
+input_pickable = true
 mass = 3.0
 physics_material_override = ExtResource("1_mhg4l")
 gravity_scale = 1.25
+contact_monitor = true
+max_contacts_reported = 1
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=740029338]
-visible = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Torso" unique_id=740029338]
 shape = SubResource("CapsuleShape2D_evyic")
 
-[node name="TorseAtlasTexture" type="Sprite2D" parent="." unique_id=638388696]
+[node name="TorseAtlasTextureClosed" type="Sprite2D" parent="Torso" unique_id=638388696]
+unique_name_in_owner = true
 texture = SubResource("AtlasTexture_vxon5")
+offset = Vector2(12, 10)
+
+[node name="TorseAtlasTextureOpen" type="Sprite2D" parent="Torso" unique_id=1783162321]
+unique_name_in_owner = true
+texture = SubResource("AtlasTexture_fabld")
+offset = Vector2(10, 1)
 
 [node name="LeftLeg" type="RigidBody2D" parent="." unique_id=1288259877]
 z_index = 1
@@ -64,9 +81,11 @@ z_as_relative = false
 position = Vector2(-104, 214)
 collision_layer = 2
 collision_mask = 13
+input_pickable = true
 mass = 1.2
 physics_material_override = ExtResource("1_mhg4l")
 gravity_scale = 0.9
+max_contacts_reported = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLeg" unique_id=1081596504]
@@ -77,7 +96,7 @@ shape = SubResource("CapsuleShape2D_470m8")
 [node name="HipJoint" type="PinJoint2D" parent="LeftLeg" unique_id=1737619293]
 position = Vector2(20, -100)
 node_a = NodePath("..")
-node_b = NodePath("../..")
+node_b = NodePath("../../Torso")
 
 [node name="LeftLegAtlasTexture" type="Sprite2D" parent="LeftLeg" unique_id=7292118]
 texture = SubResource("AtlasTexture_mhg4l")
@@ -91,8 +110,10 @@ rotation = 0.7853982
 scale = Vector2(0.9999999, 0.9999999)
 collision_layer = 2
 collision_mask = 13
+input_pickable = true
 physics_material_override = ExtResource("1_mhg4l")
 gravity_scale = 0.75
+max_contacts_reported = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArm" unique_id=1425510116]
@@ -102,7 +123,7 @@ shape = SubResource("CapsuleShape2D_ecq0j")
 [node name="ShoulderJoint" type="PinJoint2D" parent="LeftArm" unique_id=1397192221]
 position = Vector2(20, -75)
 node_a = NodePath("..")
-node_b = NodePath("../..")
+node_b = NodePath("../../Torso")
 
 [node name="LeftArmAtlasTexture" type="Sprite2D" parent="LeftArm" unique_id=1455090472]
 rotation = -0.2617994
@@ -115,9 +136,11 @@ z_as_relative = false
 position = Vector2(70, 233)
 collision_layer = 4
 collision_mask = 11
+input_pickable = true
 mass = 1.2
 physics_material_override = ExtResource("1_mhg4l")
 gravity_scale = 0.9
+max_contacts_reported = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightLeg" unique_id=1457889373]
@@ -128,7 +151,7 @@ shape = SubResource("CapsuleShape2D_470m8")
 [node name="HipJoint" type="PinJoint2D" parent="RightLeg" unique_id=366952167]
 position = Vector2(-20, -100)
 node_a = NodePath("..")
-node_b = NodePath("../..")
+node_b = NodePath("../../Torso")
 
 [node name="RightLegAtlasTexture" type="Sprite2D" parent="RightLeg" unique_id=1096979966]
 texture = SubResource("AtlasTexture_nxfk7")
@@ -142,8 +165,10 @@ rotation = -0.7853982
 scale = Vector2(0.9999999, 0.9999999)
 collision_layer = 4
 collision_mask = 11
+input_pickable = true
 physics_material_override = ExtResource("1_mhg4l")
 gravity_scale = 0.75
+max_contacts_reported = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightArm" unique_id=391249480]
@@ -153,7 +178,7 @@ shape = SubResource("CapsuleShape2D_ecq0j")
 [node name="ShoulderJoint" type="PinJoint2D" parent="RightArm" unique_id=532827999]
 position = Vector2(0, -100)
 node_a = NodePath("..")
-node_b = NodePath("../..")
+node_b = NodePath("../../Torso")
 
 [node name="RightArmAtlasTexture" type="Sprite2D" parent="RightArm" unique_id=1485869254]
 rotation = 0.2617994
@@ -166,8 +191,10 @@ z_as_relative = false
 position = Vector2(0, -271)
 collision_layer = 8
 collision_mask = 7
+input_pickable = true
 mass = 1.5
 physics_material_override = ExtResource("1_mhg4l")
+max_contacts_reported = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head" unique_id=1339463377]
@@ -177,7 +204,7 @@ shape = SubResource("CircleShape2D_evyic")
 [node name="NeckJoint" type="PinJoint2D" parent="Head" unique_id=617836169]
 position = Vector2(0, 125)
 node_a = NodePath("..")
-node_b = NodePath("../..")
+node_b = NodePath("../../Torso")
 
 [node name="HeadAtlasTexture" type="Sprite2D" parent="Head" unique_id=1646388865]
 texture = SubResource("AtlasTexture_4elw2")
