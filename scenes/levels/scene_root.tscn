@@ -47,6 +47,35 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_2jser"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeBlack:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"transition"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_w3f05"]
 resource_name = "fade_trans"
 tracks/0/type = "value"
@@ -61,10 +90,25 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"transition"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2jser"]
 _data = {
 &"RESET": SubResource("Animation_el6ax"),
+&"fade_in": SubResource("Animation_2jser"),
 &"fade_trans": SubResource("Animation_w3f05")
 }
 
@@ -268,6 +312,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TableMargins" type="MarginContainer" parent="SceneStateMachine/BenchLayer/Control3" unique_id=1707338725]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -304,6 +349,7 @@ text = "Toolbox"
 horizontal_alignment = 1
 
 [node name="LaundryMargins" type="MarginContainer" parent="SceneStateMachine/BenchLayer/Control3" unique_id=224547528]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -418,6 +464,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="SFX" type="Control" parent="SceneStateMachine/MainGUI" unique_id=1314298482]
 layout_mode = 3
@@ -426,6 +473,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="FadeBlack" type="ColorRect" parent="SceneStateMachine/MainGUI/SFX" unique_id=1161826922]
 layout_mode = 1
@@ -434,6 +482,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [node name="AnimSFX" type="AnimationPlayer" parent="SceneStateMachine/MainGUI/SFX" unique_id=214494201]
