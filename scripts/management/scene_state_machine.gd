@@ -37,7 +37,7 @@ func _ready() -> void:
 	table_margins.show()
 	laundry_margins.hide()
 	
-	#_set_scene(STATE.MAIN)
+	_set_scene(STATE.MAIN)
 
 func _input(event: InputEvent) -> void:
 	if !anim_sfx.is_playing():

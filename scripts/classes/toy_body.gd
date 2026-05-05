@@ -23,17 +23,16 @@ func _ready() -> void:
 		body.max_contacts_reported = 1
 		body.body_entered.connect(_thump_sound.bind(body))
 		body.input_event.connect(_mouse_event)
-		body.freeze_mode = RigidBody2D.FREEZE_MODE_KINEMATIC
 	
 func _physics_process(delta: float) -> void:
-	print(is_held)
 	if !is_held:
 		return
-	global_position = lerp(global_position, get_global_mouse_position(), delta * 5.0)
+	global_position = lerp(global_position, get_global_mouse_position(), delta * 10.0)
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		_drop(Input.get_last_mouse_velocity())
+		if !event.pressed and is_held:
+			_drop(Input.get_last_mouse_velocity())
 
 func _thump_sound(_body: Node, _location: RigidBody2D) -> void:
 	#location.global_position
@@ -41,7 +40,7 @@ func _thump_sound(_body: Node, _location: RigidBody2D) -> void:
 
 func _mouse_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
+		if event.pressed and !is_held:
 			_pickup()
 
 # click and drag --> freeze body part and lerp to mouse position

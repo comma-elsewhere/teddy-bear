@@ -134,6 +134,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Background" type="ColorRect" parent="SceneStateMachine/RoomLayer/Control1" unique_id=1668623116]
 layout_mode = 1
@@ -222,6 +223,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Background" type="ColorRect" parent="SceneStateMachine/TerminalLayer/Control2" unique_id=1463970577]
 layout_mode = 1
@@ -293,6 +295,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="SceneStateMachine/BenchLayer/Control3" unique_id=2094247756]
 layout_mode = 1
@@ -414,6 +417,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="SceneStateMachine/ChuteLayer/Control4" unique_id=180119716]
 layout_mode = 1
@@ -459,6 +463,7 @@ text = "Delivery Chute"
 horizontal_alignment = 1
 
 [node name="MainGUI" type="CanvasLayer" parent="SceneStateMachine" unique_id=411973822]
+layer = 5
 
 [node name="Root2D" type="Node2D" parent="SceneStateMachine/MainGUI" unique_id=571027809]
 z_index = 10
@@ -469,7 +474,7 @@ position = Vector2(0, 1080)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneStateMachine/MainGUI/Root2D/Floor" unique_id=1026327110]
 shape = SubResource("WorldBoundaryShape2D_el6ax")
 
-[node name="Torso" parent="SceneStateMachine/MainGUI/Root2D" unique_id=747260323 instance=ExtResource("2_w3f05")]
+[node name="Toy" parent="SceneStateMachine/MainGUI/Root2D" unique_id=747260323 instance=ExtResource("2_w3f05")]
 position = Vector2(910, 593)
 
 [node name="HUD" type="Control" parent="SceneStateMachine/MainGUI" unique_id=971092904]
