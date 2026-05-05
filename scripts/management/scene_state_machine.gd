@@ -30,9 +30,9 @@ var current_state: int = -1
 # on ready, current state == main room, play fade-in animation, and perform startup initializations
 
 func _ready() -> void:
-	terminal_nav.gui_input.connect(_on_nav_gui_input.bind(STATE.TERMINAL))
-	bench_nav.gui_input.connect(_on_nav_gui_input.bind(STATE.BENCH))
-	chute_nav.gui_input.connect(_on_nav_gui_input.bind(STATE.CHUTE))
+	#terminal_nav.gui_input.connect(_on_nav_gui_input.bind(STATE.TERMINAL))
+	#bench_nav.gui_input.connect(_on_nav_gui_input.bind(STATE.BENCH))
+	#chute_nav.gui_input.connect(_on_nav_gui_input.bind(STATE.CHUTE))
 	
 	table_margins.show()
 	laundry_margins.hide()
