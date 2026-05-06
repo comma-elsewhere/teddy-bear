@@ -10,6 +10,10 @@ class_name ToyBody extends Node2D
 @onready var right_arm_body: RigidBody2D = %RightArm
 @onready var head_body: RigidBody2D = %Head
 
+enum LOCATION {TORSO_HEART, TORSO_NECK, TORSO_TUMMY, TORSO_ABDOMEN, TORSO_GROIN, LEFT_LEG, LEFT_ARM, RIGHT_FOOT, RIGHT_THIGH, RIGHT_HAND, RIGHT_SHOULDER, HEAD_LEFT, HEAD_RIGHT}
+enum PART {TORSO, LEFT_ARM, LEFT_LEG, RIGHT_ARM, RIGHT_LEG, HEAD}
+
+const ADDITIONAL : Array[Vector2] = [Vector2(19, -89), Vector2(-16, -127), Vector2(5, 51), Vector2(-79, 135), Vector2(-17, 161), Vector2(-15, 85), Vector2(24, 72), Vector2(-15, 131), Vector2(-5, -19), Vector2(-4, 130), Vector2(4, -38), Vector2(-51, -106), Vector2(60, -99)] # Accessory locations
 const GRAVITY_SCALE : Array[float] = [1.25, 0.75, 0.9, 0.75, 0.9, 1.0]
 
 var is_held: RigidBody2D = null

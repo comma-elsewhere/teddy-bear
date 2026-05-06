@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ToyDetails" format=3 uid="uid://bnbiwt12wob4o"]
+
+[ext_resource type="Script" uid="uid://bqrx4260m7ixa" path="res://scripts/resource/toy_details_res.gd" id="1_8b0kq"]
+[ext_resource type="Script" uid="uid://c4lj0farn5shk" path="res://scripts/resource/patient_file_res.gd" id="1_clost"]
+[ext_resource type="Texture2D" uid="uid://qij8apgintll" path="res://resources/textures/test_torso_closed.atlastex" id="3_l8b1t"]
+[ext_resource type="Texture2D" uid="uid://dqri7yfs3trx" path="res://resources/textures/test_torso_open.atlastex" id="4_5dcen"]
+[ext_resource type="Texture2D" uid="uid://d1w3x1k2yowa5" path="res://resources/textures/test_left_arm.atlastex" id="5_8kqsl"]
+[ext_resource type="Texture2D" uid="uid://f381jh46biks" path="res://resources/textures/test_left_leg.atlastex" id="6_gegjr"]
+[ext_resource type="Texture2D" uid="uid://bxf0vcqct15kt" path="res://resources/textures/test_right_arm.atlastex" id="7_4suv2"]
+[ext_resource type="Texture2D" uid="uid://k6e2080q2kr8" path="res://resources/textures/test_right_leg.atlastex" id="8_vu65k"]
+[ext_resource type="Texture2D" uid="uid://ch5kj7pno04ud" path="res://resources/textures/test_head.atlastex" id="9_flyx0"]
+
+[sub_resource type="Resource" id="Resource_d6ssj"]
+script = ExtResource("1_clost")
+metadata/_custom_type_script = "uid://c4lj0farn5shk"
+
+[resource]
+script = ExtResource("1_8b0kq")
+patient_file = SubResource("Resource_d6ssj")
+textures = Array[AtlasTexture]([ExtResource("3_l8b1t"), ExtResource("4_5dcen"), ExtResource("5_8kqsl"), ExtResource("6_gegjr"), ExtResource("7_4suv2"), ExtResource("8_vu65k"), ExtResource("9_flyx0")])
+accessories = true
+stained = true
+ripped = true
+metadata/_custom_type_script = "uid://bqrx4260m7ixa"
