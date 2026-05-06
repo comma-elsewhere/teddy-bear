@@ -27,9 +27,12 @@ func _ready() -> void:
 		body.input_event.connect(_mouse_event.bind(body))
 	
 func _physics_process(delta: float) -> void:
+	global_position = torso_body.global_position
 	if is_held == null:
 		return
-	is_held.global_position = lerp(is_held.global_position, get_global_mouse_position(), delta * 8.0)
+	is_held.global_position = lerp(is_held.global_position, get_global_mouse_position(), delta * 10.0)
+	is_held.linear_velocity = Vector2.ZERO
+	is_held.angular_velocity *= 0.5
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -57,12 +60,12 @@ func _toggle_gravity(toggle: bool) -> void:
 func _pickup(body: RigidBody2D) -> void:
 	if is_held:
 		return
-	_toggle_gravity(true)
+	#_toggle_gravity(true)
 	is_held = body
 
 func _drop(mouse_velocity: Vector2 = Vector2.ZERO) -> void:
 	if is_held:
-		_toggle_gravity(false)
+		#_toggle_gravity(false)
 		is_held = null
 		for body in bodies:
 			body.apply_central_impulse(mouse_velocity)

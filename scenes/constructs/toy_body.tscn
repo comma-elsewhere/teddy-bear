@@ -77,6 +77,40 @@ unique_name_in_owner = true
 texture = SubResource("AtlasTexture_fabld")
 offset = Vector2(10, 1)
 
+[node name="HipJoint" type="PinJoint2D" parent="Torso" unique_id=1737619293]
+position = Vector2(-84, 114)
+node_a = NodePath("../../LeftLeg")
+node_b = NodePath("..")
+bias = 0.9
+
+[node name="ShoulderJoint" type="PinJoint2D" parent="Torso" unique_id=1397192221]
+position = Vector2(-77.82486, -87.89088)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+node_a = NodePath("../../LeftArm")
+node_b = NodePath("..")
+bias = 0.9
+
+[node name="HipJoint2" type="PinJoint2D" parent="Torso" unique_id=366952167]
+position = Vector2(50, 133)
+node_a = NodePath("../../RightLeg")
+node_b = NodePath("..")
+bias = 0.9
+
+[node name="ShoulderJoint2" type="PinJoint2D" parent="Torso" unique_id=532827999]
+position = Vector2(78.28932, -97.71068)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+node_a = NodePath("../../RightArm")
+node_b = NodePath("..")
+bias = 0.9
+
+[node name="NeckJoint" type="PinJoint2D" parent="Torso" unique_id=617836169]
+position = Vector2(0, -146)
+node_a = NodePath("../../Head")
+node_b = NodePath("..")
+bias = 0.9
+
 [node name="LeftLeg" type="RigidBody2D" parent="." unique_id=1288259877]
 unique_name_in_owner = true
 z_index = 1
@@ -94,12 +128,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLeg" unique_id=1081596504]
 rotation = 0.08726646
 shape = SubResource("CapsuleShape2D_470m8")
-
-[node name="HipJoint" type="PinJoint2D" parent="LeftLeg" unique_id=1737619293]
-position = Vector2(20, -100)
-node_a = NodePath("..")
-node_b = NodePath("../../Torso")
-bias = 0.9
 
 [node name="LeftLegAtlasTexture" type="Sprite2D" parent="LeftLeg" unique_id=7292118]
 texture = SubResource("AtlasTexture_mhg4l")
@@ -122,12 +150,6 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArm" unique_id=1425510116]
 shape = SubResource("CapsuleShape2D_ecq0j")
-
-[node name="ShoulderJoint" type="PinJoint2D" parent="LeftArm" unique_id=1397192221]
-position = Vector2(20, -75)
-node_a = NodePath("..")
-node_b = NodePath("../../Torso")
-bias = 0.9
 
 [node name="LeftArmAtlasTexture" type="Sprite2D" parent="LeftArm" unique_id=1455090472]
 rotation = -0.2617994
@@ -152,12 +174,6 @@ metadata/_edit_group_ = true
 rotation = -0.08726646
 shape = SubResource("CapsuleShape2D_470m8")
 
-[node name="HipJoint" type="PinJoint2D" parent="RightLeg" unique_id=366952167]
-position = Vector2(-20, -100)
-node_a = NodePath("..")
-node_b = NodePath("../../Torso")
-bias = 0.9
-
 [node name="RightLegAtlasTexture" type="Sprite2D" parent="RightLeg" unique_id=1096979966]
 texture = SubResource("AtlasTexture_nxfk7")
 offset = Vector2(0, 50)
@@ -180,12 +196,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightArm" unique_id=391249480]
 shape = SubResource("CapsuleShape2D_ecq0j")
 
-[node name="ShoulderJoint" type="PinJoint2D" parent="RightArm" unique_id=532827999]
-position = Vector2(0, -100)
-node_a = NodePath("..")
-node_b = NodePath("../../Torso")
-bias = 0.9
-
 [node name="RightArmAtlasTexture" type="Sprite2D" parent="RightArm" unique_id=1485869254]
 rotation = 0.2617994
 texture = SubResource("AtlasTexture_pce2b")
@@ -206,12 +216,6 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head" unique_id=1339463377]
 shape = SubResource("CircleShape2D_evyic")
-
-[node name="NeckJoint" type="PinJoint2D" parent="Head" unique_id=617836169]
-position = Vector2(0, 125)
-node_a = NodePath("..")
-node_b = NodePath("../../Torso")
-bias = 0.9
 
 [node name="HeadAtlasTexture" type="Sprite2D" parent="Head" unique_id=1646388865]
 texture = SubResource("AtlasTexture_4elw2")
