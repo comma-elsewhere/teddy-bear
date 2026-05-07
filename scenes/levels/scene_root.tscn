@@ -160,7 +160,7 @@ physics_material_override = ExtResource("2_2jser")
 shape = SubResource("WorldBoundaryShape2D_w3f05")
 
 [node name="Toy" parent="SceneStateMachine/RoomLayer/Root2D" unique_id=747260323 instance=ExtResource("2_w3f05")]
-position = Vector2(966, 299)
+position = Vector2(898, -608)
 
 [node name="Control1" type="Control" parent="SceneStateMachine/RoomLayer" unique_id=634343315]
 layout_mode = 3

@@ -2,6 +2,7 @@
 
 [ext_resource type="PhysicsMaterial" uid="uid://cjp3x4fh14jlx" path="res://resources/shaders_materials/plushie_physics_material.phymat" id="1_mhg4l"]
 [ext_resource type="Script" uid="uid://beu2j8kn6dckq" path="res://scripts/classes/toy_body.gd" id="2_dosap"]
+[ext_resource type="Resource" uid="uid://bnbiwt12wob4o" path="res://resources/game_data/test_toy.tres" id="2_vxon5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_evyic"]
 radius = 125.0
@@ -18,8 +19,9 @@ height = 260.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_evyic"]
 radius = 140.0
 
-[node name="ToyBody" type="Node2D" unique_id=820348688]
+[node name="ToyBody" type="CanvasGroup" unique_id=1511532546]
 script = ExtResource("2_dosap")
+toy_res = ExtResource("2_vxon5")
 
 [node name="Torso" type="RigidBody2D" parent="." unique_id=747260323]
 unique_name_in_owner = true
@@ -37,50 +39,6 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Torso" unique_id=740029338]
 shape = SubResource("CapsuleShape2D_evyic")
-
-[node name="LeftHipJoint" type="PinJoint2D" parent="Torso" unique_id=1737619293]
-position = Vector2(-84, 114)
-node_a = NodePath("../../LeftLeg")
-node_b = NodePath("..")
-bias = 0.9
-angular_limit_lower = -1.5707964
-angular_limit_upper = 1.5707964
-
-[node name="LeftShoulderJoint" type="PinJoint2D" parent="Torso" unique_id=1397192221]
-position = Vector2(-85, -100)
-scale = Vector2(0.9999999, 0.9999999)
-node_a = NodePath("../../LeftArm")
-node_b = NodePath("..")
-bias = 0.9
-angular_limit_lower = -1.0471976
-angular_limit_upper = 2.0943952
-
-[node name="RightHipJoint" type="PinJoint2D" parent="Torso" unique_id=366952167]
-position = Vector2(50, 133)
-rotation = 3.1415927
-node_a = NodePath("../../RightLeg")
-node_b = NodePath("..")
-bias = 0.9
-angular_limit_lower = -1.5707964
-angular_limit_upper = 1.5707964
-
-[node name="RightShoulderJoint" type="PinJoint2D" parent="Torso" unique_id=532827999]
-position = Vector2(78.28932, -97.71068)
-rotation = 3.1415927
-scale = Vector2(0.9999999, 0.9999999)
-node_a = NodePath("../../RightArm")
-node_b = NodePath("..")
-bias = 0.9
-angular_limit_lower = -1.0471976
-angular_limit_upper = 2.0943952
-
-[node name="NeckJoint" type="PinJoint2D" parent="Torso" unique_id=617836169]
-position = Vector2(0, -146)
-node_a = NodePath("../../Head")
-node_b = NodePath("..")
-bias = 0.9
-angular_limit_lower = -0.34906584
-angular_limit_upper = 0.34906584
 
 [node name="LeftLeg" type="RigidBody2D" parent="." unique_id=1288259877]
 unique_name_in_owner = true
@@ -100,11 +58,19 @@ metadata/_edit_group_ = true
 rotation = 0.08726646
 shape = SubResource("CapsuleShape2D_470m8")
 
+[node name="LeftHipJoint" type="PinJoint2D" parent="LeftLeg" unique_id=1737619293]
+position = Vector2(16, -140)
+node_a = NodePath("..")
+node_b = NodePath("../../Torso")
+bias = 0.9
+angular_limit_lower = -1.5707964
+angular_limit_upper = 1.5707964
+
 [node name="LeftArm" type="RigidBody2D" parent="." unique_id=1756541802]
 unique_name_in_owner = true
 z_index = 1
 z_as_relative = false
-position = Vector2(-149, 117.00001)
+position = Vector2(-152, 134)
 rotation = 0.7853982
 scale = Vector2(0.9999999, 0.9999999)
 collision_layer = 2
@@ -117,6 +83,15 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArm" unique_id=1425510116]
 shape = SubResource("CapsuleShape2D_ecq0j")
+
+[node name="LeftShoulderJoint" type="PinJoint2D" parent="LeftArm" unique_id=1397192221]
+position = Vector2(-2.121336, -98.28785)
+rotation = -0.7853982
+node_a = NodePath("..")
+node_b = NodePath("../../Torso")
+bias = 0.9
+angular_limit_lower = -1.0471976
+angular_limit_upper = 2.0943952
 
 [node name="RightLeg" type="RigidBody2D" parent="." unique_id=1852764159]
 unique_name_in_owner = true
@@ -132,6 +107,15 @@ gravity_scale = 0.9
 max_contacts_reported = 3
 metadata/_edit_group_ = true
 
+[node name="RightHipJoint" type="PinJoint2D" parent="RightLeg" unique_id=366952167]
+position = Vector2(-24, -140)
+rotation = -3.1415925
+node_a = NodePath("..")
+node_b = NodePath("../../Torso")
+bias = 0.9
+angular_limit_lower = -1.5707964
+angular_limit_upper = 1.5707964
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightLeg" unique_id=1457889373]
 rotation = -0.08726646
 shape = SubResource("CapsuleShape2D_470m8")
@@ -140,7 +124,7 @@ shape = SubResource("CapsuleShape2D_470m8")
 unique_name_in_owner = true
 z_index = 3
 z_as_relative = false
-position = Vector2(157, 120)
+position = Vector2(164.00002, 132)
 rotation = -0.7853982
 scale = Vector2(0.9999999, 0.9999999)
 collision_layer = 4
@@ -153,6 +137,15 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightArm" unique_id=391249480]
 shape = SubResource("CapsuleShape2D_ecq0j")
+
+[node name="RightShoulderJoint" type="PinJoint2D" parent="RightArm" unique_id=532827999]
+position = Vector2(0, -100.00003)
+rotation = -2.3561945
+node_a = NodePath("..")
+node_b = NodePath("../../Torso")
+bias = 0.9
+angular_limit_lower = -1.0471976
+angular_limit_upper = 2.0943952
 
 [node name="Head" type="RigidBody2D" parent="." unique_id=514365462]
 unique_name_in_owner = true
@@ -169,3 +162,11 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head" unique_id=1339463377]
 shape = SubResource("CircleShape2D_evyic")
+
+[node name="NeckJoint" type="PinJoint2D" parent="Head" unique_id=617836169]
+position = Vector2(0, 125)
+node_a = NodePath("..")
+node_b = NodePath("../../Torso")
+bias = 0.9
+angular_limit_lower = -0.34906584
+angular_limit_upper = 0.34906584
