@@ -1,8 +1,5 @@
 class_name ToyBody extends Node2D
 
-@onready var torso_texture_closed: Sprite2D = %TorseAtlasTextureClosed
-@onready var torso_texture_open: Sprite2D = %TorseAtlasTextureOpen
-
 @onready var torso_body: RigidBody2D = %Torso
 @onready var left_leg_body: RigidBody2D = %LeftLeg
 @onready var left_arm_body: RigidBody2D = %LeftArm
@@ -72,4 +69,4 @@ func _drop(mouse_velocity: Vector2 = Vector2.ZERO) -> void:
 		#_toggle_gravity(false)
 		is_held = null
 		for body in bodies:
-			body.apply_central_impulse(mouse_velocity)
+			body.apply_central_impulse(mouse_velocity / 1000)

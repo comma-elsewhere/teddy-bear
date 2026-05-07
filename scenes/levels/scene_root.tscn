@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://br87b8ipec2uy"]
 
 [ext_resource type="Script" uid="uid://01putgmxmdkw" path="res://scripts/management/scene_state_machine.gd" id="1_el6ax"]
+[ext_resource type="PhysicsMaterial" uid="uid://cjp3x4fh14jlx" path="res://resources/shaders_materials/plushie_physics_material.phymat" id="2_2jser"]
 [ext_resource type="PackedScene" uid="uid://bv027w1ur8f51" path="res://scenes/constructs/toy_body.tscn" id="2_w3f05"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_el6ax"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w3f05"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el6ax"]
 bg_color = Color(1, 0.9019608, 0.3529412, 1)
@@ -130,14 +133,34 @@ visible = false
 [node name="Root2D" type="Node2D" parent="SceneStateMachine/RoomLayer" unique_id=571027809]
 z_index = 10
 
-[node name="Floor" type="StaticBody2D" parent="SceneStateMachine/RoomLayer/Root2D" unique_id=1293979206]
-position = Vector2(0, 1080)
+[node name="Wall1" type="StaticBody2D" parent="SceneStateMachine/RoomLayer/Root2D" unique_id=1293979206]
+position = Vector2(-80, 0)
+rotation = 1.5707964
+collision_mask = 14
+physics_material_override = ExtResource("2_2jser")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneStateMachine/RoomLayer/Root2D/Floor" unique_id=1026327110]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneStateMachine/RoomLayer/Root2D/Wall1" unique_id=1026327110]
 shape = SubResource("WorldBoundaryShape2D_el6ax")
 
+[node name="Wall2" type="StaticBody2D" parent="SceneStateMachine/RoomLayer/Root2D" unique_id=2145778479]
+position = Vector2(2000, 0)
+rotation = 4.712389
+collision_mask = 14
+physics_material_override = ExtResource("2_2jser")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneStateMachine/RoomLayer/Root2D/Wall2" unique_id=1527045695]
+shape = SubResource("WorldBoundaryShape2D_el6ax")
+
+[node name="Wall3" type="StaticBody2D" parent="SceneStateMachine/RoomLayer/Root2D" unique_id=997296323]
+position = Vector2(0, 1080)
+collision_mask = 14
+physics_material_override = ExtResource("2_2jser")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneStateMachine/RoomLayer/Root2D/Wall3" unique_id=397804349]
+shape = SubResource("WorldBoundaryShape2D_w3f05")
+
 [node name="Toy" parent="SceneStateMachine/RoomLayer/Root2D" unique_id=747260323 instance=ExtResource("2_w3f05")]
-position = Vector2(924, -581)
+position = Vector2(966, 299)
 
 [node name="Control1" type="Control" parent="SceneStateMachine/RoomLayer" unique_id=634343315]
 layout_mode = 3
