@@ -11,10 +11,6 @@ const HOOK_DIST := 20.0
 @onready var bench_layer: CanvasLayer = %BenchLayer
 @onready var chute_layer: CanvasLayer = %ChuteLayer
 
-@onready var terminal_nav: PanelContainer = %TerminalNav
-@onready var bench_nav: PanelContainer = %BenchNav
-@onready var chute_nav: PanelContainer = %ChuteNav
-
 @onready var table_margins: MarginContainer = %TableMargins
 @onready var laundry_margins: MarginContainer = %LaundryMargins
 
@@ -31,10 +27,6 @@ var current_state: int = -1
 var toy_state: int = -1
 
 func _ready() -> void:
-	#terminal_nav.gui_input.connect(_on_nav_gui_input.bind(STATE.TERMINAL))
-	#bench_nav.gui_input.connect(_on_nav_gui_input.bind(STATE.BENCH))
-	#chute_nav.gui_input.connect(_on_nav_gui_input.bind(STATE.CHUTE))
-	
 	table_margins.show()
 	laundry_margins.hide()
 	
@@ -115,6 +107,7 @@ func _spawn_toy() -> void:
 	toy.global_position = Vector2( randf_range(400, 1200), randf_range(-600, -1000) )
 	toy.global_rotation_degrees = randf_range(0, 360)
 	_change_toy_state()
+	_check_toy_state()
 	
 func _toy_grabbed(is_held: RigidBody2D) -> void:
 	if is_held == null:
@@ -148,7 +141,3 @@ func _get_hook_margins() -> void:
 		STATE.TERMINAL: hook_margin.add_theme_constant_override("margin_left", 650)
 		STATE.BENCH: hook_margin.add_theme_constant_override("margin_left", 350)
 		STATE.CHUTE: hook_margin.add_theme_constant_override("margin_left", 300)
-	
-	
-	
-	

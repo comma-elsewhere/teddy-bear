@@ -174,11 +174,11 @@ theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 150
 
 [node name="TerminalNav" type="PanelContainer" parent="SceneStateMachine/RoomLayer/Control1/RoomMargins" unique_id=151836892]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 500)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_el6ax")
 
 [node name="Label1" type="Label" parent="SceneStateMachine/RoomLayer/Control1/RoomMargins/TerminalNav" unique_id=2978550]
@@ -189,11 +189,11 @@ text = "Terminal"
 horizontal_alignment = 1
 
 [node name="BenchNav" type="PanelContainer" parent="SceneStateMachine/RoomLayer/Control1/RoomMargins" unique_id=1540331932]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(600, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_w3f05")
 
 [node name="Label2" type="Label" parent="SceneStateMachine/RoomLayer/Control1/RoomMargins/BenchNav" unique_id=230966443]
@@ -203,11 +203,11 @@ text = "Bench"
 horizontal_alignment = 1
 
 [node name="ChuteNav" type="PanelContainer" parent="SceneStateMachine/RoomLayer/Control1/RoomMargins" unique_id=518070215]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 200)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_2jser")
 
 [node name="Label3" type="Label" parent="SceneStateMachine/RoomLayer/Control1/RoomMargins/ChuteNav" unique_id=1040206078]
