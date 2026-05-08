@@ -1,5 +1,7 @@
 class_name ToyBody extends CanvasGroup
 
+signal grabbed(is_grabbed: RigidBody2D)
+
 @export var toy_res: ToyDetails
 
 @onready var torso_body: RigidBody2D = %Torso
@@ -18,8 +20,11 @@ var area_spawner := AreaSpawner.new()
 var card_display := CardSpawner.new()
 var texture_loader := TextureLoader.new()
 
+var hooked: bool = false
 var is_held: RigidBody2D = null # tracks the current body part being held
 var bodies: Array[RigidBody2D] = [] # Array of body parts for connections and calls
+
+var _hook_point: Vector2
 
 func _ready() -> void:
 # assign parts to bodies array
@@ -37,15 +42,30 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if is_held == null: # if nothing is being held, return
 		return
+	if hooked:
+		is_held.global_position = lerp(is_held.global_position, _hook_point, delta * 50.0)
+		_normalize_velocity(0.7)
+		return
 	is_held.global_position = lerp(is_held.global_position, is_held.get_global_mouse_position(), delta * 10.0)
- # stop gravity effects and previous momentum etc
-	is_held.linear_velocity = Vector2.ZERO
-	is_held.angular_velocity *= 0.5
+	_normalize_velocity(0.5)
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if !event.pressed and is_held:
+			grabbed.emit(is_held)
 			_drop(Input.get_last_mouse_velocity()) # Call drop if something is held and you un-click
+
+func attach_hook(hook_point: Vector2) -> void:
+	hooked = true
+	_hook_point = hook_point
+
+func detach_hook() -> void:
+	hooked = false
+	
+ # stop gravity effects and previous momentum etc
+func _normalize_velocity(angular: float) -> void:
+	is_held.linear_velocity = Vector2.ZERO
+	is_held.angular_velocity *= angular
 
 func _thump_sound(body: Node, _location: RigidBody2D) -> void:
 	# Prevent sound from triggering on hitting other limbs of self
@@ -64,10 +84,13 @@ func _pickup(body: RigidBody2D) -> void:
 	if is_held:
 		return
 	is_held = body
-
+	
+	
 # set body being held to null, and apply last mouse velocity as central impulse to all body parts (time-independent, one-frame force, no rotation)
 func _drop(mouse_velocity: Vector2 = Vector2.ZERO) -> void:
 	if is_held:
+		if hooked:
+			return
 		is_held = null
 		for body in bodies:
 			body.apply_central_impulse(mouse_velocity / 1000)

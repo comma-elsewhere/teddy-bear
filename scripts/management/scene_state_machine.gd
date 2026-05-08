@@ -2,6 +2,10 @@ class_name SceneStateMachine extends Node
 
 enum STATE {MAIN, TERMINAL, BENCH, CHUTE}
 
+const TOY_BODY := preload("uid://bv027w1ur8f51")
+const TOY_SPAWN := Vector2(950, -1800)
+const HOOK_DIST := 20.0
+
 @onready var room_layer: CanvasLayer = %RoomLayer
 @onready var terminal_layer: CanvasLayer = %TerminalLayer
 @onready var bench_layer: CanvasLayer = %BenchLayer
@@ -14,20 +18,16 @@ enum STATE {MAIN, TERMINAL, BENCH, CHUTE}
 @onready var table_margins: MarginContainer = %TableMargins
 @onready var laundry_margins: MarginContainer = %LaundryMargins
 
+@onready var main_root: Node2D = %MainRoot
+@onready var hook_margin: MarginContainer = %HookMargin
+@onready var hook_point: Control = %HookPoint
+
 @onready var anim_sfx: AnimationPlayer = %AnimSFX
+
+var toy: ToyBody = null
 
 var old_state: int = -1
 var current_state: int = -1
-
-# connect gui input to scene navigation
-# user input to scene navigation
-# scene navigation == state change
-# establish each state: main, terminal, bench, and chute
-# two-part change state / nav function, part one plays animation (scene swap), part two is triggered by the animation player to ensure timing (transition)
-# in main room, left right front determines which scene you go to
-# in scenes left and right cycle between scenes, and back takes you back
-# in workbench front cycles between bench and underneath, otherwise in scenes front does nothing
-# on ready, current state == main room, play fade-in animation, and perform startup initializations
 
 func _ready() -> void:
 	#terminal_nav.gui_input.connect(_on_nav_gui_input.bind(STATE.TERMINAL))
@@ -37,6 +37,7 @@ func _ready() -> void:
 	table_margins.show()
 	laundry_margins.hide()
 	
+	_spawn_toy()
 	_set_scene(STATE.MAIN)
 
 func _input(event: InputEvent) -> void:
@@ -91,3 +92,20 @@ func _swap_scene(new_state: int) -> void:
 func _toggle_bench() -> void:
 	table_margins.visible = !table_margins.visible
 	laundry_margins.visible = !laundry_margins.visible
+
+func _spawn_toy() -> void:
+	toy = TOY_BODY.instantiate()
+	toy.grabbed.connect(_toy_grabbed)
+	main_root.add_child(toy)
+	toy.global_position = TOY_SPAWN
+	
+func _toy_grabbed(is_held: RigidBody2D) -> void:
+	if is_held == null:
+		return
+	if toy.hooked:
+		print("detach")
+		toy.detach_hook()
+		return
+	if abs(is_held.global_position - hook_point.global_position) < Vector2(30,30):
+		print(is_held)
+		toy.attach_hook(hook_point.global_position)
