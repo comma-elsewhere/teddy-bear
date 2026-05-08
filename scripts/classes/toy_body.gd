@@ -52,15 +52,28 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if !event.pressed and is_held:
-			grabbed.emit(is_held)
+			grabbed.emit(is_held) # technicallly this is the dropped signal or "last thing that was being held before I dropped it" signal
 			_drop(Input.get_last_mouse_velocity()) # Call drop if something is held and you un-click
-
+			
+# attaches to hook and assigns hook point
 func attach_hook(hook_point: Vector2) -> void:
 	hooked = true
 	_hook_point = hook_point
 
+# detaches from hook in main root
 func detach_hook() -> void:
 	hooked = false
+	
+func update_hook(hook_point: Vector2) -> void:
+	var dist_moved := hook_point - _hook_point
+	_hook_point = hook_point
+	for body in bodies:
+		body.apply_central_impulse(dist_moved)
+	
+# Allows mouse collision
+func toggle_collision(allow: bool) -> void:
+	for body in bodies:
+		body.input_pickable = allow
 	
  # stop gravity effects and previous momentum etc
 func _normalize_velocity(angular: float) -> void:

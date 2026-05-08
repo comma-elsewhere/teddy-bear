@@ -487,9 +487,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 200
 
-[node name="HookTexture" type="TextureRect" parent="SceneStateMachine/MainGUI/HUD/HookMargin" unique_id=296237937]
+[node name="MeatHook" type="TextureRect" parent="SceneStateMachine/MainGUI/HUD/HookMargin" unique_id=296237937]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(125, 200)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -498,18 +498,9 @@ texture = SubResource("PlaceholderTexture2D_2jser")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="HookPoint" type="Control" parent="SceneStateMachine/MainGUI/HUD/HookMargin/HookTexture" unique_id=1467747121]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-
 [node name="SFX" type="Control" parent="SceneStateMachine/MainGUI" unique_id=1314298482]
+z_index = 10
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -536,7 +527,7 @@ libraries/ = SubResource("AnimationLibrary_2jser")
 unique_name_in_owner = true
 
 [node name="Wall1" type="StaticBody2D" parent="SceneStateMachine/MainGUI/MainRoot" unique_id=1293979206]
-position = Vector2(-80, 0)
+position = Vector2(-120, 0)
 rotation = 1.5707964
 collision_mask = 30
 physics_material_override = ExtResource("2_2jser")
@@ -545,7 +536,7 @@ physics_material_override = ExtResource("2_2jser")
 shape = SubResource("WorldBoundaryShape2D_el6ax")
 
 [node name="Wall2" type="StaticBody2D" parent="SceneStateMachine/MainGUI/MainRoot" unique_id=2145778479]
-position = Vector2(2000, 0)
+position = Vector2(2040, 0)
 rotation = -1.5707964
 collision_mask = 30
 physics_material_override = ExtResource("2_2jser")
