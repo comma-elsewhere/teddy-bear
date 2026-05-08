@@ -96,11 +96,11 @@ func _thump_sound(body: Node, location: RigidBody2D) -> void:
 
 func _mouse_event(_viewport: Node, event: InputEvent, _shape_idx: int, body: RigidBody2D) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed and !is_held:
-			_pickup(body) # Call pickup if nothing is held and you click a body part
-		if !event.pressed:
+		if !event.pressed: # emit signal of last held body part and then drop with last mouse velocity
 			grabbed.emit(is_held)
 			_drop(Input.get_last_mouse_velocity())
+		elif event.pressed and !is_held:
+			_pickup(body) # Call pickup if nothing is held and you click a body part
 
 # set body being held to body clicked
 func _pickup(body: RigidBody2D) -> void:
