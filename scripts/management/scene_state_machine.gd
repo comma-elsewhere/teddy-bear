@@ -3,7 +3,7 @@ class_name SceneStateMachine extends Node
 enum STATE {MAIN, TERMINAL, BENCH, CHUTE}
 
 const TOY_BODY := preload("uid://bv027w1ur8f51")
-const HOOK_DIST := Vector2(30, 30)
+const HOOK_DIST := 100
 const MARGIN : Array[int] = [450, 650, 350, 300]
 
 @onready var room_layer: CanvasLayer = %RoomLayer
@@ -134,7 +134,7 @@ func _toy_grabbed(is_held: RigidBody2D) -> void:
 		toy.detach_hook()
 		_change_toy_state(current_state)
 		return
-	if abs(is_held.global_position - _get_hook_pos()) < HOOK_DIST:
+	if is_held.global_position.distance_to(_get_hook_pos()) < HOOK_DIST:
 		toy.attach_hook(_get_hook_pos())
 		
 # Updates toy state --- default to main state where the toy spawns
