@@ -35,6 +35,8 @@ bg_color = Color(1, 0.3529412, 0.654902, 1)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2jser"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_w3f05"]
+
 [sub_resource type="Animation" id="Animation_el6ax"]
 length = 0.001
 tracks/0/type = "value"
@@ -495,6 +497,16 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = SubResource("PlaceholderTexture2D_2jser")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TrashCan" type="TextureRect" parent="SceneStateMachine/MainGUI/HUD/HookMargin" unique_id=984773241]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("PlaceholderTexture2D_w3f05")
 expand_mode = 1
 stretch_mode = 6
 
