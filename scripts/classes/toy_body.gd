@@ -20,6 +20,7 @@ var card_display := CardSpawner.new()
 var texture_loader := TextureLoader.new()
 
 var hooked: bool = false
+var hooked_held: RigidBody2D = null
 var is_held: RigidBody2D = null # tracks the current body part being held
 var bodies: Array[RigidBody2D] = [] # Array of body parts for connections and calls
 
@@ -45,6 +46,8 @@ func _physics_process(delta: float) -> void:
 	if hooked:
 		is_held.global_position = lerp(is_held.global_position, _hook_point, delta * 20.0)
 		_normalize_velocity(0.7)
+		if hooked_held != null:
+			hooked_held.apply_central_force(Input.get_last_mouse_velocity() * 7.5)
 		return
 	is_held.global_position = lerp(is_held.global_position, is_held.get_global_mouse_position(), delta * 10.0)
 	_normalize_velocity(0.5)
@@ -53,6 +56,8 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if !event.pressed:
+			if hooked:
+				hooked_held = null
 			grabbed.emit(is_held)
 			_drop(Input.get_last_mouse_velocity())
 			
@@ -113,8 +118,7 @@ func _mouse_event(_viewport: Node, event: InputEvent, _shape_idx: int, body: Rig
 # set body being held to body clicked
 func _pickup(body: RigidBody2D) -> void:
 	if hooked:
-		await get_tree().process_frame
-		body.apply_central_impulse(Input.get_last_mouse_velocity() * 7)
+		hooked_held = body
 	if is_held:
 		return
 	is_held = body
@@ -125,5 +129,6 @@ func _drop(mouse_velocity: Vector2 = Vector2.ZERO) -> void:
 		return
 	if is_held:
 		is_held = null
+		hooked_held = null
 		for body in bodies:
 			body.apply_central_impulse(mouse_velocity / 1000)
