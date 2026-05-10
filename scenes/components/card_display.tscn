@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://df6abq4yipgag"]
+
+[ext_resource type="Script" uid="uid://bunr50pxeh8gf" path="res://scripts/classes/card_display.gd" id="1_pvgxw"]
+
+[node name="CardDisplay" type="SubViewport" unique_id=1492129803]
+handle_input_locally = false
+snap_2d_vertices_to_pixel = true
+canvas_item_default_texture_filter = 3
+size_2d_override = Vector2i(512, 512)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+script = ExtResource("1_pvgxw")
+
+[node name="Background" type="ColorRect" parent="." unique_id=330920827]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 150)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2086305997]
+custom_minimum_size = Vector2(150, 150)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=817505390]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=945908029]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.12225223, 0.12225223, 0.12225223, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 52
+text = "Name: Crash"
+autowrap_mode = 3
+
+[node name="CodeLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=92259111]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.2904, 0.2904, 1)
+theme_override_colors/font_outline_color = Color(0.14044744, 0.14044744, 0.14044744, 1)
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 52
+text = "PawzCode: 9034"
+autowrap_mode = 3
+
+[node name="StaticLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=302699597]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 52
+text = "My Fun Fact!"
+autowrap_mode = 3
+
+[node name="FunFactLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1117484007]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "blah blah blah blah"
+autowrap_mode = 3

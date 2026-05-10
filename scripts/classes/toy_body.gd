@@ -35,6 +35,7 @@ func _ready() -> void:
 # assign parts to bodies array
 	bodies = [torso_body, left_arm_body, left_leg_body, right_arm_body, right_leg_body, head_body]
 	texture_loader.initiate(toy_res, bodies)
+	card_display.initiate(toy_res.patient_file, right_arm_body)
 
 # assign each part in bodies relevant flags and signals
 	for body in bodies:
