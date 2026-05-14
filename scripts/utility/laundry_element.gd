@@ -5,13 +5,11 @@ const CLEAN_COLOR := Color("ffffff")
 const FLING := Vector2(150, -300)
 const WASH_TIME := 2.5
 
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-
 # connect body entered to func
 func _ready() -> void:
-	super()
 	body_entered.connect(_detect_toy_dirty)
 	create_collision(RADIUS)
+	start()
 	
 # Checks if toy is able to be washed --- needs to be dirty and currently visible
 func _detect_toy_dirty(body: Node2D) -> void:

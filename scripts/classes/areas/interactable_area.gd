@@ -2,7 +2,7 @@ class_name InteractionArea extends Area2D
 
 var collision_shape := CollisionShape2D.new()
 
-func _ready() -> void:
+func start() -> void:
 	visibility_changed.connect(_enable_on_visible)
 	await RenderingServer.frame_post_draw
 	call_deferred("_enable_on_visible")

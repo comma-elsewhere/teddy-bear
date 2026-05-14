@@ -1,10 +1,10 @@
 class_name CardSpawner
 
 const CARD_DISPLAY := preload("uid://df6abq4yipgag")
-const CARD_OFFSET := Vector2(0, 95)
+const CARD_OFFSET := Vector2(0, 90)
 const CARD_SCALE := 0.3
 
-const DANGLE_WEIGHT := 55.0
+const DANGLE_WEIGHT := 10.0
 
 var card: Sprite2D
 
@@ -22,7 +22,7 @@ func initiate(patient_file: PatientFile, arm: RigidBody2D) -> void:
 	card.hide()
 	
 func dangle_card(delta: float) -> void:
-	card.global_rotation_degrees = lerp_angle(card.global_rotation_degrees, 90, DANGLE_WEIGHT * delta)
+	card.global_rotation = lerp_angle(card.global_rotation, 0, DANGLE_WEIGHT * delta)
 	
 func card_visible(show_card: bool) -> void:
 	card.visible = show_card
