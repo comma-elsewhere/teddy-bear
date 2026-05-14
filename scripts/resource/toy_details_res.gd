@@ -8,5 +8,5 @@ class_name ToyDetails extends Resource
 @export var extra_attached: bool = false
 @export var stain: bool = false
 @export var rip: bool = false
-@export var dirty: bool = false
+@export var dirty: bool = false # Clean in laundry machine
 @export var debris: bool = false
