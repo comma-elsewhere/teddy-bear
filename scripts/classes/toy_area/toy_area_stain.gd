@@ -1,1 +1,1 @@
-class_name StainArea extends DamageArea
+class_name StainArea extends PopupArea

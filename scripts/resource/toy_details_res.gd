@@ -5,6 +5,8 @@ class_name ToyDetails extends Resource
 @export var textures: Array[AtlasTexture] = [] # Torso closed, torso open, left arm, left leg, right arm, right leg, head
 @export var texture_offsets: Array[Vector2] = [Vector2.ZERO, Vector2.ZERO, Vector2.ZERO, Vector2.ZERO, Vector2.ZERO, Vector2.ZERO, Vector2.ZERO]
 
-@export var accessories: bool = false
-@export var stained: bool = false
-@export var ripped: bool = false
+@export var extra_attached: bool = false
+@export var stain: bool = false
+@export var rip: bool = false
+@export var dirty: bool = false
+@export var debris: bool = false

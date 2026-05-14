@@ -1,7 +1,10 @@
 class_name ToyBody extends CanvasGroup
 
-const FABRIC_1 = preload("uid://duxnrn3xp2ng5")
-const FABRIC_2 = preload("uid://ckt7gitt510xq")
+const FABRIC_1 := preload("uid://duxnrn3xp2ng5")
+const FABRIC_2 := preload("uid://ckt7gitt510xq")
+
+const DIRTY_COLOR := Color("b2a08b")
+
 signal grabbed(is_grabbed: RigidBody2D)
 
 @export var toy_res: ToyDetails
@@ -34,18 +37,31 @@ var _hook_point: Vector2
 func _ready() -> void:
 # assign parts to bodies array
 	bodies = [torso_body, left_arm_body, left_leg_body, right_arm_body, right_leg_body, head_body]
+	
+# initiate and load classes with toy res
 	texture_loader.initiate(toy_res, bodies)
-	#card_display.initiate(toy_res.patient_file, right_arm_body)
-
-# assign each part in bodies relevant flags and signals
+	card_display.initiate(toy_res.patient_file, right_arm_body)
+	
+	toy_res.dirty = true # TEMP
+	
+	if toy_res.dirty:
+		modulate = DIRTY_COLOR
+		
+# assign to group
+	add_to_group("Toy")
+	
+# assign each part in bodies relevant flags and signals and groups
 	for body in bodies:
 		body.input_pickable = true # allows mouse input
 		body.contact_monitor = true # tracks collisions
 		body.max_contacts_reported = 1 # max collisions reported
 		body.body_entered.connect(_thump_sound.bind(body)) # signal collisions for thump sounds to specific body part
 		body.input_event.connect(_mouse_event.bind(body)) # signal mouse events for click and drag to specific body part
-	
+		body.add_to_group("ToyBody")
+		
 func _physics_process(delta: float) -> void:
+	card_display.dangle_card(delta)
+	
 	if is_held == null: # if nothing is being held, return
 		return
 	if hooked:
@@ -83,12 +99,16 @@ func update_hook(hook_point: Vector2) -> void:
 	for body in bodies:
 		body.apply_central_impulse(dist_moved)
 	
+func display_card(unhide: bool = false) -> void:
+	card_display.card_visible(unhide)
+	
 # Allows mouse collision
 func toggle_collision(allow: bool) -> void:
 	for body in bodies:
 		body.input_pickable = allow
 	
- # stop gravity effects and previous momentum etc
+	
+# stop gravity effects and previous momentum etc
 func _normalize_velocity(angular: float) -> void:
 	is_held.linear_velocity = Vector2.ZERO
 	is_held.angular_velocity *= angular

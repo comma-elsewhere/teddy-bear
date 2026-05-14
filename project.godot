@@ -17,6 +17,10 @@ boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://k6k15qnaua75"
+
 [display]
 
 window/size/viewport_width=1920
@@ -26,6 +30,11 @@ window/stretch/mode="canvas_items"
 [editor_plugins]
 
 enabled=PackedStringArray()
+
+[global_group]
+
+Toy=""
+ToyBody=""
 
 [importer_defaults]
 

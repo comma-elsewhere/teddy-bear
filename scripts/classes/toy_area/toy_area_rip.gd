@@ -1,1 +1,1 @@
-class_name RipArea extends DamageArea
+class_name RipArea extends PopupArea

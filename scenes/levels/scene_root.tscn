@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://br87b8ipec2uy"]
 
 [ext_resource type="Script" uid="uid://01putgmxmdkw" path="res://scripts/management/scene_state_machine.gd" id="1_el6ax"]
+[ext_resource type="Script" uid="uid://bjrbds6jtw7d8" path="res://scripts/utility/laundry_element.gd" id="2_2j352"]
 [ext_resource type="PhysicsMaterial" uid="uid://cjp3x4fh14jlx" path="res://resources/shaders_materials/plushie_physics_material.phymat" id="2_2jser"]
+[ext_resource type="Script" uid="uid://c7fj2sym4fhwc" path="res://scripts/management/laundry_margins.gd" id="2_qu23m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el6ax"]
 bg_color = Color(1, 0.9019608, 0.3529412, 1)
@@ -29,6 +31,9 @@ bg_color = Color(1, 0.9019608, 0.3529412, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gq5th"]
 bg_color = Color(0.77254903, 0.91764706, 0.043137256, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w3f05"]
+radius = 150.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mfy0"]
 bg_color = Color(1, 0.3529412, 0.654902, 1)
@@ -371,6 +376,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 400
+script = ExtResource("2_qu23m")
 
 [node name="LaundryElement" type="PanelContainer" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins" unique_id=425058262]
 custom_minimum_size = Vector2(900, 800)
@@ -412,6 +418,15 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Toolbox"
 horizontal_alignment = 1
+
+[node name="LaundryMachineArea" type="Area2D" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins" unique_id=2139027766]
+position = Vector2(847, 689)
+collision_mask = 16
+script = ExtResource("2_2j352")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins/LaundryMachineArea" unique_id=1732424980]
+shape = SubResource("CircleShape2D_w3f05")
+disabled = true
 
 [node name="ChuteLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=1678620600]
 unique_name_in_owner = true

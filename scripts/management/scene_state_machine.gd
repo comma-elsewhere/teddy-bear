@@ -90,11 +90,14 @@ func transition() -> void:
 				bench_layer.visible = !bench_layer.visible
 			STATE.CHUTE: 
 				chute_layer.visible = !chute_layer.visible
-	_get_hook_margins()
-	_check_toy_state()
+	_get_hook_margins() # move meat hook and trash can
+	_check_toy_state() # check toy visibility
+	# update toy position if it's on the hook
 	if toy.hooked:
 		await get_tree().process_frame
 		toy.call_deferred("update_hook", _get_hook_pos())
+	# show id card if it's in terminal scene
+	toy.display_card(current_state == STATE.TERMINAL)
 	
 # Called once by _ready(), after this old state will need to be reset
 func _set_scene(new_state: int) -> void:
