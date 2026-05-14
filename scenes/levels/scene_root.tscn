@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://01putgmxmdkw" path="res://scripts/management/scene_state_machine.gd" id="1_el6ax"]
 [ext_resource type="Script" uid="uid://bjrbds6jtw7d8" path="res://scripts/utility/laundry_element.gd" id="2_2j352"]
 [ext_resource type="PhysicsMaterial" uid="uid://cjp3x4fh14jlx" path="res://resources/shaders_materials/plushie_physics_material.phymat" id="2_2jser"]
-[ext_resource type="Script" uid="uid://c7fj2sym4fhwc" path="res://scripts/management/laundry_margins.gd" id="2_qu23m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el6ax"]
 bg_color = Color(1, 0.9019608, 0.3529412, 1)
@@ -376,7 +375,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 400
-script = ExtResource("2_qu23m")
 
 [node name="LaundryElement" type="PanelContainer" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins" unique_id=425058262]
 custom_minimum_size = Vector2(900, 800)

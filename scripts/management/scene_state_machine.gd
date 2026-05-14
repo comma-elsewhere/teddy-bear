@@ -49,26 +49,35 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("nav_back"):
 			match current_state:
 				STATE.TERMINAL: _swap_scene(STATE.MAIN)
-				STATE.BENCH: _swap_scene(STATE.MAIN)
+				STATE.BENCH: 
+					_swap_scene(STATE.MAIN)
+					await get_tree().create_timer(0.45).timeout
+					_toggle_bench()
 				STATE.CHUTE: _swap_scene(STATE.MAIN)
 			return
 		if event.is_action_pressed("nav_front"):
 			match current_state:
 				STATE.MAIN: _swap_scene(STATE.BENCH)
-				STATE.BENCH: _toggle_bench()
+				STATE.BENCH: _toggle_bench(!table_margins.visible)
 			return
 		if event.is_action_pressed("nav_left"):
 			match current_state:
 				STATE.MAIN: _swap_scene(STATE.TERMINAL)
 				STATE.TERMINAL: _swap_scene(STATE.CHUTE)
-				STATE.BENCH: _swap_scene(STATE.TERMINAL)
+				STATE.BENCH: 
+					_swap_scene(STATE.TERMINAL)
+					await get_tree().create_timer(0.45).timeout
+					_toggle_bench()
 				STATE.CHUTE: _swap_scene(STATE.BENCH)
 			return
 		if event.is_action_pressed("nav_right"):
 			match current_state:
 				STATE.MAIN: _swap_scene(STATE.CHUTE)
 				STATE.TERMINAL: _swap_scene(STATE.BENCH)
-				STATE.BENCH: _swap_scene(STATE.CHUTE)
+				STATE.BENCH: 
+					_swap_scene(STATE.CHUTE)
+					await get_tree().create_timer(0.45).timeout
+					_toggle_bench()
 				STATE.CHUTE: _swap_scene(STATE.TERMINAL)
 			return
 		
@@ -111,10 +120,9 @@ func _swap_scene(new_state: int) -> void:
 	anim_sfx.play("fade_trans") # crossfade with black, transition() in the middle
 
 # toggles whether you are on upper or lower part of bench --- remains constant throughout state changes
-func _toggle_bench() -> void:
-	table_margins.visible = !table_margins.visible
-	laundry_margins.visible = !laundry_margins.visible
-
+func _toggle_bench(show_bench: bool = true) -> void:
+	table_margins.visible = show_bench
+	laundry_margins.visible = !show_bench
 # creates new toy, connects grabbed signal to toy grabbed func, and sets a random position above player pov so it will fall into screen 
 # set toy state to main state and then checks if the toy should be visible
 func _spawn_toy() -> void:

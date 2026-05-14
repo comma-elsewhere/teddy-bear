@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://df6abq4yipgag"]
 
-[ext_resource type="Script" uid="uid://bunr50pxeh8gf" path="res://scripts/classes/card_display.gd" id="1_pvgxw"]
+[ext_resource type="Script" uid="uid://bunr50pxeh8gf" path="res://scripts/classes/toy_util/card_display.gd" id="1_pvgxw"]
 
 [node name="CardDisplay" type="SubViewport" unique_id=1492129803]
 handle_input_locally = false

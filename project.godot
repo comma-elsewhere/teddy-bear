@@ -35,6 +35,8 @@ enabled=PackedStringArray()
 
 Toy=""
 ToyBody=""
+DropArea=""
+DragArea=""
 
 [importer_defaults]
 
