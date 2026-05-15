@@ -12,7 +12,7 @@ const TRASH_MARGIN : Array[int] = [50, 800, 1600, 100]
 @onready var bench_layer: CanvasLayer = %BenchLayer
 @onready var chute_layer: CanvasLayer = %ChuteLayer
 
-@onready var table_margins: MarginContainer = %TableMargins
+@onready var table_margins: TextureRect = %TableMargins
 @onready var laundry_margins: MarginContainer = %LaundryMargins
 
 @onready var main_root: Node2D = %MainRoot

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bjrbds6jtw7d8" path="res://scripts/utility/laundry_element.gd" id="2_2j352"]
 [ext_resource type="PhysicsMaterial" uid="uid://cjp3x4fh14jlx" path="res://resources/shaders_materials/plushie_physics_material.phymat" id="2_2jser"]
 [ext_resource type="Script" uid="uid://cse4frc5pm8pi" path="res://scripts/utility/repair_table_area.gd" id="2_qu23m"]
+[ext_resource type="Texture2D" uid="uid://c21p18c38xb8f" path="res://assets/background/bench_table.png" id="2_y1ij5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el6ax"]
 bg_color = Color(1, 0.9019608, 0.3529412, 1)
@@ -20,17 +21,14 @@ bg_color = Color(1, 0.3529412, 0.654902, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2j352"]
 bg_color = Color(0.77254903, 0.91764706, 0.043137256, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y1ij5"]
-bg_color = Color(0.43529412, 0.7647059, 0.96862745, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jo7r"]
-bg_color = Color(1, 0.3529412, 0.654902, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c73gh"]
 bg_color = Color(1, 0.9019608, 0.3529412, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gq5th"]
 bg_color = Color(0.77254903, 0.91764706, 0.043137256, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jo7r"]
+bg_color = Color(1, 0.3529412, 0.654902, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mfy0"]
 bg_color = Color(1, 0.3529412, 0.654902, 1)
@@ -325,7 +323,7 @@ text = "Bench"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TableMargins" type="MarginContainer" parent="SceneStateMachine/BenchLayer/Control3" unique_id=1707338725]
+[node name="TableMargins" type="TextureRect" parent="SceneStateMachine/BenchLayer/Control3" unique_id=1744588760]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -333,33 +331,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TableElement" type="PanelContainer" parent="SceneStateMachine/BenchLayer/Control3/TableMargins" unique_id=1591630677]
-custom_minimum_size = Vector2(1350, 800)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_y1ij5")
-
-[node name="Label6" type="Label" parent="SceneStateMachine/BenchLayer/Control3/TableMargins/TableElement" unique_id=620245686]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
-text = "Repair Table"
-horizontal_alignment = 1
-
-[node name="ToolElement1" type="PanelContainer" parent="SceneStateMachine/BenchLayer/Control3/TableMargins" unique_id=2012011330]
-custom_minimum_size = Vector2(1400, 200)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_6jo7r")
-
-[node name="Label3" type="Label" parent="SceneStateMachine/BenchLayer/Control3/TableMargins/ToolElement1" unique_id=1451843273]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Toolbox"
-horizontal_alignment = 1
+texture = ExtResource("2_y1ij5")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="LaundryMargins" type="MarginContainer" parent="SceneStateMachine/BenchLayer/Control3" unique_id=224547528]
 unique_name_in_owner = true

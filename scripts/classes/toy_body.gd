@@ -77,10 +77,10 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if !event.pressed:
-			if hooked:
-				hooked_held = null
 			grabbed.emit(is_held)
 			_drop(Input.get_last_mouse_velocity())
+			if hooked:
+				hooked_held = null
 
 # attaches to hook and assigns hook point
 func attach_hook(hook_point: Vector2) -> void:
@@ -89,8 +89,9 @@ func attach_hook(hook_point: Vector2) -> void:
 
 # detaches from hook in main root
 func detach_hook() -> void:
-	if get_global_mouse_position().distance_to(_hook_point) < DETACH_DIST:
+	if is_held == hooked_held:
 		hooked = false
+		_drop(Input.get_last_mouse_velocity())
 	
 # make it jerkily move in appropriate direction when position updates
 func update_hook(hook_point: Vector2) -> void:
