@@ -10,7 +10,6 @@ var toy: ToyBody = null
 var capture: bool = false
 
 func _ready() -> void:
-	gravity_space_override = Area2D.SPACE_OVERRIDE_DISABLED
 	body_entered.connect(_activate_freeze)
 	input_event.connect(_mouse_event)
 	%TableMargins.visibility_changed.connect(_toggle_toy_visible)
@@ -45,8 +44,11 @@ func _capture_toy() -> void:
 	
 func _free_toy() -> void:
 	toy.toggle_collision(true)
-	toy = null
 	capture = false
+	for body in get_overlapping_bodies():
+		if toy == body:
+			return
+	toy = null
 
 func _toggle_toy_visible() -> void:
 	if %TableMargins.visible and %BenchLayer.visible and toy != null:
