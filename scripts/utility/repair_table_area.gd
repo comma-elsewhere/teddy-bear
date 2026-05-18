@@ -45,9 +45,6 @@ func _capture_toy() -> void:
 func _free_toy() -> void:
 	toy.toggle_collision(true)
 	capture = false
-	for body in get_overlapping_bodies():
-		if toy == body:
-			return
 	toy = null
 
 func _toggle_toy_visible() -> void:

@@ -395,7 +395,7 @@ monitorable = false
 script = ExtResource("2_2j352")
 
 [node name="RepairTableArea" type="Area2D" parent="SceneStateMachine/BenchLayer" unique_id=1552411218]
-position = Vector2(1239, 297)
+position = Vector2(1239, 345)
 collision_mask = 16
 linear_damp = 1.0
 script = ExtResource("2_qu23m")
