@@ -34,7 +34,7 @@ func _mouse_event (_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 func _detect_toy_dirty(body: Node2D) -> void:
 	if body.is_in_group("ToyBody"):
 		toy = body.get_parent() as ToyBody
-		if !toy.toy_res.dirty or !toy.visible:
+		if !toy.toy_res.dirty_or_stain or !toy.visible:
 			toy = null
 		
 # Hide toy, drop from mouse and hook, freeze bodies, set to clean
@@ -44,4 +44,4 @@ func _wash_toy() -> void:
 	if toy.modulate == CLEAN_COLOR:
 		toy = null
 		return
-	toy.modulate = toy.modulate.lerp(CLEAN_COLOR, 0.01)
+	toy.modulate = toy.modulate.lerp(CLEAN_COLOR, 0.05)

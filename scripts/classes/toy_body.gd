@@ -42,9 +42,9 @@ func _ready() -> void:
 	texture_loader.initiate(toy_res, bodies)
 	card_display.initiate(toy_res.patient_file, right_arm_body)
 	
-	toy_res.dirty = true # TEMP
+	toy_res.dirty_or_stain = true # TEMP
 	
-	if toy_res.dirty:
+	if toy_res.dirty_or_stain:
 		modulate = DIRTY_COLOR
 		
 # assign to group
