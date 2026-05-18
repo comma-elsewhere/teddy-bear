@@ -3,6 +3,8 @@
 [ext_resource type="PhysicsMaterial" uid="uid://cjp3x4fh14jlx" path="res://resources/shaders_materials/plushie_physics_material.phymat" id="1_mhg4l"]
 [ext_resource type="Script" uid="uid://beu2j8kn6dckq" path="res://scripts/classes/toy_body.gd" id="2_dosap"]
 [ext_resource type="Resource" uid="uid://bnbiwt12wob4o" path="res://resources/game_data/test_toy.tres" id="2_vxon5"]
+[ext_resource type="Script" uid="uid://b6r67hx8xyexo" path="res://scripts/classes/areas/objects/item_drop.gd" id="4_nxfk7"]
+[ext_resource type="Resource" uid="uid://dkmqnhbspywx5" path="res://resources/game_data/test_item.tres" id="5_pce2b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_evyic"]
 radius = 125.0
@@ -149,6 +151,11 @@ node_b = NodePath("../../Torso")
 bias = 0.9
 angular_limit_lower = -1.0471976
 angular_limit_upper = 2.0943952
+
+[node name="ItemDrop" type="Area2D" parent="RightArm" unique_id=264282669]
+script = ExtResource("4_nxfk7")
+item_res = ExtResource("5_pce2b")
+metadata/_custom_type_script = "uid://b6r67hx8xyexo"
 
 [node name="Head" type="RigidBody2D" parent="." unique_id=514365462]
 unique_name_in_owner = true

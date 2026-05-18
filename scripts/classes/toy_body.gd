@@ -40,7 +40,7 @@ func _ready() -> void:
 	
 # initiate and load classes with toy res
 	texture_loader.initiate(toy_res, bodies)
-	card_display.initiate(toy_res.patient_file, right_arm_body)
+	#card_display.initiate(toy_res.patient_file, right_arm_body)
 	
 	toy_res.dirty_or_stain = true # TEMP
 	
@@ -60,7 +60,7 @@ func _ready() -> void:
 		body.add_to_group("ToyBody")
 		
 func _physics_process(delta: float) -> void:
-	card_display.dangle_card(delta)
+	#card_display.dangle_card(delta)
 	
 	if is_held == null: # if nothing is being held, return
 		return
@@ -101,7 +101,8 @@ func update_hook(hook_point: Vector2) -> void:
 		body.apply_central_impulse(dist_moved)
 	
 func display_card(unhide: bool = false) -> void:
-	card_display.card_visible(unhide)
+	#card_display.card_visible(unhide)
+	pass
 	
 # Allows mouse collision
 func toggle_collision(allow: bool) -> void:

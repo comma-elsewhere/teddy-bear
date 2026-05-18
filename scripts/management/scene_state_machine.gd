@@ -155,6 +155,7 @@ func _toy_grabbed(is_held: RigidBody2D) -> void:
 # toy state determines which area the toy should be visible in when it is not on the hook
 func _change_toy_state(new_state: int = STATE.MAIN) -> void:
 	toy_state = new_state
+	toy.z_index = 0
 	
 # if current state is not toy state, and toy is not on the hook --> toy will be hidden and un-interactable
 # else: toy is visible and clickable
