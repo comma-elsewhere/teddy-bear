@@ -2,6 +2,7 @@ class_name AddonRes extends Resource
 
 @export var texture: Texture2D
 @export var scale: Vector2 = Vector2.ONE
+@export var contaminant: bool = false
 @export_enum("None", "Tummy", "Neck", "Head", "Arm", "Hand", "Leg", "Foot") var placement: int = 0
 
 const DROP_POS: Array[Vector2] = [

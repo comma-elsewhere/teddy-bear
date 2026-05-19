@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://b2u01ri738q46"]
 
+[ext_resource type="Script" uid="uid://6pw3jvd7cr1k" path="res://scripts/classes/minigame.gd" id="1_t4l1y"]
+
 [node name="StitchingRoot" type="Node2D" unique_id=1625013619]
+script = ExtResource("1_t4l1y")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1084559991]
 
@@ -24,12 +27,3 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "STITCH"
-
-[node name="SubViewport" type="SubViewport" parent="." unique_id=371817251]
-transparent_bg = true
-canvas_item_default_texture_filter = 2
-physics_object_picking = true
-physics_object_picking_sort = true
-physics_object_picking_first_only = true
-size_2d_override = Vector2i(1024, 1024)
-size_2d_override_stretch = true

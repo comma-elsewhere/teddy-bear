@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DamageRes" format=3 uid="uid://dv1p1c1y4i47t"]
+
+[ext_resource type="Script" uid="uid://fedrxqlarm1b" path="res://scripts/resource/damage_res.gd" id="1_k5jus"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k5jus"]
+size = Vector2(40, 40)
+
+[resource]
+script = ExtResource("1_k5jus")
+texture = SubResource("PlaceholderTexture2D_k5jus")
+metadata/_custom_type_script = "uid://fedrxqlarm1b"

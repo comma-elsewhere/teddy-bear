@@ -10,7 +10,6 @@ func _ready() -> void:
 	sprite.texture = item_res.texture
 	sprite.apply_scale(item_res.scale)
 	add_child(sprite)
-	sprite.z_index = 8
 	area_entered.connect(_detect_body)
 	area_exited.connect(_forget_body)
 	drop_complete.connect(_set_reparent)
