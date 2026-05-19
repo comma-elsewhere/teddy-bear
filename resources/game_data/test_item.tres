@@ -7,5 +7,5 @@
 script = ExtResource("1_3n4np")
 type = "Decor"
 texture = ExtResource("2_ulo4y")
-placement = 6
+placement = 2
 metadata/_custom_type_script = "uid://d3o70a8sxxgkg"

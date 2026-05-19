@@ -1,10 +1,10 @@
 class_name ItemDrop extends DropArea
 
-@export var item_res: ItemRes
+var item_res: ItemRes
 
 func _ready() -> void:
-	add_to_group(item_res.drop_group)
-	position = item_res.position
+	add_to_group(item_res.get_group())
+	position = item_res.get_position()
 	create_collision(RADIUS)
 	start()
 

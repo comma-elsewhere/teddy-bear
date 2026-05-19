@@ -22,7 +22,7 @@ func set_item_res(new_res: ItemRes) -> void:
 	item_res = new_res
 
 func _detect_body(body: Node2D) -> void:
-	if body.is_in_group(item_res.drop_group):
+	if body.is_in_group(item_res.get_group()):
 		drop_body = body
 		_color_body(true)
 	else:
@@ -30,7 +30,7 @@ func _detect_body(body: Node2D) -> void:
 		drop_body = null
 
 func _forget_body(body: Node2D) -> void:
-	if body.is_in_group(item_res.drop_group):
+	if body.is_in_group(item_res.get_group()):
 		_color_body(false)
 		drop_body = null
 

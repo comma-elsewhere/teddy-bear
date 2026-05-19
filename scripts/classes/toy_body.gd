@@ -3,8 +3,6 @@ class_name ToyBody extends CanvasGroup
 const FABRIC_1 := preload("uid://duxnrn3xp2ng5")
 const FABRIC_2 := preload("uid://ckt7gitt510xq")
 
-const DIRTY_COLOR := Color("b2a08b")
-
 signal grabbed(is_grabbed: RigidBody2D)
 
 @export var toy_res: ToyDetails
@@ -39,11 +37,10 @@ func _ready() -> void:
 	
 # initiate and load classes with toy res
 	texture_loader.initiate(toy_res, bodies)
-	
-	toy_res.dirty_or_stain = true # TEMP
+	area_spawner.initiate(toy_res, bodies)
 	
 	if toy_res.dirty_or_stain:
-		modulate = DIRTY_COLOR
+		modulate = toy_res.dirt
 		
 # assign to group
 	add_to_group("Toy")
@@ -139,7 +136,7 @@ func _pickup(body: RigidBody2D) -> void:
 		hooked_held = body
 		
 		if hooked_held == is_held:
-			hooked = false
+			grabbed.emit(hooked_held)
 			hooked_held = null
 			return
 			

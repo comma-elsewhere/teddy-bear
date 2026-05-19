@@ -44,4 +44,6 @@ func _wash_toy() -> void:
 	if toy.modulate == CLEAN_COLOR:
 		toy = null
 		return
-	toy.modulate = toy.modulate.lerp(CLEAN_COLOR, 0.05)
+	toy.modulate = toy.modulate.lerp(CLEAN_COLOR, 0.01)
+	for body in toy.bodies:
+			body.modulate = body.modulate.lerp(CLEAN_COLOR, 0.03)

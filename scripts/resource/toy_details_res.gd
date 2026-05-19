@@ -8,6 +8,8 @@ class_name ToyDetails extends Resource
 
 # Toy damage/problems for repair
 @export var dirty_or_stain: bool = false # Clean in laundry machine after cutting open to remove the heart aka "Internal Electronics"
+@export var dirt: Color = Color("ffffff") 
+@export var stains: Color = Color("ffffff")
 @export var open_hole: Array[bool] = [] # bool for holes that need to be stitched
 @export var missing_item: Array[ItemRes] = [] # for items missing from toy
 @export var exterior_contam: Array[ItemRes] = [] # for contaminants on toy exterior 
