@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cbt72jkdrbh2b"]
+
+[node name="ExteriorRemovalRoot" type="Node2D" unique_id=1625013619]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1084559991]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=876984060]
+custom_minimum_size = Vector2(1024, 1024)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.7708395, 0.77083945, 0.77083945, 1)
+
+[node name="Button" type="Button" parent="CanvasLayer/ColorRect" unique_id=1072960400]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -15.5
+offset_right = 31.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "EXTERIOR"
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=371817251]
+transparent_bg = true
+canvas_item_default_texture_filter = 2
+physics_object_picking = true
+physics_object_picking_sort = true
+physics_object_picking_first_only = true
+size_2d_override = Vector2i(1024, 1024)
+size_2d_override_stretch = true

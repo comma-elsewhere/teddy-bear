@@ -1,17 +1,8 @@
 [gd_scene format=3 uid="uid://df6abq4yipgag"]
 
-[ext_resource type="Script" uid="uid://bunr50pxeh8gf" path="res://scripts/classes/toy_util/card_display.gd" id="1_pvgxw"]
+[ext_resource type="Script" uid="uid://bunr50pxeh8gf" path="res://scripts/classes/toy_util/card_display.gd" id="1_vqci1"]
 
-[node name="CardDisplay" type="SubViewport" unique_id=1492129803]
-handle_input_locally = false
-snap_2d_vertices_to_pixel = true
-size_2d_override = Vector2i(512, 512)
-size_2d_override_stretch = true
-render_target_update_mode = 4
-script = ExtResource("1_pvgxw")
-
-[node name="Background" type="ColorRect" parent="." unique_id=330920827]
-unique_name_in_owner = true
+[node name="Background" type="ColorRect" unique_id=330920827]
 custom_minimum_size = Vector2(150, 150)
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,9 +14,12 @@ size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2086305997]
 custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -4.0
+offset_right = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -77,3 +71,11 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 48
 text = "blah blah blah blah"
 autowrap_mode = 3
+
+[node name="PatientRecordDisplay" type="SubViewport" parent="." unique_id=1492129803]
+handle_input_locally = false
+snap_2d_vertices_to_pixel = true
+size_2d_override = Vector2i(512, 512)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+script = ExtResource("1_vqci1")

@@ -105,8 +105,6 @@ func transition() -> void:
 	if toy.hooked:
 		await get_tree().process_frame
 		toy.call_deferred("update_hook", _get_hook_pos())
-	# show id card if it's in terminal scene
-	toy.display_card(current_state == STATE.TERMINAL)
 	
 # Called once by _ready(), after this old state will need to be reset
 func _set_scene(new_state: int) -> void:

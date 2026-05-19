@@ -23,7 +23,6 @@ const HOOK_DRAG := 80
 const TOSS_DAMP := 1600
 
 var area_spawner := AreaSpawner.new()
-var card_display := CardSpawner.new()
 var texture_loader := TextureLoader.new()
 
 var hooked: bool = false
@@ -40,7 +39,6 @@ func _ready() -> void:
 	
 # initiate and load classes with toy res
 	texture_loader.initiate(toy_res, bodies)
-	#card_display.initiate(toy_res.patient_file, right_arm_body)
 	
 	toy_res.dirty_or_stain = true # TEMP
 	
@@ -60,17 +58,15 @@ func _ready() -> void:
 		body.add_to_group("ToyBody")
 		
 func _physics_process(delta: float) -> void:
-	#card_display.dangle_card(delta)
-	
 	if is_held == null: # if nothing is being held, return
 		return
 	if hooked:
-		is_held.global_position = lerp(is_held.global_position, _hook_point, delta * HOOK_LERP)
+		is_held.global_position = is_held.global_position.lerp(_hook_point, delta * HOOK_LERP)
 		_normalize_velocity(0.7)
 		if hooked_held != null:
 			hooked_held.apply_central_force((hooked_held.get_global_mouse_position() - hooked_held.global_position) * HOOK_DRAG)
 		return
-	is_held.global_position = lerp(is_held.global_position, is_held.get_global_mouse_position(), delta * MOUSE_LERP)
+	is_held.global_position = is_held.global_position.lerp(is_held.get_global_mouse_position(), delta * MOUSE_LERP)
 	_normalize_velocity(0.5)
 
 #drop is_held when mouse is let go from anywhere on screen, even if not currently colliding with body
@@ -91,7 +87,6 @@ func attach_hook(hook_point: Vector2) -> void:
 func detach_hook() -> void:
 	if is_held == hooked_held:
 		hooked = false
-		_drop(Input.get_last_mouse_velocity())
 	
 # make it jerkily move in appropriate direction when position updates
 func update_hook(hook_point: Vector2) -> void:
@@ -100,9 +95,6 @@ func update_hook(hook_point: Vector2) -> void:
 	for body in bodies:
 		body.apply_central_impulse(dist_moved)
 	
-func display_card(unhide: bool = false) -> void:
-	#card_display.card_visible(unhide)
-	pass
 	
 # Allows mouse collision
 func toggle_collision(allow: bool) -> void:
@@ -145,6 +137,12 @@ func _mouse_event(_viewport: Node, event: InputEvent, _shape_idx: int, body: Rig
 func _pickup(body: RigidBody2D) -> void:
 	if hooked:
 		hooked_held = body
+		
+		if hooked_held == is_held:
+			hooked = false
+			hooked_held = null
+			return
+			
 	if is_held:
 		return
 	is_held = body
