@@ -11,6 +11,7 @@ var toy: ToyBody = null
 var capture: bool = false
 
 func _ready() -> void:
+	get_parent().visibility_changed.connect(_toggle_toy_visibility)
 	body_entered.connect(_activate_freeze)
 	input_event.connect(_mouse_event)
 	create_collision(150.0)
@@ -57,3 +58,9 @@ func _enable_area(can_use: bool) -> void:
 	get_tree().call_group("Exterior", "enable_area", can_use)
 	if toy != null and toy.toy_res.chest_open == true:
 		get_tree().call_group("Interior", "enable_area", can_use)
+
+func _toggle_toy_visibility() -> void:
+	if toy == null:
+		return
+	toy.visible = get_parent().visible
+	input_pickable = get_parent().visible

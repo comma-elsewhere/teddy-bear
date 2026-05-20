@@ -75,6 +75,15 @@ func _input(event: InputEvent) -> void:
 			if hooked:
 				hooked_held = null
 
+func open_chest(open: bool) -> void:
+	if open:
+		area_spawner.open_chest(%Torso)
+		texture_loader.open_chest(toy_res, %Torso)
+	else:
+		for child in %Torso.get_children():
+			if child.is_in_group("OpenChest"):
+				child.call_deferred("queue_free")
+
 # attaches to hook and assigns hook point
 func attach_hook(hook_point: Vector2) -> void:
 	hooked = true

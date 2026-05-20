@@ -60,12 +60,17 @@ func create_popup() -> void:
 	popup_container.mouse_target = false
 	popup_container.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	popup_container.mouse_filter = Control.MOUSE_FILTER_STOP
+	popup_container.top_level = true
 	popup.minigame_complete.connect(remove_self) # when minigame is complete, remove the whole area
 	popup.set_res(addon_res) # pass through addon res to the popup scene
 	
 func remove_self() -> void:
-	if is_in_group(GROUP[TYPE.CUT]): # if you just cut the toy open, enable removing things from the interior
+	if is_in_group(GROUP[TYPE.CUT]) and get_parent().is_in_group("Torso"): # if you just cut the toy open, enable removing things from the interior
 		get_tree().call_group(GROUP[TYPE.INT], "enable_area", true)
+		get_tree().call_group("Toy", "open_chest", true)
+	if is_in_group(GROUP[TYPE.STITCH]) and get_parent().is_in_group("Torso"):
+		get_tree().call_group(GROUP[TYPE.INT], "enable_area", false)
+		get_tree().call_group("Toy", "open_chest", false)
 	get_parent().set_deferred("freeze", false) # allow parent to move again
 	# Remove self from scene tree
 	get_parent().remove_child(self)

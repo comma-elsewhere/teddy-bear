@@ -39,6 +39,9 @@ func initiate(toy_res: ToyDetails, bodies: Array[RigidBody2D]) -> void:
 			6: _spawn_item_drop(item, [bodies[toy_res.BODY_PARTS.LEFT_LEG], bodies[toy_res.BODY_PARTS.RIGHT_LEG]])
 			7: _spawn_item_drop(item, [bodies[toy_res.BODY_PARTS.LEFT_LEG], bodies[toy_res.BODY_PARTS.RIGHT_LEG]])
 			
+func open_chest(torso: RigidBody2D) -> void:
+	_spawn_toy_damage(DamageRes.new(), [torso])
+	
 func _spawn_item_drop(item_res: AddonRes, body_parts: Array[RigidBody2D]) -> void:
 	var item_drop := ItemDrop.new()
 	item_drop.set_item_res(item_res)
