@@ -76,6 +76,7 @@ func _input(event: InputEvent) -> void:
 				hooked_held = null
 
 func open_chest(open: bool) -> void:
+	toy_res.chest_open = open
 	if open:
 		area_spawner.open_chest(%Torso)
 		texture_loader.open_chest(toy_res, %Torso)

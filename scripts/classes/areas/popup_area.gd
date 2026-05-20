@@ -61,6 +61,8 @@ func create_popup() -> void:
 	popup_container.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	popup_container.mouse_filter = Control.MOUSE_FILTER_STOP
 	popup_container.top_level = true
+	popup_container.set_visibility_layer_bit(4, true)
+	popup_container.set_visibility_layer_bit(1, false)
 	popup.minigame_complete.connect(remove_self) # when minigame is complete, remove the whole area
 	popup.set_res(addon_res) # pass through addon res to the popup scene
 	

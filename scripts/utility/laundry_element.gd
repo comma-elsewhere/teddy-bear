@@ -34,7 +34,7 @@ func _mouse_event (_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 func _detect_toy_dirty(body: Node2D) -> void:
 	if body.is_in_group("ToyBody"):
 		toy = body.get_parent() as ToyBody
-		if !toy.toy_res.dirty_or_stain or !toy.visible:
+		if !toy.toy_res.dirty_or_stain or !toy.visible or !toy.toy_res.chest_open:
 			toy = null
 		
 # Hide toy, drop from mouse and hook, freeze bodies, set to clean
