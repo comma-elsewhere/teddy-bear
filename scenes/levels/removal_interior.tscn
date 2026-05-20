@@ -2,18 +2,21 @@
 
 [ext_resource type="Script" uid="uid://6pw3jvd7cr1k" path="res://scripts/classes/minigame.gd" id="1_fue2h"]
 
-[node name="InteriorRemovalRoot" type="Node2D" unique_id=1625013619]
+[node name="SubViewport" type="SubViewport" unique_id=358262615]
 script = ExtResource("1_fue2h")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1084559991]
+[node name="InteriorRemovalRoot" type="Node2D" parent="." unique_id=1625013619]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=876984060]
+[node name="CanvasLayer" type="CanvasLayer" parent="InteriorRemovalRoot" unique_id=1084559991]
+
+[node name="ColorRect" type="ColorRect" parent="InteriorRemovalRoot/CanvasLayer" unique_id=876984060]
 custom_minimum_size = Vector2(1024, 1024)
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.7708395, 0.77083945, 0.77083945, 1)
 
-[node name="Button" type="Button" parent="CanvasLayer/ColorRect" unique_id=1072960400]
+[node name="Button" type="Button" parent="InteriorRemovalRoot/CanvasLayer/ColorRect" unique_id=1072960400]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

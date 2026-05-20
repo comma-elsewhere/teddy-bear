@@ -52,33 +52,28 @@ func enable_area(enable: bool) -> void:
 func create_popup() -> void:
 	get_parent().set_deferred("freeze", true) # prevent parent from moving while popup is open
 	# create popup
-	var viewport_display := Sprite2D.new()
-	var viewport := SubViewport.new()
-	var popup: MiniGame = popup_preload.instantiate() as MiniGame
-	add_child(viewport)
-	viewport.add_child(popup)
-	# Subviewport settings yeesh
-	viewport.size = Vector2(512, 512)
-	viewport.size_2d_override = Vector2(1024, 1024)
-	viewport.size_2d_override_stretch = true
-	viewport.handle_input_locally = true
-	#viewport.physics_object_picking = true
-	#viewport.physics_object_picking_sort = true
-	#viewport.physics_object_picking_first_only = true
-	viewport.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-	add_child(viewport_display)
-	viewport_display.texture = viewport.get_texture() # set display texture to subviewport texture
+	#var popup_display := Sprite2D.new()
+	var popup_container := SubViewportContainer.new()
+	var popup: MiniGame = popup_preload.instantiate() as MiniGame # Minigame is a subclass of SubViewport
+	add_child(popup_container)
+	#add_child(popup_display)
+	popup_container.add_child(popup)
+	# setup and connections
+	popup_container.mouse_target = false
+	popup_container.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+	popup_container.mouse_filter = Control.MOUSE_FILTER_STOP
+	#popup_display.texture = popup.get_texture() # set display texture to subviewport texture
 	popup.minigame_complete.connect(remove_self) # when minigame is complete, remove the whole area
 	popup.set_res(addon_res) # pass through addon res to the popup scene
-	viewport_display.set_visibility_layer_bit(4, true)
+	#popup_display.set_visibility_layer_bit(4, true)
 	
 func remove_self() -> void:
 	if is_in_group(GROUP[TYPE.CUT]): # if you just cut the toy open, enable removing things from the interior
 		get_tree().call_group(GROUP[TYPE.INT], "enable_area", true)
-	get_parent().freeze = false # allow parent to move again
+	get_parent().set_deferred("freeze", false) # allow parent to move again
 	# Remove self from scene tree
 	get_parent().remove_child(self)
-	call_deferred("queue_free")
+	queue_free()
 	
 # display sprite based on addon res
 func _add_sprite(res: AddonRes) -> void:
