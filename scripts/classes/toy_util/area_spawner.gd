@@ -7,10 +7,26 @@ func initiate(toy_res: ToyDetails, bodies: Array[RigidBody2D]) -> void:
 		_spawn_internal_removal(toy_res.interior_contam, bodies[toy_res.BODY_PARTS.TORSO])
 	
 	for damage in toy_res.damage_areas:
-		_spawn_toy_damage(damage, bodies)
+		match damage.placement:
+			0: _spawn_toy_damage(damage, bodies)
+			1: _spawn_toy_damage(damage, [bodies[toy_res.BODY_PARTS.TORSO]])
+			2: _spawn_toy_damage(damage, [bodies[toy_res.BODY_PARTS.TORSO]])
+			3: _spawn_toy_damage(damage, [bodies[toy_res.BODY_PARTS.HEAD]])
+			4: _spawn_toy_damage(damage, [bodies[toy_res.BODY_PARTS.LEFT_ARM], bodies[toy_res.BODY_PARTS.RIGHT_ARM]])
+			5: _spawn_toy_damage(damage, [bodies[toy_res.BODY_PARTS.LEFT_ARM], bodies[toy_res.BODY_PARTS.RIGHT_ARM]])
+			6: _spawn_toy_damage(damage, [bodies[toy_res.BODY_PARTS.LEFT_LEG], bodies[toy_res.BODY_PARTS.RIGHT_LEG]])
+			7: _spawn_toy_damage(damage, [bodies[toy_res.BODY_PARTS.LEFT_LEG], bodies[toy_res.BODY_PARTS.RIGHT_LEG]])
 		
 	for contam in toy_res.exterior_contam:
-		_spawn_external_removal(contam, bodies)
+		match contam.placement:
+			0: _spawn_external_removal(contam, bodies)
+			1: _spawn_external_removal(contam, [bodies[toy_res.BODY_PARTS.TORSO]])
+			2: _spawn_external_removal(contam, [bodies[toy_res.BODY_PARTS.TORSO]])
+			3: _spawn_external_removal(contam, [bodies[toy_res.BODY_PARTS.HEAD]])
+			4: _spawn_external_removal(contam, [bodies[toy_res.BODY_PARTS.LEFT_ARM], bodies[toy_res.BODY_PARTS.RIGHT_ARM]])
+			5: _spawn_external_removal(contam, [bodies[toy_res.BODY_PARTS.LEFT_ARM], bodies[toy_res.BODY_PARTS.RIGHT_ARM]])
+			6: _spawn_external_removal(contam, [bodies[toy_res.BODY_PARTS.LEFT_LEG], bodies[toy_res.BODY_PARTS.RIGHT_LEG]])
+			7: _spawn_external_removal(contam, [bodies[toy_res.BODY_PARTS.LEFT_LEG], bodies[toy_res.BODY_PARTS.RIGHT_LEG]])
 	
 	for item in toy_res.missing_item:
 		match item.placement:
@@ -42,6 +58,7 @@ func _spawn_external_removal(item_res: AddonRes, body_parts: Array[RigidBody2D])
 	var external_popup := PopupArea.new()
 	external_popup.initiate_removal_exterior(item_res)
 	body_parts.pick_random().add_child(external_popup)
+	external_popup.position = item_res.get_position()
 
 func _spawn_internal_removal(item_array: Array[AddonRes], torso: RigidBody2D) -> void:
 	var internal_popup := PopupArea.new()

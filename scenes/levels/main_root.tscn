@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://br87b8ipec2uy"]
 
-[ext_resource type="Script" uid="uid://01putgmxmdkw" path="res://scripts/management/scene_state_machine.gd" id="1_el6ax"]
-[ext_resource type="Script" uid="uid://bjrbds6jtw7d8" path="res://scripts/utility/laundry_element.gd" id="2_2j352"]
-[ext_resource type="PhysicsMaterial" uid="uid://cjp3x4fh14jlx" path="res://resources/shaders_materials/plushie_physics_material.phymat" id="2_2jser"]
-[ext_resource type="Script" uid="uid://dvssb0hn1uwes" path="res://scripts/classes/areas/objects/item_drag.gd" id="2_6jo7r"]
-[ext_resource type="Script" uid="uid://cse4frc5pm8pi" path="res://scripts/utility/repair_table_area.gd" id="2_qu23m"]
-[ext_resource type="Texture2D" uid="uid://c21p18c38xb8f" path="res://assets/background/bench_table.png" id="2_y1ij5"]
-[ext_resource type="Resource" uid="uid://dkmqnhbspywx5" path="res://resources/game_data/test_item.tres" id="3_c73gh"]
+[ext_resource type="Script" uid="uid://01putgmxmdkw" path="res://scripts/management/scene_state_machine.gd" id="1_mpv8k"]
+[ext_resource type="Script" uid="uid://dvssb0hn1uwes" path="res://scripts/classes/areas/objects/item_drag.gd" id="2_fq3os"]
+[ext_resource type="Resource" uid="uid://dkmqnhbspywx5" path="res://resources/game_data/test_item.tres" id="3_kp1bl"]
+[ext_resource type="Texture2D" uid="uid://c21p18c38xb8f" path="res://assets/background/bench_table.png" id="4_sqfxy"]
+[ext_resource type="Script" uid="uid://duh2dy8m2epvp" path="res://scripts/classes/areas/objects/tool_drag.gd" id="5_ssf80"]
+[ext_resource type="Texture2D" uid="uid://ri3unyksjwas" path="res://icon.svg" id="6_3nowq"]
+[ext_resource type="Script" uid="uid://bjrbds6jtw7d8" path="res://scripts/utility/laundry_element.gd" id="7_i2g58"]
+[ext_resource type="Script" uid="uid://cse4frc5pm8pi" path="res://scripts/utility/repair_table_area.gd" id="8_qinn8"]
+[ext_resource type="PhysicsMaterial" uid="uid://cjp3x4fh14jlx" path="res://resources/shaders_materials/plushie_physics_material.phymat" id="9_wa2yn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el6ax"]
 bg_color = Color(1, 0.9019608, 0.3529412, 1)
@@ -126,7 +128,7 @@ _data = {
 anchor_mode = 0
 
 [node name="SceneStateMachine" type="Node" parent="." unique_id=2093477958]
-script = ExtResource("1_el6ax")
+script = ExtResource("1_mpv8k")
 
 [node name="RoomLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=901725227]
 unique_name_in_owner = true
@@ -220,6 +222,7 @@ horizontal_alignment = 1
 
 [node name="TerminalLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=664462699]
 unique_name_in_owner = true
+visible = false
 
 [node name="Control2" type="Control" parent="SceneStateMachine/TerminalLayer" unique_id=1755149586]
 layout_mode = 3
@@ -291,13 +294,12 @@ horizontal_alignment = 1
 
 [node name="ItemDrag" type="Area2D" parent="SceneStateMachine/TerminalLayer" unique_id=1711119824]
 position = Vector2(292, 383)
-script = ExtResource("2_6jo7r")
-item_res = ExtResource("3_c73gh")
+script = ExtResource("2_fq3os")
+item_res = ExtResource("3_kp1bl")
 metadata/_custom_type_script = "uid://dvssb0hn1uwes"
 
 [node name="BenchLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=993735210]
 unique_name_in_owner = true
-visible = false
 
 [node name="Control3" type="Control" parent="SceneStateMachine/BenchLayer" unique_id=857957686]
 layout_mode = 3
@@ -336,7 +338,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_y1ij5")
+texture = ExtResource("4_sqfxy")
 expand_mode = 1
 stretch_mode = 6
 
@@ -384,14 +386,37 @@ position = Vector2(847, 689)
 collision_mask = 16
 input_pickable = false
 monitorable = false
-script = ExtResource("2_2j352")
+script = ExtResource("7_i2g58")
 
 [node name="RepairTableArea" type="Area2D" parent="SceneStateMachine/BenchLayer" unique_id=1552411218]
 position = Vector2(1239, 345)
 collision_mask = 16
 linear_damp = 1.0
-script = ExtResource("2_qu23m")
+script = ExtResource("8_qinn8")
 metadata/_custom_type_script = "uid://bdm238hhxjrj0"
+
+[node name="ToolDragRemove" type="Area2D" parent="SceneStateMachine/BenchLayer" unique_id=1642156831]
+modulate = Color(0, 0.0333333, 1, 1)
+position = Vector2(902, 967)
+script = ExtResource("5_ssf80")
+texture = ExtResource("6_3nowq")
+metadata/_custom_type_script = "uid://duh2dy8m2epvp"
+
+[node name="ToolDragCut" type="Area2D" parent="SceneStateMachine/BenchLayer" unique_id=1096396097]
+modulate = Color(0, 1, 0.20000005, 1)
+position = Vector2(1127, 1019)
+script = ExtResource("5_ssf80")
+tool_target = 1
+texture = ExtResource("6_3nowq")
+metadata/_custom_type_script = "uid://duh2dy8m2epvp"
+
+[node name="ToolDragStitch" type="Area2D" parent="SceneStateMachine/BenchLayer" unique_id=2073658118]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(1369, 1013)
+script = ExtResource("5_ssf80")
+tool_target = 2
+texture = ExtResource("6_3nowq")
+metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
 [node name="ChuteLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=1678620600]
 unique_name_in_owner = true
@@ -524,7 +549,7 @@ unique_name_in_owner = true
 position = Vector2(-120, 0)
 rotation = 1.5707964
 collision_mask = 30
-physics_material_override = ExtResource("2_2jser")
+physics_material_override = ExtResource("9_wa2yn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneStateMachine/MainGUI/MainRoot/Wall1" unique_id=1026327110]
 shape = SubResource("WorldBoundaryShape2D_el6ax")
@@ -533,7 +558,7 @@ shape = SubResource("WorldBoundaryShape2D_el6ax")
 position = Vector2(2040, 0)
 rotation = -1.5707964
 collision_mask = 30
-physics_material_override = ExtResource("2_2jser")
+physics_material_override = ExtResource("9_wa2yn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneStateMachine/MainGUI/MainRoot/Wall2" unique_id=1527045695]
 shape = SubResource("WorldBoundaryShape2D_el6ax")
@@ -541,7 +566,7 @@ shape = SubResource("WorldBoundaryShape2D_el6ax")
 [node name="Wall3" type="StaticBody2D" parent="SceneStateMachine/MainGUI/MainRoot" unique_id=997296323]
 position = Vector2(0, 1080)
 collision_mask = 30
-physics_material_override = ExtResource("2_2jser")
+physics_material_override = ExtResource("9_wa2yn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneStateMachine/MainGUI/MainRoot/Wall3" unique_id=397804349]
 shape = SubResource("WorldBoundaryShape2D_w3f05")

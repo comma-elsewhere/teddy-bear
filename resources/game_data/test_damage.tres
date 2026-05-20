@@ -8,4 +8,5 @@ size = Vector2(40, 40)
 [resource]
 script = ExtResource("1_k5jus")
 texture = SubResource("PlaceholderTexture2D_k5jus")
+placement = 1
 metadata/_custom_type_script = "uid://fedrxqlarm1b"

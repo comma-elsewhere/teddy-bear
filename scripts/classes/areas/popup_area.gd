@@ -7,8 +7,8 @@ const REMOVAL_INTERIOR := preload("uid://ngx8msl71kep")
 const STITCHING_GAME := preload("uid://b2u01ri738q46")
 
 # Need same groups in tool drag
-enum TYPE {EXT, INT, CUT, STITCH}
-const GROUP: Array[String] = ["RemoveExtPopup", "RemoveIntPopup", "CutPopup", "StitchPopup"]
+enum TYPE {REMOVE, CUT, STITCH, INT}
+const GROUP: Array[String] = ["RemovePopup", "CutPopup", "StitchPopup", "InteriorStuff"]
 
 var popup_preload: PackedScene = null # Set before ready by area spawner
 var addon_res: Array[AddonRes] = [] # optional set by area spawner
@@ -18,12 +18,13 @@ func _ready() -> void:
 	start()
 
 func initiate_removal_exterior(item_res: AddonRes) -> void:
-	add_to_group(GROUP[TYPE.EXT])
+	add_to_group(GROUP[TYPE.REMOVE])
 	popup_preload = REMOVAL_EXTERIOR
 	addon_res = [item_res]
 	_add_sprite(item_res)
 	
 func initiate_removal_interior(item_array: Array[AddonRes]) -> void:
+	add_to_group(GROUP[TYPE.REMOVE])
 	add_to_group(GROUP[TYPE.INT])
 	popup_preload = REMOVAL_INTERIOR
 	addon_res = item_array
