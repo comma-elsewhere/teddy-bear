@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://fedrxqlarm1b" path="res://scripts/resource/damage_res.gd" id="1_k5jus"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k5jus"]
-size = Vector2(40, 40)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k5jus"]
+load_path = "res://.godot/imported/temp damage.png-9b5019f8381220aeda11766a6064f52f.ctex"
 
 [resource]
 script = ExtResource("1_k5jus")
-texture = SubResource("PlaceholderTexture2D_k5jus")
-placement = 1
+texture = SubResource("CompressedTexture2D_k5jus")
+scale = Vector2(0.3, 0.3)
+contaminant = true
+placement = 3
 metadata/_custom_type_script = "uid://fedrxqlarm1b"

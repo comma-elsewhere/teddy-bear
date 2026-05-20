@@ -1,11 +1,14 @@
 [gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://dkmqnhbspywx5"]
 
 [ext_resource type="Script" uid="uid://d3o70a8sxxgkg" path="res://scripts/resource/item_res.gd" id="1_3n4np"]
-[ext_resource type="Texture2D" uid="uid://ri3unyksjwas" path="res://icon.svg" id="2_ulo4y"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y0ro1"]
+load_path = "res://.godot/imported/temp decor.png-4a1283d061eb037a96f191fa380dfb09.ctex"
 
 [resource]
 script = ExtResource("1_3n4np")
 type = "Decor"
-texture = ExtResource("2_ulo4y")
-placement = 7
+texture = SubResource("CompressedTexture2D_y0ro1")
+scale = Vector2(0.1, 0.1)
+placement = 2
 metadata/_custom_type_script = "uid://d3o70a8sxxgkg"

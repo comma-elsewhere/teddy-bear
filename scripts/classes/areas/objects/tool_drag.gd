@@ -13,8 +13,9 @@ var tool_group: String
 func _ready() -> void:
 	var sprite := Sprite2D.new()
 	sprite.texture = texture
+	sprite.apply_scale(Vector2(0.3, 0.3))
 	add_child(sprite)
-	create_collision(float(sprite.texture.get_width())/2)
+	create_collision(float(sprite.texture.get_height())/2 * 0.3)
 	reset_point = global_position
 	_set_tool_group()
 	area_entered.connect(_check_area)

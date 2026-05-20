@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://b72dqlksbahpv"]
+
+[ext_resource type="Script" uid="uid://d3o70a8sxxgkg" path="res://scripts/resource/item_res.gd" id="1_o3cle"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_78mmy"]
+load_path = "res://.godot/imported/temp contam.webp-fa8996c2be1f278593fb1037803944e6.ctex"
+
+[resource]
+script = ExtResource("1_o3cle")
+type = "Decor"
+texture = SubResource("CompressedTexture2D_78mmy")
+scale = Vector2(0.3, 0.3)
+contaminant = true
+placement = 7
+metadata/_custom_type_script = "uid://d3o70a8sxxgkg"

@@ -5,9 +5,11 @@
 [ext_resource type="Resource" uid="uid://dkmqnhbspywx5" path="res://resources/game_data/test_item.tres" id="3_kp1bl"]
 [ext_resource type="Texture2D" uid="uid://c21p18c38xb8f" path="res://assets/background/bench_table.png" id="4_sqfxy"]
 [ext_resource type="Script" uid="uid://duh2dy8m2epvp" path="res://scripts/classes/areas/objects/tool_drag.gd" id="5_ssf80"]
-[ext_resource type="Texture2D" uid="uid://ri3unyksjwas" path="res://icon.svg" id="6_3nowq"]
 [ext_resource type="Script" uid="uid://bjrbds6jtw7d8" path="res://scripts/utility/laundry_element.gd" id="7_i2g58"]
+[ext_resource type="Texture2D" uid="uid://c14ljb54gctfk" path="res://assets/temp forceps.png" id="7_kp1bl"]
 [ext_resource type="Script" uid="uid://cse4frc5pm8pi" path="res://scripts/utility/repair_table_area.gd" id="8_qinn8"]
+[ext_resource type="Texture2D" uid="uid://cx26sbk8nv1co" path="res://assets/temp scalpel.webp" id="8_sqfxy"]
+[ext_resource type="Texture2D" uid="uid://blt4fli8m32uj" path="res://assets/temp sutures.png" id="9_ssf80"]
 [ext_resource type="PhysicsMaterial" uid="uid://cjp3x4fh14jlx" path="res://resources/shaders_materials/plushie_physics_material.phymat" id="9_wa2yn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el6ax"]
@@ -350,26 +352,23 @@ script = ExtResource("8_qinn8")
 metadata/_custom_type_script = "uid://bdm238hhxjrj0"
 
 [node name="ToolDragRemove" type="Area2D" parent="SceneStateMachine/BenchLayer/Control3/TableMargins" unique_id=1642156831]
-modulate = Color(0, 0.0333333, 1, 1)
-position = Vector2(902, 967)
+position = Vector2(856, 956)
 script = ExtResource("5_ssf80")
-texture = ExtResource("6_3nowq")
+texture = ExtResource("7_kp1bl")
 metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
 [node name="ToolDragCut" type="Area2D" parent="SceneStateMachine/BenchLayer/Control3/TableMargins" unique_id=1096396097]
-modulate = Color(0, 1, 0.20000005, 1)
-position = Vector2(1127, 1019)
+position = Vector2(1280, 1026)
 script = ExtResource("5_ssf80")
 tool_target = 1
-texture = ExtResource("6_3nowq")
+texture = ExtResource("8_sqfxy")
 metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
 [node name="ToolDragStitch" type="Area2D" parent="SceneStateMachine/BenchLayer/Control3/TableMargins" unique_id=2073658118]
-modulate = Color(1, 0, 0, 1)
-position = Vector2(1369, 1013)
+position = Vector2(1642, 969)
 script = ExtResource("5_ssf80")
 tool_target = 2
-texture = ExtResource("6_3nowq")
+texture = ExtResource("9_ssf80")
 metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
 [node name="LaundryMargins" type="MarginContainer" parent="SceneStateMachine/BenchLayer/Control3" unique_id=224547528]

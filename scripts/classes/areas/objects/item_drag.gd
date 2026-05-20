@@ -13,7 +13,7 @@ func _ready() -> void:
 	area_entered.connect(_detect_body)
 	area_exited.connect(_forget_body)
 	drop_complete.connect(_set_reparent)
-	create_collision(float(sprite.texture.get_width())/2)
+	create_collision(float(sprite.texture.get_height())/2 * item_res.scale.x)
 	input_pickable = true
 	set_visibility_layer_bit(3, true)
 	start()
