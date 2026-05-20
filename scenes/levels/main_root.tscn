@@ -342,6 +342,36 @@ texture = ExtResource("4_sqfxy")
 expand_mode = 1
 stretch_mode = 6
 
+[node name="RepairTableArea" type="Area2D" parent="SceneStateMachine/BenchLayer/Control3/TableMargins" unique_id=1552411218]
+position = Vector2(1239, 345)
+collision_mask = 16
+linear_damp = 1.0
+script = ExtResource("8_qinn8")
+metadata/_custom_type_script = "uid://bdm238hhxjrj0"
+
+[node name="ToolDragRemove" type="Area2D" parent="SceneStateMachine/BenchLayer/Control3/TableMargins" unique_id=1642156831]
+modulate = Color(0, 0.0333333, 1, 1)
+position = Vector2(902, 967)
+script = ExtResource("5_ssf80")
+texture = ExtResource("6_3nowq")
+metadata/_custom_type_script = "uid://duh2dy8m2epvp"
+
+[node name="ToolDragCut" type="Area2D" parent="SceneStateMachine/BenchLayer/Control3/TableMargins" unique_id=1096396097]
+modulate = Color(0, 1, 0.20000005, 1)
+position = Vector2(1127, 1019)
+script = ExtResource("5_ssf80")
+tool_target = 1
+texture = ExtResource("6_3nowq")
+metadata/_custom_type_script = "uid://duh2dy8m2epvp"
+
+[node name="ToolDragStitch" type="Area2D" parent="SceneStateMachine/BenchLayer/Control3/TableMargins" unique_id=2073658118]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(1369, 1013)
+script = ExtResource("5_ssf80")
+tool_target = 2
+texture = ExtResource("6_3nowq")
+metadata/_custom_type_script = "uid://duh2dy8m2epvp"
+
 [node name="LaundryMargins" type="MarginContainer" parent="SceneStateMachine/BenchLayer/Control3" unique_id=224547528]
 unique_name_in_owner = true
 visible = false
@@ -387,36 +417,6 @@ collision_mask = 16
 input_pickable = false
 monitorable = false
 script = ExtResource("7_i2g58")
-
-[node name="RepairTableArea" type="Area2D" parent="SceneStateMachine/BenchLayer" unique_id=1552411218]
-position = Vector2(1239, 345)
-collision_mask = 16
-linear_damp = 1.0
-script = ExtResource("8_qinn8")
-metadata/_custom_type_script = "uid://bdm238hhxjrj0"
-
-[node name="ToolDragRemove" type="Area2D" parent="SceneStateMachine/BenchLayer" unique_id=1642156831]
-modulate = Color(0, 0.0333333, 1, 1)
-position = Vector2(902, 967)
-script = ExtResource("5_ssf80")
-texture = ExtResource("6_3nowq")
-metadata/_custom_type_script = "uid://duh2dy8m2epvp"
-
-[node name="ToolDragCut" type="Area2D" parent="SceneStateMachine/BenchLayer" unique_id=1096396097]
-modulate = Color(0, 1, 0.20000005, 1)
-position = Vector2(1127, 1019)
-script = ExtResource("5_ssf80")
-tool_target = 1
-texture = ExtResource("6_3nowq")
-metadata/_custom_type_script = "uid://duh2dy8m2epvp"
-
-[node name="ToolDragStitch" type="Area2D" parent="SceneStateMachine/BenchLayer" unique_id=2073658118]
-modulate = Color(1, 0, 0, 1)
-position = Vector2(1369, 1013)
-script = ExtResource("5_ssf80")
-tool_target = 2
-texture = ExtResource("6_3nowq")
-metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
 [node name="ChuteLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=1678620600]
 unique_name_in_owner = true
@@ -497,6 +497,7 @@ grow_vertical = 2
 
 [node name="MeatHook" type="TextureRect" parent="SceneStateMachine/MainGUI/HUD/HookMargin" unique_id=296237937]
 unique_name_in_owner = true
+visibility_layer = 16
 custom_minimum_size = Vector2(125, 200)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -507,6 +508,7 @@ stretch_mode = 6
 
 [node name="TrashCan" type="TextureRect" parent="SceneStateMachine/MainGUI/HUD/HookMargin" unique_id=984773241]
 unique_name_in_owner = true
+visibility_layer = 16
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -527,7 +529,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="FadeBlack" type="ColorRect" parent="SceneStateMachine/MainGUI/SFX" unique_id=1161826922]
-visibility_layer = 4097
+visibility_layer = 16
 z_index = 10
 layout_mode = 1
 anchors_preset = 15

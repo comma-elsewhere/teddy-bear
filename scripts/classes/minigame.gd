@@ -12,4 +12,5 @@ func set_res(new_res: Array[AddonRes]) -> void:
 		return
 
 func _finished() -> void:
+	print("I tried")
 	minigame_complete.emit()

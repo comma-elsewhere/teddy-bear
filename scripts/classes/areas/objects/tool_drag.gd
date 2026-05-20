@@ -15,6 +15,8 @@ func _ready() -> void:
 	reset_point = global_position
 	_set_tool_group()
 	area_entered.connect(_check_area)
+	set_visibility_layer_bit(3, true)
+	z_index = 10
 	start()
 	
 func _set_tool_group() -> void:

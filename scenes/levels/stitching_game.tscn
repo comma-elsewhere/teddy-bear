@@ -6,11 +6,13 @@
 script = ExtResource("1_t4l1y")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1084559991]
+follow_viewport_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=876984060]
 custom_minimum_size = Vector2(1024, 1024)
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 1
 color = Color(0.7708395, 0.77083945, 0.77083945, 1)
 
 [node name="Button" type="Button" parent="CanvasLayer/ColorRect" unique_id=1072960400]

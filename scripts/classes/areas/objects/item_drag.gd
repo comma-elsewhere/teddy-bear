@@ -15,6 +15,7 @@ func _ready() -> void:
 	drop_complete.connect(_set_reparent)
 	create_collision(float(sprite.texture.get_width())/2)
 	input_pickable = true
+	set_visibility_layer_bit(3, true)
 	start()
 
 func set_item_res(new_res: ItemRes) -> void:

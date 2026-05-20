@@ -20,3 +20,4 @@ enum BODY_PARTS {TORSO, LEFT_ARM, LEFT_LEG, RIGHT_ARM, RIGHT_LEG, HEAD}
 const PART_COUNT := 6
 
 var has_heart: bool = true
+var chest_open: bool = false

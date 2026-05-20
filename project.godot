@@ -26,6 +26,7 @@ buses/default_bus_layout="uid://k6k15qnaua75"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 
@@ -96,6 +97,11 @@ nav_back={
 
 [layer_names]
 
+2d_render/layer_1="Background"
+2d_render/layer_2="PhysicsBody"
+2d_render/layer_3="ToolItem"
+2d_render/layer_4="PopUps"
+2d_render/layer_5="GUI"
 2d_physics/layer_1="ground"
 2d_physics/layer_2="left_limbs"
 2d_physics/layer_3="right_limbs"

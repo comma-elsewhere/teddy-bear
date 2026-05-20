@@ -30,9 +30,8 @@ var toy_state: int = -1
 
 func _ready() -> void:
 	# pre-start cleanup
-	table_margins.show() # Needs to start visible for the bench toggle to work
-	laundry_margins.hide() # Needs to start ooposite of table margins
 	# All these need to start hidden
+	_bench_laundry_hide()
 	room_layer.hide()
 	terminal_layer.hide()
 	bench_layer.hide()
@@ -52,13 +51,16 @@ func _input(event: InputEvent) -> void:
 				STATE.BENCH: 
 					_swap_scene(STATE.MAIN)
 					await get_tree().create_timer(0.45).timeout
-					_toggle_bench()
+					_bench_laundry_hide()
 				STATE.CHUTE: _swap_scene(STATE.MAIN)
 			return
 		if event.is_action_pressed("nav_front"):
 			match current_state:
-				STATE.MAIN: _swap_scene(STATE.BENCH)
-				STATE.BENCH: _toggle_bench(!table_margins.visible)
+				STATE.MAIN: 
+					_swap_scene(STATE.BENCH)
+					await get_tree().create_timer(0.45).timeout
+					_bench_laundry_toggle()
+				STATE.BENCH: _bench_laundry_toggle(!table_margins.visible)
 			return
 		if event.is_action_pressed("nav_left"):
 			match current_state:
@@ -67,17 +69,23 @@ func _input(event: InputEvent) -> void:
 				STATE.BENCH: 
 					_swap_scene(STATE.TERMINAL)
 					await get_tree().create_timer(0.45).timeout
-					_toggle_bench()
-				STATE.CHUTE: _swap_scene(STATE.BENCH)
+					_bench_laundry_hide()
+				STATE.CHUTE: 
+					_swap_scene(STATE.BENCH)
+					await get_tree().create_timer(0.45).timeout
+					_bench_laundry_toggle()
 			return
 		if event.is_action_pressed("nav_right"):
 			match current_state:
 				STATE.MAIN: _swap_scene(STATE.CHUTE)
-				STATE.TERMINAL: _swap_scene(STATE.BENCH)
+				STATE.TERMINAL: 
+					_swap_scene(STATE.BENCH)
+					await get_tree().create_timer(0.45).timeout
+					_bench_laundry_toggle()
 				STATE.BENCH: 
 					_swap_scene(STATE.CHUTE)
 					await get_tree().create_timer(0.45).timeout
-					_toggle_bench()
+					_bench_laundry_hide()
 				STATE.CHUTE: _swap_scene(STATE.TERMINAL)
 			return
 		
@@ -118,9 +126,14 @@ func _swap_scene(new_state: int) -> void:
 	anim_sfx.play("fade_trans") # crossfade with black, transition() in the middle
 
 # toggles whether you are on upper or lower part of bench --- remains constant throughout state changes
-func _toggle_bench(show_bench: bool = true) -> void:
+func _bench_laundry_hide() -> void:
+	table_margins.hide()
+	laundry_margins.hide()
+	
+func _bench_laundry_toggle(show_bench: bool = true) -> void:
 	table_margins.visible = show_bench
 	laundry_margins.visible = !show_bench
+	
 # creates new toy, connects grabbed signal to toy grabbed func, and sets a random position above player pov so it will fall into screen 
 # set toy state to main state and then checks if the toy should be visible
 func _spawn_toy() -> void:
@@ -129,6 +142,7 @@ func _spawn_toy() -> void:
 	main_root.add_child(toy)
 	toy.global_position = Vector2( randf_range(400, 1200), randf_range(-600, -1000) )
 	toy.global_rotation_degrees = randf_range(0, 360)
+	toy.set_visibility_layer_bit(2, true)
 	_change_toy_state() # Default to main state
 	_check_toy_state()
 	
