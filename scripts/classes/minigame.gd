@@ -1,5 +1,6 @@
 class_name MiniGame extends SubViewport
 
+@warning_ignore("unused_signal")
 signal minigame_complete()
 
 @onready var button: Button = %Button

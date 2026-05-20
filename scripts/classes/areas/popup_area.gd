@@ -52,20 +52,16 @@ func enable_area(enable: bool) -> void:
 func create_popup() -> void:
 	get_parent().set_deferred("freeze", true) # prevent parent from moving while popup is open
 	# create popup
-	#var popup_display := Sprite2D.new()
 	var popup_container := SubViewportContainer.new()
 	var popup: MiniGame = popup_preload.instantiate() as MiniGame # Minigame is a subclass of SubViewport
 	add_child(popup_container)
-	#add_child(popup_display)
 	popup_container.add_child(popup)
 	# setup and connections
 	popup_container.mouse_target = false
 	popup_container.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	popup_container.mouse_filter = Control.MOUSE_FILTER_STOP
-	#popup_display.texture = popup.get_texture() # set display texture to subviewport texture
 	popup.minigame_complete.connect(remove_self) # when minigame is complete, remove the whole area
 	popup.set_res(addon_res) # pass through addon res to the popup scene
-	#popup_display.set_visibility_layer_bit(4, true)
 	
 func remove_self() -> void:
 	if is_in_group(GROUP[TYPE.CUT]): # if you just cut the toy open, enable removing things from the interior
