@@ -23,12 +23,14 @@ const TRASH_MARGIN : Array[int] = [50, 800, 1600, 100]
 @onready var anim_sfx: AnimationPlayer = %AnimSFX
 
 var toy: ToyBody = null
+var state_array: Array[CanvasLayer] = []
 
 var old_state: int = -1
 var current_state: int = -1
 var toy_state: int = -1
 
 func _ready() -> void:
+	state_array = [room_layer, terminal_layer, bench_layer, chute_layer]
 	# pre-start cleanup
 	# All these need to start hidden
 	_bench_laundry_hide()
@@ -36,6 +38,11 @@ func _ready() -> void:
 	terminal_layer.hide()
 	bench_layer.hide()
 	chute_layer.hide()
+	# Layer setup
+	meat_hook.z_index = -2000
+	trash_can.z_index = -2000
+	meat_hook.z_as_relative = false
+	trash_can.z_as_relative = false
 	
 	# Actual scene setup
 	_spawn_toy()
@@ -108,11 +115,13 @@ func transition() -> void:
 			STATE.CHUTE: 
 				chute_layer.visible = !chute_layer.visible
 	_get_hook_margins() # move meat hook and trash can
-	_check_toy_state() # check toy visibility
 	# update toy position if it's on the hook
-	if toy.hooked:
+	if toy.hooked: # change toy state if on hook
+		_change_toy_state(current_state)
 		await get_tree().process_frame
 		toy.call_deferred("update_hook", _get_hook_pos())
+	else:
+		_check_toy_state() # toggle collision if not hooked
 	
 # Called once by _ready(), after this old state will need to be reset
 func _set_scene(new_state: int) -> void:
@@ -144,7 +153,6 @@ func _spawn_toy() -> void:
 	toy.global_rotation_degrees = randf_range(0, 360)
 	toy.set_visibility_layer_bit(2, true)
 	_change_toy_state() # Default to main state
-	_check_toy_state()
 	
 # Take the toy on and off the hook --- is_held is the 'last body part held by the player' and will lerp to _get_hook_pos() while toy.hooked
 
@@ -159,15 +167,16 @@ func _toy_grabbed(is_held: RigidBody2D) -> void:
 		toy.attach_hook(_get_hook_pos())
 		return
 	if is_held.global_position.distance_to(_get_trash_pos()) < GRAB_DIST: # destroy toy and spawn a new one
-		main_root.remove_child(toy)
+		toy.get_parent().remove_child(toy)
 		toy.queue_free()
 		_spawn_toy()
 		
 # Updates toy state --- default to main state where the toy spawns
 # toy state determines which area the toy should be visible in when it is not on the hook
 func _change_toy_state(new_state: int = STATE.MAIN) -> void:
+	toy.reparent(state_array[new_state])
 	toy_state = new_state
-	toy.z_index = 0
+	_check_toy_state()
 	
 # if current state is not toy state, and toy is not on the hook --> toy will be hidden and un-interactable
 # else: toy is visible and clickable
@@ -189,6 +198,8 @@ func _get_trash_pos() -> Vector2:
 
 # Changes the margin_left of the hook_margins, thereby moving the hook around the screen based on state
 func _get_hook_margins() -> void:
+	hook_margin.reparent(state_array[current_state])
+	
 	hook_margin.remove_theme_constant_override("margin_right")
 	hook_margin.remove_theme_constant_override("margin_left")
 	match current_state:

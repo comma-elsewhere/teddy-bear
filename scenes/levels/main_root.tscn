@@ -137,6 +137,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Control1" type="Control" parent="SceneStateMachine/RoomLayer" unique_id=634343315]
+z_index = -4000
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -227,6 +228,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Control2" type="Control" parent="SceneStateMachine/TerminalLayer" unique_id=1755149586]
+z_index = -4000
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -304,6 +306,7 @@ metadata/_custom_type_script = "uid://dvssb0hn1uwes"
 unique_name_in_owner = true
 
 [node name="Control3" type="Control" parent="SceneStateMachine/BenchLayer" unique_id=857957686]
+z_index = -4000
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -355,6 +358,7 @@ metadata/_custom_type_script = "uid://bdm238hhxjrj0"
 position = Vector2(856, 956)
 script = ExtResource("5_ssf80")
 texture = ExtResource("7_kp1bl")
+texture_scale = Vector2(0.8, 0.8)
 metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
 [node name="ToolDragCut" type="Area2D" parent="SceneStateMachine/BenchLayer/Control3/TableMargins" unique_id=1096396097]
@@ -362,6 +366,7 @@ position = Vector2(1280, 1026)
 script = ExtResource("5_ssf80")
 tool_target = 1
 texture = ExtResource("8_sqfxy")
+texture_scale = Vector2(0.3, 0.3)
 metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
 [node name="ToolDragStitch" type="Area2D" parent="SceneStateMachine/BenchLayer/Control3/TableMargins" unique_id=2073658118]
@@ -369,6 +374,7 @@ position = Vector2(1642, 969)
 script = ExtResource("5_ssf80")
 tool_target = 2
 texture = ExtResource("9_ssf80")
+texture_scale = Vector2(0.4, 0.4)
 metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
 [node name="LaundryMargins" type="MarginContainer" parent="SceneStateMachine/BenchLayer/Control3" unique_id=224547528]
@@ -422,6 +428,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Control4" type="Control" parent="SceneStateMachine/ChuteLayer" unique_id=1851672119]
+z_index = -4000
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -529,7 +536,8 @@ mouse_filter = 2
 
 [node name="FadeBlack" type="ColorRect" parent="SceneStateMachine/MainGUI/SFX" unique_id=1161826922]
 visibility_layer = 16
-z_index = 10
+z_index = 4000
+z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

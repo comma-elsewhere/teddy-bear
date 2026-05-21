@@ -16,6 +16,8 @@ func _ready() -> void:
 	create_collision(float(sprite.texture.get_height())/2 * item_res.scale.x)
 	input_pickable = true
 	set_visibility_layer_bit(3, true)
+	z_index = 100
+	z_as_relative = false
 	start()
 
 func set_item_res(new_res: ItemRes) -> void:

@@ -2,6 +2,7 @@ class_name ToolDrag extends DragArea
 
 @export_enum("Remove", "Cut", "Stitch") var tool_target: int = 0
 @export var texture: Texture2D
+@export var texture_scale: Vector2 = Vector2.ONE
 
 const GROUP: Array[String] = ["RemovePopup", "CutPopup", "StitchPopup"]
 
@@ -13,15 +14,16 @@ var tool_group: String
 func _ready() -> void:
 	var sprite := Sprite2D.new()
 	sprite.texture = texture
-	sprite.apply_scale(Vector2(0.3, 0.3))
+	sprite.apply_scale(texture_scale)
+	sprite.z_index = 200
+	sprite.z_as_relative = false
 	add_child(sprite)
-	create_collision(float(sprite.texture.get_height())/2 * 0.3)
+	create_collision(float(sprite.texture.get_height())/2 * texture_scale.x)
 	reset_point = global_position
 	_set_tool_group()
 	area_entered.connect(_check_area)
 	area_exited.connect(_forget_area)
 	set_visibility_layer_bit(3, true)
-	z_index = 10
 	start()
 	
 func _check_area(area: Area2D) -> void:
@@ -43,10 +45,13 @@ func _attempt_drop() -> void:
 		_popup_and_reset()
 	
 func _popup_and_reset() -> void:
+	input_pickable = false
 	_color_body(false)
 	await get_tree().create_timer(STICK).timeout
-	drop_body.create_popup()
+	if drop_body != null:
+		drop_body.create_popup()
 	await get_tree().create_timer(UNSTICK).timeout
 	is_dragging = false
 	is_dropped = false
 	drop_body = null
+	input_pickable = true

@@ -50,17 +50,20 @@ func enable_area(enable: bool) -> void:
 	
 # Call via tool drag area entered & is in group("whatever")
 func create_popup() -> void:
-	get_parent().set_deferred("freeze", true) # prevent parent from moving while popup is open
+	#get_parent().set_deferred("freeze", true) # prevent parent from moving while popup is open
 	# create popup
 	var popup_container := SubViewportContainer.new()
 	var popup: MiniGame = popup_preload.instantiate() as MiniGame # Minigame is a subclass of SubViewport
 	add_child(popup_container)
+	#popup_container.move_to_front()
 	popup_container.add_child(popup)
 	# setup and connections
+	popup_container.top_level = true
+	popup_container.z_index = 1000
+	popup_container.z_as_relative = false
 	popup_container.mouse_target = false
 	popup_container.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	popup_container.mouse_filter = Control.MOUSE_FILTER_STOP
-	popup_container.top_level = true
 	popup_container.set_visibility_layer_bit(4, true)
 	popup_container.set_visibility_layer_bit(1, false)
 	popup.minigame_complete.connect(remove_self) # when minigame is complete, remove the whole area
@@ -73,7 +76,7 @@ func remove_self() -> void:
 	if is_in_group(GROUP[TYPE.STITCH]) and get_parent().is_in_group("Torso"):
 		get_tree().call_group(GROUP[TYPE.INT], "enable_area", false)
 		get_tree().call_group("Toy", "open_chest", false)
-	get_parent().set_deferred("freeze", false) # allow parent to move again
+	#get_parent().set_deferred("freeze", false) # allow parent to move again
 	# Remove self from scene tree
 	get_parent().remove_child(self)
 	queue_free()

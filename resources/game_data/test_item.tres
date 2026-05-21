@@ -9,6 +9,6 @@ load_path = "res://.godot/imported/temp decor.png-4a1283d061eb037a96f191fa380dfb
 script = ExtResource("1_3n4np")
 type = "Decor"
 texture = SubResource("CompressedTexture2D_y0ro1")
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.15, 0.15)
 placement = 2
 metadata/_custom_type_script = "uid://d3o70a8sxxgkg"

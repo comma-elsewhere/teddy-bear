@@ -32,6 +32,9 @@ var _sounds_playing: int = 0
 var _hook_point: Vector2
 
 func _ready() -> void:
+	z_index = -1000
+	z_as_relative = false
+	
 # assign parts to bodies array
 	bodies = [torso_body, left_arm_body, left_leg_body, right_arm_body, right_leg_body, head_body]
 	
@@ -81,6 +84,7 @@ func open_chest(open: bool) -> void:
 		area_spawner.open_chest(%Torso)
 		texture_loader.open_chest(toy_res, %Torso)
 	else:
+		area_spawner.close_chest(%Torso)
 		for child in %Torso.get_children():
 			if child.is_in_group("OpenChest"):
 				child.call_deferred("queue_free")

@@ -60,7 +60,7 @@ func _enable_area(can_use: bool) -> void:
 		get_tree().call_group("Interior", "enable_area", can_use)
 
 func _toggle_toy_visibility() -> void:
-	if toy == null:
+	if capture == false or toy == null:
 		return
 	toy.visible = get_parent().visible
 	input_pickable = get_parent().visible
