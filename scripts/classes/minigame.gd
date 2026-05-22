@@ -3,7 +3,7 @@ class_name MiniGame extends SubViewport
 @warning_ignore("unused_signal")
 signal minigame_complete()
 
-@onready var button: Button = %Button
+#@onready var button: Button = %Button
 
 func _ready() -> void:
 	# Settings setup in code for consistency
@@ -16,7 +16,7 @@ func _ready() -> void:
 	physics_object_picking_first_only = true
 	canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	
-	button.pressed.connect(_finished) # TEMP for testing
+	#button.pressed.connect(_finished) # TEMP for testing
 
 func set_res(new_res: Array[AddonRes]) -> void:
 	if new_res.is_empty():
