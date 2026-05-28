@@ -1,8 +1,22 @@
 [gd_scene format=3 uid="uid://b2u01ri738q46"]
 
 [ext_resource type="Script" uid="uid://6pw3jvd7cr1k" path="res://scripts/classes/minigame.gd" id="1_t4l1y"]
+[ext_resource type="Texture2D" uid="uid://di7xu4tmpijjr" path="res://assets/stuffing.webp" id="2_gi68s"]
+[ext_resource type="Script" uid="uid://b2bcgmoovbh0c" path="res://scripts/management/stitching_game.gd" id="2_of8fb"]
+[ext_resource type="Texture2D" uid="uid://cxu32wx72i6ye" path="res://assets/plushfur.webp" id="3_kb3xd"]
 
 [node name="SubViewport" type="SubViewport" unique_id=1304893099]
+size_2d_override = Vector2i(1024, 1024)
+size_2d_override_stretch = true
 script = ExtResource("1_t4l1y")
 
 [node name="GameRoot" type="Node2D" parent="." unique_id=1625013619]
+script = ExtResource("2_of8fb")
+
+[node name="Stuffing" type="Sprite2D" parent="GameRoot" unique_id=948750209]
+texture = ExtResource("2_gi68s")
+centered = false
+
+[node name="Plushfur" type="Sprite2D" parent="GameRoot" unique_id=200415810]
+texture = ExtResource("3_kb3xd")
+centered = false

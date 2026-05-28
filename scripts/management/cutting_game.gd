@@ -61,16 +61,17 @@ func _cut_fabric(line: Line2D) -> void:
 func _grade_lines(line_a: Line2D, line_b: Line2D) -> bool:
 	var follow_count: int = 0
 	var line_length: float = 0
+	
+	if line_a.to_global(line_a.points[0]).distance_to(line_b.to_global(line_b.points[0])) < CUT_WIDTH:
+		follow_count += 1
+	if line_a.to_global(line_a.points[line_a.points.size() - 1]).distance_to(line_b.to_global(line_b.points[1])) < CUT_WIDTH:
+		follow_count += 1
+	
 	for i in range((line_a.points.size()) - 1):
-		var intersect = Geometry2D.segment_intersects_segment(
-		line_a.to_global(line_a.points[i]), line_a.to_global(line_a.points[i+1]),
-		line_b.to_global(line_b.points[0]), line_b.to_global(line_b.points[1])
-		)
-		if intersect != null:
-			follow_count += 1
-			
 		line_length += line_a.points[i].distance_to(line_a.points[i+1])
 		
-	if follow_count <= 1 or line_length > 1250:
+	print(follow_count, line_length)
+		
+	if follow_count < 2 or line_length > line_b.points[0].distance_to(line_b.points[1]) * 1.2:
 		return false
 	return true

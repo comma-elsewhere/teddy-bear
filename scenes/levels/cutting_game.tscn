@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bauxpoy27ihxe"]
 
 [ext_resource type="Script" uid="uid://6pw3jvd7cr1k" path="res://scripts/classes/minigame.gd" id="1_4b34f"]
-[ext_resource type="Script" uid="uid://b6cu101si5dsk" path="res://scripts/cutting_game.gd" id="1_8xjyb"]
+[ext_resource type="Script" uid="uid://b6cu101si5dsk" path="res://scripts/management/cutting_game.gd" id="1_8xjyb"]
 [ext_resource type="Texture2D" uid="uid://di7xu4tmpijjr" path="res://assets/stuffing.webp" id="2_mww2c"]
 [ext_resource type="Texture2D" uid="uid://cxu32wx72i6ye" path="res://assets/plushfur.webp" id="3_8xjyb"]
 
