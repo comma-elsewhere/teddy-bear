@@ -9,10 +9,12 @@ signal game_done(well_done: bool)
 @export_range(100, 500, 50) var max_radius: float = 300.0
 
 @onready var stuffing: Sprite2D = $Stuffing # the texture the polygon is created from
+@onready var rope_interaction: RopeInteraction = $RopeInteraction
+@onready var sewing_needle: Marker2D = $SewingNeedle
 
 const POINT_DIV := 3
-const TAN_ANGLE := deg_to_rad(20.0)
 const CENTER := 512.0 # the point the polygon is centered on
+const ROPE_LERP := 0.1
 
 # polygon hole shape
 var fabric_hole: Polygon2D = null
@@ -20,28 +22,55 @@ var fabric_hole: Polygon2D = null
 var outline: Line2D = null
 
 func _ready() -> void:
+	sewing_needle.global_position = Vector2(CENTER, CENTER)
 	var sides := randi_range(9, 18)
 	fabric_hole = _create_polygon(sides) # creates polygon with this range of possible sides
 	_show_hole() # displays created polygon texture of stuffing in hole shape
-	for stitch_point in _create_outline(sides): # returns array of points to attach thread at
-		var new_area: Area2D = _attach_rope_area(stitch_point)
+	var point_array := _create_outline(sides)
+	for i in len(point_array): # returns array of points to attach thread at
+		var new_area: RopeArea = _attach_rope_area(i, point_array)
 		new_area.input_event.connect(_mouse_event.bind(new_area))
 		new_area.area_entered.connect(_rope_area_entered)
+		
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if rope_interaction.rope != null and rope_interaction.enable == true:
+			sewing_needle.global_position = sewing_needle.global_position.lerp(get_global_mouse_position(), ROPE_LERP)
+			rope_interaction.on_movement_request.emit()
+	else:
+		rope_interaction.enable = false
+		sewing_needle.global_position = Vector2(CENTER, CENTER)
 	
-func _mouse_event(_viewport: Node, event: InputEvent, _shape_idx: int, area: Area2D) -> void:
+func _mouse_event(_viewport: Node, event: InputEvent, _shape_idx: int, area: RopeArea) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			area.show()
+			rope_interaction.enable = true
+			rope_interaction.set_rope(area.get_rope())
 	
 func _rope_area_entered(area: Area2D) -> void:
-	pass
+	if area.is_in_group("RopeEnd"):
+		area.get_parent().get_parent().set_handle(rope_interaction.rope)
+		rope_interaction.set_rope(null)
 	
 func _spawn_stitch_hole_sprite(pos: Vector2) -> void:
-	pass
+	var sprite := Sprite2D.new()
+	sprite.texture = ICON
+	sprite.apply_scale(Vector2(0.5, 0.5))
+	sprite.centered = true
+	add_child(sprite)
+	sprite.global_position = pos
 	
-func _attach_rope_area(pos: Vector2) -> Area2D:
-	_spawn_stitch_hole_sprite(pos)
-	return null
+func _attach_rope_area(index: int, pos: Array[Vector2]) -> RopeArea:
+	#_spawn_stitch_hole_sprite(pos[index])
+	var new_area := RopeArea.new()
+	add_child(new_area)
+	new_area.global_position = pos[index]
+	var length: float = 0
+	while length <= 5:
+		length = pos[index].distance_to(pos.pick_random())
+	new_area.set_rope(length)
+	
+	return new_area
 	
 func _create_outline(side_count: int) -> Array[Vector2]:
 	# create outline line
@@ -54,15 +83,9 @@ func _create_outline(side_count: int) -> Array[Vector2]:
 	var points: Array[Vector2] = []
 	for i in range(int(float(side_count) / POINT_DIV)):
 		var rand_num: int = randi_range(0, (outline.points.size() -1))
-		points.append(outline.to_global(outline.get_point_position(rand_num)))
-	
-	for point in points:
-		var sprite := Sprite2D.new()
-		sprite.texture = ICON
-		sprite.apply_scale(Vector2(0.5, 0.5))
-		sprite.centered = true
-		add_child(sprite)
-		sprite.global_position = point
+		var new_point: Vector2 = outline.to_global(outline.get_point_position(rand_num))
+		if !points.has(new_point):
+			points.append(new_point)
 	
 	return points
 	

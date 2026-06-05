@@ -18,10 +18,10 @@ If you like this plugin and want to support my work, consider leaving a tip on K
 ## Setup
 
 1. Get the addon
-    * [Download](https://godotengine.org/asset-library/asset/2334) from the asset store, or
-    * [Download](https://github.com/mphe/GDNative-Ropesim/releases/latest) the latest release from the release page, or
-    * [Download](https://github.com/mphe/GDNative-Ropesim/actions) it from the latest GitHub Actions run, or
-    * [Compile](docs/developing.md) it yourself.
+	* [Download](https://godotengine.org/asset-library/asset/2334) from the asset store, or
+	* [Download](https://github.com/mphe/GDNative-Ropesim/releases/latest) the latest release from the release page, or
+	* [Download](https://github.com/mphe/GDNative-Ropesim/actions) it from the latest GitHub Actions run, or
+	* [Compile](docs/developing.md) it yourself.
 2. Move `addons/ropesim` to your project's `addons/` directory
 3. Enable the addon in the project settings
 4. Possibly restart Godot
@@ -84,6 +84,3 @@ https://github.com/user-attachments/assets/28e3dda1-6929-4ddf-8afa-041f66a5849b
 Collisions with physics bodies
 
 https://github.com/user-attachments/assets/424e8277-6e20-4ccc-9231-ec5003d57bae
-
-
-
