@@ -13,9 +13,11 @@ const CUT_WIDTH := 75.0
 func _ready() -> void:
 	start_zone.input_event.connect(_mouse_event)
 	true_line.clear_points()
-	true_line.add_point(Vector2(512, 0))
-	true_line.add_point(Vector2(512, 1024))
+# randomizes line
+	true_line.add_point(Vector2(randi_range(100, 600), 0))
+	true_line.add_point(Vector2(randi_range(100, 900), 1024))
 	
+# cuts fabric when mouse is released, no matter where on screen
 func _input(event: InputEvent) -> void:
 	if cut_line.points.is_empty():
 		return
@@ -23,17 +25,15 @@ func _input(event: InputEvent) -> void:
 		if !event.pressed:
 			_cut_fabric(cut_line)
 	
+# only records mouse input for cutting while in draw area
+func _mouse_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if cut_line.points.is_empty():
+			cut_line.add_point(cut_line.get_local_mouse_position())
+			return
 		if cut_line.get_local_mouse_position().distance_squared_to(cut_line.points[cut_line.points.size() - 1]) < MIN_DIST:
 			return
 		cut_line.add_point(cut_line.get_local_mouse_position())
-	
-	
-func _mouse_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			cut_line.clear_points()
-			cut_line.add_point(cut_line.get_local_mouse_position())
 	
 func _cut_fabric(line: Line2D) -> void:
 	var image := plush_fur.texture.get_image()
@@ -72,6 +72,6 @@ func _grade_lines(line_a: Line2D, line_b: Line2D) -> bool:
 		
 	print(follow_count, line_length)
 		
-	if follow_count < 2 or line_length > line_b.points[0].distance_to(line_b.points[1]) * 1.2:
+	if follow_count < 2 or line_length > line_b.points[0].distance_to(line_b.points[1]) * 1.01:
 		return false
 	return true

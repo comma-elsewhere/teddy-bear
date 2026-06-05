@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cxu32wx72i6ye" path="res://assets/plushfur.webp" id="3_8xjyb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xjyb"]
-size = Vector2(1075, 125)
+size = Vector2(1024, 1024)
 
 [node name="SubViewport" type="SubViewport" unique_id=52596249]
 size_2d_override = Vector2i(1024, 1024)
@@ -41,5 +41,5 @@ unique_name_in_owner = true
 default_color = Color(1, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameRoot/StartZone" unique_id=1899918253]
-position = Vector2(526, 55)
+position = Vector2(512, 512)
 shape = SubResource("RectangleShape2D_8xjyb")
