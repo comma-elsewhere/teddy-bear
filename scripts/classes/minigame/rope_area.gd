@@ -30,6 +30,8 @@ func get_rope() -> Rope:
 	return rope
 
 func set_handle(new_rope: Rope) -> void:
+	if new_rope == rope or new_rope == null:
+		return
 	var rope_handle := RopeHandle.new()
 	add_child(rope_handle)
 	rope_handle.set_strength(1.0)

@@ -49,6 +49,8 @@ func _mouse_event(_viewport: Node, event: InputEvent, _shape_idx: int, area: Rop
 	
 func _rope_area_entered(area: Area2D) -> void:
 	if area.is_in_group("RopeEnd"):
+		if rope_interaction.rope == null:
+			return
 		area.get_parent().get_parent().set_handle(rope_interaction.rope)
 		rope_interaction.set_rope(null)
 	
