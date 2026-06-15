@@ -39,9 +39,20 @@ func _attach_rope_area(index: int, pos: Array[Vector2]) -> RopeArea:
 	var new_area := RopeArea.new()
 	add_child(new_area) # initiate ropearea on ready
 	new_area.global_position = pos[index] # set global position relative to index
+	
+	new_area.set_collision_layer_value(1, false)
+	new_area.set_collision_mask_value(1, false)
+	var next: int = index +1
+	if next > pos.size() -1:
+		next = 0
+	new_area.set_collision_layer_value(next + 1, true)
+	new_area.set_collision_mask_value(index + 1, true)
+	
 	var length: float = 0
-	while length <= 5 or length >= 200:
-		length = pos[index].distance_to(pos.pick_random()) # pick a random other point and length to the distance between them
+	length = pos[index].distance_to(pos[next]) # pick the next point and calc length as the distance between them
+	
+	print(length)
+	
 	new_area.set_rope(length) # set rope length to length
 	if index != 0: # if not the first rope, hide
 		new_area.hide()
@@ -101,7 +112,7 @@ func _create_polygon(sides: int) -> Polygon2D:
 		# Convert polar coordinates to Cartesian space
 		var x: float = cos(angle) * radius
 		var y: float = sin(angle) * radius
-		new_points.append(Vector2(x + CENTER, y + CENTER))
+		new_points.append(Vector2(x + CENTER, y + CENTER / 2))
 		
 	# Apply the points to the polygon
 	var poly := Polygon2D.new()

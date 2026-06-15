@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://c4lj0farn5shk" path="res://scripts/resource/patient_file_res.gd" id="1_clost"]
 [ext_resource type="Resource" uid="uid://dkmqnhbspywx5" path="res://resources/game_data/test_item.tres" id="2_5dcen"]
 [ext_resource type="Resource" uid="uid://dv1p1c1y4i47t" path="res://resources/game_data/test_damage.tres" id="2_8kqsl"]
-[ext_resource type="Resource" uid="uid://b72dqlksbahpv" path="res://resources/game_data/test_contam.tres" id="3_gegjr"]
 [ext_resource type="Texture2D" uid="uid://qij8apgintll" path="res://resources/textures/test_torso_closed.atlastex" id="3_l8b1t"]
 [ext_resource type="Texture2D" uid="uid://dqri7yfs3trx" path="res://resources/textures/test_torso_open.atlastex" id="4_5dcen"]
 [ext_resource type="Texture2D" uid="uid://d1w3x1k2yowa5" path="res://resources/textures/test_left_arm.atlastex" id="5_8kqsl"]
@@ -26,6 +25,5 @@ texture_offsets = Array[Vector2]([Vector2(9, -7), Vector2(5, -18), Vector2(-20, 
 dirty_or_stain = true
 dirt = Color(0.8, 0.6224, 0.504, 1)
 missing_item = Array[ExtResource("1_8kqsl")]([ExtResource("2_5dcen")])
-exterior_contam = Array[ExtResource("1_8kqsl")]([ExtResource("3_gegjr")])
 damage_areas = Array[ExtResource("1_8kqsl")]([ExtResource("2_8kqsl")])
 metadata/_custom_type_script = "uid://bqrx4260m7ixa"
