@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Teddy Bear Autopsy"
-run/main_scene="uid://br87b8ipec2uy"
+run/main_scene="uid://s4vmni6lgat2"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false

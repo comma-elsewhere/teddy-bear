@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://s4vmni6lgat2"]
+
+[ext_resource type="Script" uid="uid://bnln2xuxb0g82" path="res://scripts/management/main_menu.gd" id="1_721jg"]
+[ext_resource type="AudioStream" uid="uid://br8x38sye3d67" path="res://assets/music/TitleScreen.mp3" id="1_fsby3"]
+[ext_resource type="PackedScene" uid="uid://br87b8ipec2uy" path="res://scenes/levels/main_root.tscn" id="2_geflf"]
+
+[node name="MainRoot" type="Node2D" unique_id=1687150665]
+script = ExtResource("1_721jg")
+main_scene = ExtResource("2_geflf")
+
+[node name="TitleScreen" type="AudioStreamPlayer" parent="." unique_id=1909723253]
+stream = ExtResource("1_fsby3")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1424046417]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=735330829]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=1530501808]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.55, 0.8499999, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=1412941069]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer" unique_id=2100810542]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 1, 0.9925, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 128
+text = "Patient Palz"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/VBoxContainer" unique_id=2136203963]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 18
+theme_override_font_sizes/font_size = 128
+text = "Autopsy"
+horizontal_alignment = 1

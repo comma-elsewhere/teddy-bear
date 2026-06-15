@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cx26sbk8nv1co" path="res://assets/temp scalpel.webp" id="8_sqfxy"]
 [ext_resource type="Texture2D" uid="uid://blt4fli8m32uj" path="res://assets/temp sutures.png" id="9_ssf80"]
 [ext_resource type="PhysicsMaterial" uid="uid://cjp3x4fh14jlx" path="res://resources/shaders_materials/plushie_physics_material.phymat" id="9_wa2yn"]
+[ext_resource type="Texture2D" uid="uid://bicefh4n4f072" path="res://assets/background/bench_under.png" id="10_sqfxy"]
+[ext_resource type="AudioStream" uid="uid://dnaa5lrskwvkj" path="res://assets/music/HelpingHand.mp3" id="13_ssf80"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el6ax"]
 bg_color = Color(1, 0.9019608, 0.3529412, 1)
@@ -315,28 +317,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="SceneStateMachine/BenchLayer/Control3" unique_id=2094247756]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.5411765, 0.2784314, 0.9647059, 1)
-
-[node name="Label3" type="Label" parent="SceneStateMachine/BenchLayer/Control3" unique_id=514677171]
-layout_mode = 1
-offset_right = 384.0
-offset_bottom = 175.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 128
-text = "Bench"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="TableMargins" type="TextureRect" parent="SceneStateMachine/BenchLayer/Control3" unique_id=1744588760]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -377,7 +360,7 @@ texture = ExtResource("9_ssf80")
 texture_scale = Vector2(0.4, 0.4)
 metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
-[node name="LaundryMargins" type="MarginContainer" parent="SceneStateMachine/BenchLayer/Control3" unique_id=224547528]
+[node name="LaundryMargins" type="TextureRect" parent="SceneStateMachine/BenchLayer/Control3" unique_id=1672012838]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -386,11 +369,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 400
+texture = ExtResource("10_sqfxy")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="LaundryElement" type="PanelContainer" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins" unique_id=425058262]
 custom_minimum_size = Vector2(900, 800)
-layout_mode = 2
+layout_mode = 0
+offset_left = 400.0
+offset_top = 280.0
+offset_right = 1300.0
+offset_bottom = 1080.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_c73gh")
@@ -404,7 +393,11 @@ horizontal_alignment = 1
 
 [node name="SafeElement" type="PanelContainer" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins" unique_id=35055864]
 custom_minimum_size = Vector2(500, 600)
-layout_mode = 2
+layout_mode = 0
+offset_left = 1420.0
+offset_top = 480.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_gq5th")
@@ -579,3 +572,7 @@ physics_material_override = ExtResource("9_wa2yn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneStateMachine/MainGUI/MainRoot/Wall3" unique_id=397804349]
 shape = SubResource("WorldBoundaryShape2D_w3f05")
+
+[node name="HelpingHand" type="AudioStreamPlayer" parent="." unique_id=1750372787]
+stream = ExtResource("13_ssf80")
+autoplay = true

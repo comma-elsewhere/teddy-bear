@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://di7xu4tmpijjr" path="res://assets/stuffing.webp" id="2_gi68s"]
 [ext_resource type="Script" uid="uid://b2bcgmoovbh0c" path="res://scripts/management/stitching_game.gd" id="2_of8fb"]
 [ext_resource type="Texture2D" uid="uid://cxu32wx72i6ye" path="res://assets/plushfur.webp" id="3_kb3xd"]
-[ext_resource type="Script" uid="uid://dvxegqp0cf77n" path="res://addons/ropesim/RopeInteraction.gd" id="5_aym4f"]
 
 [node name="SubViewport" type="SubViewport" unique_id=1304893099]
 size_2d_override = Vector2i(1024, 1024)
@@ -21,11 +20,3 @@ centered = false
 [node name="Plushfur" type="Sprite2D" parent="GameRoot" unique_id=200415810]
 texture = ExtResource("3_kb3xd")
 centered = false
-
-[node name="RopeInteraction" type="Node" parent="GameRoot" unique_id=1443857075 node_paths=PackedStringArray("target_node")]
-script = ExtResource("5_aym4f")
-target_node = NodePath("../SewingNeedle")
-strength = 0.5
-metadata/_custom_type_script = "uid://dvxegqp0cf77n"
-
-[node name="SewingNeedle" type="Marker2D" parent="GameRoot" unique_id=1069477594]
