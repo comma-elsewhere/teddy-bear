@@ -17,6 +17,9 @@ const ROPE_LERP := 0.1
 var fabric_hole: Polygon2D = null
 # polygon outline
 var outline: Line2D = null
+# Number of ropes connected
+var rope_count: int = 0
+var rope_max: int
 
 func _ready() -> void:
 	var sides := randi_range(9, 18)
@@ -25,7 +28,13 @@ func _ready() -> void:
 	var point_array := _create_outline(sides)
 	for i in len(point_array): # returns array of points to attach thread at
 		var new_area: RopeArea = _attach_rope_area(i, point_array)
+		new_area.rope_connected.connect(_count_rope_connect)
+	rope_max = point_array.size()
 		
+func _count_rope_connect() -> void:
+	rope_count += 1
+	if rope_count >= rope_max:
+		game_done.emit(true)
 	
 func _spawn_stitch_hole_sprite() -> Sprite2D:
 	var sprite := Sprite2D.new()
@@ -40,24 +49,22 @@ func _attach_rope_area(index: int, pos: Array[Vector2]) -> RopeArea:
 	add_child(new_area) # initiate ropearea on ready
 	new_area.global_position = pos[index] # set global position relative to index
 	
-	new_area.set_collision_layer_value(1, false)
-	new_area.set_collision_mask_value(1, false)
 	var next: int = index +1
 	if next > pos.size() -1:
 		next = 0
-	new_area.set_collision_layer_value(next + 1, true)
-	new_area.set_collision_mask_value(index + 1, true)
+		
+	new_area.set_collisions(next+1, index+1)
 	
 	var length: float = 0
 	length = pos[index].distance_to(pos[next]) # pick the next point and calc length as the distance between them
 	
 	print(length)
 	
-	new_area.set_rope(length) # set rope length to length
+	new_area.set_rope(length + 10) # set rope length to length
 	if index != 0: # if not the first rope, hide
 		new_area.hide()
 	
-	new_area.add_child(_spawn_stitch_hole_sprite()) # returns a new sprite at position and adds as child to rope
+	#new_area.add_child(_spawn_stitch_hole_sprite()) # returns a new sprite at position and adds as child to rope
 	
 	return new_area
 	
