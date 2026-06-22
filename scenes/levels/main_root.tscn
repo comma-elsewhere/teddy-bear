@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://dnaa5lrskwvkj" path="res://assets/music/HelpingHand.mp3" id="13_ssf80"]
 [ext_resource type="Texture2D" uid="uid://d4ency8s8fc1e" path="res://assets/background/lockboxdoor.png" id="14_wa2yn"]
 [ext_resource type="Texture2D" uid="uid://dtim8au84b5rf" path="res://assets/background/lockboxdooropen.png" id="15_4kpvc"]
+[ext_resource type="Script" uid="uid://cn0xlkserisq6" path="res://scripts/utility/safe_element.gd" id="16_4kpvc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el6ax"]
 bg_color = Color(1, 0.9019608, 0.3529412, 1)
@@ -360,6 +361,7 @@ metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
 [node name="LaundryMargins" type="TextureRect" parent="SceneStateMachine/BenchLayer/Control3" unique_id=1672012838]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -371,7 +373,7 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="LaundryElement" type="Sprite2D" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins" unique_id=1358159438]
-position = Vector2(693, 669)
+position = Vector2(1536, 658)
 texture = ExtResource("11_i2g58")
 region_enabled = true
 region_rect = Rect2(194.44623, 92.748314, 681.6615, 834.2519)
@@ -383,23 +385,29 @@ monitorable = false
 script = ExtResource("7_i2g58")
 
 [node name="SafeElement" type="Sprite2D" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins" unique_id=1485690601]
-position = Vector2(1361, 679)
+position = Vector2(814, 728)
 texture = ExtResource("13_qinn8")
 region_enabled = true
 region_rect = Rect2(1123.405, 214.485, 650, 650)
 
-[node name="DoorClosed" type="Sprite2D" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins/SafeElement" unique_id=1667137094]
+[node name="SafeDoorClosed" type="Sprite2D" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins/SafeElement" unique_id=1667137094]
+unique_name_in_owner = true
 position = Vector2(-5, 76)
 texture = ExtResource("14_wa2yn")
 region_enabled = true
 region_rect = Rect2(1123.405, 344.173, 650, 550)
 
-[node name="DoorOpen" type="Sprite2D" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins/SafeElement" unique_id=918167312]
+[node name="SafeDoorOpen" type="Sprite2D" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins/SafeElement" unique_id=918167312]
+unique_name_in_owner = true
 visible = false
 position = Vector2(377, 145)
 texture = ExtResource("15_4kpvc")
 region_enabled = true
 region_rect = Rect2(1649.9355, 362.3289, 270.06445, 625.0928)
+
+[node name="InteractionArea" type="Area2D" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins/SafeElement" unique_id=1212008002]
+script = ExtResource("16_4kpvc")
+metadata/_custom_type_script = "uid://bdm238hhxjrj0"
 
 [node name="ChuteLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=1678620600]
 unique_name_in_owner = true

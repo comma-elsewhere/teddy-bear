@@ -1,6 +1,6 @@
 extends Node2D
 
-const ICON = preload("uid://ri3unyksjwas")
+const ICON = preload("uid://bg71c8337dg3r")
 
 signal game_done(well_done: bool)
 
@@ -36,16 +36,17 @@ func _count_rope_connect() -> void:
 	if rope_count >= rope_max:
 		game_done.emit(true)
 	
-func _spawn_stitch_hole_sprite() -> Sprite2D:
+func _spawn_stitch_hole_sprite(pos: Vector2) -> Sprite2D:
 	var sprite := Sprite2D.new()
 	sprite.texture = ICON
-	sprite.apply_scale(Vector2(0.5, 0.5))
+	sprite.apply_scale(Vector2(0.1, 0.1))
 	sprite.centered = true
-	sprite.show_behind_parent = true
+	sprite.global_position = pos
 	return sprite
 	
 func _attach_rope_area(index: int, pos: Array[Vector2]) -> RopeArea:
 	var new_area := RopeArea.new()
+	add_child(_spawn_stitch_hole_sprite(pos[index])) # returns a new sprite at position
 	add_child(new_area) # initiate ropearea on ready
 	new_area.global_position = pos[index] # set global position relative to index
 	
@@ -64,7 +65,6 @@ func _attach_rope_area(index: int, pos: Array[Vector2]) -> RopeArea:
 	if index != 0: # if not the first rope, hide
 		new_area.hide()
 	
-	#new_area.add_child(_spawn_stitch_hole_sprite()) # returns a new sprite at position and adds as child to rope
 	
 	return new_area
 	
