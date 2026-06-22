@@ -29,10 +29,6 @@ func _mouse_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 			rope_lerp_point.monitorable = rope_interaction.enable
 			
 func _input(event: InputEvent) -> void:
-	#if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		#if rope_interaction.enable:
-			#rope_interaction.on_movement_request.emit()
-		
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if !event.pressed:
 			rope_interaction.enable = false
