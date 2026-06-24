@@ -5,7 +5,7 @@ signal rope_connected
 const LINE_WIDTH := 15.0
 const LERP_WEIGHT := 25.0
 const HOLE_AREA := 20.0
-const LERP_AREA := 20.0
+const LERP_AREA := 30.0
 
 var rope_lerp_point := Area2D.new()
 var rope := Rope.new()
@@ -25,18 +25,6 @@ func _physics_process(delta: float) -> void:
 	if rope_interaction.enable == false or visible == false:
 		return
 	rope_lerp_point.global_position = rope_lerp_point.global_position.lerp(get_global_mouse_position(), LERP_WEIGHT * delta)
-	
-#func _mouse_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		#if event.pressed and visible:
-			#rope_interaction.enable = true
-			#rope_lerp_point.monitorable = rope_interaction.enable
-			#
-#func _input(event: InputEvent) -> void:
-	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		#if !event.pressed:
-			#rope_interaction.enable = false
-			#rope_lerp_point.monitorable = rope_interaction.enable
 	
 func _rope_area_entered(area: Area2D) -> void:
 	if area.is_in_group("RopeEnd") and area.get_parent().get_parent() != self:
