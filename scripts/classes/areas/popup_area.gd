@@ -78,8 +78,7 @@ func remove_self() -> void:
 		get_tree().call_group("Toy", "open_chest", false)
 	#get_parent().set_deferred("freeze", false) # allow parent to move again
 	# Remove self from scene tree
-	get_parent().remove_child(self)
-	queue_free()
+	call_deferred("queue_free")
 	
 # display sprite based on addon res
 func _add_sprite(res: AddonRes) -> void:

@@ -61,7 +61,7 @@ func _attach_rope_area(index: int, array: Array[Vector2]) -> RopeArea:
 	new_area.add_child(new_sprite) # returns a new sprite at position
 	new_sprite.global_position = array[next]
 	
-	new_area.set_rope(length + 2) # set rope length to length
+	new_area.set_rope(length) # set rope length to length
 	if index != 0: # if not the first rope, hide
 		new_area.hide()
 	
