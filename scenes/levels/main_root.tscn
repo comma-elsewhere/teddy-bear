@@ -14,10 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://bicefh4n4f072" path="res://assets/background/bench_under.png" id="10_sqfxy"]
 [ext_resource type="Texture2D" uid="uid://r7vqvl3376ei" path="res://assets/background/washbroad.png" id="11_i2g58"]
 [ext_resource type="Texture2D" uid="uid://u15rg1aa0jkg" path="res://assets/background/lockbox.png" id="13_qinn8"]
-[ext_resource type="AudioStream" uid="uid://dnaa5lrskwvkj" path="res://assets/music/HelpingHand.mp3" id="13_ssf80"]
 [ext_resource type="Texture2D" uid="uid://d4ency8s8fc1e" path="res://assets/background/lockboxdoor.png" id="14_wa2yn"]
 [ext_resource type="Texture2D" uid="uid://dtim8au84b5rf" path="res://assets/background/lockboxdooropen.png" id="15_4kpvc"]
 [ext_resource type="Script" uid="uid://cn0xlkserisq6" path="res://scripts/utility/safe_element.gd" id="16_4kpvc"]
+[ext_resource type="AudioStream" uid="uid://d32ci0rdj04ua" path="res://assets/music/HelpingHandLoopV1Vorbis.ogg" id="18_4kpvc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el6ax"]
 bg_color = Color(1, 0.9019608, 0.3529412, 1)
@@ -567,5 +567,5 @@ physics_material_override = ExtResource("9_wa2yn")
 shape = SubResource("WorldBoundaryShape2D_w3f05")
 
 [node name="HelpingHand" type="AudioStreamPlayer" parent="." unique_id=1750372787]
-stream = ExtResource("13_ssf80")
+stream = ExtResource("18_4kpvc")
 autoplay = true

@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://s4vmni6lgat2"]
 
 [ext_resource type="Script" uid="uid://bnln2xuxb0g82" path="res://scripts/management/main_menu.gd" id="1_721jg"]
-[ext_resource type="AudioStream" uid="uid://br8x38sye3d67" path="res://assets/music/TitleScreen.mp3" id="1_fsby3"]
 [ext_resource type="PackedScene" uid="uid://br87b8ipec2uy" path="res://scenes/levels/main_root.tscn" id="2_geflf"]
+[ext_resource type="AudioStream" uid="uid://kq3ijiibfgdl" path="res://assets/music/TitleScreenLoopV1Vorbis.ogg" id="3_721jg"]
 
 [node name="MainRoot" type="Node2D" unique_id=1687150665]
 script = ExtResource("1_721jg")
 main_scene = ExtResource("2_geflf")
 
 [node name="TitleScreen" type="AudioStreamPlayer" parent="." unique_id=1909723253]
-stream = ExtResource("1_fsby3")
+stream = ExtResource("3_721jg")
 autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1424046417]

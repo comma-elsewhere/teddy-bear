@@ -22,7 +22,7 @@ var rope_count: int = 0
 var rope_max: int
 
 func _ready() -> void:
-	var sides := randi_range(9, 18)
+	var sides := randi_range(5,6)
 	fabric_hole = _create_polygon(sides) # creates polygon with this range of possible sides
 	_show_hole() # displays created polygon texture of stuffing in hole shape
 	var point_array := _create_outline(sides)
@@ -36,39 +36,38 @@ func _count_rope_connect() -> void:
 	if rope_count >= rope_max:
 		game_done.emit(true)
 	
-func _spawn_stitch_hole_sprite(pos: Vector2) -> Sprite2D:
+func _spawn_stitch_hole_sprite() -> Sprite2D:
 	var sprite := Sprite2D.new()
 	sprite.texture = ICON
 	sprite.apply_scale(Vector2(0.1, 0.1))
 	sprite.centered = true
-	sprite.global_position = pos
 	return sprite
 	
-func _attach_rope_area(index: int, pos: Array[Vector2]) -> RopeArea:
+func _attach_rope_area(index: int, array: Array[Vector2]) -> RopeArea:
 	var new_area := RopeArea.new()
-	add_child(_spawn_stitch_hole_sprite(pos[index])) # returns a new sprite at position
 	add_child(new_area) # initiate ropearea on ready
-	new_area.global_position = pos[index] # set global position relative to index
+	new_area.global_position = array[index] # set global position relative to index
 	
 	var next: int = index +1
-	if next > pos.size() -1:
+	if next > array.size() -1:
 		next = 0
 		
 	new_area.set_collisions(next+1, index+1)
 	
 	var length: float = 0
-	length = pos[index].distance_to(pos[next]) # pick the next point and calc length as the distance between them
+	length = array[index].distance_to(array[next]) # pick the next point and calc length as the distance between them
 	
-	print(length)
+	var new_sprite := _spawn_stitch_hole_sprite()
+	new_area.add_child(new_sprite) # returns a new sprite at position
+	new_sprite.global_position = array[next]
 	
-	new_area.set_rope(length + 10) # set rope length to length
+	new_area.set_rope(length + 2) # set rope length to length
 	if index != 0: # if not the first rope, hide
 		new_area.hide()
 	
-	
 	return new_area
 	
-func _create_outline(side_count: int) -> Array[Vector2]:
+func _create_outline(_side_count: int) -> Array[Vector2]:
 	# create outline line
 	outline = Line2D.new()
 	add_child(outline)
@@ -77,13 +76,15 @@ func _create_outline(side_count: int) -> Array[Vector2]:
 	outline.hide()
 	
 	var points: Array[Vector2] = []
-	for i in range(int(float(side_count) / POINT_DIV)):
-		var rand_num: int = randi_range(0, (outline.points.size() -1))
-		var new_point: Vector2 = outline.to_global(outline.get_point_position(rand_num))
-		if !points.has(new_point):
-			points.append(new_point)
+	var scrambled_points: Array[Vector2] = []
 	
-	return points
+	for i in len(outline.points):
+		points.append(outline.points[i])
+		
+	for i in len(outline.points):
+		scrambled_points.append(points.pop_at(randi() % (points.size())))
+	
+	return scrambled_points
 	
 	
 # intersects created polygon with bitmap from fabric texture to show stuffing in intersection area
