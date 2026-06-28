@@ -14,7 +14,7 @@ var popup_preload: PackedScene = null # Set before ready by area spawner
 var addon_res: Array[AddonRes] = [] # optional set by area spawner
 
 func _ready() -> void:
-	enable_area(false) # disallow interaction until threshhold met
+	#enable_area(false) # disallow interaction until threshhold met
 	create_collision(RADIUS)
 	start()
 
