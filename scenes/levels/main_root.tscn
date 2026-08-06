@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://br87b8ipec2uy"]
 
 [ext_resource type="Script" uid="uid://01putgmxmdkw" path="res://scripts/management/scene_state_machine.gd" id="1_mpv8k"]
+[ext_resource type="Texture2D" uid="uid://dk4h2adkby1p2" path="res://assets/background/main_room.png" id="2_0okvb"]
 [ext_resource type="Script" uid="uid://dvssb0hn1uwes" path="res://scripts/classes/areas/objects/item_drag.gd" id="2_fq3os"]
+[ext_resource type="Texture2D" uid="uid://bn6gak15xjls2" path="res://assets/background/terminal.png" id="3_0yre4"]
 [ext_resource type="Resource" uid="uid://dkmqnhbspywx5" path="res://resources/game_data/test_item.tres" id="3_kp1bl"]
 [ext_resource type="Texture2D" uid="uid://c21p18c38xb8f" path="res://assets/background/bench_table.png" id="4_sqfxy"]
 [ext_resource type="Script" uid="uid://duh2dy8m2epvp" path="res://scripts/classes/areas/objects/tool_drag.gd" id="5_ssf80"]
@@ -18,24 +20,45 @@
 [ext_resource type="Texture2D" uid="uid://dtim8au84b5rf" path="res://assets/background/lockboxdooropen.png" id="15_4kpvc"]
 [ext_resource type="Script" uid="uid://cn0xlkserisq6" path="res://scripts/utility/safe_element.gd" id="16_4kpvc"]
 [ext_resource type="AudioStream" uid="uid://d32ci0rdj04ua" path="res://assets/music/HelpingHandLoopV1Vorbis.ogg" id="18_4kpvc"]
+[ext_resource type="Texture2D" uid="uid://bkgbdcn4l3d8g" path="res://assets/background/chute.png" id="19_hi7ub"]
+[ext_resource type="Script" uid="uid://x5nuutqtu12j" path="res://scripts/chute_element.gd" id="21_hi7ub"]
+[ext_resource type="Texture2D" uid="uid://8twda3vherd4" path="res://assets/background/chute_door.png" id="21_sdi18"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el6ax"]
-bg_color = Color(1, 0.9019608, 0.3529412, 1)
+[sub_resource type="Animation" id="Animation_hi7ub"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneStateMachine/ChuteLayer/Control4/Chute:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(957, 540)]
+}
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3f05"]
-bg_color = Color(0.5411765, 0.2784314, 0.9647059, 1)
+[sub_resource type="Animation" id="Animation_v714p"]
+resource_name = "slide_chute"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneStateMachine/ChuteLayer/Control4/Chute:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(957, 540), Vector2(957, -100)]
+}
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jser"]
-bg_color = Color(0.43529412, 0.7647059, 0.96862745, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qu23m"]
-bg_color = Color(1, 0.3529412, 0.654902, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2j352"]
-bg_color = Color(0.77254903, 0.91764706, 0.043137256, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mfy0"]
-bg_color = Color(1, 0.3529412, 0.654902, 1)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sdi18"]
+_data = {
+&"RESET": SubResource("Animation_hi7ub"),
+&"slide_chute": SubResource("Animation_v714p")
+}
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2jser"]
 
@@ -147,86 +170,17 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Background" type="ColorRect" parent="SceneStateMachine/RoomLayer/Control1" unique_id=1668623116]
+[node name="Background" type="TextureRect" parent="SceneStateMachine/RoomLayer/Control1" unique_id=1816581719]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.3529412, 0.654902, 1)
-
-[node name="Label" type="Label" parent="SceneStateMachine/RoomLayer/Control1" unique_id=1748525761]
-layout_mode = 0
-offset_right = 702.0
-offset_bottom = 175.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.77254903, 0.91764706, 0.043137256, 1)
-theme_override_font_sizes/font_size = 128
-text = "Main Room"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RoomMargins" type="MarginContainer" parent="SceneStateMachine/RoomLayer/Control1" unique_id=1582903009]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 200
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 150
-
-[node name="TerminalNav" type="PanelContainer" parent="SceneStateMachine/RoomLayer/Control1/RoomMargins" unique_id=151836892]
-custom_minimum_size = Vector2(350, 500)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_el6ax")
-
-[node name="Label1" type="Label" parent="SceneStateMachine/RoomLayer/Control1/RoomMargins/TerminalNav" unique_id=2978550]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
-text = "Terminal"
-horizontal_alignment = 1
-
-[node name="BenchNav" type="PanelContainer" parent="SceneStateMachine/RoomLayer/Control1/RoomMargins" unique_id=1540331932]
-custom_minimum_size = Vector2(600, 300)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_w3f05")
-
-[node name="Label2" type="Label" parent="SceneStateMachine/RoomLayer/Control1/RoomMargins/BenchNav" unique_id=230966443]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Bench"
-horizontal_alignment = 1
-
-[node name="ChuteNav" type="PanelContainer" parent="SceneStateMachine/RoomLayer/Control1/RoomMargins" unique_id=518070215]
-custom_minimum_size = Vector2(250, 200)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_2jser")
-
-[node name="Label3" type="Label" parent="SceneStateMachine/RoomLayer/Control1/RoomMargins/ChuteNav" unique_id=1040206078]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
-text = "Chute"
-horizontal_alignment = 1
+texture = ExtResource("2_0okvb")
 
 [node name="TerminalLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=664462699]
 unique_name_in_owner = true
-visible = false
 
 [node name="Control2" type="Control" parent="SceneStateMachine/TerminalLayer" unique_id=1755149586]
 z_index = -4000
@@ -238,67 +192,26 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Background" type="ColorRect" parent="SceneStateMachine/TerminalLayer/Control2" unique_id=1463970577]
+[node name="ColorRect" type="ColorRect" parent="SceneStateMachine/TerminalLayer/Control2" unique_id=1210268036]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.9019608, 0.3529412, 1)
+color = Color(0, 0, 0, 1)
 
-[node name="Label2" type="Label" parent="SceneStateMachine/TerminalLayer/Control2" unique_id=660756768]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -550.0
-offset_bottom = 175.0
-grow_horizontal = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.5411765, 0.2784314, 0.9647059, 1)
-theme_override_font_sizes/font_size = 128
-text = "Terminal"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="AreaMargins" type="MarginContainer" parent="SceneStateMachine/TerminalLayer/Control2" unique_id=1505126971]
+[node name="Background" type="TextureRect" parent="SceneStateMachine/TerminalLayer/Control2" unique_id=1823515006]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ShelfElement" type="PanelContainer" parent="SceneStateMachine/TerminalLayer/Control2/AreaMargins" unique_id=1714023156]
-custom_minimum_size = Vector2(600, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_qu23m")
-
-[node name="Label5" type="Label" parent="SceneStateMachine/TerminalLayer/Control2/AreaMargins/ShelfElement" unique_id=565094373]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Accessory Shelves"
-horizontal_alignment = 1
-
-[node name="TerminalElement" type="PanelContainer" parent="SceneStateMachine/TerminalLayer/Control2/AreaMargins" unique_id=261696768]
-custom_minimum_size = Vector2(750, 900)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_2j352")
-
-[node name="Label4" type="Label" parent="SceneStateMachine/TerminalLayer/Control2/AreaMargins/TerminalElement" unique_id=2106060930]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
-text = "Data Terminal"
-horizontal_alignment = 1
+texture = ExtResource("3_0yre4")
 
 [node name="ItemDrag" type="Area2D" parent="SceneStateMachine/TerminalLayer" unique_id=1711119824]
-position = Vector2(292, 383)
+position = Vector2(127, 488)
 script = ExtResource("2_fq3os")
 item_res = ExtResource("3_kp1bl")
 metadata/_custom_type_script = "uid://dvssb0hn1uwes"
@@ -373,7 +286,7 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="LaundryElement" type="Sprite2D" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins" unique_id=1358159438]
-position = Vector2(1536, 658)
+position = Vector2(712, 554)
 texture = ExtResource("11_i2g58")
 region_enabled = true
 region_rect = Rect2(194.44623, 92.748314, 681.6615, 834.2519)
@@ -385,7 +298,7 @@ monitorable = false
 script = ExtResource("7_i2g58")
 
 [node name="SafeElement" type="Sprite2D" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins" unique_id=1485690601]
-position = Vector2(814, 728)
+position = Vector2(1383, 614)
 texture = ExtResource("13_qinn8")
 region_enabled = true
 region_rect = Rect2(1123.405, 214.485, 650, 650)
@@ -423,48 +336,27 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="SceneStateMachine/ChuteLayer/Control4" unique_id=180119716]
+[node name="ChuteBackground" type="TextureRect" parent="SceneStateMachine/ChuteLayer/Control4" unique_id=781111093]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.43529412, 0.7647059, 0.96862745, 1)
+texture = ExtResource("19_hi7ub")
 
-[node name="Label4" type="Label" parent="SceneStateMachine/ChuteLayer/Control4" unique_id=751256423]
-layout_mode = 0
-offset_right = 368.0
-offset_bottom = 175.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 128
-text = "Chute"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Chute" type="Sprite2D" parent="SceneStateMachine/ChuteLayer/Control4" unique_id=1819853616]
+position = Vector2(957, 540)
+texture = ExtResource("21_sdi18")
 
-[node name="ChuteElement" type="PanelContainer" parent="SceneStateMachine/ChuteLayer/Control4" unique_id=1915376108]
-custom_minimum_size = Vector2(750, 700)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6mfy0")
+[node name="ChuteElement" type="Area2D" parent="SceneStateMachine/ChuteLayer/Control4/Chute" unique_id=981191745]
+position = Vector2(-3, 253)
+script = ExtResource("21_hi7ub")
+metadata/_custom_type_script = "uid://bdm238hhxjrj0"
 
-[node name="Label2" type="Label" parent="SceneStateMachine/ChuteLayer/Control4/ChuteElement" unique_id=1993025210]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Delivery Chute"
-horizontal_alignment = 1
+[node name="ChuteAnimate" type="AnimationPlayer" parent="SceneStateMachine/ChuteLayer/Control4/Chute/ChuteElement" unique_id=1953909655]
+root_node = NodePath("../../../../../..")
+libraries/ = SubResource("AnimationLibrary_sdi18")
 
 [node name="MainGUI" type="CanvasLayer" parent="SceneStateMachine" unique_id=411973822]
 layer = 5
@@ -569,3 +461,5 @@ shape = SubResource("WorldBoundaryShape2D_w3f05")
 [node name="HelpingHand" type="AudioStreamPlayer" parent="." unique_id=1750372787]
 stream = ExtResource("18_4kpvc")
 autoplay = true
+
+[connection signal="animation_finished" from="SceneStateMachine/ChuteLayer/Control4/Chute/ChuteElement/ChuteAnimate" to="SceneStateMachine/ChuteLayer/Control4/Chute/ChuteElement" method="_on_chute_animate_animation_finished"]
