@@ -12,8 +12,9 @@ const TRASH_MARGIN : Array[int] = [50, 800, 1600, 100]
 @onready var bench_layer: CanvasLayer = %BenchLayer
 @onready var chute_layer: CanvasLayer = %ChuteLayer
 
-@onready var table_margins: TextureRect = %TableMargins
-@onready var laundry_margins: TextureRect = %LaundryMargins
+@onready var table_margins: Sprite2D = %TableMargins
+@onready var laundry_margins: Sprite2D = %LaundryMargins
+@onready var shipping_area: ShippingArea = %ShippingArea
 
 @onready var main_root: Node2D = %MainRoot
 @onready var hook_margin: MarginContainer = %HookMargin
@@ -39,10 +40,10 @@ func _ready() -> void:
 	bench_layer.hide()
 	chute_layer.hide()
 	# Layer setup
-	meat_hook.z_index = -2000
-	trash_can.z_index = -2000
-	meat_hook.z_as_relative = false
-	trash_can.z_as_relative = false
+	meat_hook.move_to_front()
+	trash_can.move_to_front()
+	# Connect Signals
+	shipping_area.ship_toy.connect(_trash_toy)
 	
 	# Actual scene setup
 	_spawn_toy()
@@ -148,7 +149,7 @@ func _bench_laundry_toggle(show_bench: bool = true) -> void:
 func _spawn_toy() -> void:
 	toy = TOY_BODY.instantiate()
 	toy.grabbed.connect(_toy_grabbed)
-	main_root.add_child(toy)
+	main_root.call_deferred("add_child", toy)
 	toy.global_position = Vector2( randf_range(400, 1200), randf_range(-600, -1000) )
 	toy.global_rotation_degrees = randf_range(0, 360)
 	toy.set_visibility_layer_bit(2, true)
@@ -167,14 +168,17 @@ func _toy_grabbed(is_held: RigidBody2D) -> void:
 		toy.attach_hook(_get_hook_pos())
 		return
 	if is_held.global_position.distance_to(_get_trash_pos()) < GRAB_DIST: # destroy toy and spawn a new one
-		toy.get_parent().remove_child(toy)
-		toy.queue_free()
-		_spawn_toy()
+		_trash_toy()
+		
+func _trash_toy() -> void:
+	toy.get_parent().remove_child(toy)
+	toy.queue_free()
+	_spawn_toy()
 		
 # Updates toy state --- default to main state where the toy spawns
 # toy state determines which area the toy should be visible in when it is not on the hook
 func _change_toy_state(new_state: int = STATE.MAIN) -> void:
-	toy.reparent(state_array[new_state])
+	toy.call_deferred("reparent", state_array[new_state])
 	toy_state = new_state
 	_check_toy_state()
 	

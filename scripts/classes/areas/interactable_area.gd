@@ -11,7 +11,7 @@ func create_collision(radius: float) -> void:
 	var shape := CircleShape2D.new()
 	shape.radius = radius
 	collision_shape.shape = shape
-	add_child(collision_shape)
+	call_deferred("add_child", collision_shape)
 	
 func toggle_collision(disable: bool) -> void:
 	collision_shape.set_deferred("disabled", disable)

@@ -1,6 +1,7 @@
 extends InteractionArea
 
 @onready var chute_animate: AnimationPlayer = $ChuteAnimate
+@onready var shipping_area: ShippingArea = %ShippingArea
 
 var chute_up: bool = false
 
@@ -8,6 +9,7 @@ func _ready() -> void:
 	create_collision(80)
 	input_pickable = true
 	input_event.connect(_mouse_event)
+	shipping_area.ship_toy.connect(_close_chute)
 	start()
 
 func _mouse_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
@@ -25,3 +27,10 @@ func _mouse_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 func _on_chute_animate_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "slide_chute":
 		input_pickable = true
+
+func _close_chute() -> void:
+	if !chute_up:
+		return
+	chute_up = !chute_up
+	input_pickable = false
+	chute_animate.play_backwards("slide_chute")

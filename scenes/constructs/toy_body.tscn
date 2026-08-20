@@ -19,7 +19,7 @@ height = 260.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_evyic"]
 radius = 140.0
 
-[node name="ToyBody" type="CanvasGroup" unique_id=22103634]
+[node name="ToyBody" type="CanvasGroup" unique_id=22103634 groups=["Toy"]]
 script = ExtResource("2_dosap")
 toy_res = ExtResource("2_vxon5")
 

@@ -23,13 +23,14 @@
 [ext_resource type="Texture2D" uid="uid://bkgbdcn4l3d8g" path="res://assets/background/chute.png" id="19_hi7ub"]
 [ext_resource type="Script" uid="uid://x5nuutqtu12j" path="res://scripts/chute_element.gd" id="21_hi7ub"]
 [ext_resource type="Texture2D" uid="uid://8twda3vherd4" path="res://assets/background/chute_door.png" id="21_sdi18"]
+[ext_resource type="Script" uid="uid://bbuhyv51ddsa0" path="res://scripts/utility/shipping_area.gd" id="22_v714p"]
 
 [sub_resource type="Animation" id="Animation_hi7ub"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SceneStateMachine/ChuteLayer/Control4/Chute:position")
+tracks/0/path = NodePath("SceneStateMachine/ChuteLayer/Chute:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -44,7 +45,7 @@ resource_name = "slide_chute"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SceneStateMachine/ChuteLayer/Control4/Chute:position")
+tracks/0/path = NodePath("SceneStateMachine/ChuteLayer/Chute:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -52,6 +53,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(957, 540), Vector2(957, -100)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SceneStateMachine/ChuteLayer/ShippingArea")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.46666667, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"toggle_collision"
+}, {
+"args": [false],
+"method": &"toggle_collision"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sdi18"]
@@ -160,40 +178,15 @@ script = ExtResource("1_mpv8k")
 unique_name_in_owner = true
 visible = false
 
-[node name="Control1" type="Control" parent="SceneStateMachine/RoomLayer" unique_id=634343315]
-z_index = -4000
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Background" type="TextureRect" parent="SceneStateMachine/RoomLayer/Control1" unique_id=1816581719]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Background" type="Sprite2D" parent="SceneStateMachine/RoomLayer" unique_id=1397679386]
 texture = ExtResource("2_0okvb")
+centered = false
 
 [node name="TerminalLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=664462699]
 unique_name_in_owner = true
+visible = false
 
-[node name="Control2" type="Control" parent="SceneStateMachine/TerminalLayer" unique_id=1755149586]
-z_index = -4000
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="ColorRect" type="ColorRect" parent="SceneStateMachine/TerminalLayer/Control2" unique_id=1210268036]
-layout_mode = 1
+[node name="TerminalScreenBG" type="ColorRect" parent="SceneStateMachine/TerminalLayer" unique_id=1210268036]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -201,62 +194,40 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Background" type="TextureRect" parent="SceneStateMachine/TerminalLayer/Control2" unique_id=1823515006]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_0yre4")
-
 [node name="ItemDrag" type="Area2D" parent="SceneStateMachine/TerminalLayer" unique_id=1711119824]
 position = Vector2(127, 488)
 script = ExtResource("2_fq3os")
 item_res = ExtResource("3_kp1bl")
 metadata/_custom_type_script = "uid://dvssb0hn1uwes"
 
+[node name="Background" type="Sprite2D" parent="SceneStateMachine/TerminalLayer" unique_id=1269691864]
+texture = ExtResource("3_0yre4")
+centered = false
+
 [node name="BenchLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=993735210]
 unique_name_in_owner = true
 
-[node name="Control3" type="Control" parent="SceneStateMachine/BenchLayer" unique_id=857957686]
-z_index = -4000
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="TableMargins" type="TextureRect" parent="SceneStateMachine/BenchLayer/Control3" unique_id=1744588760]
+[node name="TableMargins" type="Sprite2D" parent="SceneStateMachine/BenchLayer" unique_id=1249385344]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 texture = ExtResource("4_sqfxy")
-expand_mode = 1
-stretch_mode = 6
+centered = false
 
-[node name="RepairTableArea" type="Area2D" parent="SceneStateMachine/BenchLayer/Control3/TableMargins" unique_id=1552411218]
+[node name="RepairTableArea" type="Area2D" parent="SceneStateMachine/BenchLayer/TableMargins" unique_id=1552411218]
 position = Vector2(1239, 345)
 collision_mask = 16
 linear_damp = 1.0
 script = ExtResource("8_qinn8")
 metadata/_custom_type_script = "uid://bdm238hhxjrj0"
 
-[node name="ToolDragRemove" type="Area2D" parent="SceneStateMachine/BenchLayer/Control3/TableMargins" unique_id=1642156831]
+[node name="ToolDragRemove" type="Area2D" parent="SceneStateMachine/BenchLayer/TableMargins" unique_id=1642156831]
 position = Vector2(856, 956)
 script = ExtResource("5_ssf80")
 texture = ExtResource("7_kp1bl")
 texture_scale = Vector2(0.8, 0.8)
 metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
-[node name="ToolDragCut" type="Area2D" parent="SceneStateMachine/BenchLayer/Control3/TableMargins" unique_id=1096396097]
+[node name="ToolDragCut" type="Area2D" parent="SceneStateMachine/BenchLayer/TableMargins" unique_id=1096396097]
 position = Vector2(1280, 1026)
 script = ExtResource("5_ssf80")
 tool_target = 1
@@ -264,7 +235,7 @@ texture = ExtResource("8_sqfxy")
 texture_scale = Vector2(0.3, 0.3)
 metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
-[node name="ToolDragStitch" type="Area2D" parent="SceneStateMachine/BenchLayer/Control3/TableMargins" unique_id=2073658118]
+[node name="ToolDragStitch" type="Area2D" parent="SceneStateMachine/BenchLayer/TableMargins" unique_id=2073658118]
 position = Vector2(1642, 969)
 script = ExtResource("5_ssf80")
 tool_target = 2
@@ -272,45 +243,38 @@ texture = ExtResource("9_ssf80")
 texture_scale = Vector2(0.4, 0.4)
 metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
-[node name="LaundryMargins" type="TextureRect" parent="SceneStateMachine/BenchLayer/Control3" unique_id=1672012838]
+[node name="LaundryMargins" type="Sprite2D" parent="SceneStateMachine/BenchLayer" unique_id=1250956998]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 texture = ExtResource("10_sqfxy")
-expand_mode = 1
-stretch_mode = 6
+centered = false
 
-[node name="LaundryElement" type="Sprite2D" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins" unique_id=1358159438]
+[node name="LaundryElement" type="Sprite2D" parent="SceneStateMachine/BenchLayer/LaundryMargins" unique_id=1358159438]
 position = Vector2(712, 554)
 texture = ExtResource("11_i2g58")
 region_enabled = true
 region_rect = Rect2(194.44623, 92.748314, 681.6615, 834.2519)
 
-[node name="LaundryMachineArea" type="Area2D" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins/LaundryElement" unique_id=2139027766]
+[node name="LaundryMachineArea" type="Area2D" parent="SceneStateMachine/BenchLayer/LaundryMargins/LaundryElement" unique_id=2139027766]
 collision_mask = 16
 input_pickable = false
 monitorable = false
 script = ExtResource("7_i2g58")
 
-[node name="SafeElement" type="Sprite2D" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins" unique_id=1485690601]
+[node name="SafeElement" type="Sprite2D" parent="SceneStateMachine/BenchLayer/LaundryMargins" unique_id=1485690601]
 position = Vector2(1383, 614)
 texture = ExtResource("13_qinn8")
 region_enabled = true
 region_rect = Rect2(1123.405, 214.485, 650, 650)
 
-[node name="SafeDoorClosed" type="Sprite2D" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins/SafeElement" unique_id=1667137094]
+[node name="SafeDoorClosed" type="Sprite2D" parent="SceneStateMachine/BenchLayer/LaundryMargins/SafeElement" unique_id=1667137094]
 unique_name_in_owner = true
 position = Vector2(-5, 76)
 texture = ExtResource("14_wa2yn")
 region_enabled = true
 region_rect = Rect2(1123.405, 344.173, 650, 550)
 
-[node name="SafeDoorOpen" type="Sprite2D" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins/SafeElement" unique_id=918167312]
+[node name="SafeDoorOpen" type="Sprite2D" parent="SceneStateMachine/BenchLayer/LaundryMargins/SafeElement" unique_id=918167312]
 unique_name_in_owner = true
 visible = false
 position = Vector2(377, 145)
@@ -318,45 +282,36 @@ texture = ExtResource("15_4kpvc")
 region_enabled = true
 region_rect = Rect2(1649.9355, 362.3289, 270.06445, 625.0928)
 
-[node name="InteractionArea" type="Area2D" parent="SceneStateMachine/BenchLayer/Control3/LaundryMargins/SafeElement" unique_id=1212008002]
+[node name="InteractionArea" type="Area2D" parent="SceneStateMachine/BenchLayer/LaundryMargins/SafeElement" unique_id=1212008002]
 script = ExtResource("16_4kpvc")
 metadata/_custom_type_script = "uid://bdm238hhxjrj0"
 
 [node name="ChuteLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=1678620600]
 unique_name_in_owner = true
-visible = false
 
-[node name="Control4" type="Control" parent="SceneStateMachine/ChuteLayer" unique_id=1851672119]
-z_index = -4000
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="ChuteBackground" type="TextureRect" parent="SceneStateMachine/ChuteLayer/Control4" unique_id=781111093]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ChuteBackground" type="Sprite2D" parent="SceneStateMachine/ChuteLayer" unique_id=1702073924]
 texture = ExtResource("19_hi7ub")
+centered = false
 
-[node name="Chute" type="Sprite2D" parent="SceneStateMachine/ChuteLayer/Control4" unique_id=1819853616]
+[node name="Chute" type="Sprite2D" parent="SceneStateMachine/ChuteLayer" unique_id=1819853616]
 position = Vector2(957, 540)
 texture = ExtResource("21_sdi18")
 
-[node name="ChuteElement" type="Area2D" parent="SceneStateMachine/ChuteLayer/Control4/Chute" unique_id=981191745]
+[node name="ChuteElement" type="Area2D" parent="SceneStateMachine/ChuteLayer/Chute" unique_id=981191745]
 position = Vector2(-3, 253)
 script = ExtResource("21_hi7ub")
 metadata/_custom_type_script = "uid://bdm238hhxjrj0"
 
-[node name="ChuteAnimate" type="AnimationPlayer" parent="SceneStateMachine/ChuteLayer/Control4/Chute/ChuteElement" unique_id=1953909655]
-root_node = NodePath("../../../../../..")
+[node name="ChuteAnimate" type="AnimationPlayer" parent="SceneStateMachine/ChuteLayer/Chute/ChuteElement" unique_id=1953909655]
+root_node = NodePath("../../../../..")
 libraries/ = SubResource("AnimationLibrary_sdi18")
+
+[node name="ShippingArea" type="Area2D" parent="SceneStateMachine/ChuteLayer" unique_id=211902697]
+unique_name_in_owner = true
+position = Vector2(952, 592)
+collision_mask = 24
+script = ExtResource("22_v714p")
+metadata/_custom_type_script = "uid://bdm238hhxjrj0"
 
 [node name="MainGUI" type="CanvasLayer" parent="SceneStateMachine" unique_id=411973822]
 layer = 5
@@ -458,8 +413,7 @@ physics_material_override = ExtResource("9_wa2yn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneStateMachine/MainGUI/MainRoot/Wall3" unique_id=397804349]
 shape = SubResource("WorldBoundaryShape2D_w3f05")
 
-[node name="HelpingHand" type="AudioStreamPlayer" parent="." unique_id=1750372787]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1750372787]
 stream = ExtResource("18_4kpvc")
-autoplay = true
 
-[connection signal="animation_finished" from="SceneStateMachine/ChuteLayer/Control4/Chute/ChuteElement/ChuteAnimate" to="SceneStateMachine/ChuteLayer/Control4/Chute/ChuteElement" method="_on_chute_animate_animation_finished"]
+[connection signal="animation_finished" from="SceneStateMachine/ChuteLayer/Chute/ChuteElement/ChuteAnimate" to="SceneStateMachine/ChuteLayer/Chute/ChuteElement" method="_on_chute_animate_animation_finished"]
