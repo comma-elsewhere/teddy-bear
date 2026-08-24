@@ -26,6 +26,8 @@
 [ext_resource type="Script" uid="uid://x5nuutqtu12j" path="res://scripts/chute_element.gd" id="21_hi7ub"]
 [ext_resource type="Texture2D" uid="uid://8twda3vherd4" path="res://assets/background/chute_door.png" id="21_sdi18"]
 [ext_resource type="Script" uid="uid://bbuhyv51ddsa0" path="res://scripts/utility/shipping_area.gd" id="22_v714p"]
+[ext_resource type="Texture2D" uid="uid://ch687dq0ixidq" path="res://assets/temp hook.png" id="25_vfm2l"]
+[ext_resource type="Texture2D" uid="uid://dil73h72ddcb1" path="res://assets/temp trashcan.png" id="26_ypkx7"]
 
 [sub_resource type="Shader" id="Shader_sdi18"]
 code = "shader_type canvas_item;
@@ -98,10 +100,6 @@ _data = {
 &"RESET": SubResource("Animation_hi7ub"),
 &"slide_chute": SubResource("Animation_v714p")
 }
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2jser"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_w3f05"]
 
 [sub_resource type="Animation" id="Animation_el6ax"]
 length = 0.001
@@ -280,6 +278,7 @@ script = ExtResource("8_qinn8")
 metadata/_custom_type_script = "uid://bdm238hhxjrj0"
 
 [node name="ToolDragRemove" type="Area2D" parent="SceneStateMachine/BenchLayer/TableMargins" unique_id=1642156831]
+visible = false
 position = Vector2(856, 956)
 script = ExtResource("5_ssf80")
 texture = ExtResource("7_kp1bl")
@@ -402,9 +401,9 @@ custom_minimum_size = Vector2(125, 200)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = SubResource("PlaceholderTexture2D_2jser")
+texture = ExtResource("25_vfm2l")
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 5
 
 [node name="TrashCan" type="TextureRect" parent="SceneStateMachine/MainGUI/HUD/HookMargin" unique_id=984773241]
 unique_name_in_owner = true
@@ -413,9 +412,9 @@ custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = SubResource("PlaceholderTexture2D_w3f05")
+texture = ExtResource("26_ypkx7")
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 5
 
 [node name="SFX" type="Control" parent="SceneStateMachine/MainGUI" unique_id=1314298482]
 z_index = 10

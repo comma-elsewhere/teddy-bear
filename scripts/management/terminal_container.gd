@@ -23,19 +23,14 @@ func _process(_delta: float) -> void:
 		
 	if Input.is_action_just_pressed("c_button"):
 		_stop_all_players()
-		print("Stopped")
 			
 	if Input.is_action_just_pressed("z_button"):
 		_stop_all_players()
 		audio_players_array[0].play()
-		print(audio_players_array[0].stream)
-		print(audio_players_array[0].playing)
 		
 	if Input.is_action_just_pressed("x_button") and audio_players_array.size() > 1:
 		_stop_all_players()
 		audio_players_array[1].play()
-		print(audio_players_array[1].stream)
-		print(audio_players_array[1].playing)
 	
 func _stop_all_players() -> void:
 	for player in audio_players_array:
