@@ -15,7 +15,6 @@ func _mouse_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_MASK_LEFT:
 		if event.pressed and visible:
 			activate.emit()
-			print("connecting")
 			get_parent().remove_child(self)
 			call_deferred("queue_free")
 

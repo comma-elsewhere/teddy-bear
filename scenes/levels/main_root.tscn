@@ -197,11 +197,28 @@ script = ExtResource("1_mpv8k")
 
 [node name="RoomLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=901725227]
 unique_name_in_owner = true
-visible = false
 
 [node name="Background" type="Sprite2D" parent="SceneStateMachine/RoomLayer" unique_id=1397679386]
 texture = ExtResource("2_0okvb")
 centered = false
+
+[node name="Label2" type="Label" parent="SceneStateMachine/RoomLayer/Background" unique_id=1783869430]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -345.5
+offset_top = -137.0
+offset_right = 345.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 48
+text = "Navigate around the room
+with WASD or Arrow Keys"
 
 [node name="TerminalLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=664462699]
 unique_name_in_owner = true
@@ -322,6 +339,7 @@ under the work table"
 
 [node name="LaundryMargins" type="Sprite2D" parent="SceneStateMachine/BenchLayer" unique_id=1250956998]
 unique_name_in_owner = true
+visible = false
 texture = ExtResource("10_sqfxy")
 centered = false
 

@@ -9,4 +9,3 @@ func _ready() -> void:
 	
 func _show_self() -> void:
 	show()
-	print("activate connnected")
