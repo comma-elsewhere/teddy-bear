@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bn6gak15xjls2" path="res://assets/background/terminal.png" id="3_0yre4"]
 [ext_resource type="Resource" uid="uid://dkmqnhbspywx5" path="res://resources/game_data/test_item.tres" id="3_kp1bl"]
 [ext_resource type="Texture2D" uid="uid://c21p18c38xb8f" path="res://assets/background/bench_table.png" id="4_sqfxy"]
+[ext_resource type="Texture2D" uid="uid://3ro4q0wnnn5v" path="res://assets/background/terminal_screen.png" id="5_sdi18"]
 [ext_resource type="Script" uid="uid://duh2dy8m2epvp" path="res://scripts/classes/areas/objects/tool_drag.gd" id="5_ssf80"]
+[ext_resource type="PackedScene" uid="uid://cne2e2a3cpciq" path="res://scenes/components/terminal_container.tscn" id="6_lfpqy"]
 [ext_resource type="Script" uid="uid://bjrbds6jtw7d8" path="res://scripts/utility/laundry_element.gd" id="7_i2g58"]
 [ext_resource type="Texture2D" uid="uid://c14ljb54gctfk" path="res://assets/temp forceps.png" id="7_kp1bl"]
 [ext_resource type="Script" uid="uid://cse4frc5pm8pi" path="res://scripts/utility/repair_table_area.gd" id="8_qinn8"]
@@ -24,6 +26,25 @@
 [ext_resource type="Script" uid="uid://x5nuutqtu12j" path="res://scripts/chute_element.gd" id="21_hi7ub"]
 [ext_resource type="Texture2D" uid="uid://8twda3vherd4" path="res://assets/background/chute_door.png" id="21_sdi18"]
 [ext_resource type="Script" uid="uid://bbuhyv51ddsa0" path="res://scripts/utility/shipping_area.gd" id="22_v714p"]
+
+[sub_resource type="Shader" id="Shader_sdi18"]
+code = "shader_type canvas_item;
+
+// The parameter name (e.g., \"viewport_texture\") is used in the inspector
+uniform sampler2D viewport_texture : source_color, filter_linear_mipmap;
+
+void fragment() {
+    // Sample the texture using UV coordinates
+    COLOR = texture(viewport_texture, UV);
+}"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lwk12"]
+viewport_path = NodePath("SceneStateMachine/TerminalLayer/TerminalBG/TerminalViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lfpqy"]
+resource_local_to_scene = true
+shader = SubResource("Shader_sdi18")
+shader_parameter/viewport_texture = SubResource("ViewportTexture_lwk12")
 
 [sub_resource type="Animation" id="Animation_hi7ub"]
 length = 0.001
@@ -184,15 +205,6 @@ centered = false
 
 [node name="TerminalLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=664462699]
 unique_name_in_owner = true
-visible = false
-
-[node name="TerminalScreenBG" type="ColorRect" parent="SceneStateMachine/TerminalLayer" unique_id=1210268036]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
 
 [node name="ItemDrag" type="Area2D" parent="SceneStateMachine/TerminalLayer" unique_id=1711119824]
 position = Vector2(127, 488)
@@ -203,6 +215,53 @@ metadata/_custom_type_script = "uid://dvssb0hn1uwes"
 [node name="Background" type="Sprite2D" parent="SceneStateMachine/TerminalLayer" unique_id=1269691864]
 texture = ExtResource("3_0yre4")
 centered = false
+
+[node name="TerminalBG" type="Sprite2D" parent="SceneStateMachine/TerminalLayer" unique_id=267448540]
+material = SubResource("ShaderMaterial_lfpqy")
+position = Vector2(858, 63)
+texture = ExtResource("5_sdi18")
+centered = false
+
+[node name="TerminalViewport" type="SubViewport" parent="SceneStateMachine/TerminalLayer/TerminalBG" unique_id=264051132]
+transparent_bg = true
+size = Vector2i(960, 810)
+
+[node name="ControlTerminal" type="Control" parent="SceneStateMachine/TerminalLayer/TerminalBG/TerminalViewport" unique_id=1096050078]
+top_level = true
+z_index = 4096
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SceneStateMachine/TerminalLayer/TerminalBG/TerminalViewport/ControlTerminal" unique_id=1265595410]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SceneStateMachine/TerminalLayer/TerminalBG/TerminalViewport/ControlTerminal/MarginContainer" unique_id=1001277728]
+custom_minimum_size = Vector2(800, 700)
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+scroll_hint_mode = 1
+
+[node name="TerminalContainer" parent="SceneStateMachine/TerminalLayer/TerminalBG/TerminalViewport/ControlTerminal/MarginContainer/ScrollContainer" unique_id=1909824886 node_paths=PackedStringArray("scene_control") instance=ExtResource("6_lfpqy")]
+custom_maximum_size = Vector2(800, -1)
+propagate_maximum_size = false
+layout_mode = 2
+size_flags_horizontal = 1
+scene_control = NodePath("../../../../../../..")
 
 [node name="BenchLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=993735210]
 unique_name_in_owner = true
@@ -288,6 +347,7 @@ metadata/_custom_type_script = "uid://bdm238hhxjrj0"
 
 [node name="ChuteLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=1678620600]
 unique_name_in_owner = true
+visible = false
 
 [node name="ChuteBackground" type="Sprite2D" parent="SceneStateMachine/ChuteLayer" unique_id=1702073924]
 texture = ExtResource("19_hi7ub")
@@ -333,6 +393,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="MeatHook" type="TextureRect" parent="SceneStateMachine/MainGUI/HUD/HookMargin" unique_id=296237937]
 unique_name_in_owner = true
@@ -375,6 +436,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 4.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

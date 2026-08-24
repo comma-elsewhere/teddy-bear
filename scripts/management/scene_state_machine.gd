@@ -1,5 +1,7 @@
 class_name SceneStateMachine extends Node
 
+signal toy_created(file: DemoPatientFile)
+
 enum STATE {MAIN, TERMINAL, BENCH, CHUTE}
 
 const TOY_BODY := preload("uid://bv027w1ur8f51")
@@ -153,6 +155,7 @@ func _spawn_toy() -> void:
 	toy.global_position = Vector2( randf_range(400, 1200), randf_range(-600, -1000) )
 	toy.global_rotation_degrees = randf_range(0, 360)
 	toy.set_visibility_layer_bit(2, true)
+	toy_created.emit(toy.toy_res.get_file())
 	_change_toy_state() # Default to main state
 	
 # Take the toy on and off the hook --- is_held is the 'last body part held by the player' and will lerp to _get_hook_pos() while toy.hooked

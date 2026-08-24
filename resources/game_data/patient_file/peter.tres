@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DemoPatientFile" format=3 uid="uid://h74abcof363q"]
+
+[ext_resource type="Script" uid="uid://c4lj0farn5shk" path="res://scripts/resource/patient_file_res.gd" id="1_186gv"]
+[ext_resource type="AudioStream" uid="uid://baw857xyijkgl" path="res://assets/audio/PeterHarris_1.mp3" id="1_mqowi"]
+
+[resource]
+script = ExtResource("1_186gv")
+play_order = 2
+patient_name = "Peter Harris"
+patient_age = 14
+submission = ["Submitted due to persistent odor reported by guardian.", "Interior contaminants suspected."]
+diagnosis = "Patient admitted for wisdom tooth extraction procedure."
+treatment = ["Procedure performed under local anesthesia.", "Staff reports difficulty maintaining patient cooperation.", "No clinical complications reported."]
+audio_recording = Array[AudioStreamMP3]([ExtResource("1_mqowi")])
+metadata/_custom_type_script = "uid://c4lj0farn5shk"

@@ -1,6 +1,7 @@
 class_name ToyDetails extends Resource
 
-@export var patient_file: PatientFile
+@export var patient_file_array: Array[DemoPatientFile] = []
+@export var patient_file: DemoPatientFile
 
 # Toy body part textures and their offset from the body part parent (to look natural)
 @export var textures: Array[AtlasTexture] = [] # Torso closed, torso open, left arm, left leg, right arm, right leg, head
@@ -21,3 +22,6 @@ const PART_COUNT := 6
 
 var has_heart: bool = true
 var chest_open: bool = false
+
+func get_file() -> DemoPatientFile:
+	return patient_file_array.pick_random()

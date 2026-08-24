@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cne2e2a3cpciq"]
+
+[ext_resource type="Script" uid="uid://187vvbo2kdq7" path="res://scripts/management/terminal_container.gd" id="1_cet7b"]
+
+[node name="TerminalContainer" type="VBoxContainer" unique_id=1909824886 node_paths=PackedStringArray("name_label", "age_label", "submission_label", "instructions_label", "file_number_label", "diagnosis_label", "treatment_label", "audio_container")]
+custom_minimum_size = Vector2(800, 700)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+script = ExtResource("1_cet7b")
+name_label = NodePath("NameContainer/Name")
+age_label = NodePath("NameContainer/Age")
+submission_label = NodePath("Submission")
+instructions_label = NodePath("Instructions")
+file_number_label = NodePath("TitleContainer/FileNumber")
+diagnosis_label = NodePath("Diagnosis")
+treatment_label = NodePath("Treatment")
+audio_container = NodePath("AudioMargins/AudioContainer")
+
+[node name="NameContainer" type="HBoxContainer" parent="." unique_id=384039264]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="NameContainer" unique_id=1212726542]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 48
+text = "John Doe"
+uppercase = true
+
+[node name="Age" type="Label" parent="NameContainer" unique_id=1910068021]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 48
+text = "Age: 10"
+uppercase = true
+
+[node name="Submission" type="Label" parent="." unique_id=576101092]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Submission note.
+Submission note."
+autowrap_mode = 3
+
+[node name="Instructions" type="Label" parent="." unique_id=1805972495]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.21560003, 0.21560003, 1)
+theme_override_font_sizes/font_size = 24
+text = "Remove contaminants and restore to factory condition."
+autowrap_mode = 3
+
+[node name="Control" type="Control" parent="." unique_id=1433261072]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Diagnosis" type="Label" parent="." unique_id=1027645325]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Remove contaminants and restore to factory condition."
+autowrap_mode = 3
+
+[node name="TitleContainer" type="HBoxContainer" parent="." unique_id=533175509]
+layout_mode = 2
+
+[node name="FileTitle" type="Label" parent="TitleContainer" unique_id=1073009321]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 32
+text = "Confidential"
+uppercase = true
+
+[node name="FileNumber" type="Label" parent="TitleContainer" unique_id=834162791]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 32
+text = "p#0000-1"
+uppercase = true
+
+[node name="Treatment" type="Label" parent="." unique_id=53849444]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Remove contaminants and restore to factory condition."
+autowrap_mode = 3
+
+[node name="AudioMargins" type="MarginContainer" parent="." unique_id=505273321]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="AudioContainer" type="VBoxContainer" parent="AudioMargins" unique_id=744785229]
+layout_mode = 2
+theme_override_constants/separation = 10

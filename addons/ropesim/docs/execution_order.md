@@ -6,11 +6,13 @@ Roughly sketched, the order looks like this:
 
 1. `SceneTree.physics_frame`
     - Rope update
-2. `_process()`
-3. `_physics_process()`
+2. `_physics_process()`
+3. `_draw()` (if `queue_redraw()` was called in `_physics_process()`)
+4. `_process()`
+5. `_draw()` (if `queue_redraw()` was called in `_process()`)
 
-This assumes that the FPS match the physics tickrate, which is usually locked at 60 FPS.
-On a 144 Hz screen for example, it wouldn't match and you get more `_process()` frames than `_physics_process()` possibly making this lag even more noticable.
+This assumes that the FPS match the physics tick rate, which is usually locked at 60 FPS.
+On a 144 Hz screen for example, it wouldn't match, resulting in more `_process()` frames than `_physics_process()`.
 
 `NativeRopeServer` provides a set of signals for fine-tuned execution order handling:
 
@@ -27,11 +29,11 @@ They get emitted just before/after rope updates.
     3. Rope update
     4. `on_post_update`
     5. `on_post_post_update`
-2. `_process()`
-3. `_physics_process()`
+2. `_physics_process()`
+3. `_process()`
 
 These signals are also used by various rope utilities like `RopeAnchor`, `RopeHandle` or `RopeRendererLine2D` to update the rope's properties or their own just before/after rope updates occur.
-At the moment they use the normal `pre` and `post` signals, not `pre_pre` or `post_post`.
+They use the normal `pre` and `post` signals, so it is safe to use `pre_pre` or `post_post` without interfering with them.
 
 ## Solving the One-Frame Delay
 

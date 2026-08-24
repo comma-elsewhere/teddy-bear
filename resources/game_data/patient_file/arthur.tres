@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DemoPatientFile" format=3 uid="uid://3ie4djtnus6l"]
+
+[ext_resource type="Script" uid="uid://c4lj0farn5shk" path="res://scripts/resource/patient_file_res.gd" id="1_iud2c"]
+
+[resource]
+script = ExtResource("1_iud2c")
+patient_name = "Arthur Baron"
+patient_age = 7
+submission = ["Submitted during psychiatric recovery period.", "Structurally compromised due to external environment exposure."]
+diagnosis = "Patient admitted for multiple traumatic injuries sustained in a violent altercation with other minors."
+treatment = ["Patient displays signs of persistent hypervigilance and strong imaginative coping behaviors.", "Attachment to the toy appears unusually pronounced.", "Frequent statements regarding “defending himself” were recorded in behavioral notes."]
+metadata/_custom_type_script = "uid://c4lj0farn5shk"
