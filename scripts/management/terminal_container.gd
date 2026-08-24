@@ -16,9 +16,17 @@ var audio_players_array : Array[AudioStreamPlayer] =[]
 
 func _ready() -> void:
 	scene_control.toy_created.connect(_populate_terminal)
+	scene_control.toy_trashed.connect(_hide_terminal.bind(true))
+	_hide_terminal(true)
 	
 func _process(_delta: float) -> void:
-	if audio_players_array.is_empty() or scene_control.current_state != scene_control.STATE.TERMINAL:
+	if scene_control.current_state != scene_control.STATE.TERMINAL:
+		return
+		
+	if Input.is_action_just_pressed("ui_accept"):
+		_hide_terminal(false)
+		
+	if audio_players_array.is_empty():
 		return
 		
 	if Input.is_action_just_pressed("c_button"):
@@ -36,6 +44,24 @@ func _stop_all_players() -> void:
 	for player in audio_players_array:
 		player.stop()
 	
+func _hide_terminal(hide_info: bool) -> void:
+	if hide_info:
+		audio_players_array.clear()
+		for child in audio_container.get_children():
+			child.queue_free()
+		
+		name_label.text = "No Active Patients"
+		age_label.text = ""
+		instructions_label.text = "Press [Space] to intake a new patient."
+		file_number_label.text = "File #: NONE"
+		diagnosis_label.text = ""
+		treatment_label.text = ""
+		submission_label.text = ""
+	else:
+		if scene_control.toy != null:
+			return
+		scene_control.spawn_toy()
+	
 func _populate_terminal(file: DemoPatientFile) -> void:
 	name_label.text = file.patient_name
 	age_label.text = "AGE: " + str(file.patient_age)
@@ -45,10 +71,7 @@ func _populate_terminal(file: DemoPatientFile) -> void:
 	treatment_label.text = "\n".join(file.treatment)
 	submission_label.text = "\n".join(file.submission)
 	
-	# Clear old audio & Create new
-	for child in audio_container.get_children():
-		child.queue_free()
-	audio_players_array.clear()
+	# create new audio
 	var count := 0
 	for audio in file.audio_recording:
 		count += 1

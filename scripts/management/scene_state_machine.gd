@@ -1,6 +1,7 @@
 class_name SceneStateMachine extends Node
 
 signal toy_created(file: DemoPatientFile)
+signal toy_trashed()
 
 enum STATE {MAIN, TERMINAL, BENCH, CHUTE}
 
@@ -48,7 +49,6 @@ func _ready() -> void:
 	shipping_area.ship_toy.connect(_trash_toy)
 	
 	# Actual scene setup
-	_spawn_toy()
 	_set_scene(STATE.MAIN)
 
 func _input(event: InputEvent) -> void:
@@ -119,6 +119,8 @@ func transition() -> void:
 				chute_layer.visible = !chute_layer.visible
 	_get_hook_margins() # move meat hook and trash can
 	# update toy position if it's on the hook
+	if toy == null:
+		return
 	if toy.hooked: # change toy state if on hook
 		_change_toy_state(current_state)
 		await get_tree().process_frame
@@ -148,14 +150,15 @@ func _bench_laundry_toggle(show_bench: bool = true) -> void:
 	
 # creates new toy, connects grabbed signal to toy grabbed func, and sets a random position above player pov so it will fall into screen 
 # set toy state to main state and then checks if the toy should be visible
-func _spawn_toy() -> void:
+func spawn_toy() -> void:
 	toy = TOY_BODY.instantiate()
+	toy_created.emit(toy.toy_res.get_file())
 	toy.grabbed.connect(_toy_grabbed)
+	await get_tree().create_timer(2.0).timeout
 	main_root.call_deferred("add_child", toy)
 	toy.global_position = Vector2( randf_range(400, 1200), randf_range(-600, -1000) )
 	toy.global_rotation_degrees = randf_range(0, 360)
 	toy.set_visibility_layer_bit(2, true)
-	toy_created.emit(toy.toy_res.get_file())
 	_change_toy_state() # Default to main state
 	
 # Take the toy on and off the hook --- is_held is the 'last body part held by the player' and will lerp to _get_hook_pos() while toy.hooked
@@ -176,7 +179,7 @@ func _toy_grabbed(is_held: RigidBody2D) -> void:
 func _trash_toy() -> void:
 	toy.get_parent().remove_child(toy)
 	toy.queue_free()
-	_spawn_toy()
+	toy_trashed.emit()
 		
 # Updates toy state --- default to main state where the toy spawns
 # toy state determines which area the toy should be visible in when it is not on the hook

@@ -23,6 +23,7 @@ layout_mode = 2
 [node name="Name" type="Label" parent="NameContainer" unique_id=1212726542]
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 48
 text = "John Doe"
 uppercase = true
@@ -30,6 +31,7 @@ uppercase = true
 [node name="Age" type="Label" parent="NameContainer" unique_id=1910068021]
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 48
 text = "Age: 10"
 uppercase = true
@@ -37,6 +39,7 @@ uppercase = true
 [node name="Submission" type="Label" parent="." unique_id=576101092]
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 28
 text = "Submission note.
 Submission note."
@@ -46,6 +49,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.21560003, 0.21560003, 1)
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 24
 text = "Remove contaminants and restore to factory condition."
 autowrap_mode = 3
@@ -53,6 +57,7 @@ autowrap_mode = 3
 [node name="Diagnosis" type="Label" parent="." unique_id=1027645325]
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 28
 text = "Remove contaminants and restore to factory condition."
 autowrap_mode = 3
@@ -63,6 +68,7 @@ layout_mode = 2
 [node name="FileTitle" type="Label" parent="TitleContainer" unique_id=1073009321]
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 32
 text = "Confidential"
 uppercase = true
@@ -70,6 +76,7 @@ uppercase = true
 [node name="FileNumber" type="Label" parent="TitleContainer" unique_id=834162791]
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 32
 text = "p#0000-1"
 uppercase = true
@@ -77,6 +84,7 @@ uppercase = true
 [node name="Treatment" type="Label" parent="." unique_id=53849444]
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 28
 text = "Remove contaminants and restore to factory condition."
 autowrap_mode = 3

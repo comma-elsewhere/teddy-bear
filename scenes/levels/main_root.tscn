@@ -197,6 +197,7 @@ script = ExtResource("1_mpv8k")
 
 [node name="RoomLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=901725227]
 unique_name_in_owner = true
+visible = false
 
 [node name="Background" type="Sprite2D" parent="SceneStateMachine/RoomLayer" unique_id=1397679386]
 texture = ExtResource("2_0okvb")
@@ -222,13 +223,21 @@ with WASD or Arrow Keys"
 
 [node name="TerminalLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=664462699]
 unique_name_in_owner = true
-visible = false
 
 [node name="ItemDrag" type="Area2D" parent="SceneStateMachine/TerminalLayer" unique_id=1711119824]
 position = Vector2(127, 488)
 script = ExtResource("2_fq3os")
 item_res = ExtResource("3_kp1bl")
 metadata/_custom_type_script = "uid://dvssb0hn1uwes"
+
+[node name="ScreenColor" type="ColorRect" parent="SceneStateMachine/TerminalLayer" unique_id=1681560726]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.09942168, 0.17, 0.0901, 1)
 
 [node name="TerminalBG" type="Sprite2D" parent="SceneStateMachine/TerminalLayer" unique_id=267448540]
 material = SubResource("ShaderMaterial_lfpqy")

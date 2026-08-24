@@ -4,6 +4,67 @@
 [ext_resource type="PackedScene" uid="uid://br87b8ipec2uy" path="res://scenes/levels/main_root.tscn" id="2_geflf"]
 [ext_resource type="AudioStream" uid="uid://kq3ijiibfgdl" path="res://assets/music/TitleScreenLoopV1Vorbis.ogg" id="3_721jg"]
 
+[sub_resource type="Animation" id="Animation_721jg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.95, 0.646, 0.7726666, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_geflf"]
+resource_name = "start"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.21176471, 0.023529412, 0.023529412, 1), Color(0.95, 0.646, 0.7726666, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.0666667, 1.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fkd6t"]
+_data = {
+&"RESET": SubResource("Animation_721jg"),
+&"start": SubResource("Animation_geflf")
+}
+
 [node name="MainRoot" type="Node2D" unique_id=1687150665]
 script = ExtResource("1_721jg")
 main_scene = ExtResource("2_geflf")
@@ -40,20 +101,35 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label1" type="Label" parent="CanvasLayer/Control/VBoxContainer" unique_id=2100810542]
-visible = false
-layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 1, 0.9925, 1)
-theme_override_constants/outline_size = 12
-theme_override_font_sizes/font_size = 128
-text = "Patient Palz"
-horizontal_alignment = 1
-
 [node name="Label2" type="Label" parent="CanvasLayer/Control/VBoxContainer" unique_id=2136203963]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_color = Color(0.9166138, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.21, 0.023100002, 0.023100002, 1)
 theme_override_constants/outline_size = 18
 theme_override_font_sizes/font_size = 128
 text = "Soft
 Tissue"
 horizontal_alignment = 1
+
+[node name="Label1" type="Label" parent="CanvasLayer/Control" unique_id=2100810542]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -422.0
+offset_top = -86.0
+offset_right = 422.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.85, 1, 0.9925, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 64
+text = "Press [Space] to Start"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control" unique_id=868216961]
+root_node = NodePath("../Label1")
+libraries/ = SubResource("AnimationLibrary_fkd6t")
+autoplay = &"start"
