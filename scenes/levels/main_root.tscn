@@ -17,6 +17,7 @@
 [ext_resource type="PhysicsMaterial" uid="uid://cjp3x4fh14jlx" path="res://resources/shaders_materials/plushie_physics_material.phymat" id="9_wa2yn"]
 [ext_resource type="Texture2D" uid="uid://bicefh4n4f072" path="res://assets/background/bench_under.png" id="10_sqfxy"]
 [ext_resource type="Texture2D" uid="uid://r7vqvl3376ei" path="res://assets/background/washbroad.png" id="11_i2g58"]
+[ext_resource type="Script" uid="uid://ccyiphefadlg0" path="res://scripts/management/tool_drag_cut.gd" id="12_kyuur"]
 [ext_resource type="Texture2D" uid="uid://u15rg1aa0jkg" path="res://assets/background/lockbox.png" id="13_qinn8"]
 [ext_resource type="Texture2D" uid="uid://d4ency8s8fc1e" path="res://assets/background/lockboxdoor.png" id="14_wa2yn"]
 [ext_resource type="Texture2D" uid="uid://dtim8au84b5rf" path="res://assets/background/lockboxdooropen.png" id="15_4kpvc"]
@@ -25,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bkgbdcn4l3d8g" path="res://assets/background/chute.png" id="19_hi7ub"]
 [ext_resource type="Script" uid="uid://x5nuutqtu12j" path="res://scripts/chute_element.gd" id="21_hi7ub"]
 [ext_resource type="Texture2D" uid="uid://8twda3vherd4" path="res://assets/background/chute_door.png" id="21_sdi18"]
+[ext_resource type="Script" uid="uid://dak6201tcfxl0" path="res://scripts/utility/tool_cut_activate.gd" id="21_ypkx7"]
 [ext_resource type="Script" uid="uid://bbuhyv51ddsa0" path="res://scripts/utility/shipping_area.gd" id="22_v714p"]
 [ext_resource type="Texture2D" uid="uid://ch687dq0ixidq" path="res://assets/temp hook.png" id="25_vfm2l"]
 [ext_resource type="Texture2D" uid="uid://dil73h72ddcb1" path="res://assets/temp trashcan.png" id="26_ypkx7"]
@@ -203,16 +205,13 @@ centered = false
 
 [node name="TerminalLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=664462699]
 unique_name_in_owner = true
+visible = false
 
 [node name="ItemDrag" type="Area2D" parent="SceneStateMachine/TerminalLayer" unique_id=1711119824]
 position = Vector2(127, 488)
 script = ExtResource("2_fq3os")
 item_res = ExtResource("3_kp1bl")
 metadata/_custom_type_script = "uid://dvssb0hn1uwes"
-
-[node name="Background" type="Sprite2D" parent="SceneStateMachine/TerminalLayer" unique_id=1269691864]
-texture = ExtResource("3_0yre4")
-centered = false
 
 [node name="TerminalBG" type="Sprite2D" parent="SceneStateMachine/TerminalLayer" unique_id=267448540]
 material = SubResource("ShaderMaterial_lfpqy")
@@ -242,9 +241,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 60
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 80
 theme_override_constants/margin_bottom = 50
 
 [node name="ScrollContainer" type="ScrollContainer" parent="SceneStateMachine/TerminalLayer/TerminalBG/TerminalViewport/ControlTerminal/MarginContainer" unique_id=1001277728]
@@ -260,6 +259,10 @@ propagate_maximum_size = false
 layout_mode = 2
 size_flags_horizontal = 1
 scene_control = NodePath("../../../../../../..")
+
+[node name="Background" type="Sprite2D" parent="SceneStateMachine/TerminalLayer" unique_id=1269691864]
+texture = ExtResource("3_0yre4")
+centered = false
 
 [node name="BenchLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=993735210]
 unique_name_in_owner = true
@@ -285,9 +288,10 @@ texture = ExtResource("7_kp1bl")
 texture_scale = Vector2(0.8, 0.8)
 metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
-[node name="ToolDragCut" type="Area2D" parent="SceneStateMachine/BenchLayer/TableMargins" unique_id=1096396097]
+[node name="ToolDragCut" type="Area2D" parent="SceneStateMachine/BenchLayer/TableMargins" unique_id=1096396097 node_paths=PackedStringArray("activation_area")]
 position = Vector2(1280, 1026)
-script = ExtResource("5_ssf80")
+script = ExtResource("12_kyuur")
+activation_area = NodePath("../../LaundryMargins/SafeElement/SafeDoorOpen/InsideArea")
 tool_target = 1
 texture = ExtResource("8_sqfxy")
 texture_scale = Vector2(0.3, 0.3)
@@ -301,9 +305,23 @@ texture = ExtResource("9_ssf80")
 texture_scale = Vector2(0.4, 0.4)
 metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
+[node name="Label" type="Label" parent="SceneStateMachine/BenchLayer/TableMargins" unique_id=1874425912]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -68.5
+offset_right = 644.0
+offset_bottom = 68.5
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 48
+text = "Press [forward] to look 
+under the work table"
+
 [node name="LaundryMargins" type="Sprite2D" parent="SceneStateMachine/BenchLayer" unique_id=1250956998]
 unique_name_in_owner = true
-visible = false
 texture = ExtResource("10_sqfxy")
 centered = false
 
@@ -340,9 +358,32 @@ texture = ExtResource("15_4kpvc")
 region_enabled = true
 region_rect = Rect2(1649.9355, 362.3289, 270.06445, 625.0928)
 
-[node name="InteractionArea" type="Area2D" parent="SceneStateMachine/BenchLayer/LaundryMargins/SafeElement" unique_id=1212008002]
-script = ExtResource("16_4kpvc")
+[node name="InsideArea" type="Area2D" parent="SceneStateMachine/BenchLayer/LaundryMargins/SafeElement/SafeDoorOpen" unique_id=1450697604]
+position = Vector2(-366, 92)
+script = ExtResource("21_ypkx7")
+texture = ExtResource("8_sqfxy")
+texture_scale = Vector2(0.2, 0.2)
 metadata/_custom_type_script = "uid://bdm238hhxjrj0"
+
+[node name="DoorInteractionArea" type="Area2D" parent="SceneStateMachine/BenchLayer/LaundryMargins/SafeElement" unique_id=1212008002 node_paths=PackedStringArray("inside_area")]
+position = Vector2(-155, -1)
+script = ExtResource("16_4kpvc")
+inside_area = NodePath("../SafeDoorOpen/InsideArea")
+metadata/_custom_type_script = "uid://bdm238hhxjrj0"
+
+[node name="Label2" type="Label" parent="SceneStateMachine/BenchLayer/LaundryMargins" unique_id=448043075]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -691.0
+offset_bottom = 137.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 48
+text = "Toy must be cut open
+to be washed clean"
 
 [node name="ChuteLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=1678620600]
 unique_name_in_owner = true

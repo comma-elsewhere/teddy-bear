@@ -39,6 +39,10 @@ ToyBody=""
 DropArea=""
 DragArea=""
 
+[gui]
+
+theme/custom_font="uid://d26mxr4ow6jfs"
+
 [importer_defaults]
 
 texture={

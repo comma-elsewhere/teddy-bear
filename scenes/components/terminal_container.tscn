@@ -50,10 +50,6 @@ theme_override_font_sizes/font_size = 24
 text = "Remove contaminants and restore to factory condition."
 autowrap_mode = 3
 
-[node name="Control" type="Control" parent="." unique_id=1433261072]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
 [node name="Diagnosis" type="Label" parent="." unique_id=1027645325]
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2

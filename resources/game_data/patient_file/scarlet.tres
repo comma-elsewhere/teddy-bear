@@ -2,7 +2,6 @@
 
 [ext_resource type="AudioStream" uid="uid://rleivsr4te6a" path="res://assets/audio/ScarletRumen_1.mp3" id="1_44ayn"]
 [ext_resource type="Script" uid="uid://c4lj0farn5shk" path="res://scripts/resource/patient_file_res.gd" id="1_ki30u"]
-[ext_resource type="AudioStream" uid="uid://dj04hngxkasus" path="res://assets/audio/ScarletRumen_2.mp3" id="2_uitya"]
 
 [resource]
 script = ExtResource("1_ki30u")
@@ -12,5 +11,5 @@ patient_age = 5
 submission = ["Submitted by guardian for routine post-mortem sanitation."]
 diagnosis = "Patient expired from acute complications via lymphoblastic leukemia."
 treatment = ["Patient displayed significant emotional attachment to artifact throughout hospitalization.", "Treatment involved repeated chemotherapy cycles and long-term inpatient care.", "Medical complications during final treatment stage included infection and severe organ failure."]
-audio_recording = Array[AudioStreamMP3]([ExtResource("1_44ayn"), ExtResource("2_uitya")])
+audio_recording = Array[AudioStreamMP3]([ExtResource("1_44ayn")])
 metadata/_custom_type_script = "uid://c4lj0farn5shk"
