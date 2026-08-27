@@ -7,8 +7,7 @@ enum STATE {MAIN, TERMINAL, BENCH, CHUTE}
 
 const TOY_BODY := preload("uid://bv027w1ur8f51")
 const GRAB_DIST := 100
-const HOOK_MARGIN : Array[int] = [450, 650, 350, 300]
-const TRASH_MARGIN : Array[int] = [50, 800, 1600, 100]
+const HOOK_POS : Array[Vector2] = [Vector2(330,0),Vector2(695,0),Vector2(210,0),Vector2(135,0)]
 
 @onready var room_layer: CanvasLayer = %RoomLayer
 @onready var terminal_layer: CanvasLayer = %TerminalLayer
@@ -20,9 +19,7 @@ const TRASH_MARGIN : Array[int] = [50, 800, 1600, 100]
 @onready var shipping_area: ShippingArea = %ShippingArea
 
 @onready var main_root: Node2D = %MainRoot
-@onready var hook_margin: MarginContainer = %HookMargin
-@onready var meat_hook: TextureRect = %MeatHook
-@onready var trash_can: TextureRect = %TrashCan
+@onready var meat_hook: Sprite2D = %MeatHook
 
 @onready var anim_sfx: AnimationPlayer = %AnimSFX
 
@@ -42,9 +39,6 @@ func _ready() -> void:
 	terminal_layer.hide()
 	bench_layer.hide()
 	chute_layer.hide()
-	# Layer setup
-	meat_hook.move_to_front()
-	trash_can.move_to_front()
 	# Connect Signals
 	shipping_area.ship_toy.connect(_trash_toy)
 	
@@ -117,7 +111,7 @@ func transition() -> void:
 				bench_layer.visible = !bench_layer.visible
 			STATE.CHUTE: 
 				chute_layer.visible = !chute_layer.visible
-	_get_hook_margins() # move meat hook and trash can
+	_set_hook_pos()
 	# update toy position if it's on the hook
 	if toy == null:
 		return
@@ -173,8 +167,8 @@ func _toy_grabbed(is_held: RigidBody2D) -> void:
 	if is_held.global_position.distance_to(_get_hook_pos()) < GRAB_DIST: # attach toy to hook
 		toy.attach_hook(_get_hook_pos())
 		return
-	if is_held.global_position.distance_to(_get_trash_pos()) < GRAB_DIST: # destroy toy and spawn a new one
-		_trash_toy()
+	#if is_held.global_position.distance_to(_get_trash_pos()) < GRAB_DIST: # destroy toy and spawn a new one
+		#_trash_toy()
 		
 func _trash_toy() -> void:
 	toy.get_parent().remove_child(toy)
@@ -201,27 +195,13 @@ func _check_toy_state() -> void:
 
 # returns the center bottom of the meat hook texture
 func _get_hook_pos() -> Vector2:
-	return meat_hook.global_position + (Vector2(meat_hook.size.x/2, meat_hook.size.y))
+	return meat_hook.global_position + (Vector2(meat_hook.texture.get_size().x/2, meat_hook.texture.get_size().y)) * meat_hook.scale
 	
-func _get_trash_pos() -> Vector2:
-	return trash_can.global_position + (trash_can.size/2)
+#func _get_trash_pos() -> Vector2:
+	#return trash_can.global_position + (trash_can.size/2)
 
 # Changes the margin_left of the hook_margins, thereby moving the hook around the screen based on state
-func _get_hook_margins() -> void:
-	hook_margin.reparent(state_array[current_state])
-	
-	hook_margin.remove_theme_constant_override("margin_right")
-	hook_margin.remove_theme_constant_override("margin_left")
-	match current_state:
-		STATE.MAIN: 
-			hook_margin.add_theme_constant_override("margin_right", TRASH_MARGIN[STATE.MAIN])
-			hook_margin.add_theme_constant_override("margin_left", HOOK_MARGIN[STATE.MAIN])
-		STATE.TERMINAL: 
-			hook_margin.add_theme_constant_override("margin_right", TRASH_MARGIN[STATE.TERMINAL])
-			hook_margin.add_theme_constant_override("margin_left", HOOK_MARGIN[STATE.TERMINAL])
-		STATE.BENCH: 
-			hook_margin.add_theme_constant_override("margin_right", TRASH_MARGIN[STATE.BENCH])
-			hook_margin.add_theme_constant_override("margin_left", HOOK_MARGIN[STATE.BENCH])
-		STATE.CHUTE:
-			hook_margin.add_theme_constant_override("margin_right", TRASH_MARGIN[STATE.CHUTE])
-			hook_margin.add_theme_constant_override("margin_left", HOOK_MARGIN[STATE.CHUTE])
+func _set_hook_pos() -> void:
+	meat_hook.reparent(state_array[current_state])
+	meat_hook.global_position = HOOK_POS[current_state]
+	meat_hook.move_to_front()

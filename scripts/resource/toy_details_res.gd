@@ -24,4 +24,4 @@ var has_heart: bool = true
 var chest_open: bool = false
 
 func get_file() -> DemoPatientFile:
-	return patient_file_array.pick_random()
+	return patient_file

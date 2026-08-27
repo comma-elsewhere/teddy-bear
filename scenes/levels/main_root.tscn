@@ -10,15 +10,15 @@
 [ext_resource type="Script" uid="uid://duh2dy8m2epvp" path="res://scripts/classes/areas/objects/tool_drag.gd" id="5_ssf80"]
 [ext_resource type="PackedScene" uid="uid://cne2e2a3cpciq" path="res://scenes/components/terminal_container.tscn" id="6_lfpqy"]
 [ext_resource type="Script" uid="uid://bjrbds6jtw7d8" path="res://scripts/utility/laundry_element.gd" id="7_i2g58"]
-[ext_resource type="Texture2D" uid="uid://c14ljb54gctfk" path="res://assets/temp forceps.png" id="7_kp1bl"]
 [ext_resource type="Script" uid="uid://cse4frc5pm8pi" path="res://scripts/utility/repair_table_area.gd" id="8_qinn8"]
-[ext_resource type="Texture2D" uid="uid://cx26sbk8nv1co" path="res://assets/temp scalpel.webp" id="8_sqfxy"]
-[ext_resource type="Texture2D" uid="uid://blt4fli8m32uj" path="res://assets/temp sutures.png" id="9_ssf80"]
 [ext_resource type="PhysicsMaterial" uid="uid://cjp3x4fh14jlx" path="res://resources/shaders_materials/plushie_physics_material.phymat" id="9_wa2yn"]
 [ext_resource type="Texture2D" uid="uid://bicefh4n4f072" path="res://assets/background/bench_under.png" id="10_sqfxy"]
 [ext_resource type="Texture2D" uid="uid://r7vqvl3376ei" path="res://assets/background/washbroad.png" id="11_i2g58"]
+[ext_resource type="Texture2D" uid="uid://bpkyge38ymrf" path="res://assets/items/clamps.png" id="11_kyuur"]
 [ext_resource type="Script" uid="uid://ccyiphefadlg0" path="res://scripts/management/tool_drag_cut.gd" id="12_kyuur"]
+[ext_resource type="Texture2D" uid="uid://dtrro0w8k7i0i" path="res://assets/items/scalpel.png" id="13_ijwsv"]
 [ext_resource type="Texture2D" uid="uid://u15rg1aa0jkg" path="res://assets/background/lockbox.png" id="13_qinn8"]
+[ext_resource type="Texture2D" uid="uid://c6xj50234mi30" path="res://assets/items/needleandthread.png" id="14_kyuur"]
 [ext_resource type="Texture2D" uid="uid://d4ency8s8fc1e" path="res://assets/background/lockboxdoor.png" id="14_wa2yn"]
 [ext_resource type="Texture2D" uid="uid://dtim8au84b5rf" path="res://assets/background/lockboxdooropen.png" id="15_4kpvc"]
 [ext_resource type="Script" uid="uid://cn0xlkserisq6" path="res://scripts/utility/safe_element.gd" id="16_4kpvc"]
@@ -28,8 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://8twda3vherd4" path="res://assets/background/chute_door.png" id="21_sdi18"]
 [ext_resource type="Script" uid="uid://dak6201tcfxl0" path="res://scripts/utility/tool_cut_activate.gd" id="21_ypkx7"]
 [ext_resource type="Script" uid="uid://bbuhyv51ddsa0" path="res://scripts/utility/shipping_area.gd" id="22_v714p"]
-[ext_resource type="Texture2D" uid="uid://ch687dq0ixidq" path="res://assets/temp hook.png" id="25_vfm2l"]
-[ext_resource type="Texture2D" uid="uid://dil73h72ddcb1" path="res://assets/temp trashcan.png" id="26_ypkx7"]
+[ext_resource type="Texture2D" uid="uid://wf3nswpqjghj" path="res://assets/items/hook.png" id="28_ypkx7"]
 
 [sub_resource type="Shader" id="Shader_sdi18"]
 code = "shader_type canvas_item;
@@ -43,7 +42,7 @@ void fragment() {
 }"
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_lwk12"]
-viewport_path = NodePath("SceneStateMachine/TerminalLayer/TerminalBG/TerminalViewport")
+viewport_path = NodePath("SceneStateMachine/TerminalLayer/TerminalViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lfpqy"]
 resource_local_to_scene = true
@@ -225,6 +224,7 @@ with WASD or Arrow Keys"
 unique_name_in_owner = true
 
 [node name="ItemDrag" type="Area2D" parent="SceneStateMachine/TerminalLayer" unique_id=1711119824]
+visible = false
 position = Vector2(127, 488)
 script = ExtResource("2_fq3os")
 item_res = ExtResource("3_kp1bl")
@@ -245,11 +245,15 @@ position = Vector2(858, 63)
 texture = ExtResource("5_sdi18")
 centered = false
 
-[node name="TerminalViewport" type="SubViewport" parent="SceneStateMachine/TerminalLayer/TerminalBG" unique_id=264051132]
+[node name="Background" type="Sprite2D" parent="SceneStateMachine/TerminalLayer" unique_id=1269691864]
+texture = ExtResource("3_0yre4")
+centered = false
+
+[node name="TerminalViewport" type="SubViewport" parent="SceneStateMachine/TerminalLayer" unique_id=264051132]
 transparent_bg = true
 size = Vector2i(960, 810)
 
-[node name="ControlTerminal" type="Control" parent="SceneStateMachine/TerminalLayer/TerminalBG/TerminalViewport" unique_id=1096050078]
+[node name="ControlTerminal" type="Control" parent="SceneStateMachine/TerminalLayer/TerminalViewport" unique_id=1096050078]
 top_level = true
 z_index = 4096
 layout_mode = 3
@@ -260,7 +264,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="SceneStateMachine/TerminalLayer/TerminalBG/TerminalViewport/ControlTerminal" unique_id=1265595410]
+[node name="MarginContainer" type="MarginContainer" parent="SceneStateMachine/TerminalLayer/TerminalViewport/ControlTerminal" unique_id=1265595410]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -272,23 +276,29 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 80
 theme_override_constants/margin_bottom = 50
 
-[node name="ScrollContainer" type="ScrollContainer" parent="SceneStateMachine/TerminalLayer/TerminalBG/TerminalViewport/ControlTerminal/MarginContainer" unique_id=1001277728]
+[node name="ScrollContainer" type="ScrollContainer" parent="SceneStateMachine/TerminalLayer/TerminalViewport/ControlTerminal/MarginContainer" unique_id=1001277728]
 custom_minimum_size = Vector2(800, 700)
 layout_mode = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 scroll_hint_mode = 1
 
-[node name="TerminalContainer" parent="SceneStateMachine/TerminalLayer/TerminalBG/TerminalViewport/ControlTerminal/MarginContainer/ScrollContainer" unique_id=1909824886 node_paths=PackedStringArray("scene_control") instance=ExtResource("6_lfpqy")]
+[node name="TerminalContainer" parent="SceneStateMachine/TerminalLayer/TerminalViewport/ControlTerminal/MarginContainer/ScrollContainer" unique_id=1909824886 node_paths=PackedStringArray("scene_control") instance=ExtResource("6_lfpqy")]
 custom_maximum_size = Vector2(800, -1)
 propagate_maximum_size = false
 layout_mode = 2
 size_flags_horizontal = 1
-scene_control = NodePath("../../../../../../..")
+scene_control = NodePath("../../../../../..")
 
-[node name="Background" type="Sprite2D" parent="SceneStateMachine/TerminalLayer" unique_id=1269691864]
-texture = ExtResource("3_0yre4")
-centered = false
+[node name="Label2" type="Label" parent="SceneStateMachine/TerminalLayer" unique_id=1084670152]
+offset_right = 691.0
+offset_bottom = 137.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 48
+text = "Place toy on the hook
+to carry it with you"
 
 [node name="BenchLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=993735210]
 unique_name_in_owner = true
@@ -307,28 +317,28 @@ script = ExtResource("8_qinn8")
 metadata/_custom_type_script = "uid://bdm238hhxjrj0"
 
 [node name="ToolDragRemove" type="Area2D" parent="SceneStateMachine/BenchLayer/TableMargins" unique_id=1642156831]
-visible = false
 position = Vector2(856, 956)
 script = ExtResource("5_ssf80")
-texture = ExtResource("7_kp1bl")
-texture_scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_kyuur")
+texture_scale = Vector2(0.6, 0.6)
 metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
 [node name="ToolDragCut" type="Area2D" parent="SceneStateMachine/BenchLayer/TableMargins" unique_id=1096396097 node_paths=PackedStringArray("activation_area")]
 position = Vector2(1280, 1026)
+rotation = -0.7853982
 script = ExtResource("12_kyuur")
 activation_area = NodePath("../../LaundryMargins/SafeElement/SafeDoorOpen/InsideArea")
 tool_target = 1
-texture = ExtResource("8_sqfxy")
-texture_scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_ijwsv")
+texture_scale = Vector2(0.6, 0.6)
 metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
 [node name="ToolDragStitch" type="Area2D" parent="SceneStateMachine/BenchLayer/TableMargins" unique_id=2073658118]
-position = Vector2(1642, 969)
+position = Vector2(1653, 925)
 script = ExtResource("5_ssf80")
 tool_target = 2
-texture = ExtResource("9_ssf80")
-texture_scale = Vector2(0.4, 0.4)
+texture = ExtResource("14_kyuur")
+texture_scale = Vector2(0.5, 0.5)
 metadata/_custom_type_script = "uid://duh2dy8m2epvp"
 
 [node name="Label" type="Label" parent="SceneStateMachine/BenchLayer/TableMargins" unique_id=1874425912]
@@ -386,10 +396,10 @@ region_enabled = true
 region_rect = Rect2(1649.9355, 362.3289, 270.06445, 625.0928)
 
 [node name="InsideArea" type="Area2D" parent="SceneStateMachine/BenchLayer/LaundryMargins/SafeElement/SafeDoorOpen" unique_id=1450697604]
-position = Vector2(-366, 92)
+position = Vector2(-362, -11)
 script = ExtResource("21_ypkx7")
-texture = ExtResource("8_sqfxy")
-texture_scale = Vector2(0.2, 0.2)
+texture = ExtResource("13_ijwsv")
+texture_scale = Vector2(0.5, 0.5)
 metadata/_custom_type_script = "uid://bdm238hhxjrj0"
 
 [node name="DoorInteractionArea" type="Area2D" parent="SceneStateMachine/BenchLayer/LaundryMargins/SafeElement" unique_id=1212008002 node_paths=PackedStringArray("inside_area")]
@@ -410,7 +420,7 @@ size_flags_vertical = 8
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 48
 text = "Toy must be cut open
-to be washed clean"
+then scrubbed clean"
 
 [node name="ChuteLayer" type="CanvasLayer" parent="SceneStateMachine" unique_id=1678620600]
 unique_name_in_owner = true
@@ -440,49 +450,25 @@ collision_mask = 24
 script = ExtResource("22_v714p")
 metadata/_custom_type_script = "uid://bdm238hhxjrj0"
 
+[node name="Label2" type="Label" parent="SceneStateMachine/ChuteLayer" unique_id=1640152948]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -691.0
+offset_top = -137.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 48
+text = "Drop toy down the chute
+when clean and repaired"
+
 [node name="MainGUI" type="CanvasLayer" parent="SceneStateMachine" unique_id=411973822]
 layer = 5
-
-[node name="HUD" type="Control" parent="SceneStateMachine/MainGUI" unique_id=971092904]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="HookMargin" type="MarginContainer" parent="SceneStateMachine/MainGUI/HUD" unique_id=1342191434]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="MeatHook" type="TextureRect" parent="SceneStateMachine/MainGUI/HUD/HookMargin" unique_id=296237937]
-unique_name_in_owner = true
-visibility_layer = 16
-custom_minimum_size = Vector2(125, 200)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource("25_vfm2l")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="TrashCan" type="TextureRect" parent="SceneStateMachine/MainGUI/HUD/HookMargin" unique_id=984773241]
-unique_name_in_owner = true
-visibility_layer = 16
-custom_minimum_size = Vector2(250, 250)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-texture = ExtResource("26_ypkx7")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="SFX" type="Control" parent="SceneStateMachine/MainGUI" unique_id=1314298482]
 z_index = 10
@@ -544,6 +530,14 @@ physics_material_override = ExtResource("9_wa2yn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneStateMachine/MainGUI/MainRoot/Wall3" unique_id=397804349]
 shape = SubResource("WorldBoundaryShape2D_w3f05")
+
+[node name="MeatHook" type="Sprite2D" parent="SceneStateMachine/MainGUI" unique_id=1114147468]
+unique_name_in_owner = true
+top_level = true
+visibility_layer = 16
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("28_ypkx7")
+centered = false
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1750372787]
 stream = ExtResource("18_4kpvc")
