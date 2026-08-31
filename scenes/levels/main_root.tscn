@@ -22,13 +22,13 @@
 [ext_resource type="Texture2D" uid="uid://d4ency8s8fc1e" path="res://assets/background/lockboxdoor.png" id="14_wa2yn"]
 [ext_resource type="Texture2D" uid="uid://dtim8au84b5rf" path="res://assets/background/lockboxdooropen.png" id="15_4kpvc"]
 [ext_resource type="Script" uid="uid://cn0xlkserisq6" path="res://scripts/utility/safe_element.gd" id="16_4kpvc"]
-[ext_resource type="AudioStream" uid="uid://d32ci0rdj04ua" path="res://assets/music/HelpingHandLoopV1Vorbis.ogg" id="18_4kpvc"]
 [ext_resource type="Texture2D" uid="uid://bkgbdcn4l3d8g" path="res://assets/background/chute.png" id="19_hi7ub"]
 [ext_resource type="Script" uid="uid://x5nuutqtu12j" path="res://scripts/chute_element.gd" id="21_hi7ub"]
 [ext_resource type="Texture2D" uid="uid://8twda3vherd4" path="res://assets/background/chute_door.png" id="21_sdi18"]
 [ext_resource type="Script" uid="uid://dak6201tcfxl0" path="res://scripts/utility/tool_cut_activate.gd" id="21_ypkx7"]
 [ext_resource type="Script" uid="uid://bbuhyv51ddsa0" path="res://scripts/utility/shipping_area.gd" id="22_v714p"]
 [ext_resource type="Texture2D" uid="uid://wf3nswpqjghj" path="res://assets/items/hook.png" id="28_ypkx7"]
+[ext_resource type="AudioStream" uid="uid://c56qps07dn3h3" path="res://assets/music/TBA_MainGameplayLoop.mp3" id="29_ypkx7"]
 
 [sub_resource type="Shader" id="Shader_sdi18"]
 code = "shader_type canvas_item;
@@ -540,6 +540,9 @@ texture = ExtResource("28_ypkx7")
 centered = false
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1750372787]
-stream = ExtResource("18_4kpvc")
+stream = ExtResource("29_ypkx7")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="animation_finished" from="SceneStateMachine/ChuteLayer/Chute/ChuteElement/ChuteAnimate" to="SceneStateMachine/ChuteLayer/Chute/ChuteElement" method="_on_chute_animate_animation_finished"]
