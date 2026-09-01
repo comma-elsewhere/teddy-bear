@@ -28,7 +28,7 @@
 [ext_resource type="Script" uid="uid://dak6201tcfxl0" path="res://scripts/utility/tool_cut_activate.gd" id="21_ypkx7"]
 [ext_resource type="Script" uid="uid://bbuhyv51ddsa0" path="res://scripts/utility/shipping_area.gd" id="22_v714p"]
 [ext_resource type="Texture2D" uid="uid://wf3nswpqjghj" path="res://assets/items/hook.png" id="28_ypkx7"]
-[ext_resource type="AudioStream" uid="uid://c56qps07dn3h3" path="res://assets/music/TBA_MainGameplayLoop.mp3" id="29_ypkx7"]
+[ext_resource type="AudioStream" uid="uid://y05f33o17hlx" path="res://assets/music/SoftTissue_MainBGMLoop.ogg" id="29_ypkx7"]
 
 [sub_resource type="Shader" id="Shader_sdi18"]
 code = "shader_type canvas_item;
@@ -541,7 +541,7 @@ centered = false
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1750372787]
 stream = ExtResource("29_ypkx7")
-volume_db = -10.0
+volume_db = -20.0
 autoplay = true
 parameters/looping = true
 
