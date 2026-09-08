@@ -12,46 +12,6 @@ load_path = "res://.godot/imported/test_teddy.png-244ed6339e63b6c276da9b4bcb19de
 script = ExtResource("1_bekpm")
 limb_bodies = [NodePath("Head"), NodePath("Torso"), NodePath("LeftArm"), NodePath("LeftLeg"), NodePath("RightArm"), NodePath("RightLeg")]
 
-[node name="RapierPinJoint2D1" type="PinJoint2D" parent="." unique_id=1426657533 node_paths=PackedStringArray("ik_target")]
-position = Vector2(-1, 126)
-node_a = NodePath("../Torso")
-node_b = NodePath("../Head")
-script = ExtResource("1_f3y4l")
-ik_target = NodePath("../Head")
-metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
-
-[node name="RapierPinJoint2D2" type="PinJoint2D" parent="." unique_id=1468153438 node_paths=PackedStringArray("ik_target")]
-position = Vector2(-76, 174)
-node_a = NodePath("../Torso")
-node_b = NodePath("../LeftArm")
-script = ExtResource("1_f3y4l")
-ik_target = NodePath("../LeftArm")
-metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
-
-[node name="RapierPinJoint2D3" type="PinJoint2D" parent="." unique_id=1602308538 node_paths=PackedStringArray("ik_target")]
-position = Vector2(83, 177)
-node_a = NodePath("../Torso")
-node_b = NodePath("../RightArm")
-script = ExtResource("1_f3y4l")
-ik_target = NodePath("../RightArm")
-metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
-
-[node name="RapierPinJoint2D4" type="PinJoint2D" parent="." unique_id=956409065 node_paths=PackedStringArray("ik_target")]
-position = Vector2(-95, 394)
-node_a = NodePath("../Torso")
-node_b = NodePath("../LeftLeg")
-script = ExtResource("1_f3y4l")
-ik_target = NodePath("../LeftLeg")
-metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
-
-[node name="RapierPinJoint2D5" type="PinJoint2D" parent="." unique_id=704011293 node_paths=PackedStringArray("ik_target")]
-position = Vector2(75, 401)
-node_a = NodePath("../Torso")
-node_b = NodePath("../RightLeg")
-script = ExtResource("1_f3y4l")
-ik_target = NodePath("../RightLeg")
-metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
-
 [node name="LeftArm" type="RigidBody2D" parent="." unique_id=1313522487]
 position = Vector2(-132, 320)
 collision_layer = 2
@@ -70,7 +30,7 @@ region_filter_clip_enabled = true
 
 [node name="LeftLeg" type="RigidBody2D" parent="." unique_id=586442462]
 position = Vector2(-85, 546)
-collision_layer = 2
+collision_layer = 32
 collision_mask = 13
 script = ExtResource("1_0w7uy")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
@@ -124,7 +84,7 @@ region_filter_clip_enabled = true
 
 [node name="RightLeg" type="RigidBody2D" parent="." unique_id=1757926615]
 position = Vector2(58, 557)
-collision_layer = 4
+collision_layer = 64
 collision_mask = 11
 script = ExtResource("1_0w7uy")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
@@ -153,3 +113,45 @@ texture = ExtResource("1_oi8yu")
 region_enabled = true
 region_rect = Rect2(536.0659, 46.035583, 163.4715, 345.98935)
 region_filter_clip_enabled = true
+
+[node name="PinJoint" type="Node2D" parent="." unique_id=883185633]
+
+[node name="RapierPinJoint2DNeck" type="PinJoint2D" parent="PinJoint" unique_id=1426657533 node_paths=PackedStringArray("ik_target")]
+position = Vector2(-1, 126)
+node_a = NodePath("../../Torso")
+node_b = NodePath("../../Head")
+script = ExtResource("1_f3y4l")
+ik_target = NodePath("../../Head")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="RapierPinJoint2DLeftShoulder" type="PinJoint2D" parent="PinJoint" unique_id=1468153438 node_paths=PackedStringArray("ik_target")]
+position = Vector2(-76, 174)
+node_a = NodePath("../../Torso")
+node_b = NodePath("../../LeftArm")
+script = ExtResource("1_f3y4l")
+ik_target = NodePath("../../LeftArm")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="RapierPinJoint2DRightShoulder" type="PinJoint2D" parent="PinJoint" unique_id=1602308538 node_paths=PackedStringArray("ik_target")]
+position = Vector2(83, 177)
+node_a = NodePath("../../Torso")
+node_b = NodePath("../../RightArm")
+script = ExtResource("1_f3y4l")
+ik_target = NodePath("../../RightArm")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="RapierPinJoint2DLeftHip" type="PinJoint2D" parent="PinJoint" unique_id=956409065 node_paths=PackedStringArray("ik_target")]
+position = Vector2(-95, 394)
+node_a = NodePath("../../Torso")
+node_b = NodePath("../../LeftLeg")
+script = ExtResource("1_f3y4l")
+ik_target = NodePath("../../LeftLeg")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="RapierPinJoint2DRightHip" type="PinJoint2D" parent="PinJoint" unique_id=704011293 node_paths=PackedStringArray("ik_target")]
+position = Vector2(75, 401)
+node_a = NodePath("../../Torso")
+node_b = NodePath("../../RightLeg")
+script = ExtResource("1_f3y4l")
+ik_target = NodePath("../../RightLeg")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
