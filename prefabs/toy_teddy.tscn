@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dkvypfttvwe30" path="res://scripts/objects/toy_body.gd" id="1_bekpm"]
 [ext_resource type="Script" uid="uid://bv2bc4lt5v7hu" path="res://addons/godot-rapier2d/custom_nodes/rapier_pin_joint_2d.gd" id="1_f3y4l"]
 [ext_resource type="Texture2D" uid="uid://c5ntnaoftltp3" path="res://assets/toys/test_teddy.png" id="1_oi8yu"]
+[ext_resource type="PhysicsMaterial" uid="uid://hihekgen16jy" path="res://resources/toy.phymat" id="2_rbp05"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oi8yu"]
 load_path = "res://.godot/imported/test_teddy.png-244ed6339e63b6c276da9b4bcb19de24.ctex"
@@ -16,6 +17,10 @@ limb_bodies = [NodePath("Head"), NodePath("Torso"), NodePath("LeftArm"), NodePat
 position = Vector2(-132, 320)
 collision_layer = 2
 collision_mask = 13
+mass = 0.6
+physics_material_override = ExtResource("2_rbp05")
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 90)
 script = ExtResource("1_0w7uy")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
@@ -32,6 +37,9 @@ region_filter_clip_enabled = true
 position = Vector2(-85, 546)
 collision_layer = 32
 collision_mask = 13
+physics_material_override = ExtResource("2_rbp05")
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 90)
 script = ExtResource("1_0w7uy")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
@@ -47,6 +55,8 @@ region_filter_clip_enabled = true
 [node name="Torso" type="RigidBody2D" parent="." unique_id=331664342]
 position = Vector2(4, 295)
 collision_layer = 16
+mass = 1.5
+physics_material_override = ExtResource("2_rbp05")
 script = ExtResource("1_0w7uy")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
@@ -70,6 +80,8 @@ region_filter_clip_enabled = true
 [node name="Head" type="RigidBody2D" parent="." unique_id=1117733555]
 collision_layer = 8
 collision_mask = 7
+mass = 0.6
+physics_material_override = ExtResource("2_rbp05")
 script = ExtResource("1_0w7uy")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
@@ -86,6 +98,9 @@ region_filter_clip_enabled = true
 position = Vector2(58, 557)
 collision_layer = 64
 collision_mask = 11
+physics_material_override = ExtResource("2_rbp05")
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 90)
 script = ExtResource("1_0w7uy")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
@@ -102,6 +117,10 @@ region_filter_clip_enabled = true
 position = Vector2(134, 324)
 collision_layer = 4
 collision_mask = 11
+mass = 0.6
+physics_material_override = ExtResource("2_rbp05")
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 90)
 script = ExtResource("1_0w7uy")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
