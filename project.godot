@@ -31,7 +31,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ropesim/plugin.cfg")
+enabled=PackedStringArray("res://addons/ropesim/plugin.cfg", "res://addons/softbody2d/plugin.cfg")
 
 [global_group]
 
@@ -133,8 +133,10 @@ c_button={
 
 [physics]
 
+2d/physics_engine="Rapier2D"
 3d/physics_engine="Jolt Physics"
 2d/default_gravity=2000.0
+rapier/solver/preset=2
 
 [rendering]
 

@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://ngx8msl71kep"]
-
-[ext_resource type="Script" uid="uid://6pw3jvd7cr1k" path="res://scripts/classes/minigame.gd" id="1_fue2h"]
-
-[node name="SubViewport" type="SubViewport" unique_id=358262615]
-script = ExtResource("1_fue2h")
-
-[node name="GameRoot" type="Node2D" parent="." unique_id=1625013619]
