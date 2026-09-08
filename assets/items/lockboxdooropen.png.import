@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2jxtouo3c72e"
-path="res://.godot/imported/TBA test toy2.png-18971db09df88417d7b0d927e3a7023e.ctex"
+uid="uid://dtim8au84b5rf"
+path="res://.godot/imported/lockboxdooropen.png-0aa0befdeccafcc400883b650bff077b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/TBA test toy2.png"
-dest_files=["res://.godot/imported/TBA test toy2.png-18971db09df88417d7b0d927e3a7023e.ctex"]
+source_file="res://assets/items/lockboxdooropen.png"
+dest_files=["res://.godot/imported/lockboxdooropen.png-0aa0befdeccafcc400883b650bff077b.ctex"]
 
 [params]
 

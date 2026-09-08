@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpkyge38ymrf"
-path="res://.godot/imported/clamps.png-d8f9cc967406efc7f48ad75104d36d3e.ctex"
+uid="uid://c6xj50234mi30"
+path="res://.godot/imported/needleandthread.png-4ed9c4a090fac670f4041bee1d55f19e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/clamps.png"
-dest_files=["res://.godot/imported/clamps.png-d8f9cc967406efc7f48ad75104d36d3e.ctex"]
+source_file="res://assets/items/medical/needleandthread.png"
+dest_files=["res://.godot/imported/needleandthread.png-4ed9c4a090fac670f4041bee1d55f19e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6xj50234mi30"
-path="res://.godot/imported/needleandthread.png-02b45edd2b439d828dbadf5748867216.ctex"
+uid="uid://8twda3vherd4"
+path="res://.godot/imported/chute_door.png-2e8045dea5364d20389a9d7b821f3924.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/needleandthread.png"
-dest_files=["res://.godot/imported/needleandthread.png-02b45edd2b439d828dbadf5748867216.ctex"]
+source_file="res://assets/items/chute_door.png"
+dest_files=["res://.godot/imported/chute_door.png-2e8045dea5364d20389a9d7b821f3924.ctex"]
 
 [params]
 

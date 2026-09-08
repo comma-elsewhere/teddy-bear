@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c14ljb54gctfk"
-path="res://.godot/imported/temp forceps.png-1f70fe2302a98b70d41a49fa7b4a1526.ctex"
+uid="uid://bpkyge38ymrf"
+path="res://.godot/imported/clamps.png-da68a7711cc035b8c6d491b2c326073b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temp forceps.png"
-dest_files=["res://.godot/imported/temp forceps.png-1f70fe2302a98b70d41a49fa7b4a1526.ctex"]
+source_file="res://assets/items/medical/clamps.png"
+dest_files=["res://.godot/imported/clamps.png-da68a7711cc035b8c6d491b2c326073b.ctex"]
 
 [params]
 

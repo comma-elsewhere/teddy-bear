@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtim8au84b5rf"
-path="res://.godot/imported/lockboxdooropen.png-095d7780886a4dfaf921c0147b49611d.ctex"
+uid="uid://r7vqvl3376ei"
+path="res://.godot/imported/washbroad.png-af5423ca1608d1e2e38b8152daf31070.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/lockboxdooropen.png"
-dest_files=["res://.godot/imported/lockboxdooropen.png-095d7780886a4dfaf921c0147b49611d.ctex"]
+source_file="res://assets/items/washbroad.png"
+dest_files=["res://.godot/imported/washbroad.png-af5423ca1608d1e2e38b8152daf31070.ctex"]
 
 [params]
 
