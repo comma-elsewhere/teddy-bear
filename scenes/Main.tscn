@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d4ency8s8fc1e" path="res://assets/items/lockboxdoor.png" id="7_mwfav"]
 [ext_resource type="Texture2D" uid="uid://dtim8au84b5rf" path="res://assets/items/lockboxdooropen.png" id="8_3p2gp"]
 [ext_resource type="AudioStream" uid="uid://y05f33o17hlx" path="res://assets/music/SoftTissue_MainBGMLoop.ogg" id="12_bjd11"]
+[ext_resource type="PackedScene" uid="uid://cry4455wyugys" path="res://prefabs/toy_teddy.tscn" id="13_qmy6f"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xot5u"]
 
@@ -165,5 +166,9 @@ shape = SubResource("RectangleShape2D_wp0k4")
 
 [node name="MainLoop" type="AudioStreamPlayer" parent="Music" unique_id=2081607026]
 stream = ExtResource("12_bjd11")
-autoplay = true
 parameters/looping = true
+
+[node name="ToyTeddy" parent="." unique_id=407969448 instance=ExtResource("13_qmy6f")]
+z_index = 10
+position = Vector2(893, -1206)
+rotation = 0.3630285

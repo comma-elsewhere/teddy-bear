@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://cry4455wyugys"]
+
+[ext_resource type="Script" uid="uid://unwhnooi7g2c" path="res://addons/godot-rapier2d/custom_nodes/rapier_rigid_body_2d.gd" id="1_0w7uy"]
+[ext_resource type="Script" uid="uid://dkvypfttvwe30" path="res://scripts/objects/toy_body.gd" id="1_bekpm"]
+[ext_resource type="Script" uid="uid://bv2bc4lt5v7hu" path="res://addons/godot-rapier2d/custom_nodes/rapier_pin_joint_2d.gd" id="1_f3y4l"]
+[ext_resource type="Texture2D" uid="uid://c5ntnaoftltp3" path="res://assets/toys/test_teddy.png" id="1_oi8yu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oi8yu"]
+load_path = "res://.godot/imported/test_teddy.png-244ed6339e63b6c276da9b4bcb19de24.ctex"
+
+[node name="ToyTeddy" type="Node2D" unique_id=407969448 node_paths=PackedStringArray("limb_bodies")]
+script = ExtResource("1_bekpm")
+limb_bodies = [NodePath("Head"), NodePath("Torso"), NodePath("LeftArm"), NodePath("LeftLeg"), NodePath("RightArm"), NodePath("RightLeg")]
+
+[node name="RapierPinJoint2D1" type="PinJoint2D" parent="." unique_id=1426657533 node_paths=PackedStringArray("ik_target")]
+position = Vector2(-1, 126)
+node_a = NodePath("../Torso")
+node_b = NodePath("../Head")
+script = ExtResource("1_f3y4l")
+ik_target = NodePath("../Head")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="RapierPinJoint2D2" type="PinJoint2D" parent="." unique_id=1468153438 node_paths=PackedStringArray("ik_target")]
+position = Vector2(-76, 174)
+node_a = NodePath("../Torso")
+node_b = NodePath("../LeftArm")
+script = ExtResource("1_f3y4l")
+ik_target = NodePath("../LeftArm")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="RapierPinJoint2D3" type="PinJoint2D" parent="." unique_id=1602308538 node_paths=PackedStringArray("ik_target")]
+position = Vector2(83, 177)
+node_a = NodePath("../Torso")
+node_b = NodePath("../RightArm")
+script = ExtResource("1_f3y4l")
+ik_target = NodePath("../RightArm")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="RapierPinJoint2D4" type="PinJoint2D" parent="." unique_id=956409065 node_paths=PackedStringArray("ik_target")]
+position = Vector2(-95, 394)
+node_a = NodePath("../Torso")
+node_b = NodePath("../LeftLeg")
+script = ExtResource("1_f3y4l")
+ik_target = NodePath("../LeftLeg")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="RapierPinJoint2D5" type="PinJoint2D" parent="." unique_id=704011293 node_paths=PackedStringArray("ik_target")]
+position = Vector2(75, 401)
+node_a = NodePath("../Torso")
+node_b = NodePath("../RightLeg")
+script = ExtResource("1_f3y4l")
+ik_target = NodePath("../RightLeg")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="LeftArm" type="RigidBody2D" parent="." unique_id=1313522487]
+position = Vector2(-132, 320)
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_0w7uy")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="CollisionPolygon2D1" type="CollisionPolygon2D" parent="LeftArm" unique_id=731494077]
+polygon = PackedVector2Array(79.24835, -131.3509, 15.748344, -131.3509, 11.648346, -123.35091, 10.148346, -123.35091, -13.851654, -41.950912, -13.851654, -39.65091, -30.051651, -14.350906, -34.751656, -14.350906, -31.451653, -6.1509094, -33.55165, -5.3509064, -36.751656, -5.3509064, -52.851654, 46.049088, -52.851654, 47.049088, -53.851654, 48.149094, -53.851654, 152.6491, -45.851654, 157.7491, -45.851654, 160.94908, -3.551651, 157.6491, 1.0483475, 157.6491, 27.148346, 144.6491, 31.04834, 144.6491, 39.04834, 134.6491, 41.148346, 134.6491, 46.248352, 116.64909, 48.848343, 116.64909, 43.148346, 81.64909, 43.148346, 74.34909, 57.04834, 32.649094, 58.54834, 32.649094, 80.648346, -111.35091, 82.94835, -111.35091)
+
+[node name="TestTeddy5" type="Sprite2D" parent="LeftArm" unique_id=2125734438]
+texture = SubResource("CompressedTexture2D_oi8yu")
+region_enabled = true
+region_rect = Rect2(46.89859, 45.483116, 199.70331, 352.7018)
+region_filter_clip_enabled = true
+
+[node name="LeftLeg" type="RigidBody2D" parent="." unique_id=586442462]
+position = Vector2(-85, 546)
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_0w7uy")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="LeftLeg" unique_id=890474193]
+polygon = PackedVector2Array(-19.383347, -177.23502, -36.383347, -167.23502, -37.383347, -167.23502, -47.383347, -145.23502, -48.383347, -145.23502, -55.383347, -71.235016, -56.383347, -71.235016, -50.383347, 75.764984, -50.383347, 78.764984, -81.38335, 145.76498, -81.38335, 155.76498, -59.383347, 173.76498, -59.383347, 174.76498, -42.383347, 175.76498, -31.383347, 175.76498, -14.383347, 184.76498, 0.61665344, 184.76498, 18.616653, 175.76498, 18.616653, 174.76498, 25.616653, 179.76498, 34.616653, 179.76498, 55.616653, 172.76498, 58.616653, 172.76498, 68.61665, 158.76498, 69.61665, 158.76498, 71.61665, 142.76498, 72.61665, 142.76498, 53.616653, -6.235016, 53.616653, -31.235016, 37.616653, -102.235016, 37.616653, -107.235016, 14.616653, -160.23502, 14.616653, -162.23502, -4.3833466, -175.23502, -4.3833466, -176.23502, -19.383347, -178.23502)
+
+[node name="TestTeddy3" type="Sprite2D" parent="LeftLeg" unique_id=1018539722]
+texture = ExtResource("1_oi8yu")
+region_enabled = true
+region_rect = Rect2(470.3654, 657.4771, 178.7667, 378.47003)
+region_filter_clip_enabled = true
+
+[node name="Torso" type="RigidBody2D" parent="." unique_id=331664342]
+position = Vector2(4, 295)
+collision_layer = 16
+script = ExtResource("1_0w7uy")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Torso" unique_id=1087366718]
+polygon = PackedVector2Array(-3.324585, -221.57663, -18.324585, -217.57663, -22.324585, -217.57663, -40.324585, -204.57663, -41.324585, -204.57663, -53.324585, -162.57663, -53.324585, -160.57663, -66.324585, -152.57663, -68.324585, -152.57663, -92.324585, -121.57663, -93.324585, -121.57663, -126.324585, 74.42337, -127.324585, 74.42337, -128.32458, 101.42337, -128.32458, 114.42337, -119.324585, 147.42337, -119.324585, 151.42337, -104.324585, 175.42337, -104.324585, 177.42337, -77.324585, 199.42337, -77.324585, 200.42337, 2.675415, 210.42337, 3.675415, 210.42337, 39.675415, 203.42337, 42.675415, 203.42337, 73.675415, 186.42337, 75.675415, 186.42337, 94.675415, 168.42337, 94.675415, 167.42337, 131.67542, 167.42337, 133.67542, 167.42337, 147.67542, 152.42337, 148.67542, 152.42337, 156.67542, 130.42337, 157.67542, 130.42337, 157.67542, 110.42337, 157.67542, 102.42337, 144.67542, 85.42337, 144.67542, 83.42337, 127.675415, 72.42337, 127.675415, 71.42337, 108.675415, 73.42337, 106.675415, 73.42337, 102.675415, -59.57663, 102.675415, -60.57663, 86.675415, -112.57663, 86.675415, -115.57663, 45.675415, -170.57663, 44.675415, -170.57663, 42.675415, -186.57663, 42.675415, -190.57663, 31.675415, -207.57663, 31.675415, -209.57663, 14.675415, -220.57663, 14.675415, -221.57663, -3.324585, -222.57663)
+
+[node name="TestTeddy2" type="Sprite2D" parent="Torso" unique_id=539578634]
+texture = ExtResource("1_oi8yu")
+region_enabled = true
+region_rect = Rect2(689.3949, 514.14166, 344.64917, 483.15326)
+region_filter_clip_enabled = true
+
+[node name="TestTeddy3" type="Sprite2D" parent="Torso" unique_id=1455452530]
+z_index = 5
+position = Vector2(0, -142)
+texture = ExtResource("1_oi8yu")
+region_enabled = true
+region_rect = Rect2(60, 406.5, 125, 82)
+region_filter_clip_enabled = true
+
+[node name="Head" type="RigidBody2D" parent="." unique_id=1117733555]
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_0w7uy")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Head" unique_id=767031037]
+polygon = PackedVector2Array(98.75116, -146.0511, 78.75116, -139.0511, 76.75116, -139.0511, 58.75116, -119.0511, 58.75116, -118.0511, 3.7511597, -133.0511, -11.24884, -133.0511, -47.24884, -124.0511, -49.24884, -124.0511, -73.24884, -110.0511, -73.24884, -109.0511, -81.24884, -120.0511, -81.24884, -121.0511, -98.24884, -130.0511, -98.24884, -131.0511, -127.24884, -134.0511, -130.24884, -134.0511, -161.24884, -116.0511, -162.24884, -116.0511, -165.24884, -112.0511, -165.24884, -110.0511, -158.24884, -100.0511, -158.24884, -95.0511, -165.24884, -88.0511, -166.24884, -88.0511, -162.24884, -75.0511, -161.24884, -75.0511, -165.24884, -60.0511, -165.24884, -58.0511, -160.24884, -54.0511, -159.24884, -54.0511, -166.24884, -46.0511, -166.24884, -45.0511, -138.24884, -14.051102, -137.24884, -14.051102, -138.24884, 31.948898, -138.24884, 40.9489, -122.24884, 98.9489, -122.24884, 102.9489, -111.24884, 116.9489, -111.24884, 118.9489, -89.24884, 133.9489, -89.24884, 134.9489, -63.24884, 141.9489, -63.24884, 142.9489, -10.24884, 149.9489, -10.24884, 150.9489, 38.75116, 147.9489, 43.75116, 147.9489, 66.75116, 140.9489, 69.75116, 140.9489, 106.75116, 117.9489, 108.75116, 117.9489, 118.75116, 105.9489, 119.75116, 105.9489, 131.75116, 59.9489, 132.75116, 59.9489, 133.75116, 35.9489, 133.75116, 20.948898, 122.75116, -38.0511, 122.75116, -39.0511, 149.75116, -65.0511, 150.75116, -65.0511, 154.75116, -89.0511, 154.75116, -96.0511, 138.75116, -131.0511, 138.75116, -132.0511, 118.75116, -144.0511, 118.75116, -145.0511, 98.75116, -147.0511)
+
+[node name="TestTeddy1" type="Sprite2D" parent="Head" unique_id=1081803375]
+texture = ExtResource("1_oi8yu")
+region_enabled = true
+region_rect = Rect2(699.05786, 110.855125, 332.49768, 322.1022)
+region_filter_clip_enabled = true
+
+[node name="RightLeg" type="RigidBody2D" parent="." unique_id=1757926615]
+position = Vector2(58, 557)
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_0w7uy")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="RightLeg" unique_id=541587669]
+polygon = PackedVector2Array(8.953583, -174.0665, -10.046417, -156.0665, -11.046417, -156.0665, -18.046417, -124.0665, -19.046417, -124.0665, -16.046417, -118.0665, -16.046417, -98.0665, -20.046417, -98.0665, -21.046417, -98.0665, -25.046417, 19.933502, -25.046417, 23.933502, -50.046417, 81.9335, -50.046417, 84.9335, -72.04642, 100.9335, -73.04642, 100.9335, -80.04642, 131.9335, -81.04642, 131.9335, -71.04642, 154.9335, -71.04642, 155.9335, -51.046417, 162.9335, -51.046417, 163.9335, -35.046417, 162.9335, -33.046417, 162.9335, -18.046417, 172.9335, -18.046417, 173.9335, -0.046417236, 172.9335, 4.953583, 172.9335, 19.953583, 164.9335, 19.953583, 163.9335, 32.953583, 169.9335, 44.953583, 169.9335, 69.95358, 149.9335, 70.95358, 149.9335, 59.953583, -102.0665, 59.953583, -108.0665, 44.953583, -152.0665, 44.953583, -154.0665, 27.953583, -170.0665, 27.953583, -171.0665, 8.953583, -175.0665)
+
+[node name="TestTeddy4" type="Sprite2D" parent="RightLeg" unique_id=763026473]
+texture = ExtResource("1_oi8yu")
+region_enabled = true
+region_rect = Rect2(80.621796, 655.86664, 198.09283, 388.133)
+region_filter_clip_enabled = true
+
+[node name="RightArm" type="RigidBody2D" parent="." unique_id=18116712]
+position = Vector2(134, 324)
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_0w7uy")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="RightArm" unique_id=1770376253]
+polygon = PackedVector2Array(-52.73575, -162.99467, -64.73575, -154.99467, -65.73575, -154.99467, -73.73575, -123.994675, -74.73575, -123.994675, -70.73575, -50.994675, -70.73575, -38.994675, -54.73575, 55.005325, -54.73575, 59.005325, -47.73575, 77.005325, -47.73575, 80.005325, -29.735748, 96.005325, -28.735748, 96.005325, -28.735748, 106.005325, -28.735748, 110.005325, -33.73575, 110.005325, -33.73575, 113.005325, -24.735748, 139.00533, -24.735748, 142.00533, -3.7357483, 161.00533, -3.7357483, 162.00533, 29.264252, 165.00533, 36.26425, 165.00533, 49.26425, 160.00533, 52.26425, 160.00533, 72.26425, 143.00533, 74.26425, 143.00533, 80.26425, 121.005325, 81.26425, 121.005325, 77.26425, 94.005325, 77.26425, 90.005325, 70.26425, 90.005325, 69.26425, 90.005325, 73.26425, 83.005325, 73.26425, 82.005325, 52.26425, 58.005325, 51.26425, 58.005325, 49.26425, 44.005325, 49.26425, 39.005325, 9.264252, -46.994675, 8.264252, -46.994675, -1.7357483, -96.994675, -1.7357483, -97.994675, -18.735748, -137.99467, -18.735748, -140.99467, -31.735748, -157.99467, -31.735748, -158.99467, -52.73575, -163.99467)
+
+[node name="TestTeddy6" type="Sprite2D" parent="RightArm" unique_id=257884028]
+texture = ExtResource("1_oi8yu")
+region_enabled = true
+region_rect = Rect2(536.0659, 46.035583, 163.4715, 345.98935)
+region_filter_clip_enabled = true
