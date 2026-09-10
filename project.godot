@@ -33,13 +33,6 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray("res://addons/ropesim/plugin.cfg", "res://addons/softbody2d/plugin.cfg")
 
-[global_group]
-
-Toy=""
-ToyBody=""
-DropArea=""
-DragArea=""
-
 [gui]
 
 theme/custom_font="uid://d26mxr4ow6jfs"
