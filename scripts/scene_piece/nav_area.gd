@@ -1,6 +1,6 @@
 class_name NavArea extends Area2D
 
-signal area_clicked()
+signal area_clicked(index: int)
 
 @onready var collision_shape_1: CollisionShape2D = $CollisionShape2D1
 @onready var collision_shape_2: CollisionShape2D = $CollisionShape2D2
@@ -17,4 +17,4 @@ func toggle_collision(enable_shape_1: bool = true) -> void:
 	
 func _input_event_click(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("click"):
-		area_clicked.emit()
+		area_clicked.emit(get_index())
