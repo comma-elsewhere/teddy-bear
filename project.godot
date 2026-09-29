@@ -39,7 +39,7 @@ enabled=PackedStringArray("res://addons/ropesim/plugin.cfg", "res://addons/saves
 
 [gui]
 
-theme/custom_font="uid://d26mxr4ow6jfs"
+theme/custom_font="uid://dph47wagjhp72"
 
 [importer_defaults]
 
