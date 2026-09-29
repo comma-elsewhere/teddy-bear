@@ -23,6 +23,52 @@
 [ext_resource type="Script" uid="uid://bfyuuxetvvmjy" path="res://src/entities/static_pieces/nav_area.gd" id="18_abx1x"]
 [ext_resource type="Texture2D" uid="uid://wf3nswpqjghj" path="res://assets/art/objects/medical/hook.png" id="19_pbilr"]
 [ext_resource type="Script" uid="uid://busd3yfk5p1mx" path="res://addons/godot-rapier2d/custom_nodes/rapier_static_body_2d.gd" id="20_uuaq1"]
+[ext_resource type="Script" uid="uid://27mtc8e83qa4" path="res://src/entities/static_pieces/animation/lights_animation.gd" id="24_5f1oo"]
+
+[sub_resource type="Gradient" id="Gradient_abx1x"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_abx1x"]
+gradient = SubResource("Gradient_abx1x")
+width = 512
+height = 512
+
+[sub_resource type="Gradient" id="Gradient_f1wnm"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m1ne5"]
+gradient = SubResource("Gradient_f1wnm")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_5f1oo"]
+offsets = PackedFloat32Array(0.29657796, 0.68441063)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f745s"]
+gradient = SubResource("Gradient_5f1oo")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_m1ne5"]
+interpolation_mode = 2
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0.47528517, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xot5u"]
+gradient = SubResource("Gradient_m1ne5")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5f1oo"]
+gradient = SubResource("Gradient_f1wnm")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c01mt"]
 size = Vector2(797, 394.5)
@@ -59,6 +105,293 @@ bounce = 0.5
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fb62l"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f745s"]
+
+[sub_resource type="Animation" id="Animation_m1ne5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flourescent3:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flourescent1:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flourescent2:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScreenLight:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Terminal/ScreenLight:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../../Darkness:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.64029115, 0.73836344, 0.7924484, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5f1oo"]
+resource_name = "lights_flicker"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flourescent3:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 6.0666666, 6.4, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 1.5, 0.5, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flourescent1:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5.9333334, 6.266667, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.2, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flourescent2:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5.266667, 7, 8.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.2, 0.4, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScreenLight:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5.3, 7.6666665, 9.233334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.5, 0.5, 0.8, 0.5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Terminal/ScreenLight:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5.266667, 7.6666665, 9.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 1.5, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../../Darkness:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 5.266667, 6.233333, 9.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.64029115, 0.73836344, 0.7924484, 1), Color(0.6864266, 0.77440804, 0.8238764, 1), Color(0.53792864, 0.64929754, 0.711147, 1), Color(0.64029115, 0.73836344, 0.7924484, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f1wnm"]
+resource_name = "lights_flicker_2"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flourescent3:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8333335, 2.6333334, 3.5666666, 4.3333335, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.1, 1.0, 0.1, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flourescent1:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.3666666, 4.1666665, 5.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.2, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flourescent2:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2333331, 3.0333333, 4.6666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.2, 0.4, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScreenLight:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5666666, 3.6333337, 9.233334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.5, 0.5, 0.8, 0.5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Terminal/ScreenLight:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5333333, 3.6, 9.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 1.5, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../../Darkness:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5333333, 3.5, 9.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.64029115, 0.73836344, 0.7924484, 1), Color(0.6864266, 0.77440804, 0.8238764, 1), Color(0.51092196, 0.6258003, 0.68510383, 1), Color(0.64029115, 0.73836344, 0.7924484, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_abx1x"]
+resource_name = "lights_on"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../../Darkness:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.3333334, 2.4, 4.9333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.07686258, 0.11361518, 0.1336962, 1), Color(0.9422406, 0.9592956, 0.96957594, 1), Color(0.6392157, 0.7372549, 0.7921569, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flourescent3:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.3333334, 1.6333334, 2.4333334, 4.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 2.0, 0.5, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flourescent1:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.3666667, 2.5333333, 3.0666666, 4.4333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 2.0, 0.5, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flourescent2:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.1, 1.9333334, 2.7333333, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 2.0, 0.5, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mgm8b"]
+_data = {
+&"RESET": SubResource("Animation_m1ne5"),
+&"lights_flicker": SubResource("Animation_5f1oo"),
+&"lights_flicker_2": SubResource("Animation_f1wnm"),
+&"lights_on": SubResource("Animation_abx1x")
+}
 
 [node name="Root" type="Node" unique_id=1504431132]
 process_mode = 3
@@ -103,11 +436,29 @@ flip_h = true
 metadata/_edit_lock_ = true
 
 [node name="Terminal" type="Sprite2D" parent="World/Static/Backdrops" unique_id=599642874]
+visible = false
 texture = ExtResource("3_m1ne5")
 centered = false
 script = ExtResource("4_45db7")
 
+[node name="TerminalScreen" type="Sprite2D" parent="World/Static/Backdrops/Terminal" unique_id=1220140437]
+self_modulate = Color(0.1148968, 0.11489681, 0.1148968, 1)
+show_behind_parent = true
+position = Vector2(1331, 468)
+scale = Vector2(1.7, 1.6)
+texture = SubResource("GradientTexture2D_abx1x")
+
+[node name="ScreenLight" type="PointLight2D" parent="World/Static/Backdrops/Terminal" unique_id=848402834]
+z_index = 5
+position = Vector2(1333, 464)
+scale = Vector2(1.1536542, 1.0416037)
+color = Color(0.083333254, 1, 0, 1)
+range_z_max = -10
+texture = SubResource("GradientTexture2D_m1ne5")
+texture_scale = 14.0
+
 [node name="Chute" type="Sprite2D" parent="World/Static/Backdrops" unique_id=914959243]
+visible = false
 texture = ExtResource("5_f1wnm")
 centered = false
 script = ExtResource("6_gymin")
@@ -116,7 +467,24 @@ script = ExtResource("6_gymin")
 texture = ExtResource("7_mgm8b")
 centered = false
 
+[node name="ChuteLightRed" type="PointLight2D" parent="World/Static/Backdrops/Chute" unique_id=2013617197]
+position = Vector2(1686, 729)
+color = Color(1, 0.116666675, 0, 1)
+energy = 2.0
+range_z_max = -10
+texture = SubResource("GradientTexture2D_f745s")
+texture_scale = 2.8
+
+[node name="ChuteLightGreen" type="PointLight2D" parent="World/Static/Backdrops/Chute" unique_id=1042140178]
+position = Vector2(1680, 504)
+color = Color(0, 1, 0.01666665, 1)
+energy = 2.0
+range_z_max = -10
+texture = SubResource("GradientTexture2D_f745s")
+texture_scale = 2.8
+
 [node name="BenchBottom" type="Sprite2D" parent="World/Static/Backdrops" unique_id=1291464906]
+visible = false
 texture = ExtResource("8_dqsg4")
 centered = false
 script = ExtResource("9_m1ne5")
@@ -134,10 +502,12 @@ texture = ExtResource("12_3fskr")
 centered = false
 
 [node name="BoxDoorOpen" type="Sprite2D" parent="World/Static/Backdrops/BenchBottom" unique_id=698282114]
+visible = false
 texture = ExtResource("13_pveoo")
 centered = false
 
 [node name="BenchTop" type="Sprite2D" parent="World/Static/Backdrops" unique_id=984937443]
+visible = false
 texture = ExtResource("14_r1w42")
 centered = false
 script = ExtResource("15_5f1oo")
@@ -146,6 +516,53 @@ script = ExtResource("15_5f1oo")
 texture = ExtResource("16_7oq72")
 centered = false
 script = ExtResource("17_f1wnm")
+
+[node name="MainLightingEffects" type="Node2D" parent="World/Static/Backdrops/MainRoom" unique_id=746437394]
+
+[node name="Flourescent1" type="PointLight2D" parent="World/Static/Backdrops/MainRoom/MainLightingEffects" unique_id=1192860752]
+position = Vector2(888.252, 995.0245)
+scale = Vector2(4.043261, 0.29894108)
+skew = 0.5270894
+range_z_max = 10
+texture = SubResource("GradientTexture2D_xot5u")
+texture_scale = 4.55
+height = 1024.0
+
+[node name="Flourescent2" type="PointLight2D" parent="World/Static/Backdrops/MainRoom/MainLightingEffects" unique_id=86375618]
+position = Vector2(946.2521, 898.0245)
+scale = Vector2(4.043261, 0.29894108)
+skew = 0.5270894
+range_z_max = 10
+texture = SubResource("GradientTexture2D_xot5u")
+texture_scale = 4.55
+height = 1024.0
+
+[node name="Flourescent3" type="PointLight2D" parent="World/Static/Backdrops/MainRoom/MainLightingEffects" unique_id=926774070]
+position = Vector2(994.252, 805.0245)
+scale = Vector2(4.043261, 0.29894108)
+skew = 0.5270894
+range_z_max = 10
+texture = SubResource("GradientTexture2D_xot5u")
+texture_scale = 4.55
+height = 1024.0
+
+[node name="ChuteLightRed" type="PointLight2D" parent="World/Static/Backdrops/MainRoom/MainLightingEffects" unique_id=424376366]
+position = Vector2(1631, 328)
+color = Color(1, 0.116666675, 0, 1)
+energy = 2.0
+range_z_max = -10
+texture = SubResource("GradientTexture2D_f745s")
+
+[node name="ScreenLight" type="PointLight2D" parent="World/Static/Backdrops/MainRoom/MainLightingEffects" unique_id=1523937535]
+position = Vector2(121, 356.00003)
+rotation = -0.0837758
+scale = Vector2(1.0137857, 1.1058682)
+skew = 0.06283186
+color = Color(0.083333254, 1, 0, 1)
+energy = 0.5
+range_z_max = -10
+texture = SubResource("GradientTexture2D_5f1oo")
+texture_scale = 3.0
 
 [node name="Navigation" type="CanvasGroup" parent="World/Static" unique_id=395423444]
 z_index = 10
@@ -245,11 +662,21 @@ position = Vector2(1950, 0)
 rotation = 4.712389
 shape = SubResource("WorldBoundaryShape2D_f745s")
 
+[node name="Darkness" type="CanvasModulate" parent="World/Static" unique_id=1084638047]
+color = Color(0.64029115, 0.73836344, 0.7924484, 1)
+metadata/_edit_lock_ = true
+
 [node name="Active" type="Node2D" parent="World" unique_id=1021112359]
 unique_name_in_owner = true
 
 [node name="ToySpawnPoint" type="Marker2D" parent="World/Active" unique_id=1763950643]
 position = Vector2(1498, -1297)
+
+[node name="LightsAnimationPlayer" type="AnimationPlayer" parent="World/Active" unique_id=334145293]
+root_node = NodePath("../../Static/Backdrops/MainRoom/MainLightingEffects")
+libraries/ = SubResource("AnimationLibrary_mgm8b")
+autoplay = &"lights_on"
+script = ExtResource("24_5f1oo")
 
 [node name="Temp" type="Node2D" parent="World" unique_id=322702821]
 unique_name_in_owner = true
