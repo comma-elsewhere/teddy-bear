@@ -1,0 +1,287 @@
+[gd_scene format=3 uid="uid://c5x64ccecogro"]
+
+[ext_resource type="Script" uid="uid://ghstbblat8ik" path="res://src/utility/systems/nav_system.gd" id="1_45db7"]
+[ext_resource type="AudioStream" uid="uid://y05f33o17hlx" path="res://assets/sound/music/SoftTissue_MainBGMLoop.ogg" id="2_gymin"]
+[ext_resource type="Script" uid="uid://d34481lwxu546" path="res://src/utility/systems/hook_system.gd" id="3_45db7"]
+[ext_resource type="Texture2D" uid="uid://bn6gak15xjls2" path="res://assets/art/background/terminal.png" id="3_m1ne5"]
+[ext_resource type="Script" uid="uid://i2i7c06by15l" path="res://src/entities/static_pieces/backdrops/backdrop_terminal.gd" id="4_45db7"]
+[ext_resource type="Script" uid="uid://c8kqvvs5fvrlt" path="res://src/utility/systems/toy_spawn.gd" id="4_gymin"]
+[ext_resource type="Texture2D" uid="uid://bkgbdcn4l3d8g" path="res://assets/art/background/chute.png" id="5_f1wnm"]
+[ext_resource type="PackedScene" uid="uid://cry4455wyugys" path="res://src/entities/objects/toy_bodies/toy_teddy.tscn" id="5_m1ne5"]
+[ext_resource type="Script" uid="uid://cla6psyt5k7lb" path="res://src/entities/static_pieces/backdrops/backdrop_chute.gd" id="6_gymin"]
+[ext_resource type="Texture2D" uid="uid://8twda3vherd4" path="res://assets/art/objects/chute_door.png" id="7_mgm8b"]
+[ext_resource type="Texture2D" uid="uid://bicefh4n4f072" path="res://assets/art/background/bench_under.png" id="8_dqsg4"]
+[ext_resource type="Script" uid="uid://dra2aecne347o" path="res://src/entities/static_pieces/backdrops/backdrop_bench_bottom.gd" id="9_m1ne5"]
+[ext_resource type="Texture2D" uid="uid://r7vqvl3376ei" path="res://assets/art/objects/washbroad.png" id="10_ibeg0"]
+[ext_resource type="Texture2D" uid="uid://u15rg1aa0jkg" path="res://assets/art/objects/lockbox.png" id="11_4xr8h"]
+[ext_resource type="Texture2D" uid="uid://d4ency8s8fc1e" path="res://assets/art/objects/lockboxdoor.png" id="12_3fskr"]
+[ext_resource type="Texture2D" uid="uid://dtim8au84b5rf" path="res://assets/art/objects/lockboxdooropen.png" id="13_pveoo"]
+[ext_resource type="Texture2D" uid="uid://c21p18c38xb8f" path="res://assets/art/background/bench_table.png" id="14_r1w42"]
+[ext_resource type="Script" uid="uid://blm30lw3rctfx" path="res://src/entities/static_pieces/backdrops/backdrop_bench_top.gd" id="15_5f1oo"]
+[ext_resource type="Texture2D" uid="uid://dk4h2adkby1p2" path="res://assets/art/background/main_room.png" id="16_7oq72"]
+[ext_resource type="Script" uid="uid://c8ov1sd41a2od" path="res://src/entities/static_pieces/backdrops/backdrop_main_room.gd" id="17_f1wnm"]
+[ext_resource type="Script" uid="uid://bfyuuxetvvmjy" path="res://src/entities/static_pieces/nav_area.gd" id="18_abx1x"]
+[ext_resource type="Texture2D" uid="uid://wf3nswpqjghj" path="res://assets/art/objects/medical/hook.png" id="19_pbilr"]
+[ext_resource type="Script" uid="uid://busd3yfk5p1mx" path="res://addons/godot-rapier2d/custom_nodes/rapier_static_body_2d.gd" id="20_uuaq1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c01mt"]
+size = Vector2(797, 394.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c01mt"]
+radius = 79.0
+height = 840.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxtc6"]
+size = Vector2(310, 708)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8u5g"]
+size = Vector2(103, 1101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlsqs"]
+size = Vector2(347, 238)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhr70"]
+size = Vector2(82, 1097)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lhr70"]
+radius = 72.0
+height = 1030.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp0k4"]
+size = Vector2(1667, 68)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_45db7"]
+friction = 0.8
+bounce = 0.5
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xot5u"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fb62l"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f745s"]
+
+[node name="Root" type="Node" unique_id=1504431132]
+process_mode = 3
+
+[node name="Systems" type="Node" parent="." unique_id=1459789896]
+unique_name_in_owner = true
+
+[node name="MusicLoop" type="AudioStreamPlayer" parent="Systems" unique_id=2081607026]
+stream = ExtResource("2_gymin")
+parameters/looping = true
+
+[node name="NavSystem" type="Node" parent="Systems" unique_id=703649385 node_paths=PackedStringArray("_bd_mother", "_nav_mother")]
+script = ExtResource("1_45db7")
+_bd_mother = NodePath("../../World/Static/Backdrops")
+_nav_mother = NodePath("../../World/Static/Navigation")
+
+[node name="HookSystem" type="Node" parent="Systems" unique_id=1607458219 node_paths=PackedStringArray("_hook_sprite", "_nav_system", "_toy_spawn")]
+script = ExtResource("3_45db7")
+_hook_sprite = NodePath("../../World/Static/Hook")
+_nav_system = NodePath("../NavSystem")
+_toy_spawn = NodePath("../ToySpawn")
+
+[node name="ToySpawn" type="Node" parent="Systems" unique_id=537492770 node_paths=PackedStringArray("_spawn_point")]
+script = ExtResource("4_gymin")
+_spawn_point = NodePath("../../World/Active/ToySpawnPoint")
+_toys = Array[PackedScene]([ExtResource("5_m1ne5")])
+
+[node name="World" type="Node2D" parent="." unique_id=95961031]
+process_mode = 1
+
+[node name="Static" type="Node2D" parent="World" unique_id=800731281]
+unique_name_in_owner = true
+z_index = -50
+
+[node name="Hook" type="Sprite2D" parent="World/Static" unique_id=6568671]
+z_index = 30
+position = Vector2(694, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_pbilr")
+centered = false
+flip_h = true
+
+[node name="Backdrops" type="CanvasGroup" parent="World/Static" unique_id=1103917686]
+metadata/_edit_lock_ = true
+
+[node name="Terminal" type="Sprite2D" parent="World/Static/Backdrops" unique_id=599642874]
+texture = ExtResource("3_m1ne5")
+centered = false
+script = ExtResource("4_45db7")
+
+[node name="Chute" type="Sprite2D" parent="World/Static/Backdrops" unique_id=914959243]
+visible = false
+texture = ExtResource("5_f1wnm")
+centered = false
+script = ExtResource("6_gymin")
+
+[node name="ChuteDoor" type="Sprite2D" parent="World/Static/Backdrops/Chute" unique_id=1479403609]
+texture = ExtResource("7_mgm8b")
+centered = false
+
+[node name="BenchBottom" type="Sprite2D" parent="World/Static/Backdrops" unique_id=1291464906]
+visible = false
+texture = ExtResource("8_dqsg4")
+centered = false
+script = ExtResource("9_m1ne5")
+
+[node name="Washbroad" type="Sprite2D" parent="World/Static/Backdrops/BenchBottom" unique_id=510708167]
+texture = ExtResource("10_ibeg0")
+centered = false
+
+[node name="Box" type="Sprite2D" parent="World/Static/Backdrops/BenchBottom" unique_id=1294081162]
+texture = ExtResource("11_4xr8h")
+centered = false
+
+[node name="BoxDoorClosed" type="Sprite2D" parent="World/Static/Backdrops/BenchBottom" unique_id=1140401405]
+texture = ExtResource("12_3fskr")
+centered = false
+
+[node name="BoxDoorOpen" type="Sprite2D" parent="World/Static/Backdrops/BenchBottom" unique_id=698282114]
+texture = ExtResource("13_pveoo")
+centered = false
+
+[node name="BenchTop" type="Sprite2D" parent="World/Static/Backdrops" unique_id=984937443]
+visible = false
+texture = ExtResource("14_r1w42")
+centered = false
+script = ExtResource("15_5f1oo")
+
+[node name="MainRoom" type="Sprite2D" parent="World/Static/Backdrops" unique_id=1421727134]
+visible = false
+texture = ExtResource("16_7oq72")
+centered = false
+script = ExtResource("17_f1wnm")
+
+[node name="Navigation" type="CanvasGroup" parent="World/Static" unique_id=395423444]
+metadata/_edit_lock_ = true
+
+[node name="NavAreaTop" type="Area2D" parent="World/Static/Navigation" unique_id=1909166434]
+position = Vector2(928, 0)
+script = ExtResource("18_abx1x")
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="World/Static/Navigation/NavAreaTop" unique_id=440067526]
+position = Vector2(0.5, 531.75)
+shape = SubResource("RectangleShape2D_c01mt")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Static/Navigation/NavAreaTop" unique_id=1251640105]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_c01mt")
+
+[node name="NavAreaLeft" type="Area2D" parent="World/Static/Navigation" unique_id=492720229]
+position = Vector2(0, 487)
+script = ExtResource("18_abx1x")
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="World/Static/Navigation/NavAreaLeft" unique_id=1177394435]
+position = Vector2(145, 120)
+shape = SubResource("RectangleShape2D_nxtc6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Static/Navigation/NavAreaLeft" unique_id=1055897702]
+position = Vector2(41.5, 55.5)
+shape = SubResource("RectangleShape2D_q8u5g")
+
+[node name="NavAreaRight" type="Area2D" parent="World/Static/Navigation" unique_id=1463459499]
+position = Vector2(1921, 481)
+script = ExtResource("18_abx1x")
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="World/Static/Navigation/NavAreaRight" unique_id=813206684]
+position = Vector2(-390, -189)
+shape = SubResource("RectangleShape2D_jlsqs")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Static/Navigation/NavAreaRight" unique_id=701814928]
+position = Vector2(-31, 57.5)
+shape = SubResource("RectangleShape2D_lhr70")
+
+[node name="NavAreaBottom" type="Area2D" parent="World/Static/Navigation" unique_id=1035440539]
+position = Vector2(926, 1081)
+script = ExtResource("18_abx1x")
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="World/Static/Navigation/NavAreaBottom" unique_id=642950105]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_lhr70")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Static/Navigation/NavAreaBottom" unique_id=1559831771]
+position = Vector2(37.5, -24)
+shape = SubResource("RectangleShape2D_wp0k4")
+
+[node name="BoundaryWalls" type="StaticBody2D" parent="World/Static" unique_id=412776615]
+physics_material_override = SubResource("PhysicsMaterial_45db7")
+script = ExtResource("20_uuaq1")
+metadata/_custom_type_script = "uid://busd3yfk5p1mx"
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2DFloor" type="CollisionShape2D" parent="World/Static/BoundaryWalls" unique_id=729381163]
+position = Vector2(0, 1100)
+shape = SubResource("WorldBoundaryShape2D_xot5u")
+
+[node name="CollisionShape2D2Left" type="CollisionShape2D" parent="World/Static/BoundaryWalls" unique_id=2050315471]
+position = Vector2(-30, 0)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_fb62l")
+
+[node name="CollisionShape2D3Right" type="CollisionShape2D" parent="World/Static/BoundaryWalls" unique_id=2081145840]
+position = Vector2(1950, 0)
+rotation = 4.712389
+shape = SubResource("WorldBoundaryShape2D_f745s")
+
+[node name="Active" type="Node2D" parent="World" unique_id=1021112359]
+unique_name_in_owner = true
+
+[node name="ToySpawnPoint" type="Marker2D" parent="World/Active" unique_id=1763950643]
+position = Vector2(1498, -1297)
+
+[node name="Temp" type="Node2D" parent="World" unique_id=322702821]
+unique_name_in_owner = true
+
+[node name="HudLayer" type="CanvasLayer" parent="." unique_id=1236321354]
+process_mode = 1
+layer = 10
+
+[node name="HudRoot" type="Control" parent="HudLayer" unique_id=129501801]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=191905461]
+process_mode = 2
+layer = 25
+
+[node name="PauseRoot" type="Control" parent="PauseLayer" unique_id=1806793831]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TransLayer" type="CanvasLayer" parent="." unique_id=551546518]
+process_mode = 3
+layer = 50
+
+[node name="TransRoot" type="Control" parent="TransLayer" unique_id=8888704]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="DebugLayer" type="CanvasLayer" parent="." unique_id=96291035]
+process_mode = 3
+layer = 100
+visible = false
+
+[node name="DebugRoot" type="Control" parent="DebugLayer" unique_id=1946539491]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true

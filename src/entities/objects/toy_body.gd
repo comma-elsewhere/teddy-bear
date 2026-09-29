@@ -1,8 +1,11 @@
 class_name Toy extends Node2D
 
-@export var limb_bodies: Array[RapierRigidBody2D] = []
+signal body_picked(pick_body: RapierRigidBody2D)
+signal body_dropped(drop_body: RapierRigidBody2D)
 
 const LERP_WEIGHT := 500.0
+
+@export var limb_bodies: Array[RapierRigidBody2D] = []
 
 var lerp_body: RapierRigidBody2D = null
 
@@ -15,6 +18,7 @@ func _physics_process(_delta: float) -> void:
 	if lerp_body == null:
 		return
 	if Input.is_action_just_released("click"):
+		emit_signal("body_dropped", lerp_body)
 		lerp_body = null
 		return
 	_normalize_velocity(0.7)
@@ -22,6 +26,8 @@ func _physics_process(_delta: float) -> void:
 	
 func _click_event(_viewport: Node, event: InputEvent, _shape_idx: int, body: RapierRigidBody2D) -> void:
 	if event.is_action_pressed("click"):
+		if lerp_body == null:
+			emit_signal("body_picked", body)
 		lerp_body = body
 		
 func _normalize_velocity(delta: float) -> void:

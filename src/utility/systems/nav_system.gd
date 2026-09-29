@@ -1,18 +1,21 @@
 class_name NavSystem
 extends Node
 
+signal state_change(new_state: int)
+
 enum BD {TERMINAL, CHUTE, BENCH_BOT, BENCH_TOP, MAIN_ROOM}
 enum NAV {TOP, LEFT, RIGHT, BOTTOM}
 
-@export var hook: Sprite2D
-@export var _bd_mother: Node
-@export var _nav_mother: Node
+@export var _bd_mother: CanvasGroup
+@export var _nav_mother: CanvasGroup
 
 var current_bd: Backdrop = null
 var _bd_array: Array[Backdrop] = []
 var _nav_array: Array[NavArea] = []
 
 func _ready() -> void:
+	await get_tree().process_frame
+	
 	for child in _bd_mother.get_children():
 		var bd: Backdrop = child as Backdrop
 		bd.hide()
@@ -57,6 +60,11 @@ func _nav_clicked(index: int) -> void:
 			if _get_bd_index() == BD.MAIN_ROOM: return
 			else: _change_state(BD.MAIN_ROOM)
 
+func get_main_room_visible() -> bool:
+	if _get_bd_index() == BD.MAIN_ROOM:
+		return true
+	return false
+
 func _get_bd_index() -> int:
 	if current_bd == null:
 		return -1
@@ -73,6 +81,7 @@ func _change_state(new_index: int) -> void:
 		
 	current_bd = _bd_array[new_index]
 	current_bd.enter_backdrop()
+	emit_signal("state_change", new_index)
 	
 	if _get_bd_index() == BD.MAIN_ROOM:
 		for nav in _nav_array:
