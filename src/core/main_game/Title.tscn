@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://cptl20xstrxuq"]
+
+[ext_resource type="Texture2D" uid="uid://duflvxyhcqkxm" path="res://assets/temp_title.jpg" id="1_360cg"]
+[ext_resource type="FontFile" uid="uid://v4t576l3ydpn" path="res://assets/gui/fonts/Chewy/Chewy-Regular.ttf" id="2_ycvdl"]
+[ext_resource type="AudioStream" uid="uid://b413km3r4q4yn" path="res://assets/sound/music/SoftTissue_TitleScreenBGM.ogg" id="3_jypdy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qoks"]
+bg_color = Color(0.9544777, 0.7254515, 0.6175496, 1)
+corner_radius_top_left = 120
+corner_radius_top_right = 120
+corner_radius_bottom_right = 120
+corner_radius_bottom_left = 120
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fb62l"]
+bg_color = Color(0.93988734, 0.67055076, 0.53918797, 1)
+border_width_left = 3
+border_width_right = 3
+border_color = Color(0.9676915, 0.80416757, 0.72616893, 1)
+
+[sub_resource type="GDScript" id="GDScript_ycvdl"]
+resource_name = "PlayGameButton"
+script/source = "extends Button
+
+func _enter_tree() -> void:
+	mouse_entered.connect(_toggle_visible_label.bind(true))
+	mouse_exited.connect(_toggle_visible_label.bind(false))
+	button_up.connect(_load_game)
+	
+func _toggle_visible_label(mouse_hover: bool) -> void:
+	%TitleLabel.visible = !mouse_hover
+	%HoverPlay.visible = mouse_hover
+	
+func _load_game() -> void:
+	get_tree().change_scene_to_file(\"res://src/core/main_game/Main.tscn\")
+"
+
+[node name="TitleRoot" type="Node" unique_id=1659650039]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1434148888]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=827759956]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control" unique_id=866546116]
+modulate = Color(0.6582303, 0.6021753, 0.45013213, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_360cg")
+expand_mode = 3
+stretch_mode = 6
+flip_h = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=491969686]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 100
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/MarginContainer" unique_id=1136984592]
+custom_minimum_size = Vector2(800, 270)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4qoks")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/MarginContainer/PanelContainer" unique_id=1115537382]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_fb62l")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/PanelContainer" unique_id=466016639]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 25
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer" unique_id=651766006]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.27, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 160
+text = "Soft Tissue"
+
+[node name="HoverPlay" type="Label" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer" unique_id=811527947]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.27, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_ycvdl")
+theme_override_font_sizes/font_size = 160
+text = "Play"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/Control/MarginContainer/PanelContainer" unique_id=1595389250]
+layout_mode = 2
+flat = true
+script = SubResource("GDScript_ycvdl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=83364754]
+stream = ExtResource("3_jypdy")
+autoplay = true
+parameters/looping = true

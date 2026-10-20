@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c5x64ccecogro"]
 
 [ext_resource type="Script" uid="uid://ghstbblat8ik" path="res://src/utility/systems/nav_system.gd" id="1_45db7"]
-[ext_resource type="AudioStream" uid="uid://y05f33o17hlx" path="res://assets/sound/music/SoftTissue_MainBGMLoop.ogg" id="2_gymin"]
+[ext_resource type="AudioStream" uid="uid://r8k0f0yith38" path="res://assets/sound/music/SoftTissue_MainBGMLoop.ogg" id="1_abx1x"]
 [ext_resource type="Script" uid="uid://d34481lwxu546" path="res://src/utility/systems/hook_system.gd" id="3_45db7"]
 [ext_resource type="Texture2D" uid="uid://bn6gak15xjls2" path="res://assets/art/background/terminal.png" id="3_m1ne5"]
 [ext_resource type="Script" uid="uid://i2i7c06by15l" path="res://src/entities/static_pieces/backdrops/backdrop_terminal.gd" id="4_45db7"]
@@ -26,6 +26,42 @@
 [ext_resource type="Texture2D" uid="uid://wf3nswpqjghj" path="res://assets/art/objects/medical/hook.png" id="19_pbilr"]
 [ext_resource type="Script" uid="uid://busd3yfk5p1mx" path="res://addons/godot-rapier2d/custom_nodes/rapier_static_body_2d.gd" id="20_uuaq1"]
 [ext_resource type="Script" uid="uid://27mtc8e83qa4" path="res://src/entities/static_pieces/animation/lights_animation.gd" id="24_5f1oo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c01mt"]
+size = Vector2(797, 394.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c01mt"]
+radius = 79.0
+height = 1708.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxtc6"]
+size = Vector2(310, 708)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8u5g"]
+size = Vector2(103, 1101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlsqs"]
+size = Vector2(347, 238)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhr70"]
+size = Vector2(97, 1097)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lhr70"]
+radius = 72.0
+height = 1278.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp0k4"]
+size = Vector2(1667, 68)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_45db7"]
+friction = 0.8
+bounce = 0.5
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xot5u"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fb62l"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f745s"]
 
 [sub_resource type="Gradient" id="Gradient_abx1x"]
 offsets = PackedFloat32Array(1)
@@ -227,42 +263,6 @@ fill = 2
 fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c01mt"]
-size = Vector2(797, 394.5)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c01mt"]
-radius = 79.0
-height = 1708.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxtc6"]
-size = Vector2(310, 708)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8u5g"]
-size = Vector2(103, 1101)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlsqs"]
-size = Vector2(347, 238)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhr70"]
-size = Vector2(97, 1097)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lhr70"]
-radius = 72.0
-height = 1278.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp0k4"]
-size = Vector2(1667, 68)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_45db7"]
-friction = 0.8
-bounce = 0.5
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xot5u"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fb62l"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f745s"]
-
 [sub_resource type="Animation" id="Animation_m1ne5"]
 length = 0.001
 tracks/0/type = "value"
@@ -328,7 +328,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../../../Darkness:color")
+tracks/5/path = NodePath("../../../StaticRoot/Darkness:color")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -336,6 +336,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.64029115, 0.73836344, 0.7924484, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("%Systems/MusicLoop:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_5f1oo"]
@@ -404,11 +416,11 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../../../Darkness:color")
+tracks/5/path = NodePath("../../../StaticRoot/Darkness:color")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 5.266667, 6.233333, 9.5),
+"times": PackedFloat32Array(0.0333333, 5.3, 6.2666664, 9.533334),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(0.64029115, 0.73836344, 0.7924484, 1), Color(0.6864266, 0.77440804, 0.8238764, 1), Color(0.53792864, 0.64929754, 0.711147, 1), Color(0.64029115, 0.73836344, 0.7924484, 1)]
@@ -480,11 +492,11 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../../../Darkness:color")
+tracks/5/path = NodePath("../../../StaticRoot/Darkness:color")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 1.5333333, 3.5, 9.5),
+"times": PackedFloat32Array(0, 1.6, 3.5666666, 9.566667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(0.64029115, 0.73836344, 0.7924484, 1), Color(0.6864266, 0.77440804, 0.8238764, 1), Color(0.51092196, 0.6258003, 0.68510383, 1), Color(0.64029115, 0.73836344, 0.7924484, 1)]
@@ -496,23 +508,23 @@ length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../../../Darkness:color")
+tracks/0/path = NodePath("Flourescent3:energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.3333334, 2.4, 4.9333334),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(1.3333334, 1.6333334, 2.4333334, 4.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(0.07686258, 0.11361518, 0.1336962, 1), Color(0.9422406, 0.9592956, 0.96957594, 1), Color(0.6392157, 0.7372549, 0.7921569, 1)]
+"values": [0.0, 2.0, 0.5, 1.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Flourescent3:energy")
+tracks/1/path = NodePath("Flourescent1:energy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.3333334, 1.6333334, 2.4333334, 4.133333),
+"times": PackedFloat32Array(1.3666667, 2.5333333, 3.0666666, 4.4333334),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 2.0, 0.5, 1.0]
@@ -520,11 +532,11 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Flourescent1:energy")
+tracks/2/path = NodePath("Flourescent2:energy")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.3666667, 2.5333333, 3.0666666, 4.4333334),
+"times": PackedFloat32Array(1.1, 1.9333334, 2.7333333, 3.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 2.0, 0.5, 1.0]
@@ -532,14 +544,40 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Flourescent2:energy")
+tracks/3/path = NodePath("../../../StaticRoot/Darkness:color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1.1, 1.9333334, 2.7333333, 3.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(1.3, 2.3666668, 4.9),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 2.0, 0.5, 1.0]
+"values": [Color(0.07686258, 0.11361518, 0.1336962, 1), Color(0.9422406, 0.9592956, 0.96957594, 1), Color(0.6392157, 0.7372549, 0.7921569, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%Systems/MusicLoop:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%Systems/ToySpawn")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_first_toy"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mgm8b"]
@@ -668,62 +706,166 @@ _data = {
 &"fade_trans": SubResource("Animation_dqsg4")
 }
 
-[node name="Root" type="Node" unique_id=1504431132]
+[node name="MainRoot" type="Node" unique_id=1504431132]
 process_mode = 3
 
 [node name="Systems" type="Node" parent="." unique_id=1459789896]
 unique_name_in_owner = true
 
 [node name="MusicLoop" type="AudioStreamPlayer" parent="Systems" unique_id=2081607026]
-stream = ExtResource("2_gymin")
+stream = ExtResource("1_abx1x")
 parameters/looping = true
 
 [node name="NavSystem" type="Node" parent="Systems" unique_id=703649385 node_paths=PackedStringArray("_bd_mother", "_nav_mother")]
 script = ExtResource("1_45db7")
-_bd_mother = NodePath("../../World/Static/Backdrops")
-_nav_mother = NodePath("../../World/Static/Navigation")
+_bd_mother = NodePath("../../World/BackdropSTM")
+_nav_mother = NodePath("../../World/StaticRoot/Navigation")
 
 [node name="HookSystem" type="Node" parent="Systems" unique_id=1607458219 node_paths=PackedStringArray("_hook_sprite", "_nav_system", "_toy_spawn")]
 script = ExtResource("3_45db7")
-_hook_sprite = NodePath("../../World/Static/Hook")
+_hook_sprite = NodePath("../../World/StaticRoot/Hook")
 _nav_system = NodePath("../NavSystem")
 _toy_spawn = NodePath("../ToySpawn")
 
 [node name="ToySpawn" type="Node" parent="Systems" unique_id=537492770 node_paths=PackedStringArray("_spawn_point")]
 script = ExtResource("4_gymin")
-_spawn_point = NodePath("../../World/Active/ToySpawnPoint")
+_spawn_point = NodePath("../../World/DynamicRoot/ToySpawnPoint")
 _toys = Array[PackedScene]([ExtResource("5_abx1x"), ExtResource("6_mgm8b"), ExtResource("5_m1ne5")])
 
 [node name="World" type="Node2D" parent="." unique_id=95961031]
 process_mode = 1
 
-[node name="Static" type="Node2D" parent="World" unique_id=800731281]
+[node name="StaticRoot" type="Node2D" parent="World" unique_id=800731281]
 unique_name_in_owner = true
 z_index = -50
 
-[node name="Hook" type="Sprite2D" parent="World/Static" unique_id=6568671]
+[node name="Hook" type="Sprite2D" parent="World/StaticRoot" unique_id=6568671]
 z_index = 5
 texture = ExtResource("19_pbilr")
 centered = false
 flip_h = true
 
-[node name="Backdrops" type="CanvasGroup" parent="World/Static" unique_id=1103917686]
+[node name="Navigation" type="CanvasGroup" parent="World/StaticRoot" unique_id=395423444]
+z_index = 10
 metadata/_edit_lock_ = true
 
-[node name="Terminal" type="Sprite2D" parent="World/Static/Backdrops" unique_id=599642874]
+[node name="NavAreaTop" type="Area2D" parent="World/StaticRoot/Navigation" unique_id=1909166434]
+position = Vector2(928, 0)
+collision_layer = 128
+collision_mask = 128
+collision_priority = 0.9
+monitoring = false
+monitorable = false
+priority = -20
+script = ExtResource("18_abx1x")
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="World/StaticRoot/Navigation/NavAreaTop" unique_id=440067526]
+position = Vector2(0.5, 531.75)
+shape = SubResource("RectangleShape2D_c01mt")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/StaticRoot/Navigation/NavAreaTop" unique_id=1251640105]
+position = Vector2(30, 15)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_c01mt")
+
+[node name="NavAreaLeft" type="Area2D" parent="World/StaticRoot/Navigation" unique_id=492720229]
+position = Vector2(0, 487)
+collision_layer = 128
+collision_mask = 128
+collision_priority = 0.9
+monitoring = false
+monitorable = false
+priority = -20
+script = ExtResource("18_abx1x")
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="World/StaticRoot/Navigation/NavAreaLeft" unique_id=1177394435]
+position = Vector2(145, 120)
+shape = SubResource("RectangleShape2D_nxtc6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/StaticRoot/Navigation/NavAreaLeft" unique_id=1055897702]
+position = Vector2(41.5, 55.5)
+shape = SubResource("RectangleShape2D_q8u5g")
+
+[node name="NavAreaRight" type="Area2D" parent="World/StaticRoot/Navigation" unique_id=1463459499]
+position = Vector2(1921, 481)
+collision_layer = 128
+collision_mask = 128
+collision_priority = 0.9
+monitoring = false
+monitorable = false
+priority = -20
+script = ExtResource("18_abx1x")
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="World/StaticRoot/Navigation/NavAreaRight" unique_id=813206684]
+position = Vector2(-390, -189)
+shape = SubResource("RectangleShape2D_jlsqs")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/StaticRoot/Navigation/NavAreaRight" unique_id=701814928]
+position = Vector2(-38.5, 57.5)
+shape = SubResource("RectangleShape2D_lhr70")
+
+[node name="NavAreaBottom" type="Area2D" parent="World/StaticRoot/Navigation" unique_id=1035440539]
+position = Vector2(926, 1081)
+collision_layer = 128
+collision_mask = 128
+collision_priority = 0.9
+monitoring = false
+monitorable = false
+priority = -20
+script = ExtResource("18_abx1x")
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="World/StaticRoot/Navigation/NavAreaBottom" unique_id=642950105]
+position = Vector2(30, -20)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_lhr70")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/StaticRoot/Navigation/NavAreaBottom" unique_id=1559831771]
+position = Vector2(37.5, -24)
+shape = SubResource("RectangleShape2D_wp0k4")
+
+[node name="BoundaryWalls" type="StaticBody2D" parent="World/StaticRoot" unique_id=412776615]
+physics_material_override = SubResource("PhysicsMaterial_45db7")
+script = ExtResource("20_uuaq1")
+metadata/_custom_type_script = "uid://busd3yfk5p1mx"
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2DFloor" type="CollisionShape2D" parent="World/StaticRoot/BoundaryWalls" unique_id=729381163]
+position = Vector2(0, 1100)
+shape = SubResource("WorldBoundaryShape2D_xot5u")
+
+[node name="CollisionShape2D2Left" type="CollisionShape2D" parent="World/StaticRoot/BoundaryWalls" unique_id=2050315471]
+position = Vector2(-30, 0)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_fb62l")
+
+[node name="CollisionShape2D3Right" type="CollisionShape2D" parent="World/StaticRoot/BoundaryWalls" unique_id=2081145840]
+position = Vector2(1950, 0)
+rotation = 4.712389
+shape = SubResource("WorldBoundaryShape2D_f745s")
+
+[node name="Darkness" type="CanvasModulate" parent="World/StaticRoot" unique_id=1084638047]
+unique_name_in_owner = true
+color = Color(0.64029115, 0.73836344, 0.7924484, 1)
+metadata/_edit_lock_ = true
+
+[node name="BackdropSTM" type="CanvasGroup" parent="World" unique_id=1103917686]
+unique_name_in_owner = true
+z_index = -60
+
+[node name="Terminal" type="Sprite2D" parent="World/BackdropSTM" unique_id=599642874]
 visible = false
 texture = ExtResource("3_m1ne5")
 centered = false
 script = ExtResource("4_45db7")
 
-[node name="TerminalScreen" type="Sprite2D" parent="World/Static/Backdrops/Terminal" unique_id=1220140437]
+[node name="TerminalScreen" type="Sprite2D" parent="World/BackdropSTM/Terminal" unique_id=1220140437]
 self_modulate = Color(0.1148968, 0.11489681, 0.1148968, 1)
 show_behind_parent = true
 position = Vector2(1331, 468)
 scale = Vector2(1.7, 1.6)
 texture = SubResource("GradientTexture2D_abx1x")
 
-[node name="ScreenLight" type="PointLight2D" parent="World/Static/Backdrops/Terminal" unique_id=848402834]
+[node name="ScreenLight" type="PointLight2D" parent="World/BackdropSTM/Terminal" unique_id=848402834]
 z_index = 5
 position = Vector2(1333, 464)
 scale = Vector2(1.1536542, 1.0416037)
@@ -732,16 +874,17 @@ range_z_max = -10
 texture = SubResource("GradientTexture2D_m1ne5")
 texture_scale = 14.0
 
-[node name="Chute" type="Sprite2D" parent="World/Static/Backdrops" unique_id=914959243]
+[node name="Chute" type="Sprite2D" parent="World/BackdropSTM" unique_id=914959243]
+visible = false
 texture = ExtResource("5_f1wnm")
 centered = false
 script = ExtResource("6_gymin")
 
-[node name="ChuteDoor" type="Sprite2D" parent="World/Static/Backdrops/Chute" unique_id=1479403609]
+[node name="ChuteDoor" type="Sprite2D" parent="World/BackdropSTM/Chute" unique_id=1479403609]
 texture = ExtResource("7_mgm8b")
 centered = false
 
-[node name="ChuteLightRed" type="PointLight2D" parent="World/Static/Backdrops/Chute" unique_id=2013617197]
+[node name="ChuteLightRed" type="PointLight2D" parent="World/BackdropSTM/Chute" unique_id=2013617197]
 position = Vector2(1686, 729)
 color = Color(1, 0.116666675, 0, 1)
 energy = 2.0
@@ -749,16 +892,16 @@ range_z_max = -10
 texture = SubResource("GradientTexture2D_f745s")
 texture_scale = 2.8
 
-[node name="RedButtonArea" type="Area2D" parent="World/Static/Backdrops/Chute/ChuteLightRed" unique_id=1406061518]
+[node name="RedButtonArea" type="Area2D" parent="World/BackdropSTM/Chute/ChuteLightRed" unique_id=1406061518]
 position = Vector2(-6, -221)
 collision_layer = 128
 collision_mask = 128
 script = SubResource("GDScript_abx1x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Static/Backdrops/Chute/ChuteLightRed/RedButtonArea" unique_id=1916929189]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/BackdropSTM/Chute/ChuteLightRed/RedButtonArea" unique_id=1916929189]
 shape = SubResource("CircleShape2D_xot5u")
 
-[node name="ChuteLightGreen" type="PointLight2D" parent="World/Static/Backdrops/Chute" unique_id=1042140178]
+[node name="ChuteLightGreen" type="PointLight2D" parent="World/BackdropSTM/Chute" unique_id=1042140178]
 visible = false
 position = Vector2(1680, 504)
 color = Color(0, 1, 0.01666665, 1)
@@ -767,16 +910,16 @@ range_z_max = -10
 texture = SubResource("GradientTexture2D_f745s")
 texture_scale = 2.8
 
-[node name="GreenButtonArea" type="Area2D" parent="World/Static/Backdrops/Chute/ChuteLightGreen" unique_id=1646781365]
+[node name="GreenButtonArea" type="Area2D" parent="World/BackdropSTM/Chute/ChuteLightGreen" unique_id=1646781365]
 position = Vector2(9, 228)
 collision_layer = 128
 collision_mask = 128
 script = SubResource("GDScript_xot5u")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Static/Backdrops/Chute/ChuteLightGreen/GreenButtonArea" unique_id=253083471]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/BackdropSTM/Chute/ChuteLightGreen/GreenButtonArea" unique_id=253083471]
 shape = SubResource("CircleShape2D_xot5u")
 
-[node name="ChuteInteractArea" type="Area2D" parent="World/Static/Backdrops/Chute" unique_id=853819401]
+[node name="ChuteInteractArea" type="Area2D" parent="World/BackdropSTM/Chute" unique_id=853819401]
 visible = false
 position = Vector2(949, 534)
 collision_mask = 16
@@ -784,52 +927,52 @@ monitoring = false
 monitorable = false
 script = SubResource("GDScript_t6eft")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Static/Backdrops/Chute/ChuteInteractArea" unique_id=101490833]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/BackdropSTM/Chute/ChuteInteractArea" unique_id=101490833]
 position = Vector2(0, 264)
 shape = SubResource("RectangleShape2D_xot5u")
 
-[node name="ChuteAnimation" type="AnimationPlayer" parent="World/Static/Backdrops/Chute" unique_id=788825674]
+[node name="ChuteAnimation" type="AnimationPlayer" parent="World/BackdropSTM/Chute" unique_id=788825674]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_pveoo")
 
-[node name="BenchBottom" type="Sprite2D" parent="World/Static/Backdrops" unique_id=1291464906]
+[node name="BenchBottom" type="Sprite2D" parent="World/BackdropSTM" unique_id=1291464906]
 visible = false
 texture = ExtResource("8_dqsg4")
 centered = false
 script = ExtResource("9_m1ne5")
 
-[node name="Washbroad" type="Sprite2D" parent="World/Static/Backdrops/BenchBottom" unique_id=510708167]
+[node name="Washbroad" type="Sprite2D" parent="World/BackdropSTM/BenchBottom" unique_id=510708167]
 texture = ExtResource("10_ibeg0")
 centered = false
 
-[node name="Box" type="Sprite2D" parent="World/Static/Backdrops/BenchBottom" unique_id=1294081162]
+[node name="Box" type="Sprite2D" parent="World/BackdropSTM/BenchBottom" unique_id=1294081162]
 texture = ExtResource("11_4xr8h")
 centered = false
 
-[node name="BoxDoorClosed" type="Sprite2D" parent="World/Static/Backdrops/BenchBottom" unique_id=1140401405]
+[node name="BoxDoorClosed" type="Sprite2D" parent="World/BackdropSTM/BenchBottom" unique_id=1140401405]
 texture = ExtResource("12_3fskr")
 centered = false
 
-[node name="BoxDoorOpen" type="Sprite2D" parent="World/Static/Backdrops/BenchBottom" unique_id=698282114]
+[node name="BoxDoorOpen" type="Sprite2D" parent="World/BackdropSTM/BenchBottom" unique_id=698282114]
 visible = false
 texture = ExtResource("13_pveoo")
 centered = false
 
-[node name="BenchTop" type="Sprite2D" parent="World/Static/Backdrops" unique_id=984937443]
+[node name="BenchTop" type="Sprite2D" parent="World/BackdropSTM" unique_id=984937443]
 visible = false
 texture = ExtResource("14_r1w42")
 centered = false
 script = ExtResource("15_5f1oo")
 
-[node name="MainRoom" type="Sprite2D" parent="World/Static/Backdrops" unique_id=1421727134]
+[node name="MainRoom" type="Sprite2D" parent="World/BackdropSTM" unique_id=1421727134]
 visible = false
 texture = ExtResource("16_7oq72")
 centered = false
 script = ExtResource("17_f1wnm")
 
-[node name="MainLightingEffects" type="Node2D" parent="World/Static/Backdrops/MainRoom" unique_id=746437394]
+[node name="MainLightingEffects" type="Node2D" parent="World/BackdropSTM/MainRoom" unique_id=746437394]
 
-[node name="Flourescent1" type="PointLight2D" parent="World/Static/Backdrops/MainRoom/MainLightingEffects" unique_id=1192860752]
+[node name="Flourescent1" type="PointLight2D" parent="World/BackdropSTM/MainRoom/MainLightingEffects" unique_id=1192860752]
 position = Vector2(888.252, 995.0245)
 scale = Vector2(4.043261, 0.29894108)
 skew = 0.5270894
@@ -838,7 +981,7 @@ texture = SubResource("GradientTexture2D_xot5u")
 texture_scale = 4.55
 height = 1024.0
 
-[node name="Flourescent2" type="PointLight2D" parent="World/Static/Backdrops/MainRoom/MainLightingEffects" unique_id=86375618]
+[node name="Flourescent2" type="PointLight2D" parent="World/BackdropSTM/MainRoom/MainLightingEffects" unique_id=86375618]
 position = Vector2(946.2521, 898.0245)
 scale = Vector2(4.043261, 0.29894108)
 skew = 0.5270894
@@ -847,7 +990,7 @@ texture = SubResource("GradientTexture2D_xot5u")
 texture_scale = 4.55
 height = 1024.0
 
-[node name="Flourescent3" type="PointLight2D" parent="World/Static/Backdrops/MainRoom/MainLightingEffects" unique_id=926774070]
+[node name="Flourescent3" type="PointLight2D" parent="World/BackdropSTM/MainRoom/MainLightingEffects" unique_id=926774070]
 position = Vector2(994.252, 805.0245)
 scale = Vector2(4.043261, 0.29894108)
 skew = 0.5270894
@@ -856,14 +999,14 @@ texture = SubResource("GradientTexture2D_xot5u")
 texture_scale = 4.55
 height = 1024.0
 
-[node name="ChuteLightRed" type="PointLight2D" parent="World/Static/Backdrops/MainRoom/MainLightingEffects" unique_id=424376366]
+[node name="ChuteLightRed" type="PointLight2D" parent="World/BackdropSTM/MainRoom/MainLightingEffects" unique_id=424376366]
 position = Vector2(1631, 328)
 color = Color(1, 0.116666675, 0, 1)
 energy = 2.0
 range_z_max = -10
 texture = SubResource("GradientTexture2D_f745s")
 
-[node name="ScreenLight" type="PointLight2D" parent="World/Static/Backdrops/MainRoom/MainLightingEffects" unique_id=1523937535]
+[node name="ScreenLight" type="PointLight2D" parent="World/BackdropSTM/MainRoom/MainLightingEffects" unique_id=1523937535]
 position = Vector2(121, 356.00003)
 rotation = -0.0837758
 scale = Vector2(1.0137857, 1.1058682)
@@ -874,121 +1017,19 @@ range_z_max = -10
 texture = SubResource("GradientTexture2D_5f1oo")
 texture_scale = 3.0
 
-[node name="Navigation" type="CanvasGroup" parent="World/Static" unique_id=395423444]
-z_index = 10
-metadata/_edit_lock_ = true
-
-[node name="NavAreaTop" type="Area2D" parent="World/Static/Navigation" unique_id=1909166434]
-position = Vector2(928, 0)
-collision_layer = 128
-collision_mask = 128
-collision_priority = 0.9
-monitoring = false
-monitorable = false
-priority = -20
-script = ExtResource("18_abx1x")
-
-[node name="CollisionShape2D1" type="CollisionShape2D" parent="World/Static/Navigation/NavAreaTop" unique_id=440067526]
-position = Vector2(0.5, 531.75)
-shape = SubResource("RectangleShape2D_c01mt")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Static/Navigation/NavAreaTop" unique_id=1251640105]
-position = Vector2(30, 15)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_c01mt")
-
-[node name="NavAreaLeft" type="Area2D" parent="World/Static/Navigation" unique_id=492720229]
-position = Vector2(0, 487)
-collision_layer = 128
-collision_mask = 128
-collision_priority = 0.9
-monitoring = false
-monitorable = false
-priority = -20
-script = ExtResource("18_abx1x")
-
-[node name="CollisionShape2D1" type="CollisionShape2D" parent="World/Static/Navigation/NavAreaLeft" unique_id=1177394435]
-position = Vector2(145, 120)
-shape = SubResource("RectangleShape2D_nxtc6")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Static/Navigation/NavAreaLeft" unique_id=1055897702]
-position = Vector2(41.5, 55.5)
-shape = SubResource("RectangleShape2D_q8u5g")
-
-[node name="NavAreaRight" type="Area2D" parent="World/Static/Navigation" unique_id=1463459499]
-position = Vector2(1921, 481)
-collision_layer = 128
-collision_mask = 128
-collision_priority = 0.9
-monitoring = false
-monitorable = false
-priority = -20
-script = ExtResource("18_abx1x")
-
-[node name="CollisionShape2D1" type="CollisionShape2D" parent="World/Static/Navigation/NavAreaRight" unique_id=813206684]
-position = Vector2(-390, -189)
-shape = SubResource("RectangleShape2D_jlsqs")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Static/Navigation/NavAreaRight" unique_id=701814928]
-position = Vector2(-38.5, 57.5)
-shape = SubResource("RectangleShape2D_lhr70")
-
-[node name="NavAreaBottom" type="Area2D" parent="World/Static/Navigation" unique_id=1035440539]
-position = Vector2(926, 1081)
-collision_layer = 128
-collision_mask = 128
-collision_priority = 0.9
-monitoring = false
-monitorable = false
-priority = -20
-script = ExtResource("18_abx1x")
-
-[node name="CollisionShape2D1" type="CollisionShape2D" parent="World/Static/Navigation/NavAreaBottom" unique_id=642950105]
-position = Vector2(30, -20)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_lhr70")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Static/Navigation/NavAreaBottom" unique_id=1559831771]
-position = Vector2(37.5, -24)
-shape = SubResource("RectangleShape2D_wp0k4")
-
-[node name="BoundaryWalls" type="StaticBody2D" parent="World/Static" unique_id=412776615]
-physics_material_override = SubResource("PhysicsMaterial_45db7")
-script = ExtResource("20_uuaq1")
-metadata/_custom_type_script = "uid://busd3yfk5p1mx"
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2DFloor" type="CollisionShape2D" parent="World/Static/BoundaryWalls" unique_id=729381163]
-position = Vector2(0, 1100)
-shape = SubResource("WorldBoundaryShape2D_xot5u")
-
-[node name="CollisionShape2D2Left" type="CollisionShape2D" parent="World/Static/BoundaryWalls" unique_id=2050315471]
-position = Vector2(-30, 0)
-rotation = 1.5707964
-shape = SubResource("WorldBoundaryShape2D_fb62l")
-
-[node name="CollisionShape2D3Right" type="CollisionShape2D" parent="World/Static/BoundaryWalls" unique_id=2081145840]
-position = Vector2(1950, 0)
-rotation = 4.712389
-shape = SubResource("WorldBoundaryShape2D_f745s")
-
-[node name="Darkness" type="CanvasModulate" parent="World/Static" unique_id=1084638047]
-color = Color(0.64029115, 0.73836344, 0.7924484, 1)
-metadata/_edit_lock_ = true
-
-[node name="Active" type="Node2D" parent="World" unique_id=1021112359]
+[node name="DynamicRoot" type="Node2D" parent="World" unique_id=1021112359]
 unique_name_in_owner = true
 
-[node name="ToySpawnPoint" type="Marker2D" parent="World/Active" unique_id=1763950643]
+[node name="ToySpawnPoint" type="Marker2D" parent="World/DynamicRoot" unique_id=1763950643]
 position = Vector2(1498, -1297)
 
-[node name="LightsAnimationPlayer" type="AnimationPlayer" parent="World/Active" unique_id=334145293]
-root_node = NodePath("../../Static/Backdrops/MainRoom/MainLightingEffects")
+[node name="LightsAnimationPlayer" type="AnimationPlayer" parent="World/DynamicRoot" unique_id=334145293]
+root_node = NodePath("../../BackdropSTM/MainRoom/MainLightingEffects")
 libraries/ = SubResource("AnimationLibrary_mgm8b")
 autoplay = &"lights_on"
 script = ExtResource("24_5f1oo")
 
-[node name="Temp" type="Node2D" parent="World" unique_id=322702821]
+[node name="TempRoot" type="Node2D" parent="World" unique_id=322702821]
 unique_name_in_owner = true
 
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=1236321354]

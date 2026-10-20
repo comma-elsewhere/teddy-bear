@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dph47wagjhp72"
-path="res://.godot/imported/CatCafe.ttf-b6461e4f30da6e247539a92c9c22a9f4.fontdata"
+uid="uid://v4t576l3ydpn"
+path="res://.godot/imported/Chewy-Regular.ttf-817f3f2e1f1d170a6d3c350fa3230dba.fontdata"
 
 [deps]
 
-source_file="res://assets/gui/fonts/CatCafe.ttf"
-dest_files=["res://.godot/imported/CatCafe.ttf-b6461e4f30da6e247539a92c9c22a9f4.fontdata"]
+source_file="res://assets/gui/fonts/Chewy/Chewy-Regular.ttf"
+dest_files=["res://.godot/imported/Chewy-Regular.ttf-817f3f2e1f1d170a6d3c350fa3230dba.fontdata"]
 
 [params]
 

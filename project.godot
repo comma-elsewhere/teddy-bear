@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Soft Tissue"
-run/main_scene="uid://c5x64ccecogro"
+run/main_scene="uid://cptl20xstrxuq"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0.21176471, 0.023529412, 0.023529412, 1)
 boot_splash/show_image=false
@@ -39,7 +39,7 @@ enabled=PackedStringArray("res://addons/ropesim/plugin.cfg", "res://addons/saves
 
 [gui]
 
-theme/custom_font="uid://dph47wagjhp72"
+theme/custom_font="uid://dhdhoak6tdbve"
 
 [importer_defaults]
 

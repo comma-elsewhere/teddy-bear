@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://d26mxr4ow6jfs"
-path="res://.godot/imported/Zephirum-Regular.ttf-6304d200202be26f3c27c1f7f889f8b5.fontdata"
+uid="uid://dhdhoak6tdbve"
+path="res://.godot/imported/Schoolbell-Regular.ttf-b9b798283b73cf0692eb0bd1760dfe8c.fontdata"
 
 [deps]
 
-source_file="res://assets/gui/fonts/Zephirum-Regular.ttf"
-dest_files=["res://.godot/imported/Zephirum-Regular.ttf-6304d200202be26f3c27c1f7f889f8b5.fontdata"]
+source_file="res://assets/gui/fonts/Schoolbell/Schoolbell-Regular.ttf"
+dest_files=["res://.godot/imported/Schoolbell-Regular.ttf-b9b798283b73cf0692eb0bd1760dfe8c.fontdata"]
 
 [params]
 

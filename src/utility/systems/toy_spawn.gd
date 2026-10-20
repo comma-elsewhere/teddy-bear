@@ -11,8 +11,7 @@ var current_toy: Toy = null
 func _enter_tree() -> void:
 	add_to_group("ToyMonitor")
 
-func _ready() -> void:
-	await get_tree().create_timer(1.0).timeout
+func spawn_first_toy() -> void:
 	_spawn_toy(0)
 
 # group callback function of the "ToyMonitor" Group

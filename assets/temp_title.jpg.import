@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5ntnaoftltp3"
-path="res://.godot/imported/test_teddy.png-e28df0ce80667894102c205314ca6f6a.ctex"
+uid="uid://duflvxyhcqkxm"
+path="res://.godot/imported/temp_title.jpg-008fc6556a1e0d1f6da5bfda4200a3e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/toys/test_teddy.png"
-dest_files=["res://.godot/imported/test_teddy.png-e28df0ce80667894102c205314ca6f6a.ctex"]
+source_file="res://assets/temp_title.jpg"
+dest_files=["res://.godot/imported/temp_title.jpg-008fc6556a1e0d1f6da5bfda4200a3e2.ctex"]
 
 [params]
 

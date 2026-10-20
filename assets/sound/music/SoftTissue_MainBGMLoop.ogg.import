@@ -2,7 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://y05f33o17hlx"
+uid="uid://r8k0f0yith38"
 path="res://.godot/imported/SoftTissue_MainBGMLoop.ogg-512ec58095b80f87fc15470858f707b8.oggvorbisstr"
 
 [deps]
@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/SoftTissue_MainBGMLoop.ogg-512ec58095b80f87fc
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
