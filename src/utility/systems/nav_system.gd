@@ -73,6 +73,8 @@ func _get_bd_index() -> int:
 
 func _change_state(new_index: int) -> void:
 	if current_bd != null:
+		%TransRoot/AnimationPlayer.play("fade_trans")
+		await get_tree().create_timer(0.5).timeout
 		current_bd.exit_backdrop()
 		
 	if _get_bd_index() == BD.MAIN_ROOM:

@@ -43,7 +43,6 @@ func _hang_toy_limb(check_limb: RapierRigidBody2D) -> void:
 		return
 	if check_limb.global_position.distance_to(_hook_sprite.global_position + (_hook_sprite.texture.get_size() / 2)) <= _HANG_DIST:
 		_hanging_limb = check_limb
-		_current_toy.z_index = 20
 	
 func _unhang_toy_limb(check_limb: RapierRigidBody2D) -> void:
 	if _hanging_limb == null:
@@ -52,7 +51,6 @@ func _unhang_toy_limb(check_limb: RapierRigidBody2D) -> void:
 	elif _hanging_limb != check_limb:
 		return
 	_hanging_limb = null
-	_current_toy.z_index = 0
 	
 func _move_hook(index: int) -> void:
 	_hook_sprite.global_position = Vector2(_X_ARRAY[index], 0)

@@ -11,11 +11,9 @@ var current_toy: Toy = null
 func _enter_tree() -> void:
 	add_to_group("ToyMonitor")
 
-# temp for testing and debugging --- REMOVE BEFORE BETA
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		get_tree().call_group("ToyMonitor", "clear_current_toy")
-		_spawn_toy(0)
+func _ready() -> void:
+	await get_tree().create_timer(1.0).timeout
+	_spawn_toy(0)
 
 # group callback function of the "ToyMonitor" Group
 func clear_current_toy() -> void:
@@ -23,6 +21,7 @@ func clear_current_toy() -> void:
 		return
 	current_toy.get_parent().remove_child(current_toy)
 	current_toy.call_deferred("queue_free")
+	_spawn_toy(randi() % _toys.size())
 
 func _spawn_toy(index: int) -> void:
 	current_toy = _toys[index].instantiate() as Toy
@@ -32,4 +31,5 @@ func _spawn_toy(index: int) -> void:
 	_spawn_point.global_position.y = randi_range(-1300, -750)
 	
 	_spawn_point.add_child(current_toy)
+	current_toy.z_index = 20
 	emit_signal("new_toy_spawned", current_toy)

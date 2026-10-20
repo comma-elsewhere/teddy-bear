@@ -6,6 +6,8 @@ signal body_dropped(drop_body: RapierRigidBody2D)
 const LERP_WEIGHT := 500.0
 
 @export var limb_bodies: Array[RapierRigidBody2D] = []
+@export var show_on_shut: Array[Sprite2D] = []
+@export var hide_on_shut: Array[Sprite2D] = []
 
 var lerp_body: RapierRigidBody2D = null
 
@@ -13,6 +15,7 @@ func _ready() -> void:
 	for body in limb_bodies:
 		body.input_pickable = true
 		body.input_event.connect(_click_event.bind(body))
+		body.add_to_group("ToyBody")
 		
 func _physics_process(_delta: float) -> void:
 	if lerp_body == null:
@@ -24,8 +27,9 @@ func _physics_process(_delta: float) -> void:
 	_normalize_velocity(0.7)
 	lerp_body.apply_central_force((get_global_mouse_position() - lerp_body.global_position) * LERP_WEIGHT)
 	
-func _click_event(_viewport: Node, event: InputEvent, _shape_idx: int, body: RapierRigidBody2D) -> void:
+func _click_event(viewport: Node, event: InputEvent, _shape_idx: int, body: RapierRigidBody2D) -> void:
 	if event.is_action_pressed("click"):
+		viewport.set_input_as_handled()
 		if lerp_body == null:
 			emit_signal("body_picked", body)
 		lerp_body = body

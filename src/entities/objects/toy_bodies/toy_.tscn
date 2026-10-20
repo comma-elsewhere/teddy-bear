@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://cu4ltb114vggb"]
+
+[ext_resource type="Script" uid="uid://dkvypfttvwe30" path="res://src/entities/objects/toy_body.gd" id="1_670yc"]
+[ext_resource type="PhysicsMaterial" uid="uid://hihekgen16jy" path="res://src/resources/toy.phymat" id="2_esw1l"]
+[ext_resource type="Script" uid="uid://unwhnooi7g2c" path="res://addons/godot-rapier2d/custom_nodes/rapier_rigid_body_2d.gd" id="3_sms86"]
+[ext_resource type="Texture2D" uid="uid://bhpwyu1p8x21u" path="res://assets/art/toys/toy_TeddyBear.png" id="4_5g4iu"]
+[ext_resource type="Script" uid="uid://bv2bc4lt5v7hu" path="res://addons/godot-rapier2d/custom_nodes/rapier_pin_joint_2d.gd" id="5_wlmxi"]
+
+[node name="Toy" type="Node2D" unique_id=407969448 node_paths=PackedStringArray("limb_bodies")]
+script = ExtResource("1_670yc")
+limb_bodies = [NodePath("Head"), NodePath("Torso"), NodePath("LeftArm"), NodePath("LeftLeg"), NodePath("RightArm"), NodePath("RightLeg")]
+
+[node name="LeftArm" type="RigidBody2D" parent="." unique_id=1313522487]
+position = Vector2(-132, 320)
+collision_layer = 2
+collision_mask = 9
+mass = 0.6
+physics_material_override = ExtResource("2_esw1l")
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 90)
+script = ExtResource("3_sms86")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="Sprite" type="Sprite2D" parent="LeftArm" unique_id=2125734438]
+position = Vector2(-2, -1)
+texture = ExtResource("4_5g4iu")
+region_enabled = true
+region_rect = Rect2(46.89859, 45.483116, 199.70331, 352.7018)
+region_filter_clip_enabled = true
+
+[node name="LeftLeg" type="RigidBody2D" parent="." unique_id=586442462]
+position = Vector2(-85, 546)
+collision_layer = 32
+collision_mask = 65
+physics_material_override = ExtResource("2_esw1l")
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 90)
+script = ExtResource("3_sms86")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="Sprite" type="Sprite2D" parent="LeftLeg" unique_id=1018539722]
+position = Vector2(-17, 0)
+texture = ExtResource("4_5g4iu")
+region_enabled = true
+region_rect = Rect2(58.374268, 756.61523, 191.93738, 389.74353)
+region_filter_clip_enabled = true
+
+[node name="Torso" type="RigidBody2D" parent="." unique_id=331664342]
+position = Vector2(4, 295)
+collision_layer = 16
+mass = 1.5
+physics_material_override = ExtResource("2_esw1l")
+script = ExtResource("3_sms86")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="Sprite" type="Sprite2D" parent="Torso" unique_id=933102498]
+position = Vector2(13, 0)
+texture = ExtResource("4_5g4iu")
+region_enabled = true
+region_rect = Rect2(295.09076, 192.01207, 296.64478, 449.0227)
+region_filter_clip_enabled = true
+
+[node name="Head" type="RigidBody2D" parent="." unique_id=1117733555]
+collision_layer = 8
+collision_mask = 7
+mass = 0.6
+physics_material_override = ExtResource("2_esw1l")
+script = ExtResource("3_sms86")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="Sprite" type="Sprite2D" parent="Head" unique_id=1081803375]
+position = Vector2(-3, 3)
+texture = ExtResource("4_5g4iu")
+region_enabled = true
+region_rect = Rect2(805.4188, 103.41863, 342.3744, 304.62415)
+region_filter_clip_enabled = true
+
+[node name="RightLeg" type="RigidBody2D" parent="." unique_id=1757926615]
+position = Vector2(58, 557)
+collision_layer = 64
+collision_mask = 33
+physics_material_override = ExtResource("2_esw1l")
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 90)
+script = ExtResource("3_sms86")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="Sprite" type="Sprite2D" parent="RightLeg" unique_id=763026473]
+position = Vector2(28, 4)
+texture = ExtResource("4_5g4iu")
+region_enabled = true
+region_rect = Rect2(431.4065, 763.3733, 189.3435, 386.46814)
+region_filter_clip_enabled = true
+
+[node name="RightArm" type="RigidBody2D" parent="." unique_id=18116712]
+position = Vector2(134, 324)
+collision_layer = 4
+collision_mask = 9
+mass = 0.6
+physics_material_override = ExtResource("2_esw1l")
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 90)
+script = ExtResource("3_sms86")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="Sprite" type="Sprite2D" parent="RightArm" unique_id=257884028]
+position = Vector2(5, 3)
+texture = ExtResource("4_5g4iu")
+region_enabled = true
+region_rect = Rect2(580.27325, 74.45474, 170.9093, 345.45493)
+region_filter_clip_enabled = true
+
+[node name="PinJoint" type="Node2D" parent="." unique_id=883185633]
+
+[node name="RapierPinJoint2DNeck" type="PinJoint2D" parent="PinJoint" unique_id=1426657533 node_paths=PackedStringArray("ik_target")]
+position = Vector2(-1, 126)
+node_a = NodePath("../../Torso")
+node_b = NodePath("../../Head")
+script = ExtResource("5_wlmxi")
+ik_target = NodePath("../../Head")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="RapierPinJoint2DLeftShoulder" type="PinJoint2D" parent="PinJoint" unique_id=1468153438 node_paths=PackedStringArray("ik_target")]
+position = Vector2(-76, 174)
+node_a = NodePath("../../Torso")
+node_b = NodePath("../../LeftArm")
+script = ExtResource("5_wlmxi")
+ik_target = NodePath("../../LeftArm")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="RapierPinJoint2DRightShoulder" type="PinJoint2D" parent="PinJoint" unique_id=1602308538 node_paths=PackedStringArray("ik_target")]
+position = Vector2(83, 177)
+node_a = NodePath("../../Torso")
+node_b = NodePath("../../RightArm")
+script = ExtResource("5_wlmxi")
+ik_target = NodePath("../../RightArm")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="RapierPinJoint2DLeftHip" type="PinJoint2D" parent="PinJoint" unique_id=956409065 node_paths=PackedStringArray("ik_target")]
+position = Vector2(-95, 394)
+node_a = NodePath("../../Torso")
+node_b = NodePath("../../LeftLeg")
+script = ExtResource("5_wlmxi")
+ik_target = NodePath("../../LeftLeg")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="RapierPinJoint2DRightHip" type="PinJoint2D" parent="PinJoint" unique_id=704011293 node_paths=PackedStringArray("ik_target")]
+position = Vector2(75, 401)
+node_a = NodePath("../../Torso")
+node_b = NodePath("../../RightLeg")
+script = ExtResource("5_wlmxi")
+ik_target = NodePath("../../RightLeg")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"

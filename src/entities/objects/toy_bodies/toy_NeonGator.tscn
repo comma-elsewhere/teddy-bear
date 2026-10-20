@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://baffka6lvvkbq"]
+
+[ext_resource type="Script" uid="uid://dkvypfttvwe30" path="res://src/entities/objects/toy_body.gd" id="1_rfrhv"]
+[ext_resource type="PhysicsMaterial" uid="uid://hihekgen16jy" path="res://src/resources/toy.phymat" id="2_8gi1t"]
+[ext_resource type="Script" uid="uid://unwhnooi7g2c" path="res://addons/godot-rapier2d/custom_nodes/rapier_rigid_body_2d.gd" id="3_hiksh"]
+[ext_resource type="Texture2D" uid="uid://cyeoo344v6uiy" path="res://assets/art/toys/toy_NeonGator.png" id="4_rfrhv"]
+[ext_resource type="Script" uid="uid://bv2bc4lt5v7hu" path="res://addons/godot-rapier2d/custom_nodes/rapier_pin_joint_2d.gd" id="5_wodin"]
+
+[node name="Toy" type="Node2D" unique_id=407969448 node_paths=PackedStringArray("limb_bodies", "show_on_shut", "hide_on_shut")]
+script = ExtResource("1_rfrhv")
+limb_bodies = [NodePath("Head"), NodePath("Torso"), NodePath("LeftArm"), NodePath("LeftLeg"), NodePath("RightArm"), NodePath("RightLeg")]
+show_on_shut = [NodePath("Torso/SpriteShut")]
+hide_on_shut = [NodePath("Torso/SpriteOpen")]
+
+[node name="LeftArm" type="RigidBody2D" parent="." unique_id=1313522487]
+position = Vector2(-132, 327)
+collision_layer = 2
+collision_mask = 9
+mass = 0.6
+physics_material_override = ExtResource("2_8gi1t")
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 90)
+script = ExtResource("3_hiksh")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="Sprite" type="Sprite2D" parent="LeftArm" unique_id=2125734438]
+texture = ExtResource("4_rfrhv")
+region_enabled = true
+region_rect = Rect2(46.89859, 45.483116, 174.73918, 363.3363)
+region_filter_clip_enabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftArm" unique_id=368101384]
+polygon = PackedVector2Array(62, -173, 21, -132, -47, 25, -85, 136, -38, 177, 27, 146, 56, 6, 95.13041, -111.66815)
+
+[node name="LeftLeg" type="RigidBody2D" parent="." unique_id=586442462]
+position = Vector2(-98, 553)
+collision_layer = 32
+collision_mask = 65
+physics_material_override = ExtResource("2_8gi1t")
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 90)
+script = ExtResource("3_hiksh")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="Sprite" type="Sprite2D" parent="LeftLeg" unique_id=1018539722]
+texture = ExtResource("4_rfrhv")
+region_enabled = true
+region_rect = Rect2(65.92136, 783.26086, 156.09052, 375.1012)
+region_filter_clip_enabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftLeg" unique_id=1137672405]
+polygon = PackedVector2Array(10.954742, -185.5506, -22.045258, -144.5506, -23.045258, -144.5506, -31.045258, -9.550598, -31.045258, -3.5505981, -70.04526, 125.4494, -71.04526, 125.4494, -54.045258, 178.4494, -54.045258, 179.4494, -28.045258, 168.4494, -27.045258, 168.4494, -11.045258, 187.4494, -2.0452576, 187.4494, 22.954742, 169.4494, 26.954742, 169.4494, 49.954742, 181.4494, 51.954742, 181.4494, 70.95474, 154.4494, 71.95474, 154.4494, 51.954742, -119.5506, 51.954742, -125.5506, 34.954742, -171.5506, 34.954742, -173.5506, 10.954742, -186.5506)
+
+[node name="Torso" type="RigidBody2D" parent="." unique_id=331664342]
+position = Vector2(4, 295)
+collision_layer = 16
+mass = 1.5
+physics_material_override = ExtResource("2_8gi1t")
+script = ExtResource("3_hiksh")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="SpriteShut" type="Sprite2D" parent="Torso" unique_id=933102498]
+texture = ExtResource("4_rfrhv")
+region_enabled = true
+region_rect = Rect2(262.1954, 183.2833, 254.46146, 450.9443)
+region_filter_clip_enabled = true
+
+[node name="SpriteOpen" type="Sprite2D" parent="Torso" unique_id=369568421]
+visible = false
+position = Vector2(7, -6)
+texture = ExtResource("4_rfrhv")
+region_enabled = true
+region_rect = Rect2(724.2311, 586.5326, 323.71362, 458.99695)
+region_filter_clip_enabled = true
+
+[node name="Tail" type="Sprite2D" parent="Torso" unique_id=70031905]
+z_index = -5
+position = Vector2(170, 198)
+texture = ExtResource("4_rfrhv")
+region_enabled = true
+region_rect = Rect2(135.00099, 1218.0009, 366.00116, 233.00061)
+region_filter_clip_enabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Torso" unique_id=1197421779]
+polygon = PackedVector2Array(1.7692719, -221.47215, -30.230728, -200.47215, -31.230728, -200.47215, -42.23073, -169.47215, -42.23073, -164.47215, -85.23073, -117.47215, -86.23073, -117.47215, -121.23073, 92.52785, -122.23073, 92.52785, -106.23073, 171.52785, -106.23073, 172.52785, -49.23073, 213.52785, -49.23073, 214.52785, 71.76927, 205.52785, 75.76927, 205.52785, 115.76927, 162.52785, 116.76927, 162.52785, 103.76927, -93.47215, 103.76927, -97.47215, 47.76927, -200.47215, 47.76927, -202.47215, 1.7692719, -222.47215)
+
+[node name="Head" type="RigidBody2D" parent="." unique_id=1117733555]
+position = Vector2(2, 2)
+collision_layer = 8
+collision_mask = 7
+mass = 0.6
+physics_material_override = ExtResource("2_8gi1t")
+script = ExtResource("3_hiksh")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="Sprite" type="Sprite2D" parent="Head" unique_id=1081803375]
+texture = ExtResource("4_rfrhv")
+region_enabled = true
+region_rect = Rect2(848.1251, 108.76079, 290.91003, 299.28198)
+region_filter_clip_enabled = true
+
+[node name="Hat" type="Sprite2D" parent="Head" unique_id=1213150441]
+position = Vector2(-1, -143)
+texture = ExtResource("4_rfrhv")
+region_enabled = true
+region_rect = Rect2(1268.6663, 40.637215, 127.57153, 122.4912)
+region_filter_clip_enabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Head" unique_id=1622234624]
+polygon = PackedVector2Array(78.54498, -146.64099, 26.544983, -132.64099, 26.544983, -131.64099, -86.45502, -133.64099, -90.45502, -133.64099, -129.45502, -91.64099, -130.45502, -91.64099, -141.45502, -15.640991, -142.45502, -15.640991, -124.45502, 84.35901, -124.45502, 88.35901, -77.45502, 136.35901, -77.45502, 137.35901, 18.544983, 148.35901, 19.544983, 148.35901, 83.54498, 131.35901, 85.54498, 131.35901, 126.54498, 82.35901, 127.54498, 82.35901, 141.54498, -36.64099, 141.54498, -41.64099, 127.54498, -111.64099, 127.54498, -113.64099, 78.54498, -147.64099)
+
+[node name="RightLeg" type="RigidBody2D" parent="." unique_id=1757926615]
+position = Vector2(98, 563)
+collision_layer = 64
+collision_mask = 33
+physics_material_override = ExtResource("2_8gi1t")
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 90)
+script = ExtResource("3_hiksh")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="Sprite" type="Sprite2D" parent="RightLeg" unique_id=763026473]
+texture = ExtResource("4_rfrhv")
+region_enabled = true
+region_rect = Rect2(456.10156, 778.11816, 155.85175, 382.48865)
+region_filter_clip_enabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightLeg" unique_id=1575199272]
+polygon = PackedVector2Array(-10.925873, -186.24432, -39.925873, -173.24432, -41.925873, -173.24432, -57.925873, -143.24432, -58.925873, -143.24432, -51.925873, 23.755676, -51.925873, 24.755676, -73.92587, 113.75568, -74.92587, 113.75568, -69.92587, 161.75568, -69.92587, 166.75568, -60.925873, 178.75568, -55.925873, 178.75568, -30.925873, 164.75568, -28.925873, 164.75568, 9.074127, 189.75568, 9.074127, 190.75568, 28.074127, 166.75568, 29.074127, 166.75568, 48.074127, 183.75568, 55.074127, 183.75568, 75.07413, 135.75568, 76.07413, 135.75568, 25.074127, -146.24432, 25.074127, -151.24432, -10.925873, -187.24432)
+
+[node name="RightArm" type="RigidBody2D" parent="." unique_id=18116712]
+position = Vector2(143, 332)
+collision_layer = 4
+collision_mask = 9
+mass = 0.6
+physics_material_override = ExtResource("2_8gi1t")
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 90)
+script = ExtResource("3_hiksh")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="Sprite" type="Sprite2D" parent="RightArm" unique_id=257884028]
+texture = ExtResource("4_rfrhv")
+region_enabled = true
+region_rect = Rect2(580.27325, 65.1902, 182.48846, 370.24908)
+region_filter_clip_enabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightArm" unique_id=358126524]
+polygon = PackedVector2Array(-48.244232, -182.12454, -75.24423, -167.12454, -76.24423, -167.12454, -87.24423, -122.12454, -87.24423, -99.12454, -37.244232, 120.87546, -37.244232, 124.87546, -10.244232, 162.87546, -10.244232, 163.87546, 45.755768, 181.87546, 45.755768, 182.87546, 88.75577, 133.87546, 89.75577, 133.87546, 8.755768, -37.124542, 7.755768, -37.124542, -28.244232, -163.12454, -28.244232, -166.12454, -48.244232, -183.12454)
+
+[node name="PinJoint" type="Node2D" parent="." unique_id=883185633]
+
+[node name="RapierPinJoint2DNeck" type="PinJoint2D" parent="PinJoint" unique_id=1426657533 node_paths=PackedStringArray("ik_target")]
+position = Vector2(-1, 126)
+node_a = NodePath("../../Torso")
+node_b = NodePath("../../Head")
+script = ExtResource("5_wodin")
+ik_target = NodePath("../../Head")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="RapierPinJoint2DLeftShoulder" type="PinJoint2D" parent="PinJoint" unique_id=1468153438 node_paths=PackedStringArray("ik_target")]
+position = Vector2(-76, 174)
+node_a = NodePath("../../Torso")
+node_b = NodePath("../../LeftArm")
+script = ExtResource("5_wodin")
+ik_target = NodePath("../../LeftArm")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="RapierPinJoint2DRightShoulder" type="PinJoint2D" parent="PinJoint" unique_id=1602308538 node_paths=PackedStringArray("ik_target")]
+position = Vector2(83, 177)
+node_a = NodePath("../../Torso")
+node_b = NodePath("../../RightArm")
+script = ExtResource("5_wodin")
+ik_target = NodePath("../../RightArm")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="RapierPinJoint2DLeftHip" type="PinJoint2D" parent="PinJoint" unique_id=956409065 node_paths=PackedStringArray("ik_target")]
+position = Vector2(-95, 394)
+node_a = NodePath("../../Torso")
+node_b = NodePath("../../LeftLeg")
+script = ExtResource("5_wodin")
+ik_target = NodePath("../../LeftLeg")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="RapierPinJoint2DRightHip" type="PinJoint2D" parent="PinJoint" unique_id=704011293 node_paths=PackedStringArray("ik_target")]
+position = Vector2(75, 401)
+node_a = NodePath("../../Torso")
+node_b = NodePath("../../RightLeg")
+script = ExtResource("5_wodin")
+ik_target = NodePath("../../RightLeg")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
