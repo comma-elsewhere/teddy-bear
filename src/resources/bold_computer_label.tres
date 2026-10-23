@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://cgn2kmeov6vp3"]
+
+[ext_resource type="FontFile" uid="uid://dmwjc87sfuof8" path="res://assets/gui/fonts/Tektur/Tektur_Condensed-SemiBold.ttf" id="1_3timy"]
+
+[resource]
+font = ExtResource("1_3timy")
+font_size = 24
+font_color = Color(0, 0, 0, 1)

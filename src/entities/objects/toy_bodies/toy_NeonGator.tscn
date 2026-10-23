@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dkvypfttvwe30" path="res://src/entities/objects/toy_body.gd" id="1_rfrhv"]
 [ext_resource type="PhysicsMaterial" uid="uid://hihekgen16jy" path="res://src/resources/toy.phymat" id="2_8gi1t"]
+[ext_resource type="Resource" uid="uid://dovfelltfk5dk" path="res://src/entities/objects/toy_data/data_NeonGator.tres" id="2_hiksh"]
 [ext_resource type="Script" uid="uid://unwhnooi7g2c" path="res://addons/godot-rapier2d/custom_nodes/rapier_rigid_body_2d.gd" id="3_hiksh"]
 [ext_resource type="Texture2D" uid="uid://cyeoo344v6uiy" path="res://assets/art/toys/toy_NeonGator.png" id="4_rfrhv"]
 [ext_resource type="Script" uid="uid://bv2bc4lt5v7hu" path="res://addons/godot-rapier2d/custom_nodes/rapier_pin_joint_2d.gd" id="5_wodin"]
 
 [node name="Toy" type="Node2D" unique_id=407969448 node_paths=PackedStringArray("limb_bodies", "show_on_shut", "hide_on_shut")]
 script = ExtResource("1_rfrhv")
+toy_data = ExtResource("2_hiksh")
 limb_bodies = [NodePath("Head"), NodePath("Torso"), NodePath("LeftArm"), NodePath("LeftLeg"), NodePath("RightArm"), NodePath("RightLeg")]
 show_on_shut = [NodePath("Torso/SpriteShut")]
 hide_on_shut = [NodePath("Torso/SpriteOpen")]

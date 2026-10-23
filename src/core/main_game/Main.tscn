@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://r7vqvl3376ei" path="res://assets/art/objects/washbroad.png" id="10_ibeg0"]
 [ext_resource type="Texture2D" uid="uid://u15rg1aa0jkg" path="res://assets/art/objects/lockbox.png" id="11_4xr8h"]
 [ext_resource type="Texture2D" uid="uid://d4ency8s8fc1e" path="res://assets/art/objects/lockboxdoor.png" id="12_3fskr"]
+[ext_resource type="PackedScene" uid="uid://cc3tyrsoxd7d4" path="res://src/gui/terminal_control.tscn" id="13_mgm8b"]
 [ext_resource type="Texture2D" uid="uid://dtim8au84b5rf" path="res://assets/art/objects/lockboxdooropen.png" id="13_pveoo"]
 [ext_resource type="Texture2D" uid="uid://c21p18c38xb8f" path="res://assets/art/background/bench_table.png" id="14_r1w42"]
 [ext_resource type="Script" uid="uid://blm30lw3rctfx" path="res://src/entities/static_pieces/backdrops/backdrop_bench_top.gd" id="15_5f1oo"]
@@ -304,46 +305,22 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ScreenLight:energy")
+tracks/3/path = NodePath("../../../StaticRoot/Darkness:color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.5]
+"values": [Color(0.64029115, 0.73836344, 0.7924484, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../../Terminal/ScreenLight:energy")
+tracks/4/path = NodePath("../../../StaticRoot/MusicLoop:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../../../StaticRoot/Darkness:color")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.64029115, 0.73836344, 0.7924484, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("%Systems/MusicLoop:playing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -356,74 +333,14 @@ length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Flourescent3:energy")
+tracks/0/path = NodePath("../../../StaticRoot/Darkness:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 6.0666666, 6.4, 9),
+"times": PackedFloat32Array(0.0333333, 5.0333333, 6.2666664, 6.8333335, 9.533334),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [1.0, 1.0, 1.5, 0.5, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Flourescent1:energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 5.9333334, 6.266667, 7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [1.0, 1.0, 0.2, 1.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Flourescent2:energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 5.266667, 7, 8.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [1.0, 1.2, 0.4, 1.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ScreenLight:energy")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 5.3, 7.6666665, 9.233334),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.5, 0.5, 0.8, 0.5]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../../Terminal/ScreenLight:energy")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 5.266667, 7.6666665, 9.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [1.0, 1.0, 1.5, 1.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../../../StaticRoot/Darkness:color")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.0333333, 5.3, 6.2666664, 9.533334),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.64029115, 0.73836344, 0.7924484, 1), Color(0.6864266, 0.77440804, 0.8238764, 1), Color(0.53792864, 0.64929754, 0.711147, 1), Color(0.64029115, 0.73836344, 0.7924484, 1)]
+"values": [Color(0.64029115, 0.73836344, 0.7924484, 1), Color(0.6864266, 0.77440804, 0.8238764, 1), Color(0.53792864, 0.64929754, 0.711147, 1), Color(0.64029115, 0.73836344, 0.7924484, 1), Color(0.64029115, 0.73836344, 0.7924484, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_f1wnm"]
@@ -432,74 +349,14 @@ length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Flourescent3:energy")
+tracks/0/path = NodePath("../../../StaticRoot/Darkness:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.8333335, 2.6333334, 3.5666666, 4.3333335, 6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2.5666666, 3.5666666, 4.5, 9.566667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [1.0, 1.0, 0.1, 1.0, 0.1, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Flourescent1:energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.3666666, 4.1666665, 5.733333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [1.0, 1.0, 0.2, 1.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Flourescent2:energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.2333331, 3.0333333, 4.6666665),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [1.0, 1.2, 0.4, 1.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ScreenLight:energy")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.5666666, 3.6333337, 9.233334),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.5, 0.5, 0.8, 0.5]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../../Terminal/ScreenLight:energy")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.5333333, 3.6, 9.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [1.0, 1.0, 1.5, 1.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../../../StaticRoot/Darkness:color")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 1.6, 3.5666666, 9.566667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.64029115, 0.73836344, 0.7924484, 1), Color(0.6864266, 0.77440804, 0.8238764, 1), Color(0.51092196, 0.6258003, 0.68510383, 1), Color(0.64029115, 0.73836344, 0.7924484, 1)]
+"values": [Color(0.64029115, 0.73836344, 0.7924484, 1), Color(0.64029115, 0.73836344, 0.7924484, 1), Color(0.42644584, 0.5414698, 0.59866965, 1), Color(0.64029115, 0.73836344, 0.7924484, 1), Color(0.64029115, 0.73836344, 0.7924484, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_abx1x"]
@@ -556,7 +413,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("%Systems/MusicLoop:playing")
+tracks/4/path = NodePath("../../../StaticRoot/MusicLoop:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -712,10 +569,6 @@ process_mode = 3
 [node name="Systems" type="Node" parent="." unique_id=1459789896]
 unique_name_in_owner = true
 
-[node name="MusicLoop" type="AudioStreamPlayer" parent="Systems" unique_id=2081607026]
-stream = ExtResource("1_abx1x")
-parameters/looping = true
-
 [node name="NavSystem" type="Node" parent="Systems" unique_id=703649385 node_paths=PackedStringArray("_bd_mother", "_nav_mother")]
 script = ExtResource("1_45db7")
 _bd_mother = NodePath("../../World/BackdropSTM")
@@ -730,7 +583,7 @@ _toy_spawn = NodePath("../ToySpawn")
 [node name="ToySpawn" type="Node" parent="Systems" unique_id=537492770 node_paths=PackedStringArray("_spawn_point")]
 script = ExtResource("4_gymin")
 _spawn_point = NodePath("../../World/DynamicRoot/ToySpawnPoint")
-_toys = Array[PackedScene]([ExtResource("5_abx1x"), ExtResource("6_mgm8b"), ExtResource("5_m1ne5")])
+_toys = Array[PackedScene]([ExtResource("5_m1ne5"), ExtResource("5_abx1x"), ExtResource("6_mgm8b")])
 
 [node name="World" type="Node2D" parent="." unique_id=95961031]
 process_mode = 1
@@ -848,12 +701,15 @@ unique_name_in_owner = true
 color = Color(0.64029115, 0.73836344, 0.7924484, 1)
 metadata/_edit_lock_ = true
 
+[node name="MusicLoop" type="AudioStreamPlayer" parent="World/StaticRoot" unique_id=2081607026]
+stream = ExtResource("1_abx1x")
+parameters/looping = true
+
 [node name="BackdropSTM" type="CanvasGroup" parent="World" unique_id=1103917686]
 unique_name_in_owner = true
 z_index = -60
 
 [node name="Terminal" type="Sprite2D" parent="World/BackdropSTM" unique_id=599642874]
-visible = false
 texture = ExtResource("3_m1ne5")
 centered = false
 script = ExtResource("4_45db7")
@@ -861,18 +717,26 @@ script = ExtResource("4_45db7")
 [node name="TerminalScreen" type="Sprite2D" parent="World/BackdropSTM/Terminal" unique_id=1220140437]
 self_modulate = Color(0.1148968, 0.11489681, 0.1148968, 1)
 show_behind_parent = true
-position = Vector2(1331, 468)
-scale = Vector2(1.7, 1.6)
+position = Vector2(1331, 506)
+scale = Vector2(1.65, 1.65)
 texture = SubResource("GradientTexture2D_abx1x")
+
+[node name="TerminalControl" parent="World/BackdropSTM/Terminal/TerminalScreen" unique_id=766559263 instance=ExtResource("13_mgm8b")]
+unique_name_in_owner = true
+offset_left = -256.0
+offset_top = -256.0
+offset_right = -256.0
+offset_bottom = -256.0
 
 [node name="ScreenLight" type="PointLight2D" parent="World/BackdropSTM/Terminal" unique_id=848402834]
 z_index = 5
-position = Vector2(1333, 464)
-scale = Vector2(1.1536542, 1.0416037)
-color = Color(0.083333254, 1, 0, 1)
-range_z_max = -10
+position = Vector2(1333, 463.99997)
+scale = Vector2(1.1, 1)
+color = Color(0, 1.5720325, 0, 1)
+energy = 4.0
+range_z_max = 10
 texture = SubResource("GradientTexture2D_m1ne5")
-texture_scale = 14.0
+texture_scale = 16.0
 
 [node name="Chute" type="Sprite2D" parent="World/BackdropSTM" unique_id=914959243]
 visible = false

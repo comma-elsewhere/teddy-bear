@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ToyData" format=3 uid="uid://bnrabfko0181h"]
+
+[ext_resource type="Script" uid="uid://bu8lh7k2adhio" path="res://src/entities/objects/toy_data.gd" id="1_a54sc"]
+[ext_resource type="AudioStream" uid="uid://10ct64kltqfp" path="res://assets/sound/audio/Arthur_Scene1.ogg" id="1_mydyp"]
+
+[resource]
+script = ExtResource("1_a54sc")
+patient_records = Array[String](["ARTHUR BARON, Age 15", "Restore to factory condition.", "Submitted for repair during psychiatric recovery period. \\n Structurally compromised due to external environment exposure.", "Patient admitted for multiple traumatic injuries sustained in a violent altercation with classmates.", "Patient displays signs of persistent hypervigilance, age regression, and strong imaginative coping behaviors. \\n Frequent statements regarding pronounced emotional dependency to his toy have been recorded."])
+audio_files = Array[AudioStreamOggVorbis]([ExtResource("1_mydyp")])
+subtitles = Array[String](["Arthur: Sir Bearington... You have to stay awake. They said I’m safe here but... They said that before. Knights don’t sleep when monsters are around. That’s why you need your sword. (nervous laugh) \\n Nurse: Arthur? (Sigh) You should be resting.\\n Arthur: No, no. Look! He’s guarding the door…\\n Nurse: Who is…? \\n Arthur: Sir Bearington! If they come back... He’ll stop them."])
+metadata/_custom_type_script = "uid://bu8lh7k2adhio"

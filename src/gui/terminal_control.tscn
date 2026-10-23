@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://cc3tyrsoxd7d4"]
+
+[ext_resource type="Script" uid="uid://dxxgmlg2bgtox" path="res://src/gui/terminal_control.gd" id="1_m7j3q"]
+[ext_resource type="FontFile" uid="uid://dmwjc87sfuof8" path="res://assets/gui/fonts/Tektur/Tektur_Condensed-SemiBold.ttf" id="2_jw71n"]
+[ext_resource type="FontFile" uid="uid://cpv5micsj7hw1" path="res://assets/gui/fonts/Tektur/Tektur_Condensed-Black.ttf" id="2_xbk01"]
+[ext_resource type="Script" uid="uid://cl6nqdhmpqmmu" path="res://src/gui/audio_tab_manager.gd" id="4_5cufm"]
+[ext_resource type="FontFile" uid="uid://devc2trif65it" path="res://assets/gui/fonts/Tektur/Tektur_Condensed-Regular.ttf" id="4_6hx2q"]
+[ext_resource type="PackedScene" uid="uid://bkayawb2stijt" path="res://src/gui/audio_recording_tab.tscn" id="4_jw71n"]
+
+[node name="TerminalControl" type="Control" unique_id=766559263]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1408.0
+offset_bottom = -568.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m7j3q")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1546953032]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 0, 1)
+
+[node name="ScreenMargins" type="MarginContainer" parent="." unique_id=2002562712]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 70
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScreenMargins" unique_id=118812794]
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="VBoxMain" type="VBoxContainer" parent="ScreenMargins/ScrollContainer" unique_id=1852531399]
+custom_minimum_size = Vector2(475, 600)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="NameAge" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=2051919266]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(475, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_xbk01")
+theme_override_font_sizes/normal_font_size = 32
+text = "JOHN DOE, Age 9"
+fit_content = true
+scroll_active = false
+
+[node name="RepairPlan" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=1288558074]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(475, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_jw71n")
+theme_override_font_sizes/normal_font_size = 24
+text = "Repair Plan"
+fit_content = true
+scroll_active = false
+
+[node name="Presentation" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=1434603594]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(475, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_6hx2q")
+theme_override_font_sizes/normal_font_size = 20
+text = "Presentation
+Presentation"
+fit_content = true
+scroll_active = false
+
+[node name="PatientBrief" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=533153989]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(475, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_jw71n")
+theme_override_font_sizes/normal_font_size = 24
+text = "Patient Brief"
+fit_content = true
+scroll_active = false
+
+[node name="PhysicianNotes" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=160837605]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(475, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_6hx2q")
+theme_override_font_sizes/normal_font_size = 20
+text = "Physician Notes
+Physician Notes
+Physician Notes"
+fit_content = true
+scroll_active = false
+
+[node name="AudioMarginContainer" type="MarginContainer" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=2117873097]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+
+[node name="AudioTabManager" type="TabContainer" parent="ScreenMargins/ScrollContainer/VBoxMain/AudioMarginContainer" unique_id=13695727]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_jw71n")
+current_tab = 0
+tab_0/title = "SecLog_ToyMic_LiveRec"
+tab_1/title = "FLAGGED_ToyMic_LiveRec"
+script = ExtResource("4_5cufm")
+
+[node name="AudioRecTab1" parent="ScreenMargins/ScrollContainer/VBoxMain/AudioMarginContainer/AudioTabManager" unique_id=93784887 instance=ExtResource("4_jw71n")]
+layout_mode = 2
+metadata/_tab_name = "SecLog_ToyMic_LiveRec"
+
+[node name="AudioRecTab2" parent="ScreenMargins/ScrollContainer/VBoxMain/AudioMarginContainer/AudioTabManager" unique_id=371345999 instance=ExtResource("4_jw71n")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+metadata/_tab_name = "FLAGGED_ToyMic_LiveRec"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ScreenMargins/ScrollContainer/VBoxMain/AudioMarginContainer/AudioTabManager" unique_id=1464054182]

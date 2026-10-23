@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ToyData" format=3 uid="uid://dovfelltfk5dk"]
+
+[ext_resource type="AudioStream" uid="uid://brhlxmdfdv72c" path="res://assets/sound/audio/Peter_Scene1.ogg" id="1_1fjfj"]
+[ext_resource type="Script" uid="uid://bu8lh7k2adhio" path="res://src/entities/objects/toy_data.gd" id="1_uv6p4"]
+
+[resource]
+script = ExtResource("1_uv6p4")
+patient_records = Array[String](["PETER HARRIS, Age 14", "Remove contaminants and restore to factory condition.", "Submitted for repair due to persistent odor reported by guardian. \\n Interior contaminants suspected.", "Patient admitted for wisdom tooth extraction procedure.", "Procedure performed successfully under local anesthesia. \\n No clinical complications reported despite patient's persistent claims of \"evidence\"."])
+audio_files = Array[AudioStreamOggVorbis]([ExtResource("1_1fjfj")])
+subtitles = Array[String](["Peter: It still hurts. \\n Dr. Vasquez: You’re feeling pressure, not pain. \\n Peter: No, it really hurts. \\n Dr. Vasquez: Your mouth needs to stay open. \\n Peter: Please stop. \\n Dr. Vasquez: We’re almost finished. \\n Peter: I can feel it. (sharp cry) Please stop—"])
+metadata/_custom_type_script = "uid://bu8lh7k2adhio"

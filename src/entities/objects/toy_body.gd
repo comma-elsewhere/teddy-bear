@@ -5,6 +5,7 @@ signal body_dropped(drop_body: RapierRigidBody2D)
 
 const LERP_WEIGHT := 500.0
 
+@export var toy_data: ToyData = null
 @export var limb_bodies: Array[RapierRigidBody2D] = []
 @export var show_on_shut: Array[Sprite2D] = []
 @export var hide_on_shut: Array[Sprite2D] = []

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ToyData" format=3 uid="uid://bfd451i4nk073"]
+
+[ext_resource type="AudioStream" uid="uid://1koo4n6u6lt3" path="res://assets/sound/audio/Scarlet_Scene1.ogg" id="1_48qjf"]
+[ext_resource type="Script" uid="uid://bu8lh7k2adhio" path="res://src/entities/objects/toy_data.gd" id="1_bgxjb"]
+[ext_resource type="AudioStream" uid="uid://6uxpvhkiwsb" path="res://assets/sound/audio/Scarlet_Scene2.ogg" id="2_6y4tm"]
+
+[resource]
+script = ExtResource("1_bgxjb")
+patient_records = Array[String](["SCARLET RUMEN, Age 5", "Restore to factory condition.", "Submitted for routine post-mortem sanitation by Head Physician. \\n Minor distress from the parents has been noted.", "Patient expired from acute complications via lymphoblastic leukemia.", "Treatment involved repeated chemotherapy cycles and long-term inpatient care. \\n Medical complications during final treatment stage included infection and severe organ failure. \\n Parents appear to be projecting grief onto the expired patient's toy. Handle with care."])
+audio_files = Array[AudioStreamOggVorbis]([ExtResource("1_48qjf"), ExtResource("2_6y4tm")])
+subtitles = Array[String](["Scarlet: Bunny... It’s okay. I know you're scared, but they said it won’t hurt as much this time. You can use my blankie, here. See? Now you’re brave like a superhero. \\n Nurse: It’s time to start your big kid medicine, are you ready? \\n Scarlet: Can Bunny stay? \\n Nurse: (sigh) Yes, of course. \\n Scarlet: If I fall asleep again... Make sure he doesn’t get scared.", "Scarlet: Mommy, I'm... cold.\\nMom: You're cold? \\n Mom: Oh baby, you're burning up. Can I get you a blanket? Some more tea? \\n Scarlet: I dunno, I feel all funny inside... and tired... \\n Mom: Well, you close your eyes for a bit and rest, okay? I'll go get you something warm to drink. \\n (Various sounds as Scarlet expires) \\n Mom: All the nurses have is Razzle Tazz, so I put some honey-- Scarlet...? \\n (Distress and grief)"])
+metadata/_custom_type_script = "uid://bu8lh7k2adhio"

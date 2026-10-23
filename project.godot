@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Soft Tissue"
+config/name="Teddy Bear Autopsy"
 run/main_scene="uid://cptl20xstrxuq"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0.21176471, 0.023529412, 0.023529412, 1)
@@ -39,6 +39,7 @@ enabled=PackedStringArray("res://addons/ropesim/plugin.cfg", "res://addons/saves
 
 [gui]
 
+fonts/dynamic_fonts/use_oversampling=false
 theme/custom_font="uid://dhdhoak6tdbve"
 
 [importer_defaults]

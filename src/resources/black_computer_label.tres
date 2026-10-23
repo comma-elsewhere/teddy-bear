@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://fc0vuuqbp21i"]
+
+[ext_resource type="FontFile" uid="uid://cpv5micsj7hw1" path="res://assets/gui/fonts/Tektur/Tektur_Condensed-Black.ttf" id="1_6wwj5"]
+
+[resource]
+font = ExtResource("1_6wwj5")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+shadow_size = 0
