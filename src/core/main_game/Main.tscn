@@ -704,7 +704,7 @@ metadata/_edit_lock_ = true
 
 [node name="MusicLoop" type="AudioStreamPlayer" parent="World/StaticRoot" unique_id=2081607026]
 stream = ExtResource("1_abx1x")
-volume_db = -3.0
+volume_db = -4.0
 parameters/looping = true
 
 [node name="BackdropSTM" type="CanvasGroup" parent="World" unique_id=1103917686]

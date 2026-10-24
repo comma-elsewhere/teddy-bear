@@ -169,7 +169,7 @@ scroll_active = false
 horizontal_alignment = 1
 
 [node name="AudioMarginContainer" type="MarginContainer" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=2117873097]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 50

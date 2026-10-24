@@ -14,6 +14,7 @@ extends Control
 var toy_data: ToyData = null
 
 func _ready() -> void:
+	hide()
 	audio_tab_manager.audio_listened.connect(_listening_progress)
 	
 func set_new_data(new_data: ToyData) -> void:
@@ -48,3 +49,4 @@ func _check_progression(current_round: int) -> void:
 		physician_notes.add_theme_stylebox_override("normal", visible_stylebox)
 		audio_tab_manager.audio_rec_tab_0.play_button.disabled = false
 		audio_tab_manager.set_tab_disabled(1, false)
+	show()
