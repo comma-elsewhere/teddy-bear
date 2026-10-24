@@ -1,6 +1,9 @@
 class_name TerminalControl
 extends Control
 
+@export var redacted_stylebox: StyleBoxFlat
+@export var visible_stylebox: StyleBoxFlat
+
 @onready var name_age: RichTextLabel = %NameAge
 @onready var repair_plan: RichTextLabel = %RepairPlan
 @onready var presentation: RichTextLabel = %Presentation
@@ -36,10 +39,12 @@ func _listening_progress(stream: AudioStreamOggVorbis) -> void:
 
 func _check_progression(current_round: int) -> void:
 	if current_round < 2:
-		patient_brief.hide()
-		physician_notes.hide()
-		%AudioMarginContainer.hide()
+		patient_brief.add_theme_stylebox_override("normal", redacted_stylebox)
+		physician_notes.add_theme_stylebox_override("normal", redacted_stylebox)
+		audio_tab_manager.audio_rec_tab_0.play_button.disabled = true
+		audio_tab_manager.set_tab_disabled(1, true)
 	else:
-		patient_brief.show()
-		physician_notes.show()
-		%AudioMarginContainer.show()
+		patient_brief.add_theme_stylebox_override("normal", visible_stylebox)
+		physician_notes.add_theme_stylebox_override("normal", visible_stylebox)
+		audio_tab_manager.audio_rec_tab_0.play_button.disabled = false
+		audio_tab_manager.set_tab_disabled(1, false)

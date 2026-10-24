@@ -12,7 +12,7 @@ var audio_dict: Dictionary # KEYS: "stream_ogg", "subtitles_text"
 var typing: bool = false
 var typewriter_generation: int = 0
 var current_text: String = ""
-var typewriter_speed: float = 0.025
+var typewriter_speed: float = 0.1 # Smaller number means faster typing
 
 func _ready() -> void:
 	play_button.button_up.connect(_handle_interact)

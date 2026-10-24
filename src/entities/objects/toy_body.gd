@@ -28,6 +28,11 @@ func _physics_process(_delta: float) -> void:
 	_normalize_velocity(0.7)
 	lerp_body.apply_central_force((get_global_mouse_position() - lerp_body.global_position) * LERP_WEIGHT)
 	
+func disable_limbs() -> void:
+	for body in limb_bodies:
+		body.freeze = true
+		body.set_collision_mask_value(1, false)
+	
 func _click_event(viewport: Node, event: InputEvent, _shape_idx: int, body: RapierRigidBody2D) -> void:
 	if event.is_action_pressed("click"):
 		viewport.set_input_as_handled()

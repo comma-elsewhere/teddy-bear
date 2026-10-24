@@ -130,6 +130,7 @@ func _enter_tree() -> void:
 func _clear_toy_body(body: Node2D) -> void:
 	if body.is_in_group(\"ToyBody\"):
 		get_tree().call_group(\"ToyMonitor\", \"clear_current_toy\")
+		set_deferred(\"monitoring\", false) # TEMP
 
 func _toggle_monitoring() -> void:
 	monitoring = visible
@@ -885,7 +886,7 @@ texture_scale = 3.0
 unique_name_in_owner = true
 
 [node name="ToySpawnPoint" type="Marker2D" parent="World/DynamicRoot" unique_id=1763950643]
-position = Vector2(1498, -1297)
+position = Vector2(967, -950)
 
 [node name="LightsAnimationPlayer" type="AnimationPlayer" parent="World/DynamicRoot" unique_id=334145293]
 root_node = NodePath("../../BackdropSTM/MainRoom/MainLightingEffects")
