@@ -56,6 +56,18 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
+[node name="StaticTitle0" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=1247941481]
+custom_minimum_size = Vector2(475, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_xbk01")
+theme_override_font_sizes/normal_font_size = 36
+text = "Confidential Patient Record"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
 [node name="NameAge" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=2051919266]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(475, 0)
@@ -63,10 +75,21 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_xbk01")
-theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/normal_font_size = 28
 text = "JOHN DOE, Age 9"
 fit_content = true
 scroll_active = false
+
+[node name="StaticTitle1" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=782757811]
+custom_minimum_size = Vector2(475, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_jw71n")
+theme_override_font_sizes/normal_font_size = 24
+text = "Repair Information"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
 
 [node name="RepairPlan" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=1288558074]
 unique_name_in_owner = true
@@ -74,7 +97,7 @@ custom_minimum_size = Vector2(475, 0)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_jw71n")
-theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/normal_font_size = 20
 text = "Repair Plan"
 fit_content = true
 scroll_active = false
@@ -91,13 +114,28 @@ Presentation"
 fit_content = true
 scroll_active = false
 
+[node name="StaticTitle2" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=1478593296]
+custom_minimum_size = Vector2(475, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_jw71n")
+theme_override_font_sizes/normal_font_size = 24
+text = "Patient Information"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
 [node name="PatientBrief" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=533153989]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(475, 0)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_jw71n")
-theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/normal_font_size = 20
 text = "Patient Brief"
 fit_content = true
 scroll_active = false
@@ -106,6 +144,8 @@ scroll_active = false
 unique_name_in_owner = true
 custom_minimum_size = Vector2(475, 0)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_6hx2q")
 theme_override_font_sizes/normal_font_size = 20
@@ -115,7 +155,21 @@ Physician Notes"
 fit_content = true
 scroll_active = false
 
+[node name="StaticTitle3" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=1472728688]
+custom_minimum_size = Vector2(475, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_jw71n")
+theme_override_font_sizes/normal_font_size = 24
+text = "Surveillance Audio"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
 [node name="AudioMarginContainer" type="MarginContainer" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=2117873097]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 50
@@ -143,5 +197,5 @@ metadata/_tab_index = 1
 metadata/_tab_name = "FLAGGED_ToyMic_LiveRec"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ScreenMargins/ScrollContainer/VBoxMain/AudioMarginContainer/AudioTabManager" unique_id=1464054182]
-volume_db = 10.0
+volume_db = 12.0
 mix_target = 2
