@@ -39,6 +39,8 @@ enabled=PackedStringArray("res://addons/ropesim/plugin.cfg", "res://addons/saves
 [global_group]
 
 TorsoBody=""
+ToyMonitor=""
+RepairArea=""
 
 [gui]
 

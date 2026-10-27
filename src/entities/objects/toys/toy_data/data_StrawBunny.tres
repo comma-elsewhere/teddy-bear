@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ToyData" format=3 uid="uid://bfd451i4nk073"]
 
 [ext_resource type="AudioStream" uid="uid://1koo4n6u6lt3" path="res://assets/sound/audio/Scarlet_Scene1.ogg" id="1_48qjf"]
-[ext_resource type="Script" uid="uid://bu8lh7k2adhio" path="res://src/entities/objects/toy_data.gd" id="1_bgxjb"]
+[ext_resource type="Script" uid="uid://bu8lh7k2adhio" path="res://src/entities/objects/toys/toy_data.gd" id="1_bgxjb"]
 [ext_resource type="AudioStream" uid="uid://6uxpvhkiwsb" path="res://assets/sound/audio/Scarlet_Scene2.ogg" id="2_6y4tm"]
 
 [resource]

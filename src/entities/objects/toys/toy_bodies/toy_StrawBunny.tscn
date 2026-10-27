@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dbmkge2b4t7s5"]
 
-[ext_resource type="Script" uid="uid://dkvypfttvwe30" path="res://src/entities/objects/toy_body.gd" id="1_t3p8k"]
+[ext_resource type="Script" uid="uid://dkvypfttvwe30" path="res://src/entities/objects/toys/toy_body.gd" id="1_t3p8k"]
 [ext_resource type="PhysicsMaterial" uid="uid://hihekgen16jy" path="res://src/resources/toy.phymat" id="2_3l8gy"]
-[ext_resource type="Resource" uid="uid://bfd451i4nk073" path="res://src/entities/objects/toy_data/data_StrawBunny.tres" id="2_kmskf"]
+[ext_resource type="Resource" uid="uid://bfd451i4nk073" path="res://src/entities/objects/toys/toy_data/data_StrawBunny.tres" id="2_kmskf"]
 [ext_resource type="Script" uid="uid://unwhnooi7g2c" path="res://addons/godot-rapier2d/custom_nodes/rapier_rigid_body_2d.gd" id="3_kmskf"]
 [ext_resource type="Texture2D" uid="uid://18jjkr4h4l86" path="res://assets/art/toys/toy_StrawBunny.png" id="4_t3p8k"]
 [ext_resource type="Script" uid="uid://bv2bc4lt5v7hu" path="res://addons/godot-rapier2d/custom_nodes/rapier_pin_joint_2d.gd" id="5_76hap"]

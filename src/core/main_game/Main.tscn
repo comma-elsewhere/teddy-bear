@@ -6,12 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://bn6gak15xjls2" path="res://assets/art/background/terminal.png" id="3_m1ne5"]
 [ext_resource type="Script" uid="uid://i2i7c06by15l" path="res://src/entities/static_pieces/backdrops/backdrop_terminal.gd" id="4_45db7"]
 [ext_resource type="Script" uid="uid://c8kqvvs5fvrlt" path="res://src/utility/systems/toy_spawn.gd" id="4_gymin"]
-[ext_resource type="PackedScene" uid="uid://baffka6lvvkbq" path="res://src/entities/objects/toy_bodies/toy_NeonGator.tscn" id="5_abx1x"]
+[ext_resource type="PackedScene" uid="uid://baffka6lvvkbq" path="res://src/entities/objects/toys/toy_bodies/toy_NeonGator.tscn" id="5_abx1x"]
 [ext_resource type="Texture2D" uid="uid://bkgbdcn4l3d8g" path="res://assets/art/background/chute.png" id="5_f1wnm"]
-[ext_resource type="PackedScene" uid="uid://cry4455wyugys" path="res://src/entities/objects/toy_bodies/toy_TeddyBear.tscn" id="5_m1ne5"]
+[ext_resource type="PackedScene" uid="uid://cry4455wyugys" path="res://src/entities/objects/toys/toy_bodies/toy_TeddyBear.tscn" id="5_m1ne5"]
 [ext_resource type="Script" uid="uid://cla6psyt5k7lb" path="res://src/entities/static_pieces/backdrops/backdrop_chute.gd" id="6_gymin"]
-[ext_resource type="PackedScene" uid="uid://dbmkge2b4t7s5" path="res://src/entities/objects/toy_bodies/toy_StrawBunny.tscn" id="6_mgm8b"]
+[ext_resource type="PackedScene" uid="uid://dbmkge2b4t7s5" path="res://src/entities/objects/toys/toy_bodies/toy_StrawBunny.tscn" id="6_mgm8b"]
 [ext_resource type="Texture2D" uid="uid://8twda3vherd4" path="res://assets/art/objects/chute_door.png" id="7_mgm8b"]
+[ext_resource type="Script" uid="uid://b81rtfgcr1csu" path="res://src/utility/systems/repair_machine.gd" id="7_wk3qy"]
 [ext_resource type="Texture2D" uid="uid://bicefh4n4f072" path="res://assets/art/background/bench_under.png" id="8_dqsg4"]
 [ext_resource type="Script" uid="uid://dra2aecne347o" path="res://src/entities/static_pieces/backdrops/backdrop_bench_bottom.gd" id="9_m1ne5"]
 [ext_resource type="Texture2D" uid="uid://r7vqvl3376ei" path="res://assets/art/objects/washbroad.png" id="10_ibeg0"]
@@ -27,7 +28,11 @@
 [ext_resource type="Texture2D" uid="uid://wf3nswpqjghj" path="res://assets/art/objects/medical/hook.png" id="19_pbilr"]
 [ext_resource type="Script" uid="uid://busd3yfk5p1mx" path="res://addons/godot-rapier2d/custom_nodes/rapier_static_body_2d.gd" id="20_uuaq1"]
 [ext_resource type="Script" uid="uid://27mtc8e83qa4" path="res://src/entities/static_pieces/animation/lights_animation.gd" id="24_5f1oo"]
-[ext_resource type="Script" uid="uid://b6tw62q3tbvpk" path="res://src/entities/static_pieces/sticky_bench_area.gd" id="25_dqsg4"]
+[ext_resource type="Script" uid="uid://b6tw62q3tbvpk" path="res://src/entities/objects/sticky_bench_area.gd" id="25_dqsg4"]
+[ext_resource type="Script" uid="uid://xd0ei8cbqruh" path="res://src/entities/objects/repair/repair_tool.gd" id="27_pveoo"]
+[ext_resource type="Texture2D" uid="uid://bpkyge38ymrf" path="res://assets/art/objects/medical/clamps.png" id="28_r1w42"]
+[ext_resource type="Texture2D" uid="uid://c6xj50234mi30" path="res://assets/art/objects/medical/needleandthread.png" id="29_s2wie"]
+[ext_resource type="Texture2D" uid="uid://dtrro0w8k7i0i" path="res://assets/art/objects/medical/scalpel.png" id="30_7oq72"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c01mt"]
 size = Vector2(797, 394.5)
@@ -590,6 +595,9 @@ script = ExtResource("4_gymin")
 _spawn_point = NodePath("../../World/DynamicRoot/ToySpawnPoint")
 _toys = Array[PackedScene]([ExtResource("5_m1ne5"), ExtResource("5_abx1x"), ExtResource("6_mgm8b")])
 
+[node name="RepairMachine" type="Node" parent="Systems" unique_id=1516907804]
+script = ExtResource("7_wk3qy")
+
 [node name="World" type="Node2D" parent="." unique_id=95961031]
 process_mode = 1
 
@@ -807,6 +815,7 @@ unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_pveoo")
 
 [node name="BenchBottom" type="Sprite2D" parent="World/BackdropSTM" unique_id=1291464906]
+visible = false
 texture = ExtResource("8_dqsg4")
 centered = false
 script = ExtResource("9_m1ne5")
@@ -829,7 +838,6 @@ texture = ExtResource("13_pveoo")
 centered = false
 
 [node name="BenchTop" type="Sprite2D" parent="World/BackdropSTM" unique_id=984937443]
-visible = false
 texture = ExtResource("14_r1w42")
 centered = false
 script = ExtResource("15_5f1oo")
@@ -843,6 +851,26 @@ script = ExtResource("25_dqsg4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/BackdropSTM/BenchTop/StickyArea" unique_id=653003519]
 shape = SubResource("CircleShape2D_f745s")
+
+[node name="RepairToolForceps" type="Area2D" parent="World/BackdropSTM/BenchTop" unique_id=580307958]
+position = Vector2(851, 939)
+script = ExtResource("27_pveoo")
+texture = ExtResource("28_r1w42")
+type = 1
+metadata/_custom_type_script = "uid://xd0ei8cbqruh"
+
+[node name="RepairToolSutures" type="Area2D" parent="World/BackdropSTM/BenchTop" unique_id=361701018]
+position = Vector2(1239, 977)
+script = ExtResource("27_pveoo")
+texture = ExtResource("29_s2wie")
+metadata/_custom_type_script = "uid://xd0ei8cbqruh"
+
+[node name="RepairToolScalpel" type="Area2D" parent="World/BackdropSTM/BenchTop" unique_id=640591844]
+position = Vector2(1612, 954)
+script = ExtResource("27_pveoo")
+texture = ExtResource("30_7oq72")
+type = 3
+metadata/_custom_type_script = "uid://xd0ei8cbqruh"
 
 [node name="MainRoom" type="Sprite2D" parent="World/BackdropSTM" unique_id=1421727134]
 visible = false

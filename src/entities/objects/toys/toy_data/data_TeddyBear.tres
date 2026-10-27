@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ToyData" format=3 uid="uid://bnrabfko0181h"]
 
-[ext_resource type="Script" uid="uid://bu8lh7k2adhio" path="res://src/entities/objects/toy_data.gd" id="1_a54sc"]
+[ext_resource type="Script" uid="uid://bu8lh7k2adhio" path="res://src/entities/objects/toys/toy_data.gd" id="1_a54sc"]
 [ext_resource type="AudioStream" uid="uid://10ct64kltqfp" path="res://assets/sound/audio/Arthur_Scene1.ogg" id="1_mydyp"]
 
 [resource]

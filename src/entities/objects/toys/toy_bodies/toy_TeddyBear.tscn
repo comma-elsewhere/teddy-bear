@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://cry4455wyugys"]
 
 [ext_resource type="Script" uid="uid://unwhnooi7g2c" path="res://addons/godot-rapier2d/custom_nodes/rapier_rigid_body_2d.gd" id="1_0w7uy"]
-[ext_resource type="Script" uid="uid://dkvypfttvwe30" path="res://src/entities/objects/toy_body.gd" id="1_bekpm"]
+[ext_resource type="Script" uid="uid://dkvypfttvwe30" path="res://src/entities/objects/toys/toy_body.gd" id="1_bekpm"]
 [ext_resource type="Script" uid="uid://bv2bc4lt5v7hu" path="res://addons/godot-rapier2d/custom_nodes/rapier_pin_joint_2d.gd" id="1_f3y4l"]
-[ext_resource type="Resource" uid="uid://bnrabfko0181h" path="res://src/entities/objects/toy_data/data_TeddyBear.tres" id="2_b744b"]
+[ext_resource type="Resource" uid="uid://bnrabfko0181h" path="res://src/entities/objects/toys/toy_data/data_TeddyBear.tres" id="2_b744b"]
 [ext_resource type="PhysicsMaterial" uid="uid://hihekgen16jy" path="res://src/resources/toy.phymat" id="2_rbp05"]
 [ext_resource type="Texture2D" uid="uid://bhpwyu1p8x21u" path="res://assets/art/toys/toy_TeddyBear.png" id="4_wcfvk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f745s"]
+radius = 114.0
+height = 336.0
 
 [node name="ToyTeddy" type="Node2D" unique_id=407969448 node_paths=PackedStringArray("limb_bodies", "show_on_shut", "hide_on_shut")]
 script = ExtResource("1_bekpm")
@@ -100,6 +104,14 @@ region_filter_clip_enabled = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Torso" unique_id=533348266]
 position = Vector2(13, 0)
 polygon = PackedVector2Array(-19.871765, -220.92303, -52.871765, -205.92303, -53.871765, -205.92303, -117.871765, -98.923035, -118.871765, -98.923035, -144.87177, 81.076965, -145.87177, 81.076965, -127.871765, 173.07697, -127.871765, 179.07697, -79.871765, 216.07697, -79.871765, 217.07697, 5.128235, 221.07697, 15.128235, 221.07697, 121.128235, 177.07697, 123.128235, 177.07697, 148.12823, 139.07697, 149.12823, 139.07697, 135.12823, 100.076965, 135.12823, 98.076965, 103.128235, 82.076965, 102.128235, 82.076965, 92.128235, -70.923035, 92.128235, -71.923035, 71.128235, -122.923035, 71.128235, -125.923035, 36.128235, -162.92303, 35.128235, -162.92303, 23.128235, -206.92303, 23.128235, -208.92303, -19.871765, -221.92303)
+
+[node name="RepairArea" type="Area2D" parent="Torso" unique_id=1218946157]
+collision_layer = 129
+collision_mask = 129
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Torso/RepairArea" unique_id=936241375]
+shape = SubResource("CapsuleShape2D_f745s")
 
 [node name="Head" type="RigidBody2D" parent="." unique_id=1117733555]
 collision_layer = 8

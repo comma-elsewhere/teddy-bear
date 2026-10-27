@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ToyData" format=3 uid="uid://dovfelltfk5dk"]
 
 [ext_resource type="AudioStream" uid="uid://brhlxmdfdv72c" path="res://assets/sound/audio/Peter_Scene1.ogg" id="1_1fjfj"]
-[ext_resource type="Script" uid="uid://bu8lh7k2adhio" path="res://src/entities/objects/toy_data.gd" id="1_uv6p4"]
+[ext_resource type="Script" uid="uid://bu8lh7k2adhio" path="res://src/entities/objects/toys/toy_data.gd" id="1_uv6p4"]
 
 [resource]
 script = ExtResource("1_uv6p4")

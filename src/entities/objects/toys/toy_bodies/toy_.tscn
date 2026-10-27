@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cu4ltb114vggb"]
 
-[ext_resource type="Script" uid="uid://dkvypfttvwe30" path="res://src/entities/objects/toy_body.gd" id="1_670yc"]
+[ext_resource type="Script" uid="uid://dkvypfttvwe30" path="res://src/entities/objects/toys/toy_body.gd" id="1_670yc"]
 [ext_resource type="PhysicsMaterial" uid="uid://hihekgen16jy" path="res://src/resources/toy.phymat" id="2_esw1l"]
 [ext_resource type="Script" uid="uid://unwhnooi7g2c" path="res://addons/godot-rapier2d/custom_nodes/rapier_rigid_body_2d.gd" id="3_sms86"]
 [ext_resource type="Texture2D" uid="uid://bhpwyu1p8x21u" path="res://assets/art/toys/toy_TeddyBear.png" id="4_5g4iu"]
