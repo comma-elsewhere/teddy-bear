@@ -31,10 +31,8 @@ func clear_current_toy() -> void:
 	spawn_timer.start( randf_range(MIN_TIME, MAX_TIME) )
 	current_toy.get_parent().remove_child(current_toy)
 	current_toy.call_deferred("queue_free")
-	print("clear toy")
 
 func _spawn_toy() -> void:
-	print("new toy")
 	current_toy = _toys[toy_prog].instantiate() as Toy
 	
 	_spawn_point.global_rotation_degrees = randi_range(0, 355)

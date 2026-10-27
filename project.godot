@@ -36,6 +36,10 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/ropesim/plugin.cfg", "res://addons/savestate/plugin.cfg")
 
+[global_group]
+
+TorsoBody=""
+
 [gui]
 
 fonts/dynamic_fonts/use_oversampling=false
@@ -127,13 +131,19 @@ click={
 2d_render/layer_3="ToolItem"
 2d_render/layer_4="PopUps"
 2d_render/layer_5="GUI"
-2d_physics/layer_1="ground"
+2d_physics/layer_1="common"
 2d_physics/layer_2="left_arm"
 2d_physics/layer_3="right_arm"
 2d_physics/layer_4="head"
 2d_physics/layer_5="torso"
 2d_physics/layer_6="left_leg"
 2d_physics/layer_7="right_leg"
+2d_physics/layer_8="mouse"
+2d_physics/layer_9="main_room"
+2d_physics/layer_10="terminal"
+2d_physics/layer_11="chute"
+2d_physics/layer_12="upper_bench"
+2d_physics/layer_13="lower_bench"
 
 [physics]
 

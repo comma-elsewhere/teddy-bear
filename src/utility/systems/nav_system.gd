@@ -70,7 +70,8 @@ func _get_bd_index() -> int:
 		return -1
 	else:
 		return current_bd.get_index()
-
+	
+	
 func _change_state(new_index: int) -> void:
 	if current_bd != null:
 		%TransRoot/AnimationPlayer.play("fade_trans")

@@ -2,7 +2,9 @@ class_name HookSystem
 extends Node
 
 # TERMINAL, CHUTE, BENCH_BOT, BENCH_TOP, MAIN_ROOM
-const _X_ARRAY: Array[float] = [720, 250, 800, 220, 320]
+enum _MASK {TERMINAL = 10, CHUTE = 11, BENCH_BOT = 13, BENCH_TOP = 12, MAIN_ROOM = 9}
+
+const _X_ARRAY: Array[float] = [670, 250, 800, 220, 320]
 const _HANG_DIST := 150
 const _LERP_WEIGHT := 400.0
 const _ANGULAR_NORM := 0.2
@@ -64,6 +66,12 @@ func _toggle_toy_visible(current_state: int) -> void:
 	
 	if current_state == _toy_visible_state:
 		_current_toy.show()
+		match current_state:
+			_nav_system.BD.TERMINAL: _current_toy.set_collision_mask(_MASK.TERMINAL)
+			_nav_system.BD.CHUTE: _current_toy.set_collision_mask(_MASK.CHUTE)
+			_nav_system.BD.BENCH_BOT: _current_toy.set_collision_mask(_MASK.BENCH_BOT)
+			_nav_system.BD.BENCH_TOP: _current_toy.set_collision_mask(_MASK.BENCH_TOP)
+			_nav_system.BD.MAIN_ROOM: _current_toy.set_collision_mask(_MASK.MAIN_ROOM)
 	else:
 		_current_toy.hide()
 	

@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://wf3nswpqjghj" path="res://assets/art/objects/medical/hook.png" id="19_pbilr"]
 [ext_resource type="Script" uid="uid://busd3yfk5p1mx" path="res://addons/godot-rapier2d/custom_nodes/rapier_static_body_2d.gd" id="20_uuaq1"]
 [ext_resource type="Script" uid="uid://27mtc8e83qa4" path="res://src/entities/static_pieces/animation/lights_animation.gd" id="24_5f1oo"]
+[ext_resource type="Script" uid="uid://b6tw62q3tbvpk" path="res://src/entities/static_pieces/sticky_bench_area.gd" id="25_dqsg4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c01mt"]
 size = Vector2(797, 394.5)
@@ -130,7 +131,7 @@ func _enter_tree() -> void:
 func _clear_toy_body(body: Node2D) -> void:
 	if body.is_in_group(\"ToyBody\"):
 		get_tree().call_group(\"ToyMonitor\", \"clear_current_toy\")
-		set_deferred(\"monitoring\", false) # TEMP
+		#set_deferred(\"monitoring\", false) # TEMP
 
 func _toggle_monitoring() -> void:
 	monitoring = visible
@@ -247,6 +248,9 @@ _data = {
 &"RESET": SubResource("Animation_4xr8h"),
 &"door_slide": SubResource("Animation_3fskr")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f745s"]
+radius = 74.02702
 
 [sub_resource type="Gradient" id="Gradient_m1ne5"]
 interpolation_mode = 2
@@ -704,7 +708,7 @@ metadata/_edit_lock_ = true
 
 [node name="MusicLoop" type="AudioStreamPlayer" parent="World/StaticRoot" unique_id=2081607026]
 stream = ExtResource("1_abx1x")
-volume_db = -4.0
+volume_db = -80.0
 parameters/looping = true
 
 [node name="BackdropSTM" type="CanvasGroup" parent="World" unique_id=1103917686]
@@ -712,6 +716,7 @@ unique_name_in_owner = true
 z_index = -60
 
 [node name="Terminal" type="Sprite2D" parent="World/BackdropSTM" unique_id=599642874]
+visible = false
 texture = ExtResource("3_m1ne5")
 centered = false
 script = ExtResource("4_45db7")
@@ -788,7 +793,7 @@ shape = SubResource("CircleShape2D_xot5u")
 [node name="ChuteInteractArea" type="Area2D" parent="World/BackdropSTM/Chute" unique_id=853819401]
 visible = false
 position = Vector2(949, 534)
-collision_mask = 16
+collision_layer = 1024
 monitoring = false
 monitorable = false
 script = SubResource("GDScript_t6eft")
@@ -802,7 +807,6 @@ unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_pveoo")
 
 [node name="BenchBottom" type="Sprite2D" parent="World/BackdropSTM" unique_id=1291464906]
-visible = false
 texture = ExtResource("8_dqsg4")
 centered = false
 script = ExtResource("9_m1ne5")
@@ -829,6 +833,16 @@ visible = false
 texture = ExtResource("14_r1w42")
 centered = false
 script = ExtResource("15_5f1oo")
+
+[node name="StickyArea" type="Area2D" parent="World/BackdropSTM/BenchTop" unique_id=460934747]
+position = Vector2(1255, 347)
+collision_layer = 2048
+input_pickable = false
+monitorable = false
+script = ExtResource("25_dqsg4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/BackdropSTM/BenchTop/StickyArea" unique_id=653003519]
+shape = SubResource("CircleShape2D_f745s")
 
 [node name="MainRoom" type="Sprite2D" parent="World/BackdropSTM" unique_id=1421727134]
 visible = false
