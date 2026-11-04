@@ -1,0 +1,248 @@
+[gd_scene format=3 uid="uid://br8j1fk6jsj56"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xot5u"]
+bg_color = Color(0.7097258, 0.40174457, 0.43642646, 1)
+
+[node name="GameSettings" type="Control" unique_id=762460215]
+custom_minimum_size = Vector2(800, 500)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=358469933]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 40
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer" unique_id=1415146695]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xot5u")
+current_tab = 1
+
+[node name="AudioGraphic" type="MarginContainer" parent="MarginContainer/TabContainer" unique_id=1214860206]
+visible = false
+custom_minimum_size = Vector2(720, 0)
+custom_maximum_size = Vector2(720, -1)
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/TabContainer/AudioGraphic" unique_id=732126588]
+custom_minimum_size = Vector2(600, 0)
+custom_maximum_size = Vector2(660, -1)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxMaster" type="VBoxContainer" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer" unique_id=471999467]
+custom_minimum_size = Vector2(500, 0)
+propagate_maximum_size = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="WindowGraphics" type="VBoxContainer" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster" unique_id=666061198]
+propagate_maximum_size = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics" unique_id=1096629508]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Window & Graphics"
+
+[node name="Resolution" type="HBoxContainer" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics" unique_id=912769841]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics/Resolution" unique_id=1449032269]
+layout_mode = 2
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics/Resolution" unique_id=1323177228]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+allow_reselect = true
+
+[node name="Fullscreen" type="HBoxContainer" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics" unique_id=1197138352]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics/Fullscreen" unique_id=1573054884]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics/Fullscreen" unique_id=409653457]
+layout_mode = 2
+
+[node name="Brightness" type="HBoxContainer" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics" unique_id=296880926]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics/Brightness" unique_id=952184367]
+layout_mode = 2
+text = "Brightness"
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics/Brightness" unique_id=1256948308]
+custom_maximum_size = Vector2(300, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AudioControls" type="VBoxContainer" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster" unique_id=1938771344]
+propagate_maximum_size = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls" unique_id=81527241]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Audio"
+
+[node name="Mute" type="HBoxContainer" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls" unique_id=204133505]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls/Mute" unique_id=1148167450]
+layout_mode = 2
+text = "Mute Everything"
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls/Mute" unique_id=1764999062]
+layout_mode = 2
+
+[node name="GameVolume" type="HBoxContainer" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls" unique_id=454608421]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls/GameVolume" unique_id=516144022]
+layout_mode = 2
+text = "Game Volume"
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls/GameVolume" unique_id=667580017]
+custom_maximum_size = Vector2(300, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MusicVolume" type="HBoxContainer" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls" unique_id=197864465]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls/MusicVolume" unique_id=1559529679]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls/MusicVolume" unique_id=982310585]
+custom_maximum_size = Vector2(300, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Accessibility" type="MarginContainer" parent="MarginContainer/TabContainer" unique_id=1946925407]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/TabContainer/Accessibility" unique_id=1255470278]
+custom_minimum_size = Vector2(600, 0)
+custom_maximum_size = Vector2(660, -1)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer" unique_id=1751167828]
+propagate_maximum_size = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="DyslexicFont" type="HBoxContainer" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer" unique_id=1625420382]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/DyslexicFont" unique_id=173054142]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Dyslexia Font"
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/DyslexicFont" unique_id=429420578]
+layout_mode = 2
+
+[node name="Subtitles" type="HBoxContainer" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer" unique_id=263278332]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/Subtitles" unique_id=295885464]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Subtitles"
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/Subtitles" unique_id=8208446]
+layout_mode = 2
+
+[node name="CameraShake" type="HBoxContainer" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer" unique_id=210014909]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/CameraShake" unique_id=1988173489]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Camera Shake"
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/CameraShake" unique_id=824874613]
+layout_mode = 2
+
+[node name="FlickeringLights" type="HBoxContainer" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer" unique_id=1642899224]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/FlickeringLights" unique_id=821959725]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Flickering Lights"
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/FlickeringLights" unique_id=1527493063]
+layout_mode = 2
+
+[node name="ClickDrag" type="HBoxContainer" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer" unique_id=1892105661]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/ClickDrag" unique_id=1415845385]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Click to Drag and Drop"
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/ClickDrag" unique_id=613932586]
+layout_mode = 2
+
+[node name="StaticTitleDemo" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer" unique_id=527423217]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 20
+text = "Content Warnings for this Demo"
+
+[node name="ContentWarnings" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer" unique_id=1022629396]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 18
+text = "Medical situations
+Delusions and paranoia (implied)
+Dental procedures (vivid audio, no graphics)
+Cancer and death of a loved one (intense audio, no graphics)
+Malpractice and medical neglect (implied)"
+
+[node name="ApplyChangesButton" type="Button" parent="MarginContainer" unique_id=990350259]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Apply Changes"
+
+[node name="CloseMenuButton" type="Button" parent="." unique_id=681599763]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = " X "

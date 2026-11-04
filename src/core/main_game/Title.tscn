@@ -118,7 +118,8 @@ layout_mode = 2
 flat = true
 script = SubResource("GDScript_ycvdl")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=83364754]
+[node name="TitleMusic" type="AudioStreamPlayer" parent="." unique_id=83364754]
 stream = ExtResource("3_jypdy")
 autoplay = true
+bus = &"Music"
 parameters/looping = true

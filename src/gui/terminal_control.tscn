@@ -197,5 +197,5 @@ metadata/_tab_index = 1
 metadata/_tab_name = "FLAGGED_ToyMic_LiveRec"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ScreenMargins/ScrollContainer/VBoxMain/AudioMarginContainer/AudioTabManager" unique_id=1464054182]
-volume_db = 12.0
 mix_target = 2
+bus = &"AudioRecordings"
