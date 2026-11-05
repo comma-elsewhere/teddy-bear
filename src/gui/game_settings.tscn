@@ -4,9 +4,12 @@
 bg_color = Color(0.7097258, 0.40174457, 0.43642646, 1)
 
 [node name="GameSettings" type="Control" unique_id=762460215]
-custom_minimum_size = Vector2(800, 500)
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=358469933]
 layout_mode = 1
@@ -22,10 +25,9 @@ theme_override_constants/margin_right = 40
 [node name="TabContainer" type="TabContainer" parent="MarginContainer" unique_id=1415146695]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xot5u")
-current_tab = 1
+current_tab = 0
 
 [node name="AudioGraphic" type="MarginContainer" parent="MarginContainer/TabContainer" unique_id=1214860206]
-visible = false
 custom_minimum_size = Vector2(720, 0)
 custom_maximum_size = Vector2(720, -1)
 layout_mode = 2
@@ -139,6 +141,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Accessibility" type="MarginContainer" parent="MarginContainer/TabContainer" unique_id=1946925407]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 40

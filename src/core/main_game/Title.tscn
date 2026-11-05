@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://duflvxyhcqkxm" path="res://assets/temp_title.jpg" id="1_360cg"]
 [ext_resource type="FontFile" uid="uid://v4t576l3ydpn" path="res://assets/gui/fonts/Chewy/Chewy-Regular.ttf" id="2_ycvdl"]
+[ext_resource type="PackedScene" uid="uid://br8j1fk6jsj56" path="res://src/gui/game_settings.tscn" id="3_01r5e"]
 [ext_resource type="AudioStream" uid="uid://b413km3r4q4yn" path="res://assets/sound/music/SoftTissue_TitleScreenBGM.ogg" id="3_jypdy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qoks"]
@@ -117,6 +118,25 @@ uppercase = true
 layout_mode = 2
 flat = true
 script = SubResource("GDScript_ycvdl")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1802191845]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -750.0
+offset_top = -225.0
+offset_bottom = 225.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="GameSettings" parent="CanvasLayer/Control/MarginContainer2" unique_id=762460215 instance=ExtResource("3_01r5e")]
+custom_minimum_size = Vector2(750, 450)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="." unique_id=83364754]
 stream = ExtResource("3_jypdy")

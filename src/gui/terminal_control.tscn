@@ -50,7 +50,7 @@ follow_focus = true
 horizontal_scroll_mode = 0
 
 [node name="VBoxMain" type="VBoxContainer" parent="ScreenMargins/ScrollContainer" unique_id=1852531399]
-custom_minimum_size = Vector2(475, 600)
+propagate_maximum_size = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -169,9 +169,9 @@ scroll_active = false
 horizontal_alignment = 1
 
 [node name="AudioMarginContainer" type="MarginContainer" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=2117873097]
-custom_minimum_size = Vector2(0, 300)
+propagate_maximum_size = false
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 0
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 40

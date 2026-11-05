@@ -3,12 +3,15 @@ extends Resource
 
 @export var patient_records: Array[String] = ["","","","",""]
 @export var audio_files: Array[AudioStreamOggVorbis] = [null]
-@export var subtitles: Array[String] = [""]
+@export var subtitles_1: Array[String] = [""]
+@export var subtitles_2: Array[String] = [""]
 
 var listening_credit: Array[String] = []
 var viewing_round: int = 0
 
 func get_audio_dict(index: int) -> Dictionary:
+	var subtitles: Array[Array] = [subtitles_1, subtitles_2]
+	
 	var new_dict: Dictionary = {
 		"stream_ogg" = audio_files[index],
 		"subtitles_text" = subtitles[index],

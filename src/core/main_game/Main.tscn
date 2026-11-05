@@ -855,6 +855,7 @@ shape = SubResource("CircleShape2D_f745s")
 
 [node name="RepairToolForceps" type="Area2D" parent="World/BackdropSTM/BenchTop" unique_id=580307958]
 position = Vector2(851, 939)
+scale = Vector2(0.75, 0.75)
 script = ExtResource("27_pveoo")
 texture = ExtResource("28_r1w42")
 type = 1
@@ -862,12 +863,14 @@ metadata/_custom_type_script = "uid://xd0ei8cbqruh"
 
 [node name="RepairToolSutures" type="Area2D" parent="World/BackdropSTM/BenchTop" unique_id=361701018]
 position = Vector2(1239, 977)
+scale = Vector2(0.75, 0.75)
 script = ExtResource("27_pveoo")
 texture = ExtResource("29_s2wie")
 metadata/_custom_type_script = "uid://xd0ei8cbqruh"
 
 [node name="RepairToolScalpel" type="Area2D" parent="World/BackdropSTM/BenchTop" unique_id=640591844]
 position = Vector2(1612, 954)
+scale = Vector2(0.75, 0.75)
 script = ExtResource("27_pveoo")
 texture = ExtResource("30_7oq72")
 type = 3
