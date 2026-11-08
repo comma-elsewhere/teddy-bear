@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_a54sc")
-patient_records = Array[String](["ARTHUR BARON, Age 15", "Restore to factory condition.", "Submitted for repair during psychiatric recovery period. Structurally compromised due to external environment exposure.", "Patient admitted for multiple traumatic injuries sustained in a violent altercation with classmates.", "Patient displays signs of paranoia, hypervigilance, age regression, and strong imaginative coping behaviors. Frequent statements regarding pronounced emotional dependency to his toy have been recorded."])
+patient_records = Array[String](["PF_ARTHUR_0", "PF_ARTHUR_1", "PF_ARTHUR_2", "PF_ARTHUR_3", "PF_ARTHUR_4"])
 audio_files = Array[AudioStreamOggVorbis]([ExtResource("1_mydyp")])
-subtitles_1 = Array[String](["Arthur: Sir Bearington... You have to stay awake. They said I’m safe here but... They said that before. Knights don’t sleep when monsters are around. That’s why you need your sword. (nervous laugh)", "Nurse: Arthur? (Sigh) You should be resting.", "Arthur: No, no. Look! He’s guarding the door…", "Nurse: Who is…?", "Arthur: Sir Bearington! If they come back... He’ll stop them."])
+subtitles_1 = Array[String](["PR_ARTHUR_SUB1_0", "PR_ARTHUR_SUB1_1", "PR_ARTHUR_SUB1_2", "PR_ARTHUR_SUB1_3", "PR_ARTHUR_SUB1_4"])
 subtitles_2 = Array[String]([])
 metadata/_custom_type_script = "uid://bu8lh7k2adhio"

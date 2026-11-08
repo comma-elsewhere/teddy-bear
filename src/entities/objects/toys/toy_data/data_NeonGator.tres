@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_uv6p4")
-patient_records = Array[String](["PETER HARRIS, Age 14", "Remove contaminants and restore to factory condition.", "Submitted for repair due to persistent odor reported by guardian. Interior contaminants suspected.", "Patient admitted for wisdom tooth extraction procedure.", "Procedure performed successfully under local anesthesia. No clinical complications reported despite patient's persistent claims of \"evidence\"."])
+patient_records = Array[String](["PF_PETER_0", "PF_PETER_1", "PF_PETER_2", "PF_PETER_3", "PF_PETER_4"])
 audio_files = Array[AudioStreamOggVorbis]([ExtResource("1_1fjfj")])
-subtitles_1 = Array[String](["Peter: It still hurts.", "Dr. Vasquez: You’re feeling pressure, not pain.", "Peter: No, it really hurts.", "Dr. Vasquez: Your mouth needs to stay open.", "Peter: Please stop.", "Dr. Vasquez: We’re almost finished.", "Peter: I can feel it. (sharp cry) Please stop—"])
+subtitles_1 = Array[String](["PR_PETER_SUB1_0", "PR_PETER_SUB1_1", "PR_PETER_SUB1_2", "PR_PETER_SUB1_3", "PR_PETER_SUB1_4", "PR_PETER_SUB1_5", "PR_PETER_SUB1_6"])
 subtitles_2 = Array[String]([])
 metadata/_custom_type_script = "uid://bu8lh7k2adhio"

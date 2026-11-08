@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://06omylib7jwk"]
+
+[ext_resource type="Script" uid="uid://c4dauue8akwa1" path="res://translations/cvs_updater/csv_sync.gd" id="1_478sf"]
+
+[node name="AutoSync" type="Node" unique_id=117152761]
+script = ExtResource("1_478sf")
+sheet_id = "1GMjdX2ynr3ox19WHc89URsbTpFt_-9fwQITOe4pII5Q"
+output_path = "res://translations/translations.csv"

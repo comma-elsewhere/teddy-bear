@@ -99,7 +99,7 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.27, 0, 0, 1)
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 160
-text = "Soft Tissue"
+text = "KEY_GAME_TITLE"
 
 [node name="HoverPlay" type="Label" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer" unique_id=811527947]
 unique_name_in_owner = true
@@ -110,7 +110,7 @@ theme_override_colors/font_outline_color = Color(0.27, 0, 0, 1)
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("2_ycvdl")
 theme_override_font_sizes/font_size = 160
-text = "Play"
+text = "KEY_PLAY_GAME"
 horizontal_alignment = 1
 uppercase = true
 
