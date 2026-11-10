@@ -43,8 +43,10 @@ func _mouse_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 func _highlight_texture(highlight: bool) -> void:
 	if highlight:
 		modulate = HIGHLIGHT
+		z_index = 100
 	else:
 		modulate = NORMAL_COLOR
+		z_index = 0
 	
 func _attempt_repair(area: Area2D) -> void:
 	if area.is_in_group("RepairArea"):
