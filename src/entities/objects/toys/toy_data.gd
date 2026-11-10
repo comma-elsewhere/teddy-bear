@@ -1,8 +1,21 @@
 class_name ToyData
 extends Resource
 
+#@export_group("Progression")
+#@export_subgroup("First Loop")
+#@export var appears_in_first_loop: bool = true
+#@export_enum("Monday", "Tuesday", "Wednesday", "Thursday", "Friday") var day_of_week: int = 0
+#@export_range(0, 2) var appearance_order: int = 0
+#@export_subgroup("Later Loops")
+@export_group("Repairs Needed")
+@export var dirty: bool = false
+@export_range(0, 2) var damaged: int = 0
+@export var missing_item: ItemData = null
+@export var contaminant: ItemData = null
+@export_group("Terminal Data")
 @export var patient_records: Array[String] = ["","","","",""]
 @export var audio_files: Array[AudioStreamOggVorbis] = [null]
+@export_subgroup("Subtitles")
 @export var subtitles_1: Array[String] = [""]
 @export var subtitles_2: Array[String] = [""]
 

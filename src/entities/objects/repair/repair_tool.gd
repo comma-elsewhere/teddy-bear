@@ -10,6 +10,12 @@ const HIGHLIGHT := Color(1.825, 1.825, 1.825, 1.0)
 var _lerp: bool = false
 var _origin := Vector2.ZERO
 
+func _enter_tree() -> void:
+	set_collision_layer_value(1, false)
+	set_collision_mask_value(1, false)
+	set_collision_layer_value(8, true)
+	set_collision_mask_value(8, true)
+
 func _ready() -> void:
 	mouse_entered.connect(_highlight_texture.bind(true))
 	mouse_exited.connect(_highlight_texture.bind(false))
@@ -26,6 +32,10 @@ func _physics_process(delta: float) -> void:
 		return
 	global_position = global_position.lerp(get_global_mouse_position(), 30 * delta)
 	
+func toggle_monitor(enable: bool = true) -> void:
+	set_deferred("monitorable", enable)
+	set_deferred("monitoring", enable)
+	
 func _mouse_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("click"):
 		_lerp = true
@@ -38,7 +48,7 @@ func _highlight_texture(highlight: bool) -> void:
 	
 func _attempt_repair(area: Area2D) -> void:
 	if area.is_in_group("RepairArea"):
-		area.emit_signal("repair_attempted", area, type)
+		area.attempt_repair(type)
 	
 	
 func _generate_collision_from_sprite() -> void:

@@ -8,15 +8,17 @@ enum JOINT { NECK, L_SHOULDER, R_SHOULDER, L_HIP, R_HIP }
 const LERP_WEIGHT := 500.0
 
 @export var toy_data: ToyData = null
+@export var show_on_shut: Array[Node2D] = []
+@export var hide_on_shut: Array[Node2D] = []
+@export_group("Do Not Touch")
 @export var limb_bodies: Array[RapierRigidBody2D] = []
-@export var show_on_shut: Array[Sprite2D] = []
-@export var hide_on_shut: Array[Sprite2D] = []
+@export var spawn_points: Array[Marker2D] = []
 
 var lerp_body: RapierRigidBody2D = null
 var _pin_joints: Array[RapierPinJoint2D] = []
 var _current_collision_layer: int = -1
 
-@onready var pin_joint_parent: Node2D = $PinJoint
+@onready var pin_joint_parent: Node2D = %PinJoint
 
 func _ready() -> void:
 	for body in limb_bodies:
@@ -39,6 +41,25 @@ func _physics_process(_delta: float) -> void:
 	_normalize_velocity(0.7)
 	lerp_body.apply_central_force((get_global_mouse_position() - lerp_body.global_position) * LERP_WEIGHT)
 	
+func set_torso_displayed(torso_is_open: bool = true) -> void:
+	for node in show_on_shut: # set to visible if shut
+		node.visible = !torso_is_open
+		if node.has_method("toggle_monitor"):
+			node.toggle_monitor(true)
+	
+	for node in hide_on_shut: # Set to visible if open
+		node.visible = torso_is_open
+		if node.has_method("toggle_monitor"):
+			node.toggle_monitor(false)
+	
+func add_repair_area(repair_area: RepairArea, area_is_item: bool = false) -> void:
+	var mother: Marker2D 
+	if !area_is_item:
+		mother = spawn_points.pop_at( randi_range(2, spawn_points.size() -1) )
+	else:
+		mother = spawn_points.pop_at( randi() % 2 )
+	mother.add_child(repair_area)
+
 func get_torso() -> RapierRigidBody2D:
 	for body in limb_bodies:
 		if body.is_in_group("TorsoBody"):

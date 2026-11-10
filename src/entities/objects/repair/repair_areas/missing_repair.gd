@@ -1,0 +1,17 @@
+class_name MissingRepair
+extends RepairArea
+
+var repair_details: Dictionary = {
+	"repair_name": "MissingItem",
+	"state_id": 3,
+	"resolved": false,
+	"item_data": null,
+	"tool_type": [4]
+}
+
+func _ready() -> void:
+	add_collision()
+	
+func attempt_repair(tool_type: int) -> void:
+	if repair_details["tool_type"].has(tool_type):
+		emit_signal("repair_attempted", self, tool_type)
