@@ -30,25 +30,27 @@ KEY_SETTINGS,Settings
 KEY_SUBTITLES,Subtitles
 KEY_VOLUME,Volume
 PF_ARTHUR_0,"ARTHUR BARON, Age 15"
-PF_ARTHUR_1,Restore to factory condition.
+PF_ARTHUR_1,Clean and restore to factory condition.
 PF_ARTHUR_2,Submitted for repair during psychiatric recovery period. Structurally compromised due to external environment exposure.
 PF_ARTHUR_3,Patient admitted for multiple traumatic injuries sustained in a violent altercation with classmates.
-PF_ARTHUR_4,"Patient displays signs of paranoia, hypervigilance, age regression, and strong imaginative coping behaviors. Frequent statements regarding pronounced emotional dependency to his toy have been recorded."
+PF_ARTHUR_4,"Patient displays signs of paranoia, hypervigilance, age regression, and strong imaginative coping behaviors. Frequent statements regarding pronounced emotional dependency to his toy have been noted."
 PF_PETER_0,"PETER HARRIS, Age 14"
 PF_PETER_1,Remove contaminants and restore to factory condition.
 PF_PETER_2,Submitted for repair due to persistent odor reported by guardian. Interior contaminants suspected.
 PF_PETER_3,Patient admitted for wisdom tooth extraction procedure.
 PF_PETER_4,"Procedure performed successfully under local anesthesia. No clinical complications reported despite patient's persistent claims of ""evidence""."
 PF_SCARLET_0,"SCARLET RUMEN, Age 5"
-PF_SCARLET_1,Clean and restore to factory condition.
-PF_SCARLET_2,Submitted for routine post-mortem sanitation by Head Physician. Minor distress from the parents has been noted.
+PF_SCARLET_1,Remove contaminants and restore to factory condition.
+PF_SCARLET_2,Submitted for routine post-mortem sanitation by Head Physician. Some distress from the parents has been noted.
 PF_SCARLET_3,Patient expired from acute complications via lymphoblastic leukemia.
 PF_SCARLET_4,Treatment involved repeated chemotherapy cycles and long-term inpatient care. Medical complications during final treatment stage included infection and severe organ failure. Parents appear to be projecting grief onto the expired patient's toy. Handle with care.
-PR_ARTHUR_SUB1_0,Arthur: Sir Bearington... You have to stay awake. They said I’m safe here but... They said that before. Knights don’t sleep when monsters are around. That’s why you need your sword. (nervous laugh)
-PR_ARTHUR_SUB1_1,Nurse: Arthur? (Sigh) You should be resting.
-PR_ARTHUR_SUB1_2,"Arthur: No, no. Look! He’s guarding the door…"
-PR_ARTHUR_SUB1_3,Nurse: Who is…?
-PR_ARTHUR_SUB1_4,Arthur: Sir Bearington! If they come back... He’ll stop them.
+PR_ARTHUR_SUB1_0,Arthur: Sir Bearington. You have to stay awake. They said I’m safe here but... They said that before.
+PR_ARTHUR_SUB1_1,Arthur: Knights don’t sleep when monsters are around. That’s why you need your sword.
+PR_ARTHUR_SUB1_2,Arthur: (Nervous laugh)
+PR_ARTHUR_SUB1_3,Nurse: Arthur? (Sigh) You should be resting.
+PR_ARTHUR_SUB1_4,"Arthur: No, no. Look! He’s guarding the door…"
+PR_ARTHUR_SUB1_5,Nurse: Who is…?
+PR_ARTHUR_SUB1_6,Arthur: Sir Bearington! If they come back... He’ll stop them.
 PR_PETER_SUB1_0,Peter: It still hurts.
 PR_PETER_SUB1_1,"Dr. Vasquez: You’re feeling pressure, not pain."
 PR_PETER_SUB1_2,"Peter: No, it really hurts."
@@ -56,11 +58,12 @@ PR_PETER_SUB1_3,Dr. Vasquez: Your mouth needs to stay open.
 PR_PETER_SUB1_4,Peter: Please stop.
 PR_PETER_SUB1_5,Dr. Vasquez: We’re almost finished.
 PR_PETER_SUB1_6,Peter: I can feel it. (sharp cry) Please stop—
-PR_SCARLET_SUB1_0,"Scarlet: Bunny... It’s okay. I know you're scared, but they said it won’t hurt as much this time. You can use my blankie, here. See? Now you’re brave like a superhero."
-PR_SCARLET_SUB1_1,"Nurse: It’s time to start your big kid medicine, are you ready?"
-PR_SCARLET_SUB1_2,Scarlet: Can Bunny stay?
-PR_SCARLET_SUB1_3,"Nurse: (sigh) Yes, of course."
-PR_SCARLET_SUB1_4,Scarlet: If I fall asleep again... Make sure he doesn’t get scared.
+PR_SCARLET_SUB1_0,"Scarlet: Bunny... It’s okay. I know you're scared, but they said it won’t hurt as much this time. "
+PR_SCARLET_SUB1_1,"Scarlet: You can use my blankie, here. See? Now you’re brave like a superhero."
+PR_SCARLET_SUB1_2,"Nurse: It’s time to start your big kid medicine, are you ready?"
+PR_SCARLET_SUB1_3,Scarlet: Can Bunny stay?
+PR_SCARLET_SUB1_4,"Nurse: (sigh) Yes, of course."
+PR_SCARLET_SUB1_5,Scarlet: If I fall asleep again... Make sure he doesn’t get scared.
 PR_SCARLET_SUB2_0,"Scarlet: Mommy, I'm... cold."
 PR_SCARLET_SUB2_1,"Mom: You're cold? Oh baby, you're burning up. Can I get you a blanket? Some more tea?"
 PR_SCARLET_SUB2_2,"Scarlet: I dunno, I feel all funny inside... and tired..."

@@ -10,9 +10,9 @@ const _CMS := Vector2(320, 30)
 
 var typing: bool = false
 var _audio_dict: Dictionary # KEYS: "stream_ogg", "subtitles_text"
-var _typewriter_generation: int = 0
-var _current_text: String = ""
-var _typewriter_speed: float = 0.04 # Smaller number means faster typing
+#var _typewriter_generation: int = 0
+#var _current_text: String = ""
+#var _typewriter_speed: float = 0.04 # Smaller number means faster typing
 var _text_index: int = -1
 var _current_subtitle: RichTextLabel = null
 
@@ -28,51 +28,61 @@ func new_audio(new_dictionary: Dictionary) -> void:
 	_text_index = 0
  
 func _skip_typewriter() -> void:
-	if not typing:
-		return
-	# Print all text at once
+	for i in range(_audio_dict["subtitles_text"].size() - _text_index):
+		var text = _audio_dict["subtitles_text"][_text_index]
+		_current_subtitle = await _spawn_new_subtitle()
+		_current_subtitle.text = text
+		_text_index += 1
 	
 func _start_typewriter( text: String ) -> void:
-	typing = true
-	_current_subtitle = _spawn_new_subtitle()
+	_current_subtitle = await _spawn_new_subtitle()
 	_current_subtitle.text = text
-	_current_subtitle.fit_content = true
-	_typewriter_generation += 1
-	var generation := _typewriter_generation
-	_current_text = text
-	_current_subtitle.text = text
-	_current_subtitle.visible_characters = 0
- 
-	var character_count := text.length()
-	for i in range(character_count):
-		if generation != _typewriter_generation:
-			return
- 
-		_current_subtitle.visible_characters = i + 1
-		await get_tree().create_timer( _typewriter_speed ).timeout
- 
-	if generation != _typewriter_generation:
-		return
- 	
 	_text_index += 1
-	if _text_index < _audio_dict["subtitles_text"].size():
+	
+	#_typewriter_generation += 1
+	#var generation := _typewriter_generation
+	#_current_text = text
+	#_current_subtitle.text = text
+	#_current_subtitle.visible_characters = 0
+ #
+	#var character_count := text.length()
+	#for i in range(character_count):
+		#if generation != _typewriter_generation:
+			#return
+ #
+		#_current_subtitle.visible_characters = i + 1
+		#await get_tree().create_timer( _typewriter_speed ).timeout
+ #
+	#if generation != _typewriter_generation:
+		#return
+ 	
+	if _text_index < _audio_dict["subtitles_text"].size() - 1:
 		await get_tree().create_timer(2.0).timeout
+		if _text_index >= _audio_dict["subtitles_text"].size() -1: 
+			return
 		call("_start_typewriter", _audio_dict["subtitles_text"][_text_index])
 		return
-	typing = false
 	_current_subtitle.visible_characters = -1
 	
 func _handle_interact() -> void:
 	emit_signal("play_button_pressed", _audio_dict["stream_ogg"]) # Play, pause, and restart audio
 	
-	if typing or _text_index >= _audio_dict["subtitles_text"].size() -1:
-		return
+	if typing == true:
+		if _text_index < ( _audio_dict["subtitles_text"].size() - 1 ):
+			_skip_typewriter()
+			return
+		elif _text_index >= _audio_dict["subtitles_text"].size() -1:
+			return
 	
+	typing = true
 	call("_start_typewriter", _audio_dict["subtitles_text"][_text_index])
 	
 func _spawn_new_subtitle() -> RichTextLabel:
 	var new_label := RichTextLabel.new()
-	new_label.scroll_active = false
 	_subtitle_mother.add_child(new_label)
-	#new_label.custom_minimum_size = _CMS
+	new_label.scroll_active = false
+	new_label.custom_minimum_size = _CMS
+	new_label.fit_content = true
+	await get_tree().process_frame
+	new_label.update_maximum_size()
 	return new_label
