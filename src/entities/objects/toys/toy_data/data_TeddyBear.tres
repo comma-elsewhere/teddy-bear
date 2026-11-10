@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bu8lh7k2adhio" path="res://src/entities/objects/toys/toy_data.gd" id="1_a54sc"]
 [ext_resource type="AudioStream" uid="uid://10ct64kltqfp" path="res://assets/sound/audio/Arthur_Scene1.ogg" id="1_mydyp"]
+[ext_resource type="Resource" uid="uid://jne286usu4h0" path="res://src/entities/objects/toys/items/red_bow.tres" id="2_230y1"]
 
 [resource]
 script = ExtResource("1_a54sc")
+toy_name = "Teddy Bear"
+missing_item = ExtResource("2_230y1")
 patient_records = Array[String](["PF_ARTHUR_0", "PF_ARTHUR_1", "PF_ARTHUR_2", "PF_ARTHUR_3", "PF_ARTHUR_4"])
 audio_files = Array[AudioStreamOggVorbis]([ExtResource("1_mydyp")])
 subtitles_1 = Array[String](["PR_ARTHUR_SUB1_0", "PR_ARTHUR_SUB1_1", "PR_ARTHUR_SUB1_2", "PR_ARTHUR_SUB1_3", "PR_ARTHUR_SUB1_4"])

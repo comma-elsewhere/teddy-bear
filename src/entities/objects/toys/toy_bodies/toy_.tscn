@@ -1,12 +1,15 @@
-[gd_scene format=3 uid="uid://cry4455wyugys"]
+[gd_scene format=3 uid="uid://u4v3ov7xh1me"]
 
 [ext_resource type="Script" uid="uid://unwhnooi7g2c" path="res://addons/godot-rapier2d/custom_nodes/rapier_rigid_body_2d.gd" id="1_0w7uy"]
 [ext_resource type="Script" uid="uid://dkvypfttvwe30" path="res://src/entities/objects/toys/toy_body.gd" id="1_bekpm"]
 [ext_resource type="Script" uid="uid://bv2bc4lt5v7hu" path="res://addons/godot-rapier2d/custom_nodes/rapier_pin_joint_2d.gd" id="1_f3y4l"]
 [ext_resource type="Resource" uid="uid://bnrabfko0181h" path="res://src/entities/objects/toys/toy_data/data_TeddyBear.tres" id="2_b744b"]
 [ext_resource type="PhysicsMaterial" uid="uid://hihekgen16jy" path="res://src/resources/toy.phymat" id="2_rbp05"]
-[ext_resource type="Texture2D" uid="uid://bhpwyu1p8x21u" path="res://assets/art/toys/toy_TeddyBear.png" id="4_wcfvk"]
 [ext_resource type="Script" uid="uid://cwwy03wlmioxx" path="res://src/entities/objects/repair/repair_areas/torso_repair.gd" id="6_auqgv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_errv0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf7gi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f745s"]
 radius = 114.0
@@ -18,7 +21,7 @@ toy_data = ExtResource("2_b744b")
 show_on_shut = [NodePath("Torso/ShutTorso")]
 hide_on_shut = [NodePath("Torso/OpenTorso")]
 limb_bodies = [NodePath("Head"), NodePath("Torso"), NodePath("LeftArm"), NodePath("LeftLeg"), NodePath("RightArm"), NodePath("RightLeg")]
-spawn_points = [NodePath("Head/HeadAreaSpawnPoint5"), NodePath("Torso/NeckAreaSpawnPoint3"), NodePath("Torso/AreaSpawnPoint4"), NodePath("LeftLeg/AreaSpawnPoint1"), NodePath("LeftLeg/AreaSpawnPoint2"), NodePath("LeftArm/AreaSpawnPoint0"), NodePath("RightLeg/AreaSpawnPoint6"), NodePath("RightLeg/AreaSpawnPoint7"), NodePath("RightArm/AreaSpawnPoint8")]
+spawn_points = [NodePath("Head/HeadAreaSpawnPoint5"), NodePath("Torso/NeckAreaSpawnPoint3"), NodePath("Torso/AreaSpawnPoint4"), NodePath("LeftLeg/AreaSpawnPoint1"), NodePath("RightLeg/AreaSpawnPoint6"), NodePath("RightLeg/AreaSpawnPoint7"), NodePath("LeftLeg/AreaSpawnPoint2"), NodePath("LeftArm/AreaSpawnPoint0"), NodePath("RightArm/AreaSpawnPoint8")]
 
 [node name="LeftArm" type="RigidBody2D" parent="." unique_id=1313522487]
 position = Vector2(-132, 320)
@@ -33,14 +36,9 @@ metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="Sprite" type="Sprite2D" parent="LeftArm" unique_id=2125734438]
 position = Vector2(-6, 3)
-texture = ExtResource("4_wcfvk")
-region_enabled = true
+texture = SubResource("AtlasTexture_errv0")
 region_rect = Rect2(46.89859, 45.483116, 199.70331, 352.7018)
 region_filter_clip_enabled = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftArm" unique_id=1852783517]
-position = Vector2(-6, 3)
-polygon = PackedVector2Array(43, -157, 13.048347, -131.3509, -14.851654, -56.250908, -14.851654, -54.65091, -51.751656, 9.649094, -53.851654, 9.649094, -83, 120, -52, 164, -17.851654, 174.2491, 23.248344, 156.6491, 26.648346, 156.6491, 42.648346, 134.6491, 46.04834, 134.6491, 47.148346, 77.64909, 57.748352, 62.649094, 60.148346, 62.649094, 67.148346, 32.649094, 68.648346, 32.649094, 91, -94, 85, -155)
 
 [node name="AreaSpawnPoint0" type="Marker2D" parent="LeftArm" unique_id=282378889]
 z_index = 20
@@ -58,14 +56,8 @@ metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="Sprite" type="Sprite2D" parent="LeftLeg" unique_id=1018539722]
 position = Vector2(-14, 15)
-texture = ExtResource("4_wcfvk")
-region_enabled = true
-region_rect = Rect2(58.374268, 756.61523, 191.93738, 389.74353)
+texture = SubResource("AtlasTexture_bf7gi")
 region_filter_clip_enabled = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftLeg" unique_id=551858267]
-position = Vector2(-14, 15)
-polygon = PackedVector2Array(1.031311, -176.87177, -30.968689, -126.871765, -31.968689, -126.871765, -34.96869, 11.128235, -34.96869, 18.128235, -86.96869, 136.12823, -87.96869, 136.12823, -69.96869, 168.12823, -69.96869, 169.12823, -24.968689, 177.12823, -24.968689, 178.12823, 49.03131, 171.12823, 54.03131, 171.12823, 73.03131, 149.12823, 74.03131, 149.12823, 54.03131, -95.871765, 54.03131, -104.871765, 34.03131, -158.87177, 34.03131, -161.87177, 1.031311, -177.87177)
 
 [node name="AreaSpawnPoint1" type="Marker2D" parent="LeftLeg" unique_id=1204551614]
 z_index = 20
@@ -85,21 +77,13 @@ metadata/_custom_type_script = "uid://unwhnooi7g2c"
 [node name="OpenTorso" type="Sprite2D" parent="Torso" unique_id=539578634]
 visible = false
 position = Vector2(13, 0)
-texture = ExtResource("4_wcfvk")
-region_enabled = true
-region_rect = Rect2(767.5897, 634.1024, 313.74353, 461.84607)
+texture = SubResource("AtlasTexture_bf7gi")
 region_filter_clip_enabled = true
 
 [node name="ShutTorso" type="Sprite2D" parent="Torso" unique_id=933102498]
 position = Vector2(13, 0)
-texture = ExtResource("4_wcfvk")
-region_enabled = true
-region_rect = Rect2(295.09076, 192.01207, 296.64478, 449.0227)
+texture = SubResource("AtlasTexture_bf7gi")
 region_filter_clip_enabled = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Torso" unique_id=533348266]
-position = Vector2(13, 0)
-polygon = PackedVector2Array(-19.871765, -220.92303, -52.871765, -205.92303, -53.871765, -205.92303, -117.871765, -98.923035, -118.871765, -98.923035, -144.87177, 81.076965, -145.87177, 81.076965, -127.871765, 173.07697, -127.871765, 179.07697, -79.871765, 216.07697, -79.871765, 217.07697, 5.128235, 221.07697, 15.128235, 221.07697, 121.128235, 177.07697, 123.128235, 177.07697, 148.12823, 139.07697, 149.12823, 139.07697, 135.12823, 100.076965, 135.12823, 98.076965, 103.128235, 82.076965, 102.128235, 82.076965, 92.128235, -70.923035, 92.128235, -71.923035, 71.128235, -122.923035, 71.128235, -125.923035, 36.128235, -162.92303, 35.128235, -162.92303, 23.128235, -206.92303, 23.128235, -208.92303, -19.871765, -221.92303)
 
 [node name="RepairArea" type="Area2D" parent="Torso" unique_id=1218946157]
 collision_layer = 129
@@ -128,14 +112,8 @@ metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="Sprite" type="Sprite2D" parent="Head" unique_id=1081803375]
 position = Vector2(-3, 3)
-texture = ExtResource("4_wcfvk")
-region_enabled = true
-region_rect = Rect2(805.4188, 103.41863, 342.3744, 304.62415)
+texture = SubResource("AtlasTexture_bf7gi")
 region_filter_clip_enabled = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Head" unique_id=751212246]
-position = Vector2(-3, 3)
-polygon = PackedVector2Array(99.812805, -149.31207, 59.812805, -125.31207, 59.812805, -124.31207, 2.8128052, -139.31207, -18.187195, -139.31207, -64.187195, -117.31207, -64.187195, -116.31207, -129.1872, -140.31207, -130.1872, -140.31207, -163.1872, -116.31207, -164.1872, -116.31207, -154.1872, -103.31207, -160, -81, -177, -81, -173, -62, -154, -28, -165.1872, -43.312073, -135.1872, -13.312073, -134.1872, -13.312073, -123.187195, 88.68793, -123.187195, 90.68793, -98.187195, 128.68793, -98.187195, 129.68793, -32.187195, 149.68793, -32.187195, 150.68793, 68.812805, 147.68793, 73.812805, 147.68793, 133.8128, 82.68793, 134.8128, 82.68793, 134.8128, -39.312073, 134.8128, -41.312073, 159.8128, -85.31207, 160.8128, -85.31207, 146.8128, -129.31207, 146.8128, -131.31207, 99.812805, -150.31207)
 
 [node name="HeadAreaSpawnPoint5" type="Marker2D" parent="Head" unique_id=586439452]
 z_index = 20
@@ -153,14 +131,8 @@ metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="Sprite" type="Sprite2D" parent="RightLeg" unique_id=763026473]
 position = Vector2(28, 4)
-texture = ExtResource("4_wcfvk")
-region_enabled = true
-region_rect = Rect2(431.4065, 763.3733, 189.3435, 386.46814)
+texture = SubResource("AtlasTexture_bf7gi")
 region_filter_clip_enabled = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightLeg" unique_id=986384536]
-position = Vector2(28, 4)
-polygon = PackedVector2Array(-13.671753, -186.23407, -47.671753, -142.23407, -48.671753, -142.23407, -53.671753, 71.76593, -53.671753, 79.76593, -85.67175, 151.76593, -85.67175, 155.76593, -22.671753, 180.76593, -22.671753, 181.76593, 43.328247, 179.76593, 44.328247, 179.76593, 64.32825, 168.76593, 65.32825, 168.76593, 76.32825, 132.76593, 77.32825, 132.76593, 35.328247, -122.23407, 35.328247, -126.23407, 19.328247, -169.23407, 19.328247, -171.23407, -13.671753, -187.23407)
 
 [node name="AreaSpawnPoint6" type="Marker2D" parent="RightLeg" unique_id=1127664129]
 z_index = 20
@@ -183,14 +155,8 @@ metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="Sprite" type="Sprite2D" parent="RightArm" unique_id=257884028]
 position = Vector2(5, 3)
-texture = ExtResource("4_wcfvk")
-region_enabled = true
-region_rect = Rect2(580.27325, 74.45474, 170.9093, 345.45493)
+texture = SubResource("AtlasTexture_bf7gi")
 region_filter_clip_enabled = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightArm" unique_id=1321383540]
-position = Vector2(5, 3)
-polygon = PackedVector2Array(-55.45465, -166.72746, -76.45465, -133.72746, -77.45465, -133.72746, -75.45465, -26.727463, -75.45465, -5.727463, -37.45465, 88.27254, -36.45465, 88.27254, -33.45465, 133.27254, -33.45465, 136.27254, 3.5453491, 169.27254, 22.54535, 169.27254, 57.54535, 155.27254, 59.54535, 155.27254, 77.54535, 126.27254, 78.54535, 126.27254, -23.45465, -142.72746, -23.45465, -145.72746, -55.45465, -167.72746)
 
 [node name="AreaSpawnPoint8" type="Marker2D" parent="RightArm" unique_id=123897862]
 z_index = 20

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://drdoebrnbemnc"]
+
+[ext_resource type="Texture2D" uid="uid://18jjkr4h4l86" path="res://assets/art/toys/toy_StrawBunny.png" id="1_x8scx"]
+[ext_resource type="Script" uid="uid://duvra24bk1ult" path="res://src/entities/objects/toys/item_data.gd" id="2_wxkcs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs8cy"]
+atlas = ExtResource("1_x8scx")
+region = Rect2(996.5533, 529.31647, 403.34393, 160.06055)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ekvg"]
+atlas = ExtResource("1_x8scx")
+region = Rect2(94.142715, 608.6332, 163.2408, 163.24084)
+filter_clip = true
+
+[resource]
+script = ExtResource("2_wxkcs")
+parent_toy = "StrawBunny"
+item_name = "Blankie"
+goes_on_neck = true
+texture = SubResource("AtlasTexture_4ekvg")
+alt_texture = SubResource("AtlasTexture_bs8cy")
+metadata/_custom_type_script = "uid://duvra24bk1ult"

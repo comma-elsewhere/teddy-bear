@@ -52,12 +52,13 @@ func set_torso_displayed(torso_is_open: bool = true) -> void:
 		if node.has_method("toggle_monitor"):
 			node.toggle_monitor(false)
 	
-func add_repair_area(repair_area: RepairArea, area_is_item: bool = false) -> void:
+func add_repair_area(repair_area: RepairArea, area_is_item: Array[bool] = []) -> void:
 	var mother: Marker2D 
-	if !area_is_item:
-		mother = spawn_points.pop_at( randi_range(2, spawn_points.size() -1) )
+	if !area_is_item.is_empty():
+		mother = spawn_points.pop_at( area_is_item.front() )
 	else:
 		mother = spawn_points.pop_at( randi() % 2 )
+	
 	mother.add_child(repair_area)
 
 func get_torso() -> RapierRigidBody2D:

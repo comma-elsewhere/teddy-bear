@@ -7,6 +7,7 @@ extends Resource
 #@export_enum("Monday", "Tuesday", "Wednesday", "Thursday", "Friday") var day_of_week: int = 0
 #@export_range(0, 2) var appearance_order: int = 0
 #@export_subgroup("Later Loops")
+@export var toy_name: String
 @export_group("Repairs Needed")
 @export var dirty: bool = false
 @export_range(0, 2) var damaged: int = 0

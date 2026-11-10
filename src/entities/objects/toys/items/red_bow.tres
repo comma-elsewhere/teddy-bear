@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://jne286usu4h0"]
+
+[ext_resource type="Script" uid="uid://duvra24bk1ult" path="res://src/entities/objects/toys/item_data.gd" id="1_ptggd"]
+[ext_resource type="Texture2D" uid="uid://bhpwyu1p8x21u" path="res://assets/art/toys/toy_TeddyBear.png" id="2_bp8n1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr1tt"]
+atlas = ExtResource("2_bp8n1")
+region = Rect2(753.23737, 494.32904, 283.2636, 106.737)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ed8iw"]
+atlas = ExtResource("2_bp8n1")
+region = Rect2(60.06726, 511.39236, 129.22269, 89.56955)
+
+[resource]
+script = ExtResource("1_ptggd")
+parent_toy = "Teddy Bear"
+item_name = "Red Bow"
+goes_on_neck = true
+texture = SubResource("AtlasTexture_ed8iw")
+alt_texture = SubResource("AtlasTexture_sr1tt")
+metadata/_custom_type_script = "uid://duvra24bk1ult"

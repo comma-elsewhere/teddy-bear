@@ -11,12 +11,12 @@ func _ready() -> void:
 	%Systems/ToySpawn.new_toy_spawned.connect(_set_new_areas)
 	
 func _set_new_areas(toy: Toy) -> void:
+	if toy.toy_data.missing_item != null:
+		toy.add_repair_area(_spawn_repair_area(ToyState.MISSING_ITEM, toy.toy_data.missing_item), [toy.toy_data.missing_item.goes_on_neck])
+		_needs_repair.append("MissingItem")
 	if toy.toy_data.contaminant != null:
 		toy.add_repair_area(_spawn_repair_area(ToyState.CONTAMINANT, toy.toy_data.contaminant))
 		_needs_repair.append("Contaminant")
-	if toy.toy_data.missing_item != null:
-		toy.add_repair_area(_spawn_repair_area(ToyState.MISSING_ITEM, toy.toy_data.missing_item))
-		_needs_repair.append("MissingItem")
 	if toy.toy_data.damaged > 0:
 		for i in range(toy.toy_data.damaged):
 			toy.add_repair_area(_spawn_repair_area(ToyState.DAMAGED))

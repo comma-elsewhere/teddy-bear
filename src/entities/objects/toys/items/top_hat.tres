@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cswl461qbmi52"]
+
+[ext_resource type="Script" uid="uid://duvra24bk1ult" path="res://src/entities/objects/toys/item_data.gd" id="1_w5boo"]
+[ext_resource type="Texture2D" uid="uid://cyeoo344v6uiy" path="res://assets/art/toys/toy_NeonGator.png" id="2_bv44r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv44r"]
+atlas = ExtResource("2_bv44r")
+region = Rect2(1273.8782, 44.0384, 122.2251, 117.09347)
+
+[resource]
+script = ExtResource("1_w5boo")
+parent_toy = "Neon Gator"
+item_name = "Top Hat"
+texture = SubResource("AtlasTexture_bv44r")
+metadata/_custom_type_script = "uid://duvra24bk1ult"

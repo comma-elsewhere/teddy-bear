@@ -3,9 +3,12 @@
 [ext_resource type="AudioStream" uid="uid://1koo4n6u6lt3" path="res://assets/sound/audio/Scarlet_Scene1.ogg" id="1_48qjf"]
 [ext_resource type="Script" uid="uid://bu8lh7k2adhio" path="res://src/entities/objects/toys/toy_data.gd" id="1_bgxjb"]
 [ext_resource type="AudioStream" uid="uid://6uxpvhkiwsb" path="res://assets/sound/audio/Scarlet_Scene2.ogg" id="2_6y4tm"]
+[ext_resource type="Resource" uid="uid://drdoebrnbemnc" path="res://src/entities/objects/toys/items/blankie.tres" id="3_1jdtx"]
 
 [resource]
 script = ExtResource("1_bgxjb")
+toy_name = "StrawBunny"
+contaminant = ExtResource("3_1jdtx")
 patient_records = Array[String](["PF_SCARLET_0", "PF_SCARLET_1", "PF_SCARLET_2", "PF_SCARLET_3", "PF_SCARLET_4"])
 audio_files = Array[AudioStreamOggVorbis]([ExtResource("1_48qjf"), ExtResource("2_6y4tm")])
 subtitles_1 = Array[String](["PR_SCARLET_SUB1_0", "PR_SCARLET_SUB1_1", "PR_SCARLET_SUB1_2", "PR_SCARLET_SUB1_3", "PR_SCARLET_SUB1_4"])
