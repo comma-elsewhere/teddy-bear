@@ -4,11 +4,21 @@ extends Node
 enum ToyState { DAMAGED, DIRTY, CONTAMINANT, MISSING_ITEM, TORSO_OPEN }
 enum RepairType { STITCH, REMOVE, WASH, CUT, ITEM }
 
+@onready var _bench_top: Backdrop = %BackdropSTM/BenchTop
+@onready var _bench_bottom: Backdrop = %BackdropSTM/BenchBottom
+
+var got_scalpel: bool = false
 var _needs_repair: Array = []
 var _current_toy: Toy = null
 
 func _ready() -> void:
 	%Systems/ToySpawn.new_toy_spawned.connect(_set_new_areas)
+	await get_tree().process_frame
+	if got_scalpel:
+		_bench_top.unlock_scalpel()
+		_bench_bottom.unlock_scalpel()
+	else:
+		_bench_bottom.scalpel_collected.connect(_collect_scalpel)
 	
 func _set_new_areas(toy: Toy) -> void:
 	if toy.toy_data.missing_item != null:
@@ -69,3 +79,7 @@ func _spawn_repair_area(area_type: ToyState, item_data: ItemData = null) -> Repa
 			new_area.repair_details["item_data"] = item_data
 			
 	return new_area
+
+func _collect_scalpel() -> void:
+	got_scalpel = true
+	_bench_top.unlock_scalpel()

@@ -6,12 +6,14 @@ signal new_toy_spawned(new_toy: Toy)
 const MIN_TIME := 2.0
 const MAX_TIME := 4.0
 
-@export var _spawn_point: Marker2D
 @export var _toys: Array[PackedScene] = []
+
+@onready var _spawn_point: Marker2D = %DynamicRoot/ToySpawnPoint
 
 var spawn_timer := Timer.new()
 var current_toy: Toy = null
 var toy_prog: int = 0
+var current_round: int = 0
 
 func _enter_tree() -> void:
 	add_to_group("ToyMonitor")
@@ -34,6 +36,7 @@ func clear_current_toy() -> void:
 
 func _spawn_toy() -> void:
 	current_toy = _toys[toy_prog].instantiate() as Toy
+	current_toy.toy_data.viewing_round = current_round
 	
 	_spawn_point.global_rotation_degrees = randi_range(0, 355)
 	_spawn_point.global_position.x = randi_range(450, 1500)
@@ -43,7 +46,8 @@ func _spawn_toy() -> void:
 	current_toy.z_index = 20
 	emit_signal("new_toy_spawned", current_toy)
 	%TerminalControl.set_new_data(current_toy.toy_data)
-	
+	await get_tree().process_frame
 	toy_prog += 1
 	if toy_prog >= _toys.size():
 		toy_prog = 0
+		current_round += 1

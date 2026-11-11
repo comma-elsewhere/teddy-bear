@@ -7,7 +7,7 @@ class_name ThothSerializable
 
 static func _serialize_get_serializable(object):
 	#find if object is serializable
-	for child in object.get_children():
+	for child in object.get_children(true):
 		if child is ThothSerializable:
 			return child
 	return null

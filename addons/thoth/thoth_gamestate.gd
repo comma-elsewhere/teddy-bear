@@ -23,9 +23,9 @@ func pack_level(level):
 	game_state.maps[level.scene_file_path] = ThothSerializer._serialize_object(level)
 
 func unpack_level(level):
-	if visited_level(level):
-		ThothDeserializer._deserialize_object(game_state.maps[level.scene_file_path], level)
-		ThothDeserializer._deserialize_solve_references(level)
+	#if visited_level(level):
+	ThothDeserializer._deserialize_object(game_state.maps[level.scene_file_path], level)
+	ThothDeserializer._deserialize_solve_references(level)
 
 func set_game_variables(node):
 	game_state.globals[node.name] = ThothSerializer._serialize_object(node)

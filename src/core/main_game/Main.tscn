@@ -11,9 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://1o7kr4hhhagu" path="res://src/entities/objects/toys/toy_bodies/toy_NeonGator.tscn" id="5_pveoo"]
 [ext_resource type="Script" uid="uid://cla6psyt5k7lb" path="res://src/entities/static_pieces/backdrops/backdrop_chute.gd" id="6_gymin"]
 [ext_resource type="PackedScene" uid="uid://btrwtvyfqbb47" path="res://src/entities/objects/toys/toy_bodies/toy_StrawBunny.tscn" id="6_r1w42"]
+[ext_resource type="Script" uid="uid://nmgti4nnwjet" path="res://addons/thoth/thoth_serializable.gd" id="7_7oq72"]
 [ext_resource type="Texture2D" uid="uid://8twda3vherd4" path="res://assets/art/objects/chute_door.png" id="7_mgm8b"]
 [ext_resource type="Script" uid="uid://b81rtfgcr1csu" path="res://src/utility/systems/repair_machine.gd" id="7_wk3qy"]
 [ext_resource type="Texture2D" uid="uid://bicefh4n4f072" path="res://assets/art/background/bench_under.png" id="8_dqsg4"]
+[ext_resource type="Script" uid="uid://b146xa42md0k3" path="res://addons/thoth/thoth_gamestate.gd" id="8_r1w42"]
+[ext_resource type="Script" uid="uid://b4ymm0w54n0md" path="res://src/utility/systems/saving_system.gd" id="8_s2wie"]
 [ext_resource type="Script" uid="uid://dra2aecne347o" path="res://src/entities/static_pieces/backdrops/backdrop_bench_bottom.gd" id="9_m1ne5"]
 [ext_resource type="Texture2D" uid="uid://r7vqvl3376ei" path="res://assets/art/objects/washbroad.png" id="10_ibeg0"]
 [ext_resource type="Texture2D" uid="uid://u15rg1aa0jkg" path="res://assets/art/objects/lockbox.png" id="11_4xr8h"]
@@ -578,25 +581,46 @@ process_mode = 3
 
 [node name="Systems" type="Node" parent="." unique_id=1459789896]
 unique_name_in_owner = true
+script = ExtResource("8_s2wie")
+transform = false
 
-[node name="NavSystem" type="Node" parent="Systems" unique_id=703649385 node_paths=PackedStringArray("_bd_mother", "_nav_mother")]
-script = ExtResource("1_45db7")
-_bd_mother = NodePath("../../World/BackdropSTM")
-_nav_mother = NodePath("../../World/StaticRoot/Navigation")
-
-[node name="HookSystem" type="Node" parent="Systems" unique_id=1607458219 node_paths=PackedStringArray("_hook_sprite", "_nav_system", "_toy_spawn")]
+[node name="HookSystem" type="Node" parent="Systems" unique_id=1607458219]
 script = ExtResource("3_45db7")
-_hook_sprite = NodePath("../../World/StaticRoot/Hook")
-_nav_system = NodePath("../NavSystem")
-_toy_spawn = NodePath("../ToySpawn")
 
-[node name="ToySpawn" type="Node" parent="Systems" unique_id=537492770 node_paths=PackedStringArray("_spawn_point")]
+[node name="NavSystem" type="Node" parent="Systems" unique_id=703649385]
+script = ExtResource("1_45db7")
+
+[node name="NavSave" type="Node" parent="Systems/NavSystem" unique_id=1108088630]
+script = ExtResource("7_7oq72")
+transform = false
+children = false
+variables = Array[String](["current_index"])
+metadata/_custom_type_script = "uid://nmgti4nnwjet"
+
+[node name="ToySpawn" type="Node" parent="Systems" unique_id=537492770]
 script = ExtResource("4_gymin")
-_spawn_point = NodePath("../../World/DynamicRoot/ToySpawnPoint")
 _toys = Array[PackedScene]([ExtResource("5_m1ne5"), ExtResource("5_pveoo"), ExtResource("6_r1w42")])
+
+[node name="ToySave" type="Node" parent="Systems/ToySpawn" unique_id=56648232]
+script = ExtResource("7_7oq72")
+transform = false
+children = false
+variables = Array[String](["toy_prog", "current_round"])
+metadata/_custom_type_script = "uid://nmgti4nnwjet"
 
 [node name="RepairMachine" type="Node" parent="Systems" unique_id=1516907804]
 script = ExtResource("7_wk3qy")
+
+[node name="RepairSave" type="Node" parent="Systems/RepairMachine" unique_id=1113468067]
+script = ExtResource("7_7oq72")
+transform = false
+children = false
+variables = Array[String](["got_scalpel"])
+metadata/_custom_type_script = "uid://nmgti4nnwjet"
+
+[node name="SaveState" type="Node" parent="Systems" unique_id=2025118877]
+script = ExtResource("8_r1w42")
+metadata/_custom_type_script = "uid://b146xa42md0k3"
 
 [node name="World" type="Node2D" parent="." unique_id=95961031]
 process_mode = 1

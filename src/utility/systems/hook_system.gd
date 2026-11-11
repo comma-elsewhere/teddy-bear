@@ -11,16 +11,18 @@ const _ANGULAR_NORM := 0.2
 const _COLOR_NORM := Color(1.0, 1.0, 1.0)
 const _COLOR_HIGH := Color(4.0, 4.0, 4.0)
 
-@export var _hook_sprite: Sprite2D
-@export var _nav_system: NavSystem
-@export var _toy_spawn: ToySpawn
+@onready var _hook_sprite: Sprite2D = %StaticRoot/Hook
+@onready var _nav_system: NavSystem = %Systems/NavSystem
+@onready var _toy_spawn: ToySpawn = %Systems/ToySpawn
 
+var _toy_visible_state: int = -1
 var _current_toy: Toy = null
 var _hanging_limb: RapierRigidBody2D = null
-var _toy_visible_state: int = -1
 
 func _enter_tree() -> void:
 	add_to_group("ToyMonitor")
+
+func _ready() -> void:
 	_nav_system.state_change.connect(_move_hook)
 	_toy_spawn.new_toy_spawned.connect(_new_toy_spawned)
 	

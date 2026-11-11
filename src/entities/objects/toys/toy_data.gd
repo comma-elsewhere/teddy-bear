@@ -21,7 +21,7 @@ extends Resource
 @export var subtitles_2: Array[String] = [""]
 
 var listening_credit: Array[String] = []
-var viewing_round: int = 1 # Should be set to 0
+var viewing_round: int = 0 # Should be set to 0
 
 func get_audio_dict(index: int) -> Dictionary:
 	var subtitles: Array[Array] = [subtitles_1, subtitles_2]

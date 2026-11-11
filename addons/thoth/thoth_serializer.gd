@@ -102,13 +102,17 @@ static func _serialize_dictionary(input):
 
 static func _serialize_object(object):
 	if not is_instance_valid(object):
+		push_error("Cannot Save This Node : Instance Invalid")
 		return null
 
 	#find if object is serializable
-	var serializable = ThothSerializable._serialize_get_serializable(object)
-
-	if serializable == null:
-		return null
+	#var serializable = ThothSerializable._serialize_get_serializable(object)
+	var serializable: ThothSerializable
+	if object is ThothSerializable:
+		serializable = object as ThothSerializable
+	else:
+		push_error("Cannot Save This Node : Non Serializable")
+		return
 
 	var serialized = {
 		"type" : "object",
@@ -129,10 +133,10 @@ static func _serialize_object(object):
 		serialized["transform"] = _serialize_variable(object.transform)
 
 	#serialize object variables
-	if len(serializable.variables):
+	if serializable.variables.size() > 0:
 		serialized["variables"] = {}
 		for variable in serializable.variables:
-			serialized["variables"][variable] = _serialize_variable(object.get(variable), true)
+			serialized["variables"][variable] = _serialize_variable(object.get_parent().get(variable), true)
 
 	#serialize children
 	if serializable.children:
@@ -149,10 +153,11 @@ static func _serialize_object_reference(object):
 static func _serialize_children(object):
 	var children = {}
 	for child in object.get_children():
-		if child is ThothSerializable or child is ThothGameState:
-			continue
-		if ThothSerializable._serialize_get_serializable(child):
-			children[_serialize_get_name(child)] = _serialize_object(child)
+		var chosen_one: ThothSerializable = null
+		if child is ThothSerializable:
+			chosen_one = child as ThothSerializable
+		if chosen_one != null:
+			children[_serialize_get_name(chosen_one)] = _serialize_object(chosen_one)
 		else:
 			var recurse = _serialize_children(child)
 			if recurse == {}:

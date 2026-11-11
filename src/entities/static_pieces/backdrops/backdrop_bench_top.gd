@@ -24,3 +24,6 @@ func exit_backdrop() -> void:
 			tool.toggle_monitor(false)
 		else:
 			push_error("Foreign Node in the BenchTop ToolMother")
+	
+func unlock_scalpel() -> void:
+	return
