@@ -11,6 +11,5 @@ toy_name = "StrawBunny"
 contaminant = ExtResource("3_1jdtx")
 patient_records = Array[String](["PF_SCARLET_0", "PF_SCARLET_1", "PF_SCARLET_2", "PF_SCARLET_3", "PF_SCARLET_4"])
 audio_files = Array[AudioStreamOggVorbis]([ExtResource("1_48qjf"), ExtResource("2_6y4tm")])
-subtitles_1 = Array[String](["PR_SCARLET_SUB1_0", "PR_SCARLET_SUB1_1", "PR_SCARLET_SUB1_2", "PR_SCARLET_SUB1_3", "PR_SCARLET_SUB1_4", "PR_SCARLET_SUB1_5"])
-subtitles_2 = Array[String](["PR_SCARLET_SUB2_0", "PR_SCARLET_SUB2_1", "PR_SCARLET_SUB2_2", "PR_SCARLET_SUB2_3", "PR_SCARLET_SUB2_4", "PR_SCARLET_SUB2_5", "PR_SCARLET_SUB2_6"])
+subtitle_key = "PR_SCARLET_SUB"
 metadata/_custom_type_script = "uid://bu8lh7k2adhio"

@@ -10,6 +10,14 @@ toy_name = "Neon Gator"
 missing_item = ExtResource("2_dx2ma")
 patient_records = Array[String](["PF_PETER_0", "PF_PETER_1", "PF_PETER_2", "PF_PETER_3", "PF_PETER_4"])
 audio_files = Array[AudioStreamOggVorbis]([ExtResource("1_1fjfj")])
-subtitles_1 = Array[String](["PR_PETER_SUB1_0", "PR_PETER_SUB1_1", "PR_PETER_SUB1_2", "PR_PETER_SUB1_3", "PR_PETER_SUB1_4", "PR_PETER_SUB1_5", "PR_PETER_SUB1_6"])
-subtitles_2 = Array[String]([])
+subtitle_key = "PR_PETER_SUB"
+KeyedSub1 = Dictionary[String, float]({
+"0": 2.85,
+"1": 2.45,
+"2": 3.5,
+"3": 5.8,
+"4": 6.2,
+"5": 2.0,
+"6": 5.0
+})
 metadata/_custom_type_script = "uid://bu8lh7k2adhio"

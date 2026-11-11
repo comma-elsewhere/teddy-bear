@@ -1,7 +1,6 @@
 class_name AudioTabManager
 extends TabContainer
 
-signal audio_listened(stream: AudioStreamOggVorbis)
 
 @onready var audio_rec_tab_0: AudioRecTab = $AudioRecTab1
 @onready var audio_rec_tab_1: AudioRecTab = $AudioRecTab2
@@ -10,7 +9,10 @@ signal audio_listened(stream: AudioStreamOggVorbis)
 func _ready() -> void:
 	audio_rec_tab_0.play_button_pressed.connect(_play_new_audio)
 	audio_rec_tab_1.play_button_pressed.connect(_play_new_audio)
-	stream_player.finished.connect(func(): emit_signal("audio_listened", stream_player.stream))
+
+func stop_and_clear() -> void:
+	stream_player.stop()
+	stream_player.stream = null
 
 func set_new_audio(new_dict_array: Array[Dictionary]) -> void:
 	audio_rec_tab_0.new_audio(new_dict_array[0])

@@ -15,7 +15,12 @@ var toy_data: ToyData = null
 
 func _ready() -> void:
 	hide()
-	audio_tab_manager.audio_listened.connect(_listening_progress)
+	add_to_group("ToyMonitor")
+	
+func clear_current_toy() -> void: # group call function of the "ToyMonitor" Group
+	hide()
+	audio_tab_manager.stop_and_clear()
+	toy_data = null
 	
 func set_new_data(new_data: ToyData) -> void:
 	toy_data = new_data
@@ -31,15 +36,10 @@ func set_new_data(new_data: ToyData) -> void:
 		audio_array.append(new_data.get_audio_dict(i))
 	audio_tab_manager.set_new_audio(audio_array)
 	
-	toy_data.viewing_round += 1
 	_check_progression(toy_data.viewing_round)
 
-func _listening_progress(stream: AudioStreamOggVorbis) -> void:
-	if !toy_data.listening_credit.has(stream.get_meta("file_name")):
-		toy_data.listening_credit.append(stream.get_meta("file_name"))
-
 func _check_progression(current_round: int) -> void:
-	if current_round < 2:
+	if current_round <= 0:
 		patient_brief.add_theme_stylebox_override("normal", redacted_stylebox)
 		physician_notes.add_theme_stylebox_override("normal", redacted_stylebox)
 		audio_tab_manager.audio_rec_tab_0.play_button.disabled = true

@@ -13,7 +13,7 @@ const MAX_TIME := 4.0
 var spawn_timer := Timer.new()
 var current_toy: Toy = null
 var toy_prog: int = 0 # Starts on zero at a fresh save, max is _toys.size() -1
-var current_round: int = 0 # Starts on zero at a fresh save, 1 is where things unlock
+var current_round: int = 1 # Starts on zero at a fresh save, 1 is where things unlock
 
 func _enter_tree() -> void:
 	add_to_group("ToyMonitor")
