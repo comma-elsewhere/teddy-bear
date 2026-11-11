@@ -23,7 +23,6 @@ func pack_level(level):
 	game_state.maps[level.scene_file_path] = ThothSerializer._serialize_object(level)
 
 func unpack_level(level):
-	#if visited_level(level):
 	ThothDeserializer._deserialize_object(game_state.maps[level.scene_file_path], level)
 	ThothDeserializer._deserialize_solve_references(level)
 
@@ -39,7 +38,7 @@ func load_game_state(game_version = "default"):
 		_load_save_data()
 		game_state = save_data[game_version]
 	else:
-		printerr(save_filename + " doesn't exists, couldn't load!")
+		push_error(save_filename + " doesn't exists, couldn't load!")
 
 func save_game_state(game_version = "default"):
 	if save_exists():

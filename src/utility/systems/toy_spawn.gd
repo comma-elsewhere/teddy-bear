@@ -12,8 +12,8 @@ const MAX_TIME := 4.0
 
 var spawn_timer := Timer.new()
 var current_toy: Toy = null
-var toy_prog: int = 0
-var current_round: int = 0
+var toy_prog: int = 0 # Starts on zero at a fresh save, max is _toys.size() -1
+var current_round: int = 0 # Starts on zero at a fresh save, 1 is where things unlock
 
 func _enter_tree() -> void:
 	add_to_group("ToyMonitor")
@@ -26,8 +26,7 @@ func _ready() -> void:
 func spawn_first_toy() -> void:
 	_spawn_toy()
 
-# group callback function of the "ToyMonitor" Group
-func clear_current_toy() -> void:
+func clear_current_toy() -> void: # group call function of the "ToyMonitor" Group
 	if current_toy == null or !spawn_timer.is_stopped():
 		return
 	spawn_timer.start( randf_range(MIN_TIME, MAX_TIME) )
