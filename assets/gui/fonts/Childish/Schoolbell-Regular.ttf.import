@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dmwjc87sfuof8"
-path="res://.godot/imported/Tektur_Condensed-SemiBold.ttf-001831de84a84378e8ad8a31ecb98e9b.fontdata"
+uid="uid://dhdhoak6tdbve"
+path="res://.godot/imported/Schoolbell-Regular.ttf-fcc2c1919a63762a8ee650e6d1487dfa.fontdata"
 
 [deps]
 
-source_file="res://assets/gui/fonts/Tektur/Tektur_Condensed-SemiBold.ttf"
-dest_files=["res://.godot/imported/Tektur_Condensed-SemiBold.ttf-001831de84a84378e8ad8a31ecb98e9b.fontdata"]
+source_file="res://assets/gui/fonts/Childish/Schoolbell-Regular.ttf"
+dest_files=["res://.godot/imported/Schoolbell-Regular.ttf-fcc2c1919a63762a8ee650e6d1487dfa.fontdata"]
 
 [params]
 

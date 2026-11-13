@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://cc3tyrsoxd7d4"]
 
 [ext_resource type="Script" uid="uid://dxxgmlg2bgtox" path="res://src/gui/terminal_control.gd" id="1_m7j3q"]
-[ext_resource type="FontFile" uid="uid://dmwjc87sfuof8" path="res://assets/gui/fonts/Tektur/Tektur_Condensed-SemiBold.ttf" id="2_jw71n"]
-[ext_resource type="StyleBox" uid="uid://j760m1hpp6ho" path="res://src/resources/redacted_black_style_box_flat.stylebox" id="2_oknpa"]
-[ext_resource type="FontFile" uid="uid://cpv5micsj7hw1" path="res://assets/gui/fonts/Tektur/Tektur_Condensed-Black.ttf" id="2_xbk01"]
-[ext_resource type="StyleBox" uid="uid://d2ddvbfhft4q8" path="res://src/resources/unredacted_style_box_flat.stylebox" id="3_6hx2q"]
+[ext_resource type="FontFile" uid="uid://dmwjc87sfuof8" path="res://assets/gui/fonts/Computer/Tektur_Condensed-SemiBold.ttf" id="2_jw71n"]
+[ext_resource type="StyleBox" uid="uid://j760m1hpp6ho" path="res://src/resources/gui/redacted_black_style_box_flat.stylebox" id="2_oknpa"]
+[ext_resource type="StyleBox" uid="uid://d2ddvbfhft4q8" path="res://src/resources/gui/unredacted_style_box_flat.stylebox" id="3_6hx2q"]
 [ext_resource type="Script" uid="uid://cl6nqdhmpqmmu" path="res://src/gui/audio_tab_manager.gd" id="4_5cufm"]
-[ext_resource type="FontFile" uid="uid://devc2trif65it" path="res://assets/gui/fonts/Tektur/Tektur_Condensed-Regular.ttf" id="4_6hx2q"]
 [ext_resource type="PackedScene" uid="uid://bkayawb2stijt" path="res://src/gui/audio_recording_tab.tscn" id="4_jw71n"]
 
 [node name="TerminalControl" type="Control" unique_id=766559263]
@@ -56,119 +54,93 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="StaticTitle0" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=1247941481]
+[node name="StaticTitle0" type="Label" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=1700085429]
 custom_minimum_size = Vector2(475, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_xbk01")
-theme_override_font_sizes/normal_font_size = 36
+theme_type_variation = &"TerminalBold"
 text = "KEY_CONFIDENTIAL"
-fit_content = true
-scroll_active = false
 horizontal_alignment = 1
+autowrap_mode = 3
 
-[node name="NameAge" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=2051919266]
+[node name="NameAge" type="Label" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=59762753]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(475, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_xbk01")
-theme_override_font_sizes/normal_font_size = 28
+theme_type_variation = &"TerminalRegular"
 text = "JOHN DOE, Age 9"
-fit_content = true
-scroll_active = false
+autowrap_mode = 3
 
-[node name="StaticTitle1" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=782757811]
+[node name="StaticTitle1" type="Label" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=1170012394]
 custom_minimum_size = Vector2(475, 0)
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_jw71n")
-theme_override_font_sizes/normal_font_size = 24
+theme_type_variation = &"TerminalSemiBold"
 text = "KEY_REPAIR_INFO"
-fit_content = true
-scroll_active = false
 horizontal_alignment = 1
+autowrap_mode = 3
 
-[node name="RepairPlan" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=1288558074]
+[node name="RepairPlan" type="Label" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=1326502529]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(475, 0)
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_jw71n")
-theme_override_font_sizes/normal_font_size = 20
+theme_type_variation = &"TerminalRegular"
 text = "Repair Plan"
-fit_content = true
-scroll_active = false
+autowrap_mode = 3
 
-[node name="Presentation" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=1434603594]
+[node name="Presentation" type="Label" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=226898352]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(475, 0)
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("4_6hx2q")
-theme_override_font_sizes/normal_font_size = 20
+theme_type_variation = &"TerminalRegular"
 text = "Presentation
 Presentation"
-fit_content = true
-scroll_active = false
+autowrap_mode = 3
 
-[node name="StaticTitle2" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=1478593296]
+[node name="StaticTitle2" type="Label" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=1823425595]
 custom_minimum_size = Vector2(475, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_jw71n")
-theme_override_font_sizes/normal_font_size = 24
+theme_type_variation = &"TerminalSemiBold"
 text = "KEY_PATIENT_INFO"
-fit_content = true
-scroll_active = false
 horizontal_alignment = 1
+autowrap_mode = 3
 
-[node name="PatientBrief" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=533153989]
+[node name="PatientBrief" type="Label" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=1360031106]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(475, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_jw71n")
-theme_override_font_sizes/normal_font_size = 20
+theme_type_variation = &"TerminalRegular"
 text = "Patient Brief"
-fit_content = true
-scroll_active = false
+autowrap_mode = 3
 
-[node name="PhysicianNotes" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=160837605]
+[node name="PhysicianNotes" type="Label" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=1988428570]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(475, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("4_6hx2q")
-theme_override_font_sizes/normal_font_size = 20
+theme_type_variation = &"TerminalRegular"
 text = "Physician Notes
 Physician Notes
 Physician Notes"
-fit_content = true
-scroll_active = false
+autowrap_mode = 3
 
-[node name="StaticTitle3" type="RichTextLabel" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=1472728688]
+[node name="StaticTitle3" type="Label" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=2130827361]
 custom_minimum_size = Vector2(475, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_jw71n")
-theme_override_font_sizes/normal_font_size = 24
+theme_type_variation = &"TerminalSemiBold"
 text = "KEY_PATIENT_AUDIO"
-fit_content = true
-scroll_active = false
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="AudioMarginContainer" type="MarginContainer" parent="ScreenMargins/ScrollContainer/VBoxMain" unique_id=2117873097]
+custom_minimum_size = Vector2(0, 400)
 propagate_maximum_size = false
 layout_mode = 2
 size_flags_vertical = 0
@@ -180,6 +152,7 @@ theme_override_constants/margin_right = 40
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_type_variation = &"TerminalTab"
 theme_override_fonts/font = ExtResource("2_jw71n")
 current_tab = 0
 tab_0/title = "SecLog_ToyMic_LiveRec"

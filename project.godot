@@ -41,7 +41,7 @@ RepairArea=""
 [gui]
 
 fonts/dynamic_fonts/use_oversampling=false
-theme/custom_font="uid://dhdhoak6tdbve"
+theme/custom="uid://c5by24q6ppaa6"
 
 [importer_defaults]
 
@@ -152,6 +152,7 @@ locale/translations=PackedStringArray("res://translations/translations.en.transl
 2d/physics_engine="Rapier2D"
 3d/physics_engine="Jolt Physics"
 2d/default_gravity=2000.0
+rapier/solver/preset=2
 rapier/solver/contact_natural_frequency=50.0
 
 [rendering]

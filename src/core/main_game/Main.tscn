@@ -863,6 +863,7 @@ texture = ExtResource("13_pveoo")
 centered = false
 
 [node name="BenchTop" type="Sprite2D" parent="World/BackdropSTM" unique_id=984937443]
+visible = false
 texture = ExtResource("14_r1w42")
 centered = false
 script = ExtResource("15_5f1oo")

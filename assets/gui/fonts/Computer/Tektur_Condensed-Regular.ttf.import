@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://v4t576l3ydpn"
-path="res://.godot/imported/Chewy-Regular.ttf-817f3f2e1f1d170a6d3c350fa3230dba.fontdata"
+uid="uid://devc2trif65it"
+path="res://.godot/imported/Tektur_Condensed-Regular.ttf-fb976ecb7a0bb27d18509f933a43beb8.fontdata"
 
 [deps]
 
-source_file="res://assets/gui/fonts/Chewy/Chewy-Regular.ttf"
-dest_files=["res://.godot/imported/Chewy-Regular.ttf-817f3f2e1f1d170a6d3c350fa3230dba.fontdata"]
+source_file="res://assets/gui/fonts/Computer/Tektur_Condensed-Regular.ttf"
+dest_files=["res://.godot/imported/Tektur_Condensed-Regular.ttf-fb976ecb7a0bb27d18509f933a43beb8.fontdata"]
 
 [params]
 

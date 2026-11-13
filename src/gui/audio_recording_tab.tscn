@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bkayawb2stijt"]
 
 [ext_resource type="Script" uid="uid://mprcsuecs3sp" path="res://src/gui/audio_recording_tab.gd" id="1_n2ln8"]
-[ext_resource type="FontFile" uid="uid://cpv5micsj7hw1" path="res://assets/gui/fonts/Tektur/Tektur_Condensed-Black.ttf" id="3_hv4pc"]
 
 [node name="AudioRecordingTab" type="PanelContainer" unique_id=93784887]
 custom_minimum_size = Vector2(380, 0)
@@ -39,5 +38,4 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("3_hv4pc")
 text = "KEY_PLAY_AUDIO"

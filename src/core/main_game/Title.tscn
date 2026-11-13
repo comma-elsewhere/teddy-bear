@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cptl20xstrxuq"]
 
 [ext_resource type="Texture2D" uid="uid://duflvxyhcqkxm" path="res://assets/temp_title.jpg" id="1_360cg"]
-[ext_resource type="FontFile" uid="uid://v4t576l3ydpn" path="res://assets/gui/fonts/Chewy/Chewy-Regular.ttf" id="2_ycvdl"]
+[ext_resource type="FontFile" uid="uid://v4t576l3ydpn" path="res://assets/gui/fonts/Childish/Chewy-Regular.ttf" id="2_ycvdl"]
 [ext_resource type="PackedScene" uid="uid://br8j1fk6jsj56" path="res://src/gui/game_settings.tscn" id="3_01r5e"]
 [ext_resource type="AudioStream" uid="uid://b413km3r4q4yn" path="res://assets/sound/music/SoftTissue_TitleScreenBGM.ogg" id="3_jypdy"]
 
@@ -95,23 +95,20 @@ theme_override_constants/margin_bottom = 25
 [node name="TitleLabel" type="Label" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer" unique_id=651766006]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.27, 0, 0, 1)
-theme_override_constants/outline_size = 15
-theme_override_font_sizes/font_size = 160
+theme_type_variation = &"TitleCardLabel"
 text = "KEY_GAME_TITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HoverPlay" type="Label" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer" unique_id=811527947]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.27, 0, 0, 1)
-theme_override_constants/outline_size = 15
+theme_type_variation = &"TitleCardLabel"
 theme_override_fonts/font = ExtResource("2_ycvdl")
-theme_override_font_sizes/font_size = 160
 text = "KEY_PLAY_GAME"
 horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
 
 [node name="PlayButton" type="Button" parent="CanvasLayer/Control/MarginContainer/PanelContainer" unique_id=1595389250]

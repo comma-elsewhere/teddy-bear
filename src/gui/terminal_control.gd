@@ -4,11 +4,11 @@ extends Control
 @export var redacted_stylebox: StyleBoxFlat
 @export var visible_stylebox: StyleBoxFlat
 
-@onready var name_age: RichTextLabel = %NameAge
-@onready var repair_plan: RichTextLabel = %RepairPlan
-@onready var presentation: RichTextLabel = %Presentation
-@onready var patient_brief: RichTextLabel = %PatientBrief
-@onready var physician_notes: RichTextLabel = %PhysicianNotes
+@onready var name_age: Label = %NameAge
+@onready var repair_plan: Label = %RepairPlan
+@onready var presentation: Label = %Presentation
+@onready var patient_brief: Label = %PatientBrief
+@onready var physician_notes: Label = %PhysicianNotes
 @onready var audio_tab_manager: AudioTabManager = %AudioTabManager
 
 var toy_data: ToyData = null

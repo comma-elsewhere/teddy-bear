@@ -24,6 +24,7 @@ theme_override_constants/margin_right = 40
 
 [node name="TabContainer" type="TabContainer" parent="MarginContainer" unique_id=1415146695]
 layout_mode = 2
+theme_type_variation = &"MenuTab"
 theme_override_styles/panel = SubResource("StyleBoxFlat_xot5u")
 current_tab = 0
 tab_0/title = "KEY_AUDIO_GRAPHIC"
@@ -59,12 +60,14 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/Language" unique_id=2040871623]
 layout_mode = 2
+theme_type_variation = &"WrittenLabel"
 text = "KEY_LANGUAGE"
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/Language" unique_id=135009527]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 4
 selected = 0
 allow_reselect = true
 item_count = 1
@@ -78,42 +81,50 @@ theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls" unique_id=81527241]
 layout_mode = 2
+theme_type_variation = &"WrittenLabel"
 theme_override_font_sizes/font_size = 20
 text = "KEY_AUDIO"
+horizontal_alignment = 1
 
 [node name="GameVolume" type="HBoxContainer" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls" unique_id=454608421]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls/GameVolume" unique_id=516144022]
 layout_mode = 2
+theme_type_variation = &"WrittenLabel"
 text = "KEY_VOLUME"
 
 [node name="HSlider" type="HSlider" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls/GameVolume" unique_id=667580017]
 custom_maximum_size = Vector2(300, -1)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 
 [node name="MusicVolume" type="HBoxContainer" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls" unique_id=197864465]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls/MusicVolume" unique_id=1559529679]
 layout_mode = 2
+theme_type_variation = &"WrittenLabel"
 text = "KEY_MUSIC"
 
 [node name="HSlider" type="HSlider" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls/MusicVolume" unique_id=982310585]
 custom_maximum_size = Vector2(300, -1)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 
 [node name="Mute" type="HBoxContainer" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls" unique_id=204133505]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls/Mute" unique_id=1148167450]
 layout_mode = 2
+theme_type_variation = &"WrittenLabel"
 text = "KEY_MUTE"
 
 [node name="CheckBox" type="CheckBox" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/AudioControls/Mute" unique_id=1764999062]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="WindowGraphics" type="VBoxContainer" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster" unique_id=666061198]
 propagate_maximum_size = false
@@ -122,20 +133,24 @@ theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics" unique_id=1096629508]
 layout_mode = 2
+theme_type_variation = &"WrittenLabel"
 theme_override_font_sizes/font_size = 20
 text = "KEY_GRAPHICS"
+horizontal_alignment = 1
 
 [node name="Resolution" type="HBoxContainer" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics" unique_id=912769841]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics/Resolution" unique_id=1449032269]
 layout_mode = 2
+theme_type_variation = &"WrittenLabel"
 text = "KEY_RESOLUTION"
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics/Resolution" unique_id=1323177228]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 4
 allow_reselect = true
 
 [node name="Fullscreen" type="HBoxContainer" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics" unique_id=1197138352]
@@ -143,22 +158,26 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics/Fullscreen" unique_id=1573054884]
 layout_mode = 2
+theme_type_variation = &"WrittenLabel"
 text = "KEY_FULLSCREEN"
 
 [node name="CheckBox" type="CheckBox" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics/Fullscreen" unique_id=409653457]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="Brightness" type="HBoxContainer" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics" unique_id=296880926]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics/Brightness" unique_id=952184367]
 layout_mode = 2
+theme_type_variation = &"WrittenLabel"
 text = "KEY_BRIGHTNESS"
 
 [node name="HSlider" type="HSlider" parent="MarginContainer/TabContainer/AudioGraphic/ScrollContainer/VBoxMaster/WindowGraphics/Brightness" unique_id=1256948308]
 custom_maximum_size = Vector2(300, -1)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 
 [node name="Accessibility" type="MarginContainer" parent="MarginContainer/TabContainer" unique_id=1946925407]
 visible = false
@@ -187,10 +206,12 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/DyslexicFont" unique_id=173054142]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_type_variation = &"WrittenLabel"
 text = "KEY_DYSLEXIA"
 
 [node name="CheckBox" type="CheckBox" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/DyslexicFont" unique_id=429420578]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="Subtitles" type="HBoxContainer" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer" unique_id=263278332]
 layout_mode = 2
@@ -198,10 +219,12 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/Subtitles" unique_id=295885464]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_type_variation = &"WrittenLabel"
 text = "KEY_SUBTITLES"
 
 [node name="CheckBox" type="CheckBox" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/Subtitles" unique_id=8208446]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="CameraShake" type="HBoxContainer" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer" unique_id=210014909]
 layout_mode = 2
@@ -209,10 +232,12 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/CameraShake" unique_id=1988173489]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_type_variation = &"WrittenLabel"
 text = "KEY_CAMERA_SHAKE"
 
 [node name="CheckBox" type="CheckBox" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/CameraShake" unique_id=824874613]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="FlickeringLights" type="HBoxContainer" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer" unique_id=1642899224]
 layout_mode = 2
@@ -220,10 +245,12 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/FlickeringLights" unique_id=821959725]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_type_variation = &"WrittenLabel"
 text = "KEY_EPILEPSY"
 
 [node name="CheckBox" type="CheckBox" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/FlickeringLights" unique_id=1527493063]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="ClickDrag" type="HBoxContainer" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer" unique_id=1892105661]
 layout_mode = 2
@@ -231,44 +258,52 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/ClickDrag" unique_id=1415845385]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_type_variation = &"WrittenLabel"
 text = "KEY_CLICK_DRAG"
 
 [node name="CheckBox" type="CheckBox" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer/ClickDrag" unique_id=613932586]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="StaticTitleDemo" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer" unique_id=527423217]
 layout_mode = 2
 size_flags_vertical = 6
+theme_type_variation = &"WrittenLabel"
 theme_override_font_sizes/font_size = 20
 text = "KEY_CW_TITLE"
 
 [node name="ContentWarnings" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer" unique_id=1022629396]
 layout_mode = 2
 size_flags_vertical = 6
+theme_type_variation = &"WrittenLabel"
 theme_override_font_sizes/font_size = 18
 text = "KEY_CW_MEDICAL"
 
 [node name="ContentWarnings2" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer" unique_id=2128319414]
 layout_mode = 2
 size_flags_vertical = 6
+theme_type_variation = &"WrittenLabel"
 theme_override_font_sizes/font_size = 18
 text = "KEY_CW_DELUSIONS"
 
 [node name="ContentWarnings3" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer" unique_id=1414220038]
 layout_mode = 2
 size_flags_vertical = 6
+theme_type_variation = &"WrittenLabel"
 theme_override_font_sizes/font_size = 18
 text = "KEY_CW_DENTAL"
 
 [node name="ContentWarnings4" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer" unique_id=539557262]
 layout_mode = 2
 size_flags_vertical = 6
+theme_type_variation = &"WrittenLabel"
 theme_override_font_sizes/font_size = 18
 text = "KEY_CW_CANCER"
 
 [node name="ContentWarnings5" type="Label" parent="MarginContainer/TabContainer/Accessibility/ScrollContainer/VBoxContainer" unique_id=1449740432]
 layout_mode = 2
 size_flags_vertical = 6
+theme_type_variation = &"WrittenLabel"
 theme_override_font_sizes/font_size = 18
 text = "KEY_CW_NEGLECT"
 

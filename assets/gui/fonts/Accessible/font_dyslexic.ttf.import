@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cpv5micsj7hw1"
-path="res://.godot/imported/Tektur_Condensed-Black.ttf-b9e1a026ff2ddf7d5b7d6f89f64390ec.fontdata"
+uid="uid://dq8dvmka1hs4s"
+path="res://.godot/imported/font_dyslexic.ttf-494b7354b20a38af0644315dd71c220d.fontdata"
 
 [deps]
 
-source_file="res://assets/gui/fonts/Tektur/Tektur_Condensed-Black.ttf"
-dest_files=["res://.godot/imported/Tektur_Condensed-Black.ttf-b9e1a026ff2ddf7d5b7d6f89f64390ec.fontdata"]
+source_file="res://assets/gui/fonts/Accessible/font_dyslexic.ttf"
+dest_files=["res://.godot/imported/font_dyslexic.ttf-494b7354b20a38af0644315dd71c220d.fontdata"]
 
 [params]
 
