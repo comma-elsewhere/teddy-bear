@@ -26,11 +26,12 @@ theme_override_constants/margin_right = 40
 layout_mode = 2
 theme_type_variation = &"MenuTab"
 theme_override_styles/panel = SubResource("StyleBoxFlat_xot5u")
-current_tab = 0
+current_tab = 1
 tab_0/title = "KEY_AUDIO_GRAPHIC"
 tab_1/title = "KEY_ACCESSIBILITY"
 
 [node name="AudioGraphic" type="MarginContainer" parent="MarginContainer/TabContainer" unique_id=1214860206]
+visible = false
 custom_minimum_size = Vector2(720, 0)
 custom_maximum_size = Vector2(720, -1)
 layout_mode = 2
@@ -180,7 +181,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="Accessibility" type="MarginContainer" parent="MarginContainer/TabContainer" unique_id=1946925407]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 40

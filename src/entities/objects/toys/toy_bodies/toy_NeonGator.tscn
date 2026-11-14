@@ -64,7 +64,7 @@ limb_bodies = [NodePath("Head"), NodePath("Torso"), NodePath("LeftArm"), NodePat
 spawn_points = [NodePath("Head/HeadAreaSpawnPoint5"), NodePath("Torso/NeckAreaSpawnPoint3"), NodePath("Torso/AreaSpawnPoint4"), NodePath("LeftLeg/AreaSpawnPoint1"), NodePath("RightLeg/AreaSpawnPoint6"), NodePath("RightLeg/AreaSpawnPoint7"), NodePath("LeftLeg/AreaSpawnPoint2"), NodePath("LeftArm/AreaSpawnPoint0"), NodePath("RightArm/AreaSpawnPoint8")]
 
 [node name="LeftArm" type="RigidBody2D" parent="." unique_id=1313522487]
-position = Vector2(-132, 320)
+position = Vector2(-135, 335)
 collision_layer = 2
 collision_mask = 9
 mass = 0.6
@@ -208,7 +208,7 @@ position = Vector2(28, 4)
 polygon = PackedVector2Array(27.5, -155, -6.300003, -190, -15.900002, -190, -21.5, -187.7, -21.5, -186.5, -39.7, -178, -45.8, -178, -57.8, -153, -62.9, -153, -55.6, 22.800003, -75.3, 103, -79.6, 103, -73.5, 161, -73.5, 177.79999, -32.2, 167.4, -1.5999985, 190, 12.800003, 190, 28.400002, 171.29999, 46.1, 185, 57.100006, 185, 74.100006, 145, 80.5, 145, 27.5, -147.7)
 
 [node name="RightArm" type="RigidBody2D" parent="." unique_id=18116712]
-position = Vector2(134, 324)
+position = Vector2(141, 336)
 collision_layer = 4
 collision_mask = 9
 mass = 0.6

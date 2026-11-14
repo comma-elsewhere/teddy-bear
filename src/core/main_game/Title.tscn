@@ -117,6 +117,7 @@ flat = true
 script = SubResource("GDScript_ycvdl")
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1802191845]
+visible = false
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
