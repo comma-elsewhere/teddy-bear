@@ -973,7 +973,7 @@ unique_name_in_owner = true
 
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=1236321354]
 process_mode = 1
-layer = 10
+layer = 25
 
 [node name="HudRoot" type="Control" parent="HudLayer" unique_id=129501801]
 unique_name_in_owner = true
@@ -987,7 +987,7 @@ mouse_filter = 2
 
 [node name="PauseLayer" type="CanvasLayer" parent="." unique_id=191905461]
 process_mode = 2
-layer = 25
+layer = 50
 
 [node name="PauseRoot" type="Control" parent="PauseLayer" unique_id=1806793831]
 unique_name_in_owner = true
@@ -1001,7 +1001,7 @@ mouse_filter = 2
 
 [node name="TransLayer" type="CanvasLayer" parent="." unique_id=551546518]
 process_mode = 3
-layer = 50
+layer = 100
 
 [node name="TransRoot" type="Control" parent="TransLayer" unique_id=8888704]
 unique_name_in_owner = true
@@ -1025,17 +1025,3 @@ color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TransLayer/TransRoot" unique_id=1148875301]
 libraries/ = SubResource("AnimationLibrary_wk3qy")
-
-[node name="DebugLayer" type="CanvasLayer" parent="." unique_id=96291035]
-process_mode = 3
-layer = 100
-visible = false
-
-[node name="DebugRoot" type="Control" parent="DebugLayer" unique_id=1946539491]
-unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
-metadata/_edit_use_anchors_ = true

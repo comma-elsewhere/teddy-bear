@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cgscq3am83h8a"]
+
+[ext_resource type="Script" uid="uid://b0nwakb8f8u7f" path="res://src/core/autoload/save_game_settings.gd" id="1_w62bn"]
+[ext_resource type="Script" uid="uid://nmgti4nnwjet" path="res://addons/thoth/thoth_serializable.gd" id="2_0vt65"]
+[ext_resource type="Script" uid="uid://b146xa42md0k3" path="res://addons/thoth/thoth_gamestate.gd" id="2_ito51"]
+
+[node name="Parent" type="Node" unique_id=1707413326]
+script = ExtResource("1_w62bn")
+
+[node name="SaveGameSettings" type="Node" parent="." unique_id=1065294368]
+script = ExtResource("2_0vt65")
+variables = Array[String](["language", "master_volume", "music_volume", "sfx_volume", "mute", "resolution", "fullscreen", "dyslexia_font", "subtitles", "camera_shake", "flickering_lights", "click_drag"])
+metadata/_custom_type_script = "uid://nmgti4nnwjet"
+
+[node name="Savestate" type="Node" parent="." unique_id=1382513324]
+script = ExtResource("2_ito51")
+metadata/_custom_type_script = "uid://b146xa42md0k3"

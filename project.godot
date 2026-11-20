@@ -22,6 +22,10 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="uid://k6k15qnaua75"
 
+[autoload]
+
+Settings="*uid://cgscq3am83h8a"
+
 [display]
 
 window/size/viewport_width=1920

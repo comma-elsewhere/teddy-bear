@@ -18,7 +18,7 @@ KEY_FULLSCREEN,Fullscreen
 KEY_GAME_TITLE,Teddy Bear Autopsy
 KEY_GRAPHICS,Graphics
 KEY_LANGUAGE,Language
-KEY_MUSIC,Music
+KEY_MUSIC,Music Volume
 KEY_MUTE,Mute
 KEY_PATIENT_AUDIO,Surveillance Audio
 KEY_PATIENT_INFO,Patient Information
@@ -28,7 +28,7 @@ KEY_REPAIR_INFO,Repairs Information
 KEY_RESOLUTION,Resolution
 KEY_SETTINGS,Settings
 KEY_SUBTITLES,Subtitles
-KEY_VOLUME,Volume
+KEY_VOLUME,Volume Controls
 PF_ARTHUR_0,"ARTHUR BARON, Age 15"
 PF_ARTHUR_1,Clean and restore to factory condition.
 PF_ARTHUR_2,Submitted for repair during psychiatric recovery period. Structurally compromised due to external environment exposure.
@@ -71,3 +71,5 @@ PR_SCARLET_SUB2_3,"Mom: Well, you close your eyes for a bit and rest, okay? I'll
 PR_SCARLET_SUB2_4,(Various sounds as Scarlet expires)
 PR_SCARLET_SUB2_5,"Mom: All the nurses have is Razzle Tazz, so I put some honey... Scarlet...?"
 PR_SCARLET_SUB2_6,(Distress and grief)
+KEY_SFX,Sound Effects Volume
+KEY_MASTER,Master Volume
