@@ -16,7 +16,6 @@ const RES_ARRAY: Array[Vector2i] = [Vector2i(2560, 1440), Vector2i(1920, 1080), 
 @onready var camera_shake_check_box: CheckButton = %CameraShakeCheckBox
 @onready var flickering_check_box: CheckButton = %FlickeringCheckBox
 @onready var click_drag_check_box: CheckButton = %ClickDragCheckBox
-@onready var save_changes_button: Button = %SaveChangesButton
 
 func _ready() -> void:
 	language_options.item_selected.connect(_update_langauge)
@@ -31,7 +30,6 @@ func _ready() -> void:
 	camera_shake_check_box.toggled.connect(_update_camera_shake)
 	flickering_check_box.toggled.connect(_update_flickering_lights)
 	click_drag_check_box.toggled.connect(_update_click_drag)
-	save_changes_button.pressed.connect(save_changes)
 	$CloseMenuButton.pressed.connect(save_changes)
 	
 	await get_tree().process_frame

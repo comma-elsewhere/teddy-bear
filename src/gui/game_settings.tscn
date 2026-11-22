@@ -351,14 +351,6 @@ theme_type_variation = &"WrittenLabel"
 theme_override_font_sizes/font_size = 18
 text = "KEY_CW_NEGLECT"
 
-[node name="SaveChangesButton" type="Button" parent="MarginContainer" unique_id=103847763]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(120, 40)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-text = "KEY_SAVE_CHANGES"
-
 [node name="CloseMenuButton" type="Button" parent="." unique_id=681599763]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
