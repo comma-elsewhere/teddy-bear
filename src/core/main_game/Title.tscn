@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://cptl20xstrxuq"]
 
-[ext_resource type="Texture2D" uid="uid://duflvxyhcqkxm" path="res://assets/temp_title.jpg" id="1_360cg"]
 [ext_resource type="FontFile" uid="uid://v4t576l3ydpn" path="res://assets/gui/fonts/Childish/Chewy-Regular.ttf" id="2_ycvdl"]
 [ext_resource type="PackedScene" uid="uid://br8j1fk6jsj56" path="res://src/gui/game_settings.tscn" id="3_01r5e"]
+[ext_resource type="Script" uid="uid://dkxuppvxoqufx" path="res://src/gui/title_control.gd" id="3_37i70"]
 [ext_resource type="AudioStream" uid="uid://b413km3r4q4yn" path="res://assets/sound/music/SoftTissue_TitleScreenBGM.ogg" id="3_jypdy"]
+[ext_resource type="Script" uid="uid://ccphtvvl5ym6x" path="res://src/gui/play_game.gd" id="4_37i70"]
+[ext_resource type="Texture2D" uid="uid://b5cd2ekgnbvh0" path="res://assets/art/temp/waiting_room.png" id="4_do50x"]
+[ext_resource type="Texture2D" uid="uid://bvcv67ilc8quk" path="res://assets/art/temp/wood_base.png" id="8_j0mpx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qoks"]
 bg_color = Color(0.9544777, 0.7254515, 0.6175496, 1)
@@ -19,48 +22,35 @@ border_width_left = 3
 border_width_right = 3
 border_color = Color(0.9676915, 0.80416757, 0.72616893, 1)
 
-[sub_resource type="GDScript" id="GDScript_ycvdl"]
-resource_name = "PlayGameButton"
-script/source = "extends Button
-
-func _enter_tree() -> void:
-	mouse_entered.connect(_toggle_visible_label.bind(true))
-	mouse_exited.connect(_toggle_visible_label.bind(false))
-	button_up.connect(_load_game)
-	
-func _toggle_visible_label(mouse_hover: bool) -> void:
-	%TitleLabel.visible = !mouse_hover
-	%HoverPlay.visible = mouse_hover
-	
-func _load_game() -> void:
-	get_tree().change_scene_to_file(\"res://src/core/main_game/Main.tscn\")
-"
-
 [node name="TitleRoot" type="Node" unique_id=1659650039]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1434148888]
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=827759956]
+[node name="Root2D" type="Node2D" parent="CanvasLayer" unique_id=1095771565]
+
+[node name="WaitingRoomBG" type="Sprite2D" parent="CanvasLayer/Root2D" unique_id=59096638]
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("4_do50x")
+centered = false
+
+[node name="BeadMazeBase" type="Sprite2D" parent="CanvasLayer/Root2D" unique_id=1124282676]
+position = Vector2(507.9999, 1028)
+texture = ExtResource("8_j0mpx")
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=827759956 node_paths=PackedStringArray("open_settings_button", "settings_menu", "everything_else")]
+custom_minimum_size = Vector2(900, 0)
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 11
+anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control" unique_id=866546116]
-modulate = Color(0.6582303, 0.6021753, 0.45013213, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_360cg")
-expand_mode = 3
-stretch_mode = 6
-flip_h = true
+script = ExtResource("3_37i70")
+open_settings_button = NodePath("MarginContainer/VBoxContainer/SettingsButton")
+settings_menu = NodePath("MarginContainer/GameSettings")
+everything_else = [NodePath("MarginContainer/VBoxContainer")]
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=491969686]
 layout_mode = 1
@@ -72,70 +62,116 @@ grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 100
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/MarginContainer" unique_id=1136984592]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer" unique_id=1613872998]
+layout_mode = 2
+
+[node name="NewGame" type="PanelContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=1136984592 node_paths=PackedStringArray("base_label", "hover_label", "play_button")]
 custom_minimum_size = Vector2(800, 270)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxFlat_4qoks")
+script = ExtResource("4_37i70")
+base_label = NodePath("MarginContainer/NewPatient")
+hover_label = NodePath("MarginContainer/PlayLabel")
+play_button = NodePath("PlayNewButton")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Control/MarginContainer/PanelContainer" unique_id=1115537382]
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/NewGame" unique_id=1115537382]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fb62l")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/PanelContainer" unique_id=466016639]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/NewGame" unique_id=466016639]
 layout_mode = 2
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 25
 
-[node name="TitleLabel" type="Label" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer" unique_id=651766006]
-unique_name_in_owner = true
+[node name="NewPatient" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/NewGame/MarginContainer" unique_id=651766006]
 layout_mode = 2
 theme_type_variation = &"TitleCardLabel"
-text = "KEY_GAME_TITLE"
+text = "KEY_PATIENT_NEW"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HoverPlay" type="Label" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer" unique_id=811527947]
-unique_name_in_owner = true
+[node name="PlayLabel" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/NewGame/MarginContainer" unique_id=811527947]
 visible = false
 layout_mode = 2
 theme_type_variation = &"TitleCardLabel"
 theme_override_fonts/font = ExtResource("2_ycvdl")
-text = "KEY_PLAY_GAME"
+text = "KEY_GAME_START"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="PlayButton" type="Button" parent="CanvasLayer/Control/MarginContainer/PanelContainer" unique_id=1595389250]
+[node name="PlayNewButton" type="Button" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/NewGame" unique_id=1595389250]
 layout_mode = 2
 flat = true
-script = SubResource("GDScript_ycvdl")
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1802191845]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -750.0
-offset_top = -225.0
-offset_bottom = 225.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 50
-
-[node name="GameSettings" parent="CanvasLayer/Control/MarginContainer2" unique_id=762460215 instance=ExtResource("3_01r5e")]
-custom_minimum_size = Vector2(750, 450)
+[node name="ContinueGame" type="PanelContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=717316542 node_paths=PackedStringArray("base_label", "hover_label", "play_button")]
+custom_minimum_size = Vector2(800, 270)
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_4qoks")
+script = ExtResource("4_37i70")
+load_save_file = true
+base_label = NodePath("MarginContainer/ReturnPatient")
+hover_label = NodePath("MarginContainer/ContinueLabel")
+play_button = NodePath("PlayContinueButton")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ContinueGame" unique_id=675004830]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_fb62l")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ContinueGame" unique_id=1135547173]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 25
+
+[node name="ReturnPatient" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ContinueGame/MarginContainer" unique_id=200584683]
+layout_mode = 2
+theme_type_variation = &"TitleCardLabel"
+text = "KEY_PATIENT_RETURN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueLabel" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ContinueGame/MarginContainer" unique_id=902508319]
+visible = false
+layout_mode = 2
+theme_type_variation = &"TitleCardLabel"
+text = "KEY_GAME_CONTINUE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayContinueButton" type="Button" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ContinueGame" unique_id=1012611344]
+layout_mode = 2
+flat = true
+
+[node name="SettingsButton" type="Button" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=1111544486]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.87, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.89, 0.17799999, 0.17799999, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_ycvdl")
+theme_override_font_sizes/font_size = 96
+text = "KEY_SETTINGS"
+flat = true
+
+[node name="GameSettings" parent="CanvasLayer/Control/MarginContainer" unique_id=762460215 instance=ExtResource("3_01r5e")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="." unique_id=83364754]
 stream = ExtResource("3_jypdy")

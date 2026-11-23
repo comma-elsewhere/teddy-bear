@@ -8,11 +8,10 @@ bg_color = Color(0.7097258, 0.40174457, 0.43642646, 1)
 
 [node name="GameSettings" type="Control" unique_id=762460215]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
 grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("1_h0auy")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=358469933]
@@ -44,7 +43,7 @@ metadata/_tab_index = 0
 metadata/_tab_name = "KEY_AUDIO_GRAPHIC"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/TabContainer/AudioGraphic" unique_id=732126588]
-custom_minimum_size = Vector2(600, 0)
+custom_minimum_size = Vector2(600, 400)
 custom_maximum_size = Vector2(660, -1)
 layout_mode = 2
 horizontal_scroll_mode = 0
@@ -224,7 +223,7 @@ metadata/_tab_index = 1
 metadata/_tab_name = "KEY_ACCESSIBILITY"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/TabContainer/Accessibility" unique_id=1255470278]
-custom_minimum_size = Vector2(600, 0)
+custom_minimum_size = Vector2(600, 400)
 custom_maximum_size = Vector2(660, -1)
 layout_mode = 2
 horizontal_scroll_mode = 0
@@ -351,15 +350,12 @@ theme_type_variation = &"WrittenLabel"
 theme_override_font_sizes/font_size = 18
 text = "KEY_CW_NEGLECT"
 
-[node name="CloseMenuButton" type="Button" parent="." unique_id=681599763]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -8.0
-offset_bottom = 8.0
-grow_horizontal = 0
+[node name="CloseMenuButton" type="Button" parent="MarginContainer" unique_id=681599763]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(45, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = " X "
 

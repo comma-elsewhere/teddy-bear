@@ -1,6 +1,9 @@
 class_name GameSettingsClass
 extends Node
 
+const DYSLEXIA_THEME := preload("res://src/resources/gui/dyslexia.theme")
+const STANDARD_THEME := preload("res://src/resources/gui/standard.theme")
+
 var language: int
 
 var master_volume: float
@@ -17,18 +20,26 @@ var camera_shake: bool
 var flickering_lights: bool
 var click_drag: bool
 
-@onready var _serializer: ThothSerializable = $SaveGameSettings
-@onready var _save_state: ThothGameState = $Savestate
+var save_file_exists: bool
+var load_save_file: bool
+
+var _serializer:= ThothSerializable.new()
+var _save_state:= ThothGameState.new()
 
 func _ready() -> void:
+	add_child(_serializer)
+	add_child(_save_state)
+	_serializer.variables = ["language", "master_volume", "music_volume", "sfx_volume", "mute", "resolution", "fullscreen", "dyslexia_font", "subtitles", "camera_shake", "flickering_lights", "click_drag"]
 	if _save_state.save_exists() == true:
 		_save_state.load_game_state()
 		_save_state.get_game_variables(_serializer)
+		save_file_exists = true
 	else:
 		language = 0
 		default_audio()
 		default_graphic()
 		default_accessibility()
+		save_file_exists = false
 		
 func save_settings() -> void:
 	_save_state.set_game_variables(_serializer)

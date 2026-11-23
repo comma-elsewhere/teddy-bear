@@ -9,6 +9,8 @@ script = ExtResource("1_w62bn")
 
 [node name="SaveGameSettings" type="Node" parent="." unique_id=1065294368]
 script = ExtResource("2_0vt65")
+transform = false
+children = false
 variables = Array[String](["language", "master_volume", "music_volume", "sfx_volume", "mute", "resolution", "fullscreen", "dyslexia_font", "subtitles", "camera_shake", "flickering_lights", "click_drag"])
 metadata/_custom_type_script = "uid://nmgti4nnwjet"
 

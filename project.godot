@@ -25,6 +25,7 @@ buses/default_bus_layout="uid://k6k15qnaua75"
 [autoload]
 
 Settings="*uid://b0nwakb8f8u7f"
+Shaker="*uid://2c2gokpxvdhy"
 
 [display]
 
@@ -34,7 +35,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ropesim/plugin.cfg", "res://addons/thoth/plugin.cfg")
+enabled=PackedStringArray("res://addons/ropesim/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/thoth/plugin.cfg")
 
 [global_group]
 

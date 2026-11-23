@@ -6,7 +6,7 @@ extends ThothSerializable
 
 func _ready() -> void:
 	_pause_root.hide()
-	if save_state.save_exists() == true: # Load save file if it exists
+	if Settings.load_save_file and save_state.save_exists(): # Load save file if it exists
 		print("Loading...")
 		save_state.load_game_state()
 		save_state.unpack_level(self)

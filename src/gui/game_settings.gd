@@ -1,7 +1,8 @@
+class_name SettingsMenu
 extends Control
 
-const DYSLEXIA_THEME := preload("res://src/resources/gui/dyslexia.theme")
-const STANDARD_THEME := preload("res://src/resources/gui/standard.theme")
+signal close_menu()
+
 const RES_ARRAY: Array[Vector2i] = [Vector2i(2560, 1440), Vector2i(1920, 1080), Vector2i(1366, 768), Vector2i(1280, 720)]
 
 @onready var language_options: OptionButton = %LanguageOptionButton
@@ -30,7 +31,8 @@ func _ready() -> void:
 	camera_shake_check_box.toggled.connect(_update_camera_shake)
 	flickering_check_box.toggled.connect(_update_flickering_lights)
 	click_drag_check_box.toggled.connect(_update_click_drag)
-	$CloseMenuButton.pressed.connect(save_changes)
+	%CloseMenuButton.pressed.connect(save_changes)
+	%CloseMenuButton.button_up.connect(func(): emit_signal("close_menu"))
 	
 	await get_tree().process_frame
 	load_settings()
@@ -86,9 +88,9 @@ func _update_fullscreen(value: bool) -> void:
 func _update_dyslexia(value: bool) -> void:
 	Settings.dyslexia_font = value
 	if value == true:
-		theme = DYSLEXIA_THEME
+		theme = Settings.DYSLEXIA_THEME
 	else:
-		theme = STANDARD_THEME
+		theme = Settings.STANDARD_THEME
 	
 func _update_subtitles(value: bool) -> void:
 	Settings.subtitles = value

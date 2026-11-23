@@ -1,9 +1,6 @@
 class_name TerminalControl
 extends Control
 
-const DYSLEXIA_THEME := preload("res://src/resources/gui/dyslexia.theme")
-const STANDARD_THEME := preload("res://src/resources/gui/standard.theme")
-
 @export var redacted_stylebox: StyleBoxFlat
 @export var visible_stylebox: StyleBoxFlat
 
@@ -20,9 +17,9 @@ func _ready() -> void:
 	hide()
 	add_to_group("ToyMonitor")
 	if Settings.dyslexia_font == true:
-		theme = DYSLEXIA_THEME
+		theme = Settings.DYSLEXIA_THEME
 	else:
-		theme = STANDARD_THEME
+		theme = Settings.STANDARD_THEME
 	
 func clear_current_toy() -> void: # group call function of the "ToyMonitor" Group
 	hide()
